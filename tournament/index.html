@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tournament | Portal Rasmi Bola Jaring MSSM</title>
     <link rel="stylesheet" href="../style.css">
+    <!-- WAJIB TAMBAH: Font Awesome untuk ikon burger -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     
     <style>
         /* Tetapan Header Betul */
@@ -42,7 +44,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-left: auto; /* INI KUNCI UNTUK TOLAK KE KANAN */
+            margin-left: auto; 
         }
 
         nav a, .dropdown-btn {
@@ -105,7 +107,6 @@
             margin: 5px 0;
         }
 
-        /* Paparkan dropdown apabila cursor lalu (hover) */
         .dropdown:hover .dropdown-content {
             display: block;
         }
@@ -150,21 +151,92 @@
         .card-body { padding: 0 25px 30px 25px; text-align: center; }
         .card-icon { width: 70px; height: 70px; margin: -35px auto 15px auto; background: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 32px; border: 4px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .btn { display: inline-block; background: #7B1E3A; color: white; text-decoration: none; padding: 10px 30px; border-radius: 8px; font-weight: bold; margin-top: 15px; }
+
+        /* ============================
+           BURGER MENU (CSS TAMBAHAN)
+        ============================ */
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* ============================
+           MOBILE & TABLET (CSS TAMBAHAN)
+        ============================ */
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+                padding: 15px 20px;
+            }
+            .header-title h1 {
+                font-size: 18px;
+            }
+            .subtitle {
+                font-size: 12px;
+            }
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+            .menu-toggle {
+                display: block; /* Munculkan ikon burger */
+            }
+            
+            nav {
+                display: none; /* Sembunyikan menu pada asalnya */
+                width: 100%;
+                flex-direction: column;
+                margin-top: 20px;
+                margin-left: 0;
+                gap: 0;
+            }
+            nav.active {
+                display: flex; /* Tunjuk menu bila butang ditekan */
+            }
+            nav a, .dropdown, .dropdown-btn {
+                width: 100%;
+                text-align: left;
+                padding: 12px 15px;
+                border-radius: 0;
+            }
+            .dropdown-content {
+                position: static;
+                display: none;
+                box-shadow: none;
+                width: 100%;
+                background: #6d1733;
+            }
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="header-left">
-            <img src="../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
+            <!-- DIBETULKAN: Tukar ../../ kepada ../ -->
+            <img src="../images/mssmlogo.png" alt="Logo MSSM" class="logo">
             <div class="header-title">
                 <h1>PORTAL BOLA JARING MSSM</h1>
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
 
-        <nav>
-            <a href="../../index.html">Home</a>
+        <!-- BUTANG BURGER -->
+        <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- TAMBAH ID NAV-MENU -->
+        <nav id="nav-menu">
+            <!-- DIBETULKAN: Tukar ../../ kepada ../ -->
+            <a href="../index.html">Home</a>
             
             <!-- MENU DROPDOWN KEJOHANAN -->
             <div class="dropdown">
@@ -176,7 +248,8 @@
                 </div>
             </div>
 
-            <a href="../../live.html">🔴 Live</a>
+            <!-- DIBETULKAN: Tukar ../../ kepada ../ -->
+            <a href="../live.html">🔴 Live</a>
         </nav>
     </header>
 
@@ -210,5 +283,15 @@
             </div>
         </div>
     </main>
+
+    <!-- SCRIPT UNTUK BURGER MENU DI TELEFON -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("nav-menu");
+
+        menuToggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+    </script>
 </body>
 </html>
