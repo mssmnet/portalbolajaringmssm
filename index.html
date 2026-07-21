@@ -192,6 +192,105 @@
         .btn-hub:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(123, 30, 58, 0.6); }
 
         footer { background-color: var(--maroon-mssm); color: white; text-align: center; padding: 25px; margin-top: 60px; font-size: 15px; }
+
+        /* ============================
+           BURGER MENU
+        ============================ */
+
+        .menu-toggle{
+            display:none;
+            font-size:34px;
+            color:white;
+            background:none;
+            border:none;
+            cursor:pointer;
+        }
+
+        /* ============================
+           MOBILE
+        ============================ */
+
+        @media (max-width:768px){
+
+            header{
+                flex-wrap:wrap;
+                justify-content:space-between;
+                padding:15px 20px;
+            }
+
+            .header-left{
+                gap:12px;
+            }
+
+            .logo{
+                width:60px;
+                height:60px;
+            }
+
+            .header-title h1{
+                font-size:20px;
+            }
+
+            .subtitle{
+                font-size:12px;
+            }
+
+            .menu-toggle{
+                display:block;
+            }
+
+            nav{
+                display:none;
+                width:100%;
+                flex-direction:column;
+                margin-top:20px;
+                margin-left:0;
+                gap:0;
+            }
+
+            nav.active{
+                display:flex;
+            }
+
+            nav a,
+            .dropdown{
+                width:100%;
+            }
+
+            nav a,
+            .dropdown-btn{
+                width:100%;
+                text-align:left;
+                padding:15px;
+                border-radius:0;
+            }
+
+            .dropdown-content{
+                position:static;
+                display:none;
+                box-shadow:none;
+                width:100%;
+                background:#6d1733;
+            }
+
+            .dropdown:hover .dropdown-content{
+                display:block;
+            }
+
+            .hero{
+                margin:25px 15px;
+                padding:40px 25px;
+            }
+
+            .hero h2{
+                font-size:30px;
+            }
+
+            .hero p{
+                font-size:17px;
+            }
+
+        }
     </style>
 </head>
 <body>
@@ -205,7 +304,13 @@
             </div>
         </div>
 
-        <nav>
+        <!-- Tambahan Kod Butang Burger -->
+        <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Tambahan id="nav-menu" -->
+        <nav id="nav-menu">
             <a href="index.html" class="active">Home</a>
             
             <!-- DROPDOWN BOLA JARING MSSM -->
@@ -254,5 +359,14 @@
         <p>© 2026 Portal Bola Jaring MSSM</p>
     </footer>
 
+    <!-- Tambahan Skrip Javascript -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("nav-menu");
+
+        menuToggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+    </script>
 </body>
 </html>
