@@ -34,20 +34,21 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            gap: 45px;
+            flex-wrap: wrap; /* Supaya elemen boleh turun ke bawah jika skrin kecil */
+            gap: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .header-left { display: flex; align-items: center; gap: 20px; }
+        .header-left { display: flex; align-items: center; gap: 20px; flex: 1; }
         .logo { width: 80px; height: 80px; object-fit: contain; }
         .header-title h1 { font-size: 26px; margin: 0; font-weight: 800; text-transform: uppercase; color: white; }
         .subtitle { font-size: 15px; margin: 2px 0 0 0; color: #ffeb3b; font-weight: 600; letter-spacing: 1px; }
 
         /* NAVIGATION */
-        nav { display: flex; align-items: center; gap: 8px; margin-left: 20px; }
+        nav { display: flex; align-items: center; gap: 8px; margin-left: auto; }
         nav a, .dropdown-btn {
             padding: 10px 14px;   
             border-radius: 8px;
@@ -91,7 +92,7 @@
         .hero h2 { color: var(--maroon-mssm); font-size: 38px; margin-bottom: 15px; text-transform: uppercase; }
         .hero p { color: #444; font-size: 18px; line-height: 1.6; margin: 0 auto 15px auto; }
         
-        /* KOTAK INFO CONTACT YANG DIKEMASKINI */
+        /* KOTAK INFO CONTACT */
         .contact-box {
             background: rgba(255, 255, 255, 0.7);
             border: 1px solid rgba(123, 30, 58, 0.2);
@@ -118,25 +119,48 @@
 
         footer { background-color: var(--maroon-mssm); color: white; text-align: center; padding: 25px; margin-top: 60px; font-size: 15px; }
 
-        /* BURGER MENU & MOBILE */
-        .menu-toggle{ display:none; font-size:34px; color:white; background:none; border:none; cursor:pointer; }
+        /* =======================================================
+           RESPONSIVE: TABLET & MOBILE (SKRIN SEDERHANA & KECIL)
+           ======================================================= */
+        .menu-toggle { display:none; font-size:30px; color:white; background:none; border:none; cursor:pointer; }
         
-        @media (max-width:768px){
-            header { flex-wrap:wrap; justify-content:space-between; padding:15px 20px; }
-            .header-left { gap:12px; }
-            .logo { width:60px; height:60px; }
-            .header-title h1 { font-size:20px; }
-            .subtitle { font-size:12px; }
-            .menu-toggle { display:block; }
-            nav { display:none; width:100%; flex-direction:column; margin-top:20px; margin-left:0; gap:0; }
+        /* Untuk Tablet dan ke bawah (Bawah 991px) */
+        @media (max-width: 991px) {
+            header { padding: 15px 20px; justify-content: space-between; }
+            .header-left { gap: 15px; flex: none; }
+            .logo { width: 60px; height: 60px; }
+            .header-title h1 { font-size: 20px; }
+            .subtitle { font-size: 13px; }
+            
+            .menu-toggle { display: block; } /* Ikon burger dipaparkan */
+            
+            nav { display:none; width:100%; flex-direction:column; margin-top:15px; margin-left:0; gap:0; }
             nav.active { display:flex; }
             nav a, .dropdown { width:100%; }
-            nav a, .dropdown-btn { width:100%; text-align:left; padding:15px; border-radius:0; }
+            nav a, .dropdown-btn { width:100%; text-align:left; padding:12px 15px; border-radius:0; }
+            
             .dropdown-content { position:static; display:none; box-shadow:none; width:100%; background:#6d1733; }
             .dropdown:hover .dropdown-content { display:block; }
-            .hero { margin:25px 15px; padding:40px 25px; }
-            .hero h2 { font-size:30px; }
-            .contact-box { padding: 20px; font-size: 16px; }
+            
+            .hero { margin: 25px 10px; padding: 40px 20px; }
+            .hero h2 { font-size: 30px; }
+            .contact-box { padding: 20px; font-size: 16px; margin: 30px auto; }
+        }
+
+        /* Untuk Telefon Pintar (Bawah 480px) */
+        @media (max-width: 480px) {
+            .header-left { gap: 10px; }
+            .logo { width: 45px; height: 45px; } /* Saiz logo lebih kecil */
+            .header-title h1 { font-size: 16px; }
+            .subtitle { font-size: 11px; }
+            
+            .hero h2 { font-size: 24px; }
+            .hero p { font-size: 15px; }
+            
+            .contact-box { padding: 15px; font-size: 14px; }
+            
+            /* Butang e-mel dilebarkan penuh untuk mudah ditekan pada telefon */
+            .btn-hub { width: 100%; box-sizing: border-box; text-align: center; padding: 15px; }
         }
     </style>
 </head>
