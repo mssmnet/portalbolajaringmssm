@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Kejohanan | MSSM 2026</title>
+    
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        /*====================================
+           PAGE HEADER
+        ====================================*/
+        .page-header {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .page-title {
+            flex: 1;
+            text-align: center;
+        }
+
+        .page-title h2 {
+            margin: 0;
+            font-size: 42px;
+            color: #7B1E3A;
+            font-weight: 800;
+        }
+
+        .print-btn {
+            background: #7B1E3A;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            height: 48px;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,.15);
+        }
+
+        /*====================================
+           TWO-WAY BRACKET CSS (KIRI & KANAN)
+        ====================================*/
+        .chart-wrapper {
+            width: 100%;
+            max-width: 1600px;
+            margin: 30px auto 60px auto;
+            padding: 40px 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+
+        .bracket-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            min-width: 1300px; /* Pastikan tak penyek di skrin kecil */
+        }
+
+        .round {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 240px;
+            position: relative;
+        }
+
+        .column-header {
+            text-align: center;
+            font-weight: 800;
+            color: #7B1E3A;
+            font-size: 16px;
+            text-transform: uppercase;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #7B1E3A;
+            margin-bottom: 30px;
+            height: 30px;
+        }
+
+        .header-kalah {
+            color: #555;
+            border-color: #555;
+        }
+
+        /* KOTAK PERLAWANAN */
+        .match-box {
+            background: #fff;
+            border: 2px solid #7B1E3A;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            margin: 15px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .match-box.kalah-box {
+            border-color: #555;
+        }
+
+        .match-header {
+            background: #7B1E3A;
+            color: #fff;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 3px 0;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .match-box.kalah-box .match-header {
+            background: #555;
+        }
+
+        .team-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .team-row:last-child {
+            border-bottom: none;
+        }
+
+        .team-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .team-score {
+            font-size: 14px;
+            font-weight: bold;
+            color: #7B1E3A;
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .match-box.kalah-box .team-score {
+            color: #555;
+        }
+
+        /* LABEL KEDUDUKAN (FINAL & KETIGA) */
+        .placement-label {
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        /*====================================
+           GARISAN PENYAMBUNG (CSS)
+        ====================================*/
+        
+        /* Garisan Menang (Bergerak ke Kanan) */
+        .menang-right::after {
+            content: "";
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            width: 25px;
+            border-top: 2px solid #7B1E3A;
+            z-index: 1;
+        }
+        
+        .menang-receive::before {
+            content: "";
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            width: 25px;
+            border-top: 2px solid #7B1E3A;
+            z-index: 1;
+        }
+
+        /* Joiner menegak untuk Menang (Suku ke Separuh) */
+        .round-menang-join::after {
+            content: "";
+            position: absolute;
+            left: -25px;
+            top: 25%; /* Bergantung pada jarak */
+            height: 50%;
+            border-left: 2px solid #7B1E3A;
+            z-index: 1;
+        }
+
+        /* Garisan Kalah (Bergerak ke Kiri) */
+        .kalah-left::before {
+            content: "";
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            width: 25px;
+            border-top: 2px solid #555;
+            z-index: 1;
+        }
+
+        .kalah-receive::after {
+            content: "";
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            width: 25px;
+            border-top: 2px solid #555;
+            z-index: 1;
+        }
+
+        /* Joiner menegak untuk Kalah (Suku ke Separuh Klasifikasi) */
+        .round-kalah-join::after {
+            content: "";
+            position: absolute;
+            right: -25px;
+            top: 25%;
+            height: 50%;
+            border-right: 2px solid #555;
+            z-index: 1;
+        }
+        
+        .section-divider {
+            border: 0;
+            height: 2px;
+            background-image: linear-gradient(to right, transparent, #ccc, transparent);
+            margin: 60px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="../../../images/mssmlogo.png" class="logo" alt="MSSM Logo">
+            <div class="header-title">
+                <h1>PORTAL BOLA JARING MSSM</h1>
+                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+            </div>
+        </div>
+        <nav>
+            <a href="../../mssm2026/index.html">HOME</a>
+            <a href="../u12.html">BAWAH 12</a>
+            <a href="../u15.html">BAWAH 15</a>
+            <a href="../u18.html">BAWAH 18</a>
+            <a href="live.html" class="active"> 🔴LIVE</a>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        
+        <section class="page-header">
+            <div class="page-title">
+                <h2>CARTA KEPUTUSAN</h2>
+                <p>Kejohanan Bola Jaring MSSM 2026</p>
+            </div>
+            <div class="page-actions">
+                <button class="print-btn" onclick="window.print()">
+                    <i class="fa-solid fa-print"></i> Cetak Carta
+                </button>
+            </div>
+        </section>
+
+        <section class="chart-wrapper">
+            <h3 style="text-align: center; color: #7B1E3A; margin-bottom: 40px; font-size: 24px;">CARTA KEPUTUSAN (TEMPAT 1 - 8)</h3>
+            
+            <div class="bracket-container">
+                
+                <div class="round">
+                    <div class="column-header header-kalah">PENENTUAN (5-8)</div>
+                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
+                        <div>
+                            <div class="placement-label" style="color:#4a90e2;">Tempat Ke-5 & Ke-6</div>
+                            <div class="match-box kalah-box kalah-receive" style="border-color:#4a90e2;">
+                                <div class="match-header" style="background:#4a90e2;">M46</div>
+                                <div class="team-row"><span class="team-name" id="m46-t1">MENANG 39</span><span class="team-score" id="m46-s1">-</span></div>
+                                <div class="team-row"><span class="team-name" id="m46-t2">MENANG 40</span><span class="team-score" id="m46-s2">-</span></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="placement-label" style="color:#888;">Tempat Ke-7 & Ke-8</div>
+                            <div class="match-box kalah-box">
+                                <div class="match-header" style="background:#888;">M45</div>
+                                <div class="team-row"><span class="team-name" id="m45-t1">KALAH 39</span><span class="team-score" id="m45-s1">-</span></div>
+                                <div class="team-row"><span class="team-name" id="m45-t2">KALAH 40</span><span class="team-score" id="m45-s2">-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="round round-kalah-join">
+                    <div class="column-header header-kalah">SEPARUH KIRI (KALAH)</div>
+                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
+                        <div class="match-box kalah-box kalah-receive kalah-left">
+                            <div class="match-header">M39</div>
+                            <div class="team-row"><span class="team-name" id="m39-t1">KALAH 29</span><span class="team-score" id="m39-s1">-</span></div>
+                            <div class="team-row"><span class="team-name" id="m39-t2">KALAH 30</span><span class="team-score" id="m39-s2">-</span></div>
+                        </div>
+                        <div class="match-box kalah-box kalah-receive kalah-left">
+                            <div class="match-header">M40</div>
+                            <div class="team-row"><span class="team-name" id="m40-t1">KALAH 31</span><span class="team-score" id="m40-s1">-</span></div>
+                            <div class="team-row"><span class="team-name" id="m40-t2">KALAH 32</span><span class="team-score" id="m40-s2">-</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="round">
+                    <div class="column-header">SUKU AKHIR (UTAMA)</div>
+                    <div class="match-box menang-right kalah-left">
+                        <div class="match-header">M29</div>
+                        <div class="team-row"><span class="team-name" id="m29-t1">JOHAN 1</span><span class="team-score" id="m29-s1">-</span></div>
+                        <div class="team-row"><span class="team-name" id="m29-t2">NAIB JOHAN 2</span><span class="team-score" id="m29-s2">-</span></div>
+                    </div>
+                    <div class="match-box menang-right kalah-left">
+                        <div class="match-header">M30</div>
+                        <div class="team-row"><span class="team-name" id="m30-t1">JOHAN 3</span><span class="team-score" id="m30-s1">-</span></div>
+                        <div class="team-row"><span class="team-name" id="m30-t2">NAIB JOHAN 4</span><span class="team-score" id="m30-s2">-</span></div>
+                    </div>
+                    <div class="match-box menang-right kalah-left">
+                        <div class="match-header">M31</div>
+                        <div class="team-row"><span class="team-name" id="m31-t1">JOHAN 5</span><span class="team-score" id="m31-s1">-</span></div>
+                        <div class="team-row"><span class="team-name" id="m31-t2">NAIB JOHAN 6</span><span class="team-score" id="m31-s2">-</span></div>
+                    </div>
+                    <div class="match-box menang-right kalah-left">
+                        <div class="match-header">M32</div>
+                        <div class="team-row"><span class="team-name" id="m32-t1">JOHAN 7</span><span class="team-score" id="m32-s1">-</span></div>
+                        <div class="team-row"><span class="team-name" id="m32-t2">NAIB JOHAN 8</span><span class="team-score" id="m32-s2">-</span></div>
+                    </div>
+                </div>
+
+                <div class="round round-menang-join">
+                    <div class="column-header">SEPARUH KANAN (MENANG)</div>
+                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
+                        <div class="match-box menang-receive menang-right">
+                            <div class="match-header">M37</div>
+                            <div class="team-row"><span class="team-name" id="m37-t1">MENANG 29</span><span class="team-score" id="m37-s1">-</span></div>
+                            <div class="team-row"><span class="team-name" id="m37-t2">MENANG 30</span><span class="team-score" id="m37-s2">-</span></div>
+                        </div>
+                        <div class="match-box menang-receive menang-right">
+                            <div class="match-header">M38</div>
+                            <div class="team-row"><span class="team-name" id="m38-t1">MENANG 31</span><span class="team-score" id="m38-s1">-</span></div>
+                            <div class="team-row"><span class="team-name" id="m38-t2">MENANG 32</span><span class="team-score" id="m38-s2">-</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="round">
+                    <div class="column-header">AKHIR & KETIGA</div>
+                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
+                        <div>
+                            <div class="placement-label" style="color: #B8860B;">AKHIR (JOHAN & NAIB)</div>
+                            <div class="match-box menang-receive" style="border-color: gold; background: #FFFBF0;">
+                                <div class="match-header" style="background: gold; color: #7B1E3A;">M48</div>
+                                <div class="team-row"><span class="team-name" id="m48-t1">MENANG 37</span><span class="team-score" id="m48-s1">-</span></div>
+                                <div class="team-row"><span class="team-name" id="m48-t2">MENANG 38</span><span class="team-score" id="m48-s2">-</span></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="placement-label" style="color: #CD7F32;">PENENTUAN KETIGA / KE-4</div>
+                            <div class="match-box" style="border-color: #CD7F32;">
+                                <div class="match-header" style="background: #CD7F32;">M47</div>
+                                <div class="team-row"><span class="team-name" id="m47-t1">KALAH 37</span><span class="team-score" id="m47-s1">-</span></div>
+                                <div class="team-row"><span class="team-name" id="m47-t2">KALAH 38</span><span class="team-score" id="m47-s2">-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <section class="chart-wrapper">
+            <h3 style="text-align: center; color: #7B1E3A; margin-bottom: 40px; font-size: 24px;">CARTA KEPUTUSAN (TEMPAT 9 - 16)</h3>
+            
+            <div class="bracket-container">
+                
+                <div class="round">
+                    <div class="column-header header-kalah">PENENTUAN (13-16)</div>
+                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
+                        <div>
+                            <div class="placement-label" style="color:#4a90e2;">Tempat Ke-13 & Ke-14</div>
+                            <div class="match-box kalah-box kalah-receive" style="border-color:#4a90e2;">
+                                <div class="match-header" style="background:#4a90e2;">M42</div>
+                                <div class="team-row"><span class="team-name" id="m42-t1">MENANG 33</span><span class="team-score" id="m42-s1">-</span></div>
+                                <div class="team-row"><span class="team-name" id="m42-t2">MENANG 34</span><span class="team-score" id="m42-s2">-</span></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="placement-label" style="color:#888;">Tempat Ke-15 & Ke-16</div>
+                            <div class="match-box kalah-box">
+                                <div class="match-header" style="background:#888;">M41</div>
+                                <div class="team-row"><span class="team-name" id="m41-t1">KALAH 33</span><span class="team-score" id="m41-s1">-</span></div>
+                                <div class="team-row"><span class="team-name" id="m41-t2">KALAH 34</span><span class="team-score" id="m41-s2">-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="round round-kalah-join">
+                    <div class="column-header header-kalah">SEPARUH KIRI (KALAH)</div>
+                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
+                        <div class="match-box kalah-box kalah-receive kalah-left">
+                            <div class="match-header">M33</div>
+                            <div class="team-row"><span class="team-name" id="m33-t1">KALAH 25</span><span class="team-score" id="m33-s1">-</span></div>
+                            <div class="team-row"><span class="team-name" id="m33-t2">KALAH 26</span><span class="team-score" id="m33-s2">-</span></div>
+                        </div>
+                        <div class="match-box kalah-box kalah-receive kalah-left">
+                            <div class="match-header">M34</div>
+                            <div class="team-row"><span class="team-name" id="m34-t1">KALAH 27</span><span class="team-score" id="m34-s1">-</span></div>
+                            <div class="team-row"><span class="team-name" id="m34-t2">KALAH 28</span><span class="team-score" id="m34-s2">-</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="round">
+                    <div class="column-header">SUKU AKHIR (9-16)</div>
+                    <div class="match-box menang-right kalah-left">
+                        <div class="match-header">M25</div>
+                        <div class="team-row"><span class="team-name" id="m25-t1">KE-3 (9)</span><span class="team-score" id="m25-s1">-</span></div>
+                        <div class="team-row"><span class="team-name" id="m25-t2">KE-4 (10)</span><span class="team-score" id="m25-s2">-</span></div>
+                    </div>
+                    <div class="match-box menang-right kalah-left">
+                        <div class="match-header">M26</div>
+                        <div class="team-row"><span class="team-name" id="m26-t1">KE-3 (11)</span><span class="team-score" id="m26-s1">-</span></div>
+                        <div class="team-row"><span class="team-name" id="m26-t2">KE-4 (12)</span><span class="team-score" id="m26-s2">-</span></div>
+                    </div>
+                    <div class="match-box menang-right kalah-left">
+                        <div class="match-header">M27</div>
+                        <div class="team-row"><span class="team-name" id="m27-t1">KE-3 (13)</span><span class="team-score" id="m27-s1">-</span></div>
+                        <div class="team-row"><span class="team-name" id="m27-t2">KE-4 (14)</span><span class="team-score" id="m27-s2">-</span></div>
+                    </div>
+                    <div class="match-box menang-right kalah-left">
+                        <div class="match-header">M28</div>
+                        <div class="team-row"><span class="team-name" id="m28-t1">KE-3 (15)</span><span class="team-score" id="m28-s1">-</span></div>
+                        <div class="team-row"><span class="team-name" id="m28-t2">KE-4 (16)</span><span class="team-score" id="m28-s2">-</span></div>
+                    </div>
+                </div>
+
+                <div class="round round-menang-join">
+                    <div class="column-header">SEPARUH KANAN (MENANG)</div>
+                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
+                        <div class="match-box menang-receive menang-right">
+                            <div class="match-header">M35</div>
+                            <div class="team-row"><span class="team-name" id="m35-t1">MENANG 25</span><span class="team-score" id="m35-s1">-</span></div>
+                            <div class="team-row"><span class="team-name" id="m35-t2">MENANG 26</span><span class="team-score" id="m35-s2">-</span></div>
+                        </div>
+                        <div class="match-box menang-receive menang-right">
+                            <div class="match-header">M36</div>
+                            <div class="team-row"><span class="team-name" id="m36-t1">MENANG 27</span><span class="team-score" id="m36-s1">-</span></div>
+                            <div class="team-row"><span class="team-name" id="m36-t2">MENANG 28</span><span class="team-score" id="m36-s2">-</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="round">
+                    <div class="column-header">PENENTUAN (9-12)</div>
+                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
+                        <div>
+                            <div class="placement-label" style="color: #4a90e2;">TEMPAT KE-9 & KE-10</div>
+                            <div class="match-box menang-receive" style="border-color: #4a90e2;">
+                                <div class="match-header" style="background: #4a90e2;">M44</div>
+                                <div class="team-row"><span class="team-name" id="m44-t1">MENANG 35</span><span class="team-score" id="m44-s1">-</span></div>
+                                <div class="team-row"><span class="team-name" id="m44-t2">MENANG 36</span><span class="team-score" id="m44-s2">-</span></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="placement-label" style="color: #888;">TEMPAT KE-11 & KE-12</div>
+                            <div class="match-box" style="border-color: #888;">
+                                <div class="match-header" style="background: #888;">M43</div>
+                                <div class="team-row"><span class="team-name" id="m43-t1">KALAH 35</span><span class="team-score" id="m43-s1">-</span></div>
+                                <div class="team-row"><span class="team-name" id="m43-t2">KALAH 36</span><span class="team-score" id="m43-s2">-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
+    </footer>
+
+    <script>
+        const SHEET_ID = "1ItWWq1j0D2nO6zxQzgv24nQuzhKqyXEe3_Eu4wIHAg0"; 
+        const GID = "481009488"; 
+
+        const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?gid=${GID}&tqx=out:json`;
+
+        fetch(url)
+            .then(res => res.text())
+            .then(text => {
+                const jsonString = text.substring(47).slice(0, -2);
+                const json = JSON.parse(jsonString);
+                const rows = json.table.rows;
+
+                rows.forEach(r => {
+                    if (!r.c[0] || r.c[0].v === null) return; 
+                    
+                    const matchNo = r.c[0].v.toString().trim();
+
+                    const team1 = r.c[2] && r.c[2].v ? r.c[2].v : "";
+                    const score1 = r.c[3] && r.c[3].v !== null ? r.c[3].v : "";
+                    
+                    const team2 = r.c[4] && r.c[4].v ? r.c[4].v : "";
+                    const score2 = r.c[5] && r.c[5].v !== null ? r.c[5].v : "";
+
+                    const elTeam1 = document.getElementById("m" + matchNo + "-t1");
+                    const elScore1 = document.getElementById("m" + matchNo + "-s1");
+                    const elTeam2 = document.getElementById("m" + matchNo + "-t2");
+                    const elScore2 = document.getElementById("m" + matchNo + "-s2");
+
+                    if (elTeam1 && team1 !== "") elTeam1.innerText = team1;
+                    if (elScore1 && score1 !== "") elScore1.innerText = score1;
+                    if (elTeam2 && team2 !== "") elTeam2.innerText = team2;
+                    if (elScore2 && score2 !== "") elScore2.innerText = score2;
+                });
+            })
+            .catch(error => {
+                console.error("Gagal menarik data Carta Google Sheets:", error);
+            });
+    </script>
+
+</body>
+</html>

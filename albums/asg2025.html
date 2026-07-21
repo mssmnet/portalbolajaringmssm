@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASG 2025 Gallery | Portal Bola Jaring MSSM</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        /* Gaya untuk menengahkan kontena dan kotak statistik */
+        .gallery-stats {
+            display: flex;
+            justify-content: center; /* Menengahkan kotak-kotak di dalam row */
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap; /* Supaya responsif jika skrin kecil */
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        .stat-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Menengahkan kandungan secara menegak */
+            justify-content: center;
+            text-align: center; /* Menengahkan teks */
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            min-width: 150px;
+        }
+
+        /* Gaya tambahan khusus untuk mengawal saiz gambar galeri agar tidak pecah/besar */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+            width: 100%;
+        }
+        .photo-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* Memotong gambar secara automatik supaya sama saiz kotaknya */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        .photo-gallery img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-title" style="display: flex; align-items: center; gap: 15px; text-align: left;">
+            <img src="../images/logo/mssm.jpg" alt="Logo MSSM" class="logo" style="width: 80px; height: 80px; min-width: 80px; object-fit: contain; background: white; border-radius: 50%; padding: 5px;">
+            <div>
+                <h1 style="font-size: 24px; margin: 0; line-height: 1.2; color: white;">📸 ASG 2025 Gallery</h1>
+                <p class="subtitle" style="font-size: 16px; margin: 5px 0 0 0; opacity: 0.9; color: white;">Portal Rasmi Bola Jaring MSSM</p>
+            </div>
+        </div>
+
+        <nav>
+            <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="../gallery.html"><i class="fa-solid fa-images"></i> Gallery</a>
+            <a href="../tournament/index.html"><i class="fa-solid fa-trophy"></i> Tournament</a>
+        </nav>
+    </header>
+
+    <main class="main-container">
+
+        <section class="hero" style="background: white; padding: 40px 20px 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; text-align: center; margin-bottom: 25px;">
+            <h2><i class="fa-solid fa-camera-retro"></i> Album ASG 2025</h2>
+            <p style="color: #4a5568; font-size: 16px; margin-top: 5px;">Kenangan sepanjang Kejohanan ASG 2025.</p>
+        </section>
+
+        <section class="gallery-stats">
+            <div class="stat-box">
+                <span class="stat-icon">📸</span>
+                <h3 id="photo-count" style="margin: 5px 0;">0</h3>
+                <p style="margin: 0; color: #718096;">Photos</p>
+            </div>
+
+            <div class="stat-box">
+                <span class="stat-icon">🎥</span>
+                <h3 id="video-count" style="margin: 5px 0;">0</h3>
+                <p style="margin: 0; color: #718096;">Videos</p>
+            </div>
+
+            <div class="stat-box">
+                <span class="stat-icon">📅</span>
+                <h3 style="margin: 5px 0;">2025</h3>
+                <p style="margin: 0; color: #718096;">ASG</p>
+            </div>
+        </section>
+
+        <section>
+            <div id="gallery" class="photo-gallery"></div>
+        </section>
+
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="prev" onclick="prevImage()">&#10094;</span>
+        <img id="lightbox-img" class="lightbox-content">
+        <span class="next" onclick="nextImage()">&#10095;</span>
+    </div>
+
+    <footer>
+        <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        const TOTAL_FILES = 52;
+        const files = [];
+
+        for(let i=1; i<=TOTAL_FILES; i++){
+            files.push(`asg${i}.jpg`);
+        }
+
+        if (typeof loadGallery === "function") {
+            loadGallery("../images/asg2025/", files);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembahagian Kumpulan | MSSM 2026</title>
+    
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <style>
+        /* =========================================
+           GAYA KHUSUS UNTUK HALAMAN KUMPULAN
+           ========================================= */
+        
+        :root {
+            /* Pastikan warna ini sepadan dengan style.css utama anda */
+            --maroon-utama: #7B1E3A; 
+        }
+
+        body {
+            /* Latar belakang akan diambil dari style.css utama */
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            color: #2d3748;
+        }
+
+        /* Main container untuk memuatkan kandungan */
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section (Bahagian tajuk utama) */
+        .hero {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .hero h2 {
+            margin: 0;
+            color: var(--maroon-utama);
+            font-size: 36px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            color: #4a5568;
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* Toolbar (Bahagian maklumat dan cetak) */
+        .toolbar {
+             display:flex;
+             justify-content:space-between;
+             align-items:center;
+             background:white;
+             padding:15px 30px;
+             border-radius:12px;
+             box-shadow:0 4px 12px rgba(0,0,0,.05);
+             border:1px solid #edf2f7;
+             margin-bottom:30px;
+        }
+
+       .meta-info{
+    flex:1;
+    text-align:center;
+}
+
+.meta-info span{
+    color:#7B1E3A;
+    font-size:28px;
+    font-weight:800;
+    display:block;
+}
+
+
+        .btn-print {
+            background: var(--maroon-utama);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .btn-print:hover {
+            background-color: #5c152a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(123, 30, 58, 0.3);
+        }@media print {
+    /* 1. Paksa browser cetak semua warna background (merah, hijau, dll) */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* 2. Sembunyikan elemen yang tidak perlu dicetak */
+    header, nav, footer { 
+        display: none !important; 
+    }
+    
+    /* 3. Buang bayang-bayang supaya jadual nampak lebih bersih dalam PDF */
+    body { background: white; }
+    .results-table { box-shadow: none; }
+}
+
+        /* Kita tukar terus kepada grid 2x2 */
+.group-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 lajur */
+    gap: 35px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Tambahan untuk mobile: supaya jadi 1 lajur jika skrin kecil */
+@media (max-width: 768px) {
+    .group-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+        /* Group Card (Gaya kad yang dicantikkan) */
+        .group-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border: 1px solid #edf2f7;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .group-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+        }
+
+        /* Tajuk Kumpulan (Header kad) */
+        .group-header {
+            background-color: var(--maroon-utama);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 3px solid #ffd54f; /* Garisan emas di bawah tajuk */
+        }
+
+        /* Senarai Pasukan (Body kad) */
+        .group-card ul {
+            list-style: none;
+            padding: 15px 0 25px 0;
+            margin: 0;
+            flex-grow: 1; /* Memastikan senarai mengisi ruang */
+        }
+
+        .group-card li {
+            text-align: center;
+            padding: 12px 15px;
+            border-bottom: 1px solid #f7fafc;
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 20px;
+            transition: background-color 0.2s ease;
+        }
+
+        /* Kesan 'hover' pada senarai pasukan */
+        .group-card li:hover {
+            background-color: #fff5f8; /* Warna pink lembut apabila hover */
+            color: var(--maroon-utama);
+        }
+
+        /* Memberi sedikit gaya berbeza untuk tempat kosong */
+        .group-card li.empty-slot {
+            color: #a0aec0;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="../../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
+            <div class="header-title">
+                <h1>PORTAL BOLA JARING MSSM</h1>
+                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+            </div>
+        </div>
+        <nav>
+            <a href="../../mssm2026/index.html">HOME</a>
+            <a href="../u12.html" class="active">BAWAH 12</a>
+            <a href="../u15.html" class="active">BAWAH 15</a>
+            <a href="../u18.html" class="active">BAWAH 18</a>
+            <a href="live.html" class="active"> 🔴LIVE</a>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        
+        <section class="hero">
+            <h2><i class="fa-solid fa-layer-group"></i> Pembahagian Kumpulan</h2>
+            <p>16 Pasukan • 4 Kumpulan • Juara & Naib Juara Layak ke Pusingan Kedua</p>
+        </section>
+
+        <div class="toolbar">
+            <div class="meta-info">
+                <span> BAWAH 12 TAHUN</span>
+            </div>
+            <button class="btn-print" onclick="window.print()">
+                <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
+            </button>
+        </div>
+
+        <div class="group-container">
+            
+            <div class="group-card">
+                <h3 class="group-header group-a-header">🅰 GROUP A</h3>
+                <ul id="groupA">
+                    <li class="empty-slot">Memuatkan data...</li>
+                </ul>
+            </div>
+
+            <div class="group-card">
+                <h3 class="group-header group-b-header">🅱 GROUP B</h3>
+                <ul id="groupB">
+                    <li class="empty-slot">Memuatkan data...</li>
+                </ul>
+            </div>
+
+            <div class="group-card">
+                <h3 class="group-header group-c-header">🅲 GROUP C</h3>
+                <ul id="groupC">
+                    <li class="empty-slot">Memuatkan data...</li>
+                </ul>
+            </div>
+
+            <div class="group-card">
+                <h3 class="group-header group-d-header">🆂 GROUP D</h3>
+                <ul id="groupD">
+                    <li class="empty-slot">Memuatkan data...</li>
+                </ul>
+            </div>
+            
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
+    </footer>
+
+    <script src="../../../script.js"></script>
+</body>
+</html>

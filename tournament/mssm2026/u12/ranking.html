@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEDUDUKAN KESELURUHAN BAWAH 12 | MSSM 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        
+        /* Header Maroon */
+        header { 
+            background-color: #7B1E3A; 
+            color: white; 
+            padding: 20px 40px;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .logo-section { display: flex; align-items: center; gap: 15px; }
+        .logo { width: 60px; }
+        
+        .title h1 { margin: 0; font-size: 22px; color: white; }
+        .title .subtitle { color: #FFD700; font-size: 14px; margin: 0; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+
+        nav a { color: white; margin-left: 20px; text-decoration: none; font-weight: bold; font-size: 15px; }
+        nav a:hover { color: #ffcccc; }
+
+        .container { max-width: 1000px; margin: 30px auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .header-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        
+        .btn-print { background: #7B1E3A; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .btn-print:hover { background: #5d132c; }
+
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background-color: #7B1E3A; color: white; font-size: 16px; }
+        td { font-size: 15px; color: #333; }
+        
+        .gold { background-color: #FFD700 !important; font-weight: bold; }
+        .silver { background-color: #E0E0E0 !important; font-weight: bold; }
+        .bronze { background-color: #CD7F32 !important; color: white; font-weight: bold; }
+
+        /* Zebra Striping */
+        tbody tr:nth-child(even):not(.gold):not(.silver):not(.bronze) { background-color: #f9f9f9; }
+
+        footer { background: #7B1E3A; color: #ffffff; text-align: center; padding: 20px; margin-top: 40px; font-size: 14px; font-weight: 500; }
+
+        @media print {
+            header, nav, .btn-print, footer { display: none !important; }
+            .container { box-shadow: none; border: none; margin: 0; padding: 0; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-section">
+            <img src="../../../images/mssmlogo.png" class="logo" alt="MSSM Logo">
+            <div class="title">
+                <h1>PORTAL BOLA JARING MSSM</h1>
+                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+            </div>
+        </div>
+        <nav>
+            <a href="../../mssm2026/index.html">HOME</a>
+            <a href="../u12.html">BAWAH 12</a>
+            <a href="../u15.html">BAWAH 15</a>
+            <a href="../u18.html">BAWAH 18</a>
+            <a href="live.html">🔴LIVE</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="header-actions">
+            <h2>KEDUDUKAN KESELURUHAN</h2>
+            <button class="btn-print" onclick="window.print()">
+                <i class="fa-solid fa-print"></i> Cetak PDF
+            </button>
+        </div>
+        
+        <table id="rankingTable">
+            <thead>
+                <tr>
+                    <th style="width: 15%;">RANK</th>
+                    <th style="width: 60%;">PASUKAN</th>
+                    <th style="width: 25%;">MATA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="gold"><td>1</td><td>JOHAN</td><td>30</td></tr>
+                <tr class="silver"><td>2</td><td>NAIB JOHAN</td><td>23</td></tr>
+                <tr class="bronze"><td>3</td><td>KE 3</td><td>18</td></tr>
+                <tr><td>4</td><td>KE 4</td><td>15</td></tr>
+                <tr><td>5</td><td>KE 5</td><td>12</td></tr>
+                <tr><td>6</td><td>KE 6</td><td>11</td></tr>
+                <tr><td>7</td><td>KE 7</td><td>10</td></tr>
+                <tr><td>8</td><td>KE 8</td><td>9</td></tr>
+                <tr><td>9</td><td>KE 9</td><td>8</td></tr>
+                <tr><td>10</td><td>KE 10</td><td>7</td></tr>
+                <tr><td>11</td><td>KE 11</td><td>6</td></tr>
+                <tr><td>12</td><td>KE 12</td><td>5</td></tr>
+                <tr><td>13</td><td>KE 13</td><td>4</td></tr>
+                <tr><td>14</td><td>KE 14</td><td>3</td></tr>
+                <tr><td>15</td><td>KE 15</td><td>2</td></tr>
+                <tr><td>16</td><td>KE 16</td><td>1</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script>
+        // MASUKKAN LINK CSV GOOGLE SHEETS ANDA DI SINI
+        const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRaQAo5tHzCfLQbXZzxo68RXBcSwZvU5tMaKigF1FaL48xP3dPdxbmJpQs7tgy2QeDNg0PVYncbUCLu/pub?gid=43115303&single=true&output=csv'; 
+
+        fetch(csvUrl)
+            .then(response => {
+                if (!response.ok) throw new Error("Gagal memuatkan pautan CSV");
+                return response.text();
+            })
+            .then(csvData => {
+                // Sila baca data sebagai Array Indeks (header: false)
+                const results = Papa.parse(csvData, { header: false, skipEmptyLines: true });
+                const rows = results.data;
+                
+                // Koordinat Lajur (Sila ambil perhatian: Indeks bermula dari 0)
+                // Lajur A = 0, Lajur B = 1, Lajur C = 2, Lajur D = 3
+                const rankCol = 1;     // Lajur B
+                const pasukanCol = 2;  // Lajur C
+                const mataCol = 3;     // Lajur D
+
+                // Koordinat Baris Google Sheet (Baris 6 hingga 21)
+                // Indeks JavaScript = Nombor Baris Sheet ditolak 1
+                const startRowIndex = 5; // Baris 6
+                const endRowIndex = 20;  // Baris 21
+
+                let newContent = "";
+                let validLiveRows = 0;
+
+                // Ekstrak data hanya pada zon yang anda tetapkan (Baris 6 - 21)
+                for (let i = startRowIndex; i <= endRowIndex; i++) {
+                    if (!rows[i]) continue; // Langgar jika baris tiada data langsung
+
+                    let rank = rows[i][rankCol] ? rows[i][rankCol].trim() : "";
+                    let pasukan = rows[i][pasukanCol] ? rows[i][pasukanCol].trim() : "";
+                    let mata = rows[i][mataCol] ? rows[i][mataCol].trim() : "";
+
+                    // Jika baris kosong (tiada rank & pasukan), sistem abaikan
+                    if (!rank && !pasukan) continue;
+
+                    validLiveRows++;
+
+                    let rowClass = '';
+                    if (rank == '1') rowClass = 'gold';
+                    else if (rank == '2') rowClass = 'silver';
+                    else if (rank == '3') rowClass = 'bronze';
+
+                    newContent += `<tr class="${rowClass}">
+                        <td>${rank || '-'}</td>
+                        <td>${pasukan || '-'}</td>
+                        <td>${mata || '0'}</td>
+                    </tr>`;
+                }
+
+                // Ganti data paparan dalam portal jika data sah ditemui dalam Sheet
+                if (validLiveRows > 0) {
+                    document.querySelector('#rankingTable tbody').innerHTML = newContent;
+                }
+            })
+            .catch(error => {
+                console.log('Sistem mengekalkan templet asal. Menunggu data CSV...', error.message);
+            });
+    </script>
+</body>
+</html>

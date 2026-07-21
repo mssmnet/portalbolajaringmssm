@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <title>Jadual Perlawanan | MSSM 2026</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <style>
+
+/* ===========================
+   STATUS BADGE PREMIUM
+=========================== */
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:150px;
+    padding:8px 18px;
+    border-radius:50px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.3px;
+    color:#fff;
+    box-shadow:0 3px 8px rgba(0,0,0,.15);
+}
+
+/* 🔴 Belum Bermula */
+.status-pending{
+    background:linear-gradient(135deg,#eb5555);
+}
+
+/* 🟢 Tamat */
+.status-selesai{
+    background:linear-gradient(135deg,#22c55e,#15803d);
+}
+
+/* 🟡 Live */
+.status-live{
+    background:linear-gradient(135deg,#facc15,#f59e0b);
+    color:#222;
+    animation:pulse 1.2s infinite;
+}
+
+/* ⚫ Ditangguh */
+.status-postponed{
+    background:linear-gradient(135deg,#6b7280,#374151);
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.05);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}/* Toolbar (Bahagian maklumat dan cetak) */
+        .toolbar {
+             display:flex;
+             justify-content:space-between;
+             align-items:center;
+             background:white;
+             padding:15px 30px;
+             border-radius:12px;
+             box-shadow:0 4px 12px rgba(0,0,0,.05);
+             border:1px solid #edf2f7;
+             margin-bottom:30px;
+        }
+
+       .meta-info{
+    flex:1;
+    text-align:center;
+}
+
+.meta-info span{
+    color:#7B1E3A;
+    font-size:28px;
+    font-weight:800;
+    display:block;
+}
+
+
+        .btn-print{
+
+    background:#7B1E3A;
+    color:white;
+    border:none;
+    padding:12px 28px;
+    border-radius:40px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.btn-print:hover{
+
+    background:#5d132c;
+
+}
+@media print {
+    /* Paksa browser cetak semua warna background */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Sembunyikan elemen yang tidak perlu dicetak */
+    header, nav, footer { 
+        display: none !important; 
+    }
+    
+    body { background: white; }
+    .results-table { box-shadow: none; }
+}
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="../../../images/mssmlogo.png" class="logo">
+            <div class="header-title">
+                <h1>PORTAL BOLA JARING MSSM</h1>
+                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+            </div>
+        </div>
+        <nav>
+            <a href="../../mssm2026/index.html">HOME</a>
+            <a href="../u12.html" class="active">BAWAH 12</a>
+            <a href="../u15.html" class="active">BAWAH 15</a>
+            <a href="../u18.html" class="active">BAWAH 18</a>
+            <a href="live.html" class="active"> 🔴LIVE</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="toolbar">
+
+    <div class="meta-info">
+        <span>JADUAL PERLAWANAN BAWAH 12 TAHUN</span>
+    </div>
+
+    <button class="btn-print" onclick="window.print()">
+        🖨 Cetak / Simpan PDF
+    </button>
+
+</div>
+        <table class="fixture-table">
+            <thead>
+                <tr>
+                    <thead>
+<tr>
+    <th>No.Perlawanan</th>
+    <th>Tarikh</th>
+    <th>Masa</th>
+    <th>Kumpulan</th>
+    <th>Pasukan 1</th>
+    <th>Pasukan 2</th>
+    <th>Status</th>
+</tr>
+</thead>
+                </tr>
+            </thead>
+            <tbody id="fixturesTable">
+                </tbody>
+        </table>
+    </main>
+<footer>
+        <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
+    </footer>
+    <script src="../../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="category-type" content="B15">
+<title>Undian Pusingan Kedua | MSSM 2026</title>
+
+<link rel="stylesheet" href="../../../style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+.page-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.page-title h2{
+    color:#7B1E3A;
+    font-size:34px;
+}
+
+.draw-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:25px;
+}
+
+.draw-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.card-header{
+    color:#fff;
+    font-weight:bold;
+    padding:15px;
+    text-align:center;
+    font-size:18px;
+}
+
+.blue{
+    background:#169BD5;
+}
+
+.gold{
+    background:#f4b400;
+}
+
+.yellow{
+    background:#FFD600;
+    color:#333;
+}
+
+.green{
+    background:#17c617;
+}
+
+.draw-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.draw-table td,
+.draw-table th{
+    padding:14px;
+    border:1px solid #eee;
+    text-align:center;
+}
+
+.draw-table tbody tr:nth-child(even){
+    background:#fafafa;
+}
+
+.draw-table tbody tr:hover{
+    background:#fff4f7;
+}
+
+@media(max-width:900px){
+
+.draw-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.page-title{
+    flex:1;
+    text-align:center;
+}
+
+.page-title h2{
+    color:#7B1E3A;
+    font-size:34px;
+    margin:0;
+}
+
+.page-title p{
+    color:#666;
+    margin-top:8px;
+}
+
+.section-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    margin-bottom:35px;
+
+}
+
+.section-title{
+
+    background:#7B1E3A;
+
+    color:#fff;
+
+    padding:16px 20px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
+
+.data-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.data-table th{
+
+    background:#f4f4f4;
+
+    padding:14px;
+
+    border-bottom:2px solid #ddd;
+
+}
+
+.data-table td{
+
+    padding:14px;
+
+    border-bottom:1px solid #eee;
+
+    text-align:center;
+
+}
+
+.data-table tr:hover{
+
+    background:#fff4f7;
+
+}
+
+.label{
+
+    font-weight:bold;
+
+    color:#7B1E3A;
+
+    text-align:left;
+
+}/*====================================
+PRINT BUTTON
+====================================*/
+
+.print-btn{
+
+    background:#7B1E3A;
+    color:#fff;
+
+    border:none;
+    border-radius:10px;
+
+    height:48px;
+    padding:0 24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+
+    transition:all .3s ease;
+
+}
+
+.print-btn:hover{
+
+    background:#9A2348;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.20);
+
+}
+
+.print-btn:active{
+
+    transform:translateY(0);
+
+}
+
+.print-btn i{
+
+    font-size:16px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header-left">
+
+<img src="../../../images/mssmlogo.png" class="logo">
+
+<div class="header-title">
+
+<h1>PORTAL BOLA JARING MSSM</h1>
+
+<p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+
+</div>
+
+</div>
+
+<nav>
+
+<a href="../../mssm2026/index.html">HOME</a>
+
+<a href="../u12.html">BAWAH 12</a>
+
+<a href="../u15.html">BAWAH 15</a>
+
+<a href="../u18.html">BAWAH 18</a>
+
+<a href="live.html">🔴LIVE</a>
+
+
+</nav>
+
+</header>
+
+
+<main class="main-container" style="padding:40px 20px;max-width:1200px;margin:auto;">
+
+    <div class="page-header">
+        <div class="page-title">
+            <h2><i class="fa-solid fa-shuffle"></i> UNDIAN PUSINGAN KEDUA</h2>
+            <p>Kategori Bawah 15 MSSM 2026</p>
+        </div>
+        <div class="page-actions">
+
+    <button class="print-btn" onclick="window.print()">
+        <i class="fa-solid fa-print"></i>
+        Cetak
+    </button>
+
+</div>
+    </div>
+
+    <div class="draw-grid">
+
+        <!-- JOHAN & NAIB JOHAN -->
+        <div class="draw-card">
+            <div class="card-header blue">
+                <i class="fa-solid fa-trophy"></i>
+                JOHAN DAN NAIB JOHAN KUMPULAN
+            </div>
+
+            <table class="draw-table">
+                <tbody id="johanNaib">
+
+                    <tr><td>JOHAN A</td><td>...</td></tr>
+                    <tr><td>NAIB JOHAN A</td><td>...</td></tr>
+
+                    <tr><td>JOHAN B</td><td>...</td></tr>
+                    <tr><td>NAIB JOHAN B</td><td>...</td></tr>
+
+                    <tr><td>JOHAN C</td><td>...</td></tr>
+                    <tr><td>NAIB JOHAN C</td><td>...</td></tr>
+
+                    <tr><td>JOHAN D</td><td>...</td></tr>
+                    <tr><td>NAIB JOHAN D</td><td>...</td></tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SEBELAH KANAN -->
+
+        <div>
+
+            <div class="draw-card">
+
+                <div class="card-header gold">
+                    🎲 UNDIAN JOHAN
+                </div>
+
+                <table class="draw-table">
+
+                    <tbody id="undianJohan">
+
+                        <tr><td>1</td><td>JOHAN 1</td></tr>
+                        <tr><td>2</td><td>JOHAN 3</td></tr>
+                        <tr><td>3</td><td>JOHAN 5</td></tr>
+                        <tr><td>4</td><td>JOHAN 7</td></tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <br>
+
+            <div class="draw-card">
+
+                <div class="card-header yellow">
+                    🥈 UNDIAN NAIB JOHAN
+                </div>
+
+                <table class="draw-table">
+
+                    <tbody id="undianNaib">
+
+                        <tr><td>1</td><td>NAIB JOHAN 2</td></tr>
+                        <tr><td>2</td><td>NAIB JOHAN 4</td></tr>
+                        <tr><td>3</td><td>NAIB JOHAN 6</td></tr>
+                        <tr><td>4</td><td>NAIB JOHAN 8</td></tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <!-- KLASIFIKASI -->
+
+    <div class="draw-card">
+
+        <div class="card-header green">
+            <i class="fa-solid fa-ranking-star"></i>
+            UNDIAN PUSINGAN KLASIFIKASI
+        </div>
+
+        <div class="draw-grid">
+
+            <div>
+
+                <table class="draw-table">
+
+                    <tbody id="klasifikasi">
+
+                        <tr><td>KE-3 A</td><td>...</td></tr>
+                        <tr><td>KE-4 A</td><td>...</td></tr>
+
+                        <tr><td>KE-3 B</td><td>...</td></tr>
+                        <tr><td>KE-4 B</td><td>...</td></tr>
+
+                        <tr><td>KE-3 C</td><td>...</td></tr>
+                        <tr><td>KE-4 C</td><td>...</td></tr>
+
+                        <tr><td>KE-3 D</td><td>...</td></tr>
+                        <tr><td>KE-4 D</td><td>...</td></tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div>
+
+                <table class="draw-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th colspan="2">UNDIAN KE-3</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr><td>9</td><td>KE 3 (9)</td></tr>
+                        <tr><td>11</td><td>KE 3 (11)</td></tr>
+                        <tr><td>13</td><td>KE 3 (13)</td></tr>
+                        <tr><td>15</td><td>KE 3 (15)</td></tr>
+
+                    </tbody>
+
+                </table>
+
+                <br>
+
+                <table class="draw-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th colspan="2">UNDIAN KE-4</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr><td>10</td><td>KE 4 (10)</td></tr>
+                        <tr><td>12</td><td>KE 4 (12)</td></tr>
+                        <tr><td>14</td><td>KE 4 (14)</td></tr>
+                        <tr><td>16</td><td>KE 4 (16)</td></tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+<footer>
+
+    <p>
+        © 2026 Portal Rasmi Bola Jaring MSSM.
+        Hak Cipta Terpelihara.
+    </p>
+
+</footer>
+
+<script src="../../../script.js"></script>
+
+</body>
+</html>

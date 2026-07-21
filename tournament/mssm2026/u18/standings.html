@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kedudukan Pasukan | MSSM 2026</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* CSS Utama Jadual Kedudukan */
+        .standings-container { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,.08); }
+        .group-title { background: #7B1E3A; color: #fff; padding: 12px 20px; font-size: 18px; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 10px; }
+        .standings-table { width: 100%; border-collapse: collapse; }
+        
+        /* Saiz fon & padding dikecilkan sedikit supaya muat 2 kolum bersebelahan */
+        .standings-table th { background: #f8f9fa; color: #333; padding: 10px 5px; font-size: 12px; text-transform: uppercase; border-bottom: 2px solid #eee; text-align: center; }
+        .standings-table th.team-col { text-align: left; }
+        .standings-table td { padding: 10px 5px; border-bottom: 1px solid #eee; text-align: center; vertical-align: middle; color: #444; font-weight: 500; font-size: 13px; }
+        .standings-table td.team-col { text-align: left; }
+
+        /* Highlight untuk 2 Pasukan Teratas */
+        .standings-table tr.qualified td:first-child { border-left: 5px solid #16a34a; background: #f0fdf4; }
+        .standings-table tr.qualified:hover td { background: #dcfce7; }
+        .standings-table tr:nth-child(even) { background: #fafafa; }
+        .standings-table tr:hover { background: #fff4f7; }
+
+        .team-cell { display: flex; align-items: center; gap: 8px; }
+        .team-logo { width: 25px; height: 25px; object-fit: contain; }
+        .team-name { font-weight: 700; color: #333; display: block; font-size: 13px; }
+        .pts-col { background: #fff4f7; color: #7B1E3A; font-weight: 800 !important; font-size: 14px; }
+
+        /* Header & Button */
+        .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; gap: 20px; }
+        .page-title { flex: 1; text-align: center; }
+        .page-title h2 { margin: 0; font-size: 32px; color: #7B1E3A; }
+        .btn-print { background: #7B1E3A; color: white; border: none; padding: 12px 28px; border-radius: 40px; font-size: 15px; font-weight: 700; cursor: pointer; transition: .3s; }
+        .btn-print:hover { background: #5d132c; transform: translateY(-2px); }
+
+        /* GAYA BARU: GRID UNTUK MENYUSUN KUMPULAN BERSEBELAHAN */
+        .standings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Membahagikan kepada 2 lajur */
+            gap: 25px; /* Jarak antara kotak kumpulan */
+            margin-bottom: 40px;
+        }
+
+        /* Responsif untuk skrin kecil (Telefon Bimbit) */
+        @media (max-width: 992px) {
+            .standings-grid {
+                grid-template-columns: 1fr; /* Kembali menjadi 1 baris ke bawah */
+            }
+        }
+
+        /* Gaya untuk Footer */
+        footer {
+            background: #7B1E3A;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            header, nav, footer, .btn-print { display: none !important; }
+            body { background: white; }
+            .standings-grid { grid-template-columns: 1fr 1fr; gap: 15px; } /* Kekal 2 lajur ketika print */
+            .standings-container { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="../../../images/mssmlogo.png" class="logo" alt="Logo MSSM">
+            <div class="header-title">
+                <h1>PORTAL BOLA JARING MSSM</h1>
+                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+            </div>
+        </div>
+        <nav>
+            <a href="../../mssm2026/index.html">HOME</a>
+            <a href="../u12.html">BAWAH 12</a>
+            <a href="../u15.html">BAWAH 15</a>
+            <a href="../u18.html">BAWAH 18</a>
+            <a href="live.html"> 🔴LIVE</a>
+            <a href="standing.html" class="active">KEDUDUKAN</a> 
+        </nav>
+    </header>
+
+    <main class="main-container" style="padding: 40px 20px; max-width: 1200px; margin: auto;">
+        
+        <div class="page-header">
+            <div class="page-title">
+                <h2><i class="fa-solid fa-list-ol"></i> Kedudukan Kumpulan Bawah12</h2>
+        
+            </div>
+            <button class="btn-print" onclick="window.print()">
+                <i class="fa-solid fa-print"></i> Cetak PDF
+            </button>
+        </div>
+
+        <div class="standings-grid">
+            
+            <div class="standings-container">
+                <h3 class="group-title"><i class="fa-solid fa-users"></i> KUMPULAN A</h3>
+                <table class="standings-table">
+                    <thead>
+                        <tr>
+                            <th style="width:6%;">#</th>
+                            <th class="team-col" style="width:28%;">PASUKAN</th>
+                            <th style="width:7%;">P</th>
+                            <th style="width:7%;">W</th>
+                            <th style="width:7%;">D</th>
+                            <th style="width:7%;">L</th>
+                            <th style="width:8%;">GF</th>
+                            <th style="width:8%;">GA</th>
+                            <th style="width:8%;">GD</th>
+                            <th style="width:8%;">GAV</th>
+                            <th class="pts-col" style="width:6%;">PTS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="standings-group-a">
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="standings-container">
+                <h3 class="group-title"><i class="fa-solid fa-users"></i> KUMPULAN B</h3>
+                <table class="standings-table">
+                    <thead>
+                        <tr>
+                            <th style="width:6%;">#</th>
+                            <th class="team-col" style="width:28%;">PASUKAN</th>
+                            <th style="width:7%;">P</th>
+                            <th style="width:7%;">W</th>
+                            <th style="width:7%;">D</th>
+                            <th style="width:7%;">L</th>
+                            <th style="width:8%;">GF</th>
+                            <th style="width:8%;">GA</th>
+                            <th style="width:8%;">GD</th>
+                            <th style="width:8%;">GAV</th>
+                            <th class="pts-col" style="width:6%;">PTS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="standings-group-b">
+                         </tbody>
+                </table>
+            </div>
+
+            <div class="standings-container">
+                <h3 class="group-title"><i class="fa-solid fa-users"></i> KUMPULAN C</h3>
+                <table class="standings-table">
+                    <thead>
+                        <tr>
+                            <th style="width:6%;">#</th>
+                            <th class="team-col" style="width:28%;">PASUKAN</th>
+                            <th style="width:7%;">P</th>
+                            <th style="width:7%;">W</th>
+                            <th style="width:7%;">D</th>
+                            <th style="width:7%;">L</th>
+                            <th style="width:8%;">GF</th>
+                            <th style="width:8%;">GA</th>
+                            <th style="width:8%;">GD</th>
+                            <th style="width:8%;">GAV</th>
+                            <th class="pts-col" style="width:6%;">PTS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="standings-group-c">
+                         </tbody>
+                </table>
+            </div>
+
+            <div class="standings-container">
+                <h3 class="group-title"><i class="fa-solid fa-users"></i> KUMPULAN D</h3>
+                <table class="standings-table">
+                    <thead>
+                        <tr>
+                            <th style="width:6%;">#</th>
+                            <th class="team-col" style="width:28%;">PASUKAN</th>
+                            <th style="width:7%;">P</th>
+                            <th style="width:7%;">W</th>
+                            <th style="width:7%;">D</th>
+                            <th style="width:7%;">L</th>
+                            <th style="width:8%;">GF</th>
+                            <th style="width:8%;">GA</th>
+                            <th style="width:8%;">GD</th>
+                            <th style="width:8%;">GAV</th>
+                            <th class="pts-col" style="width:6%;">PTS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="standings-group-d">
+                         </tbody>
+                </table>
+            </div>
+
+        </div> </main>
+
+    <footer>
+        <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
+    </footer>
+    
+    <script src="../../../script.js"></script>
+</body>
+</html>
