@@ -14,12 +14,10 @@
            ========================================= */
         
         :root {
-            /* Pastikan warna ini sepadan dengan style.css utama anda */
             --maroon-utama: #7B1E3A; 
         }
 
         body {
-            /* Latar belakang akan diambil dari style.css utama */
             margin: 0;
             font-family: 'Segoe UI', Tahoma, sans-serif;
             color: #2d3748;
@@ -30,6 +28,100 @@
             max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
+        }
+
+        /* Header & Navbar Tambahan untuk Sokongan Menu Burger */
+        header {
+            background-color: var(--maroon-utama);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-left .logo {
+            height: 50px;
+        }
+
+        .header-title h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .header-title .subtitle {
+            margin: 0;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* Navigasi Asal & Burger */
+        nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: opacity 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            opacity: 0.8;
+            border-bottom: 2px solid #ffd54f;
+        }
+
+        /* Butang Menu Burger (Tersembunyi pada desktop) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Responsive Navbar untuk Mobile & Tablet */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--maroon-utama); /* Warna maroon sama seperti header */
+                padding: 20px 0;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+                z-index: 1000;
+                text-align: center;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                padding: 10px 0;
+                width: 100%;
+            }
         }
 
         /* Hero Section (Bahagian tajuk utama) */
@@ -60,29 +152,28 @@
 
         /* Toolbar (Bahagian maklumat dan cetak) */
         .toolbar {
-             display:flex;
-             justify-content:space-between;
-             align-items:center;
-             background:white;
-             padding:15px 30px;
-             border-radius:12px;
-             box-shadow:0 4px 12px rgba(0,0,0,.05);
-             border:1px solid #edf2f7;
-             margin-bottom:30px;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             background: white;
+             padding: 15px 30px;
+             border-radius: 12px;
+             box-shadow: 0 4px 12px rgba(0,0,0,.05);
+             border: 1px solid #edf2f7;
+             margin-bottom: 30px;
         }
 
-       .meta-info{
-    flex:1;
-    text-align:center;
-}
+        .meta-info {
+            flex: 1;
+            text-align: center;
+        }
 
-.meta-info span{
-    color:#7B1E3A;
-    font-size:28px;
-    font-weight:800;
-    display:block;
-}
-
+        .meta-info span {
+            color: #7B1E3A;
+            font-size: 28px;
+            font-weight: 800;
+            display: block;
+        }
 
         .btn-print {
             background: var(--maroon-utama);
@@ -100,42 +191,37 @@
             background-color: #5c152a;
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(123, 30, 58, 0.3);
-        }@media print {
-    /* 1. Paksa browser cetak semua warna background (merah, hijau, dll) */
-    * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
+        }
 
-    /* 2. Sembunyikan elemen yang tidak perlu dicetak */
-    header, nav, footer { 
-        display: none !important; 
-    }
-    
-    /* 3. Buang bayang-bayang supaya jadual nampak lebih bersih dalam PDF */
-    body { background: white; }
-    .results-table { box-shadow: none; }
-}
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            header, nav, footer, .menu-toggle { 
+                display: none !important; 
+            }
+            body { background: white; }
+            .results-table { box-shadow: none; }
+        }
 
-        /* Kita tukar terus kepada grid 2x2 */
-.group-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 lajur */
-    gap: 35px;
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
+        /* Grid 2x2 Kumpulan */
+        .group-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-/* Tambahan untuk mobile: supaya jadi 1 lajur jika skrin kecil */
-@media (max-width: 768px) {
-    .group-container {
-        grid-template-columns: 1fr;
-    }
+        @media (max-width: 768px) {
+            .group-container {
+                grid-template-columns: 1fr;
+            }
+        }
 
-}
-
-        /* Group Card (Gaya kad yang dicantikkan) */
+        /* Group Card */
         .group-card {
             background: white;
             border-radius: 20px;
@@ -152,7 +238,6 @@
             box-shadow: 0 18px 35px rgba(0,0,0,0.12);
         }
 
-        /* Tajuk Kumpulan (Header kad) */
         .group-header {
             background-color: var(--maroon-utama);
             color: white;
@@ -163,15 +248,14 @@
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
-            border-bottom: 3px solid #ffd54f; /* Garisan emas di bawah tajuk */
+            border-bottom: 3px solid #ffd54f;
         }
 
-        /* Senarai Pasukan (Body kad) */
         .group-card ul {
             list-style: none;
             padding: 15px 0 25px 0;
             margin: 0;
-            flex-grow: 1; /* Memastikan senarai mengisi ruang */
+            flex-grow: 1;
         }
 
         .group-card li {
@@ -184,18 +268,22 @@
             transition: background-color 0.2s ease;
         }
 
-        /* Kesan 'hover' pada senarai pasukan */
         .group-card li:hover {
-            background-color: #fff5f8; /* Warna pink lembut apabila hover */
+            background-color: #fff5f8;
             color: var(--maroon-utama);
         }
 
-        /* Memberi sedikit gaya berbeza untuk tempat kosong */
         .group-card li.empty-slot {
             color: #a0aec0;
             font-style: italic;
         }
 
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #718096;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -208,12 +296,18 @@
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
-        <nav>
+        
+        <!-- Butang Menu Burger untuk peranti mudah alih & tablet -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav id="navMenu">
             <a href="../../mssm2026/index.html">HOME</a>
             <a href="../u12.html" class="active">BAWAH 12</a>
             <a href="../u15.html" class="active">BAWAH 15</a>
             <a href="../u18.html" class="active">BAWAH 18</a>
-            <a href="live.html" class="active"> 🔴LIVE</a>
+            <a href="live.html" class="active">🔴 LIVE</a>
         </nav>
     </header>
 
@@ -226,7 +320,7 @@
 
         <div class="toolbar">
             <div class="meta-info">
-                <span> BAWAH 12 TAHUN</span>
+                <span>BAWAH 12 TAHUN</span>
             </div>
             <button class="btn-print" onclick="window.print()">
                 <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
@@ -270,6 +364,16 @@
     <footer>
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
+
+    <!-- Skrip untuk toggle menu burger -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
 
     <script src="../../../script.js"></script>
 </body>
