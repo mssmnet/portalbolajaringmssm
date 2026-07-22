@@ -13,6 +13,79 @@
         .tournament-card:hover { transform: translateY(-5px); border-color: #7B1E3A; }
         .state-logo-space { width: 80px; height: 80px; margin: 0 auto 15px; border-radius: 50%; overflow: hidden; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; }
         .state-logo-space img { width: 100%; height: 100%; object-fit: contain; padding: 5px; }
+
+        /* --- CSS BARU UNTUK HEADER & MENU BURGER --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: white; /* Boleh ubah mengikut tema asal anda */
+            position: relative;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Ikon Burger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            transition: all 0.3s ease;
+        }
+
+        /* Navigasi Asal (Desktop) */
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Media Query untuk Skrin Telefon (Mobile) */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex; /* Paparkan burger pada skrin kecil */
+            }
+
+            nav {
+                display: none; /* Sembunyikan menu asal */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 20px;
+                background: white;
+                width: 200px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                border-radius: 8px;
+                padding: 10px;
+                z-index: 100;
+            }
+
+            nav a {
+                padding: 10px;
+                text-align: center;
+                display: block;
+            }
+
+            /* Kelas .active dipanggil oleh JavaScript untuk papar menu */
+            nav.active {
+                display: flex;
+            }
+
+            /* Animasi ikon burger (Opsional) */
+            .hamburger.toggle .bar1 { transform: rotate(-45deg) translate(-5px, 6px); }
+            .hamburger.toggle .bar2 { opacity: 0; }
+            .hamburger.toggle .bar3 { transform: rotate(45deg) translate(-5px, -6px); }
+        }
     </style>
 </head>
 <body>
@@ -25,7 +98,15 @@
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
-        <nav>
+        
+        <!-- Ikon Burger Ditambah Di Sini -->
+        <div class="hamburger" id="hamburger-menu">
+            <span class="bar1"></span>
+            <span class="bar2"></span>
+            <span class="bar3"></span>
+        </div>
+
+        <nav id="nav-menu">
             <a href="../../mssm2026/index.html">HOME</a>
             <a href="../u12.html" class="active">BAWAH 12</a>
             <a href="../u15.html" class="active">BAWAH 15</a>
@@ -41,6 +122,7 @@
         </section>
 
         <section class="cards-container">
+            <!-- (Senarai Pasukan seperti asal) -->
             <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/johor.png" alt="Johor"></div><h3>MSS JOHOR</h3><p>Pasukan Negeri Johor</p></div>
             <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/selangor.png" alt="Selangor"></div><h3>MSS SELANGOR</h3><p>Pasukan Negeri Selangor</p></div>
             <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/sabah.png" alt="Sabah"></div><h3>MSS SABAH</h3><p>Pasukan Negeri Sabah</p></div>
@@ -51,19 +133,30 @@
             <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/kedah.png" alt="Kedah"></div><h3>MSS KEDAH</h3><p>Pasukan Negeri Kedah</p></div>
             <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/pp.png" alt="Pulau Pinang"></div><h3>MSS PULAU PINANG</h3><p>Pasukan Negeri Pulau Pinang</p></div>
             <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/perlis.png" alt="Perlis"></div><h3>MSS PERLIS</h3><p>Pasukan Negeri Perlis</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/kelantan.png" alt="Kelantan"></div><h3>MSS KELANTAN</h3><p>Pasukan Negeri Kelantan</p>
-            </div>
+            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/kelantan.png" alt="Kelantan"></div><h3>MSS KELANTAN</h3><p>Pasukan Negeri Kelantan</p></div>
             <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/terengganu.png" alt="Terengganu"></div><h3>MSS TERENGGANU</h3><p>Pasukan Negeri Terengganu</p></div>
             <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/pahang.png" alt="Pahang"></div><h3>MSS PAHANG</h3><p>Pasukan Negeri Pahang</p></div>
             <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/putrajaya.png" alt="Putrajaya"></div><h3>MSS WP PUTRAJAYA</h3><p>Pasukan Negeri Putrajaya</p></div>
             <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/kl.png" alt="Kuala Lumpur"></div><h3>MSS WP KUALA LUMPUR</h3><p>Pasukan Negeri Kuala Lumpur</p></div>
-            
         </section>
     </main>
 
     <footer>
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
+
+    <!-- SCRIPT BARU UNTUK MENU BURGER -->
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            // Tambah/buang class 'active' untuk paparkan menu
+            navMenu.classList.toggle('active');
+            // Tambah/buang class 'toggle' untuk animasi ikon burger menjadi 'X'
+            hamburger.classList.toggle('toggle');
+        });
+    </script>
 
 </body>
 </html>
