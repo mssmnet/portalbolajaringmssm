@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takwim | Portal Bola Jaring MSSM 2026</title>
+    <!-- Pastikan path CSS ini betul mengikut kedudukan fail calendar.html anda -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- CSS TAMBAHAN KHAS UNTUK HALAMAN CALENDAR --- */
+        .hero { 
+            text-align: center; 
+            padding: 40px 20px; 
+            background: white; 
+            margin-bottom: 20px; 
+        }
+
+        .hero h2 {
+            color: #7B1E3A;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        /* Seksyen Takwim */
+        .calendar-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .calendar-section h2 {
+            margin-bottom: 10px;
+            color: #8B1E3F;
+        }
+
+        .calendar-section p {
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .calendar-image {
+            width: 100%;
+            max-width: 1100px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.15);
+            display: inline-block;
+        }
+
+        /* --- CSS UNTUK HEADER & MENU BURGER (TEMA MAROON) --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #7B1E3A;
+            position: relative;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-title h1, .header-title p {
+            color: white;
+            margin: 0;
+        }
+
+        .logo {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white; 
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        /* Media Query untuk Skrin Telefon (Mobile) */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 20px;
+                background: #7B1E3A;
+                width: 200px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                border-radius: 8px;
+                padding: 10px;
+                z-index: 100;
+            }
+
+            nav a {
+                padding: 10px;
+                text-align: center;
+                display: block;
+                color: white;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .hamburger.toggle .bar1 { transform: rotate(-45deg) translate(-5px, 6px); }
+            .hamburger.toggle .bar2 { opacity: 0; }
+            .hamburger.toggle .bar3 { transform: rotate(45deg) translate(-5px, -6px); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo">
+            <div class="header-title">
+                <h1>PORTAL BOLA JARING MSSM</h1>
+                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+            </div>
+        </div>
+        
+        <!-- Ikon Burger -->
+        <div class="hamburger" id="hamburger-menu">
+            <span class="bar1"></span>
+            <span class="bar2"></span>
+            <span class="bar3"></span>
+        </div>
+
+        <nav id="nav-menu">
+            <a href="index.html">HOME</a>
+            <a href="about.html">TENTANG KAMI</a>
+            <a href="calendar.html" class="active">TAKWIM</a>
+            <a href="u12/u12.html">BAWAH 12</a>
+            <a href="u12/teams/live.html"> 🔴LIVE</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>📅 Takwim Kejohanan</h2>
+            <p>Jadual dan perancangan aktiviti bola jaring MSSM bagi tahun 2026</p>
+        </section>
+
+        <!-- SEKSYEN PAPARAN TAKWIM -->
+        <section class="calendar-section">
+            <div class="container">
+                <h2>Takwim Bola Jaring MSSM 2026</h2>
+                <p>Berikut ialah Takwim Aktiviti Bola Jaring MSSM 2026.</p>
+
+                <img src="images/Takwim_MSSM_2026.jpg"
+                     alt="Takwim Bola Jaring MSSM 2026"
+                     class="calendar-image">
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 20px; background: #f8f9fa; margin-top: 40px; border-top: 1px solid #e2e8f0;">
+        <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
+    </footer>
+
+    <!-- SCRIPT MENU BURGER -->
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+    </script>
+
+</body>
+</html>
