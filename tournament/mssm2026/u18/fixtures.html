@@ -2,131 +2,116 @@
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <title>Jadual Perlawanan | MSSM 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadual Perlawanan | MSSM 2026 (B18)</title>
     <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
     <style>
-
-/* ===========================
-   STATUS BADGE PREMIUM
-=========================== */
-
-.status{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-width:150px;
-    padding:8px 18px;
-    border-radius:50px;
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:.3px;
-    color:#fff;
-    box-shadow:0 3px 8px rgba(0,0,0,.15);
-}
-
-/* 🔴 Belum Bermula */
-.status-pending{
-    background:linear-gradient(135deg,#eb5555);
-}
-
-/* 🟢 Tamat */
-.status-selesai{
-    background:linear-gradient(135deg,#22c55e,#15803d);
-}
-
-/* 🟡 Live */
-.status-live{
-    background:linear-gradient(135deg,#facc15,#f59e0b);
-    color:#222;
-    animation:pulse 1.2s infinite;
-}
-
-/* ⚫ Ditangguh */
-.status-postponed{
-    background:linear-gradient(135deg,#6b7280,#374151);
-}
-
-@keyframes pulse{
-
-    0%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.05);
-    }
-
-    100%{
-        transform:scale(1);
-    }
-
-}/* Toolbar (Bahagian maklumat dan cetak) */
-        .toolbar {
-             display:flex;
-             justify-content:space-between;
-             align-items:center;
-             background:white;
-             padding:15px 30px;
-             border-radius:12px;
-             box-shadow:0 4px 12px rgba(0,0,0,.05);
-             border:1px solid #edf2f7;
-             margin-bottom:30px;
+        /* =========================================
+           GAYA BADGE STATUS PREMIUM
+           ========================================= */
+        .status {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 150px;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .3px;
+            color: #fff;
+            box-shadow: 0 3px 8px rgba(0,0,0,.15);
         }
 
-       .meta-info{
-    flex:1;
-    text-align:center;
-}
+        /* 🔴 Belum Bermula */
+        .status-pending {
+            background: linear-gradient(135deg, #eb5555, #c92a2a);
+        }
 
-.meta-info span{
-    color:#7B1E3A;
-    font-size:28px;
-    font-weight:800;
-    display:block;
-}
+        /* 🟢 Selesai / Tamat */
+        .status-selesai {
+            background: linear-gradient(135deg, #22c55e, #15803d);
+        }
 
+        /* 🟡 Live / Sedang Berlangsung */
+        .status-live {
+            background: linear-gradient(135deg, #facc15, #f59e0b);
+            color: #222;
+            animation: pulse 1.2s infinite;
+        }
 
-        .btn-print{
+        /* ⚫ Ditangguh */
+        .status-postponed {
+            background: linear-gradient(135deg, #6b7280, #374151);
+        }
 
-    background:#7B1E3A;
-    color:white;
-    border:none;
-    padding:12px 28px;
-    border-radius:40px;
-    font-size:15px;
-    font-weight:700;
-    cursor:pointer;
-    transition:.3s;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
 
-}
+        /* Toolbar */
+        .toolbar {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             background: white;
+             padding: 15px 30px;
+             border-radius: 12px;
+             box-shadow: 0 4px 12px rgba(0,0,0,.05);
+             border: 1px solid #edf2f7;
+             margin-bottom: 30px;
+        }
 
-.btn-print:hover{
+        .meta-info {
+            flex: 1;
+            text-align: center;
+        }
 
-    background:#5d132c;
+        .meta-info span {
+            color: #7B1E3A;
+            font-size: 28px;
+            font-weight: 800;
+            display: block;
+        }
 
-}
-@media print {
-    /* Paksa browser cetak semua warna background */
-    * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
+        .btn-print {
+            background: #7B1E3A;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .3s;
+        }
 
-    /* Sembunyikan elemen yang tidak perlu dicetak */
-    header, nav, footer { 
-        display: none !important; 
-    }
-    
-    body { background: white; }
-    .results-table { box-shadow: none; }
-}
-</style>
+        .btn-print:hover {
+            background: #5d132c;
+        }
+
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            header, nav, footer, .btn-print { 
+                display: none !important; 
+            }
+            body { background: white; }
+            .fixture-table { box-shadow: none; }
+        }
+    </style>
 </head>
 <body>
 
     <header>
         <div class="header-left">
-            <img src="../../../images/mssmlogo.png" class="logo">
+            <img src="../../../images/mssmlogo.png" class="logo" alt="Logo">
             <div class="header-title">
                 <h1>PORTAL BOLA JARING MSSM</h1>
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
@@ -134,48 +119,141 @@
         </div>
         <nav>
             <a href="../../mssm2026/index.html">HOME</a>
-            <a href="../u12.html" class="active">BAWAH 12</a>
-            <a href="../u15.html" class="active">BAWAH 15</a>
+            <a href="../u12.html">BAWAH 12</a>
+            <a href="../u15.html">BAWAH 15</a>
             <a href="../u18.html" class="active">BAWAH 18</a>
-            <a href="live.html" class="active"> 🔴LIVE</a>
+            <a href="live.html"> 🔴LIVE</a>
         </nav>
     </header>
 
-    <main>
+    <main style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
         <div class="toolbar">
+            <div class="meta-info">
+                <span>JADUAL PERLAWANAN BAWAH 18 TAHUN</span>
+            </div>
+            <button class="btn-print" onclick="window.print()">
+                <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
+            </button>
+        </div>
 
-    <div class="meta-info">
-        <span>JADUAL PERLAWANAN BAWAH 12 TAHUN</span>
-    </div>
-
-    <button class="btn-print" onclick="window.print()">
-        🖨 Cetak / Simpan PDF
-    </button>
-
-</div>
         <table class="fixture-table">
             <thead>
                 <tr>
-                    <thead>
-<tr>
-    <th>No.Perlawanan</th>
-    <th>Tarikh</th>
-    <th>Masa</th>
-    <th>Kumpulan</th>
-    <th>Pasukan 1</th>
-    <th>Pasukan 2</th>
-    <th>Status</th>
-</tr>
-</thead>
+                    <th>No. Perlawanan</th>
+                    <th>Tarikh</th>
+                    <th>Masa</th>
+                    <th>Kumpulan</th>
+                    <th>Pasukan 1</th>
+                    <th>Pasukan 2</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody id="fixturesTable">
-                </tbody>
+                <tr>
+                    <td colspan="7" style="text-align:center; padding: 20px; font-style: italic; color: #888;">
+                        Memuatkan jadual perlawanan B18...
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </main>
-<footer>
+
+    <footer>
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
-    <script src="../../../script.js"></script>
+
+    <!-- KOD JAVASCRIPT DIRECT LINK UNTUK TAB JADUAL B18 -->
+    <script>
+        // Pautan GViz API dikemaskini khusus untuk ID Google Sheet Bawah 18
+        const sheetUrlB18Fixtures = "https://docs.google.com/spreadsheets/d/180gesLRs2fnsR677akZUTVFYFkkSiEu-aaVUnKquXHo/gviz/tq?tqx=out:json&sheet=JADUAL";
+
+        async function muatJadualB18() {
+            const fixtureBody = document.getElementById("fixturesTable");
+            if (!fixtureBody) return;
+
+            try {
+                const response = await fetch(sheetUrlB18Fixtures);
+                const textData = await response.text();
+                
+                // Tukar format teks gviz kepada JSON bersih
+                const rawJson = JSON.parse(textData.substring(47).slice(0, -2));
+                const rows = rawJson.table.rows;
+
+                fixtureBody.innerHTML = "";
+                let tarikhSemasa = "-";
+
+                // Membaca data bermula dari baris kedua (Index 1) untuk melangkau pengepala
+                for (let i = 1; i < rows.length; i++) {
+                    if (!rows[i] || !rows[i].c) continue;
+                    const row = rows[i].c;
+
+                    const ambilTeks = (index) => {
+                        if (!row[index]) return "";
+                        return row[index].f ?? row[index].v ?? "";
+                    };
+
+                    const noMatch   = ambilTeks(0).trim();
+                    const tarikhRaw = ambilTeks(1).trim();
+                    const masa      = ambilTeks(2).trim();
+                    const kump      = ambilTeks(3).trim();
+                    const team1     = ambilTeks(4).trim();
+                    const team2     = ambilTeks(5).trim();
+                    const statusRaw = ambilTeks(6).trim();
+
+                    if (noMatch === "" || noMatch.toLowerCase().includes("no perlawanan")) continue;
+
+                    if (tarikhRaw !== "") {
+                        tarikhSemasa = tarikhRaw;
+                    }
+
+                    // Logik penentuan warna kelas lencana status
+                    let statusClass = "status-pending";
+                    let statusIcon  = "🔴";
+                    let statusText  = "Belum Bermula";
+
+                    if (statusRaw !== "") {
+                        statusText = statusRaw;
+                        const status = statusRaw.toLowerCase();
+
+                        if (status.includes("selesai") || status.includes("tamat")) {
+                            statusClass = "status-selesai";
+                            statusIcon = "🟢";
+                        } else if (status.includes("live") || status.includes("mula")) {
+                            statusClass = "status-live";
+                            statusIcon = "🟡";
+                        } else if (status.includes("tangguh")) {
+                            statusClass = "status-postponed";
+                            statusIcon = "⚫";
+                        }
+                    }
+
+                    fixtureBody.innerHTML += `
+                    <tr>
+                        <td style="text-align:center; font-weight:bold;">${noMatch}</td>
+                        <td>${tarikhSemasa}</td>
+                        <td>${masa}</td>
+                        <td style="text-align:center;"><span class="group-badge">${kump}</span></td>
+                        <td>${team1}</td>
+                        <td>${team2}</td>
+                        <td style="text-align:center;">
+                            <span class="status ${statusClass}">
+                                ${statusIcon} ${statusText}
+                            </span>
+                        </td>
+                    </tr>`;
+                }
+
+                if (fixtureBody.innerHTML === "") {
+                    fixtureBody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:20px;">Tiada jadual perlawanan dijumpai.</td></tr>`;
+                }
+
+            } catch (error) {
+                console.error("Ralat memproses jadual perlawanan B18:", error);
+                fixtureBody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:red; padding:20px;">Gagal memuatkan jadual. Sila pastikan kebenaran 'Share to Anyone' pada Google Sheet telah diaktifkan.</td></tr>`;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', muatJadualB18);
+    </script>
 </body>
 </html>
