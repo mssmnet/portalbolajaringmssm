@@ -14,19 +14,25 @@
         .state-logo-space { width: 80px; height: 80px; margin: 0 auto 15px; border-radius: 50%; overflow: hidden; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; }
         .state-logo-space img { width: 100%; height: 100%; object-fit: contain; padding: 5px; }
 
-        /* --- CSS BARU UNTUK HEADER & MENU BURGER --- */
+        /* --- CSS UNTUK HEADER & MENU BURGER (TEMA MAROON) --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            background: white; /* Boleh ubah mengikut tema asal anda */
+            background: #7B1E3A; /* Warna latar belakang header maroon */
             position: relative;
         }
         
         .header-left {
             display: flex;
             align-items: center;
+        }
+
+        /* Teks tajuk berwarna putih supaya jelas */
+        .header-title h1, .header-title p {
+            color: white;
+            margin: 0;
         }
 
         /* Ikon Burger */
@@ -40,7 +46,7 @@
         .hamburger span {
             width: 25px;
             height: 3px;
-            background-color: #333;
+            background-color: white; /* Garis burger warna putih */
             transition: all 0.3s ease;
         }
 
@@ -48,6 +54,13 @@
         nav {
             display: flex;
             gap: 15px;
+        }
+
+        /* Pautan menu desktop berwarna putih */
+        nav a {
+            color: white; 
+            text-decoration: none;
+            font-weight: bold;
         }
 
         /* Media Query untuk Skrin Telefon (Mobile) */
@@ -62,7 +75,7 @@
                 position: absolute;
                 top: 100%;
                 right: 20px;
-                background: white;
+                background: white; /* Latar belakang dropdown putih */
                 width: 200px;
                 box-shadow: 0 4px 10px rgba(0,0,0,0.1);
                 border-radius: 8px;
@@ -74,6 +87,7 @@
                 padding: 10px;
                 text-align: center;
                 display: block;
+                color: #333; /* Teks menu dropdown hitam supaya nampak pada latar putih */
             }
 
             /* Kelas .active dipanggil oleh JavaScript untuk papar menu */
@@ -81,7 +95,7 @@
                 display: flex;
             }
 
-            /* Animasi ikon burger (Opsional) */
+            /* Animasi ikon burger */
             .hamburger.toggle .bar1 { transform: rotate(-45deg) translate(-5px, 6px); }
             .hamburger.toggle .bar2 { opacity: 0; }
             .hamburger.toggle .bar3 { transform: rotate(45deg) translate(-5px, -6px); }
@@ -99,7 +113,7 @@
             </div>
         </div>
         
-        <!-- Ikon Burger Ditambah Di Sini -->
+        <!-- Ikon Burger -->
         <div class="hamburger" id="hamburger-menu">
             <span class="bar1"></span>
             <span class="bar2"></span>
@@ -122,7 +136,6 @@
         </section>
 
         <section class="cards-container">
-            <!-- (Senarai Pasukan seperti asal) -->
             <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/johor.png" alt="Johor"></div><h3>MSS JOHOR</h3><p>Pasukan Negeri Johor</p></div>
             <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/selangor.png" alt="Selangor"></div><h3>MSS SELANGOR</h3><p>Pasukan Negeri Selangor</p></div>
             <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/sabah.png" alt="Sabah"></div><h3>MSS SABAH</h3><p>Pasukan Negeri Sabah</p></div>
@@ -145,7 +158,7 @@
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
 
-    <!-- SCRIPT BARU UNTUK MENU BURGER -->
+    <!-- SCRIPT MENU BURGER -->
     <script>
         const hamburger = document.getElementById('hamburger-menu');
         const navMenu = document.getElementById('nav-menu');
