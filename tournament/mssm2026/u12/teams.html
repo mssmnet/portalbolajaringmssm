@@ -34,11 +34,11 @@
         .hamburger span { width: 25px; height: 3px; background-color: white; transition: all 0.3s ease; }
         
         nav { display: flex; gap: 15px; }
-        nav a { color: rgb(80, 4, 4); text-decoration: none; font-weight: bold; }
+        nav a { color: white; text-decoration: none; font-weight: bold; }
 
         @media (max-width: 768px) {
             .hamburger { display: flex; }
-            nav { display: none; flex-direction: column; position: absolute; top: 100%; right: 20px; background: rgb(84, 6, 6); width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px; padding: 10px; z-index: 100; }
+            nav { display: none; flex-direction: column; position: absolute; top: 100%; right: 20px; background: #7B1E3A; width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px; padding: 10px; z-index: 100; }
             nav a { padding: 10px; text-align: center; display: block; color: #fff; }
             nav.active { display: flex; }
             .hamburger.toggle .bar1 { transform: rotate(-45deg) translate(-5px, 6px); }
@@ -79,16 +79,14 @@
         <!-- KOD BARU: Semua Kad Ditambah Tag <a> -->
         <section class="cards-container">
             <!-- Johor -->
-            <!-- Johor -->
-<a href="teams/team-johor.html" class="team-link">
-    <div class="tournament-card">
-        <div class="state-logo-space">
-            <img src="../../../images/logo/mss negeri/johor.png" alt="Johor">
-        </div>
-        <h3>MSS JOHOR</h3>
-        <p>Pasukan Negeri Johor</p>
-    </div>
-</a>
+            <a href="teams/team-johor.html" class="team-link">
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/johor.png" alt="Johor">
+                    </div>
+                    <h3>MSS JOHOR</h3>
+                    <p>Pasukan Negeri Johor</p>
+                </div>
             </a>
             <!-- Selangor -->
             <a href="teams/team-selangor.html" class="team-link">
@@ -149,6 +147,15 @@
         </section>
     </main>
 
-    <!-- Footer & Script Sama Macam Asal -->
+    <!-- Skrip untuk mengaktifkan fungsi menu burger -->
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+    </script>
 </body>
 </html>
