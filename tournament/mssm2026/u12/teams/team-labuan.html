@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSS LABUAN | MSSM 2026 U12</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <style>
+        /* CSS Asal - Tambahan untuk Header & Kad */
+        .hero { text-align: center; padding: 40px 20px; background: white; margin-bottom: 30px; }
+        
+        /* --- CSS UNTUK HEADER & MENU BURGER --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #7B1E3A;
+            position: relative;
+        }
+        
+        .header-left { display: flex; align-items: center; }
+        .header-title h1, .header-title p { color: white; margin: 0; }
+        
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .hamburger span { width: 25px; height: 3px; background-color: white; transition: all 0.3s ease; }
+        
+        nav { display: flex; gap: 15px; }
+        nav a { color: rgb(80, 4, 4); text-decoration: none; font-weight: bold; }
+
+        /* --- CSS BARU UNTUK KAD PEGAWAI & ATLET --- */
+        .team-section {
+            max-width: 1200px; /* Besarkan sedikit max-width supaya muat grid */
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .team-section h2 {
+            color: #7B1E3A;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #7B1E3A;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* KOD GRID BARU: Menyusun kad memanjang (sebelah menyebelah) */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .member-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #fff;
+            padding: 18px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.08);
+            transition: .3s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,.12);
+        }
+
+        .member-card img {
+            width: 90px; /* Kecilkan sikit gambar supaya grid lebih kemas */
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #7B1E3A;
+        }
+
+        .member-info {
+            flex: 1;
+        }
+
+        .member-info h3 {
+            margin: 0;
+            color: #7B1E3A;
+            font-size: 16px;
+        }
+
+        .member-info p {
+            margin: 5px 0;
+            color: #555; /* Tukar balik warna kelabu supaya nampak atas background putih */
+            font-size: 14px;
+        }
+
+        .badge {
+            display: inline-block;
+            margin: 8px 0;
+            background: #7B1E3A;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-player {
+            display: inline-block;
+            margin: 8px 0;
+            background: #FFD700;
+            color: #000;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        /* Media Query untuk Skrin Telefon (Mobile) */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            nav {
+                display: none; flex-direction: column; position: absolute;
+                top: 100%; right: 20px; background: rgb(84, 6, 6); width: 200px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px; padding: 10px; z-index: 100;
+            }
+            nav a { padding: 10px; text-align: center; display: block; color: #fff; }
+            nav.active { display: flex; }
+            
+            .hamburger.toggle .bar1 { transform: rotate(-45deg) translate(-5px, 6px); }
+            .hamburger.toggle .bar2 { opacity: 0; }
+            .hamburger.toggle .bar3 { transform: rotate(45deg) translate(-5px, -6px); }
+
+            /* Grid akan automatik jadi 1 kolum di telefon */
+            .team-grid {
+                grid-template-columns: 1fr; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="../../../../images/mssmlogo.png" alt="Logo MSSM" class="logo" style="height: 50px; margin-right: 15px;">
+            <div class="header-title">
+                <h1>PORTAL BOLA JARING MSSM</h1>
+                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+            </div>
+        </div>
+        
+        <div class="hamburger" id="hamburger-menu">
+            <span class="bar1"></span>
+            <span class="bar2"></span>
+            <span class="bar3"></span>
+        </div>
+
+        <nav id="nav-menu">
+            <a href="../../../mssm2026/index.html">HOME</a>
+            <a href="../../u12.html" class="active" style="color: white;">BAWAH 12</a>
+            <a href="../../u15.html">BAWAH 15</a>
+            <a href="../../u18.html">BAWAH 18</a>
+            <a href="../live.html"> 🔴LIVE</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>👥 MSS JOHOR</h2>
+            <p>Kategori Perempuan Bawah 12</p>
+        </section>
+
+        <!-- PEGAWAI PASUKAN -->
+        <section class="team-section">
+            <h2>👔 Pegawai Pasukan</h2>
+
+            <div class="team-grid">
+                <!-- Pegawai 1 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/pengurus.jpg" alt="Pengurus">
+                    <div class="member-info">
+                        <h3>PENGURUS</h3>
+                        <span class="badge">NAMA PENGURUS PASUKAN</span>
+                        <p>Nama Sekolah</p>
+                    </div>
+                </div>
+
+                <!-- Pegawai 2 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/jurulatih.jpg" alt="Jurulatih">
+                    <div class="member-info">
+                        <h3>JURULATIH</h3>
+                        <span class="badge">NAMA JURULATIH</span>
+                        <p>Nama Sekolah</p>
+                    </div>
+                </div>
+
+                <!-- Pegawai 3 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/fisioterapi.jpg" alt="Fisioterapi">
+                    <div class="member-info">
+                        <h3>FISIOTERAPI</h3>
+                        <span class="badge">NAMA FISIOTERAPI</span>
+                        <p>Nama Sekolah</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SENARAI ATLET -->
+        <section class="team-section">
+            <h2>🏐 Senarai Atlet</h2>
+
+            <div class="team-grid">
+                <!-- Atlet 1 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/player1.jpg" alt="Player">
+                    <div class="member-info">
+                        <h3>NAMA ATLET 1</h3>
+                        <span class="badge-player">POSISI</span>
+                        <p>SEKOLAH</p>
+                    </div>
+                </div>
+                <!-- Atlet 2 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/player2.jpg" alt="Player">
+                    <div class="member-info">
+                        <h3>NAMA ATLET 2</h3>
+                        <span class="badge-player">POSISI</span>
+                        <p>SEKOLAH</p>
+                    </div>
+                </div>
+                <!-- Atlet 3 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/player3.jpg" alt="Player">
+                    <div class="member-info">
+                        <h3>NAMA ATLET 3</h3>
+                        <span class="badge-player">POSISI</span>
+                        <p>SEKOLAH</p>
+                    </div>
+                </div>
+                <!-- Atlet 4 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/player4.jpg" alt="Player">
+                    <div class="member-info">
+                        <h3>NAMA ATLET 4</h3>
+                        <span class="badge-player">POSISI</span>
+                        <p>SEKOLAH</p>
+                    </div>
+                </div>
+                <!-- Atlet 5 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/player5.jpg" alt="Player">
+                    <div class="member-info">
+                        <h3>NAMA ATLET 5</h3>
+                        <span class="badge-player">POSISI</span>
+                        <p>SEKOLAH</p>
+                    </div>
+                </div>
+                <!-- Atlet 6 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/player6.jpg" alt="Player">
+                    <div class="member-info">
+                        <h3>NAMA ATLET 6</h3>
+                        <span class="badge-player">POSISI</span>
+                        <p>SEKOLAH</p>
+                    </div>
+                </div>
+                <!-- Atlet 7 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/player7.jpg" alt="Player">
+                    <div class="member-info">
+                        <h3>NAMA ATLET 7</h3>
+                        <span class="badge-player">POSISI</span>
+                        <p>SEKOLAH</p>
+                    </div>
+                </div>
+                <!-- Atlet 8 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/player8.jpg" alt="Player">
+                    <div class="member-info">
+                        <h3>NAMA ATLET 8</h3>
+                        <span class="badge-player">POSISI</span>
+                        <p>SEKOLAH</p>
+                    </div>
+                </div>
+                <!-- Atlet 9 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/player9.jpg" alt="Player">
+                    <div class="member-info">
+                        <h3>NAMA ATLET 9</h3>
+                        <span class="badge-player">POSISI</span>
+                        <p>SEKOLAH</p>
+                    </div>
+                </div>
+                <!-- Atlet 10 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/player10.jpg" alt="Player">
+                    <div class="member-info">
+                        <h3>NAMA ATLET 10</h3>
+                        <span class="badge-player">POSISI</span>
+                        <p>SEKOLAH</p>
+                    </div>
+                </div>
+                <!-- Atlet 11 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/player11.jpg" alt="Player">
+                    <div class="member-info">
+                        <h3>NAMA ATLET 11</h3>
+                        <span class="badge-player">POSISI</span>
+                        <p>SEKOLAH</p>
+                    </div>
+                </div>
+                <!-- Atlet 12 -->
+                <div class="member-card">
+                    <img src="../../../../images/profile/johor/player12.jpg" alt="Player">
+                    <div class="member-info">
+                        <h3>NAMA ATLET 12</h3>
+                        <span class="badge-player">POSISI</span>
+                        <p>SEKOLAH</p>
+                    </div>
+                </div>
+            </div> <!-- Penutup team-grid -->
+
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 20px; background: #f8f9fa; margin-top: 40px;">
+        <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+    </script>
+
+</body>
+</html>

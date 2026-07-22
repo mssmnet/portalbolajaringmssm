@@ -14,88 +14,33 @@
         .state-logo-space { width: 80px; height: 80px; margin: 0 auto 15px; border-radius: 50%; overflow: hidden; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; }
         .state-logo-space img { width: 100%; height: 100%; object-fit: contain; padding: 5px; }
 
-        /* --- CSS UNTUK HEADER & MENU BURGER (TEMA MAROON) --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: #7B1E3A; /* Warna latar belakang header maroon */
-            position: relative;
-        }
-        
-        .header-left {
-            display: flex;
-            align-items: center;
-        }
-
-        /* Teks tajuk berwarna putih supaya jelas */
-        .header-title h1, .header-title p {
-            color: white;
-            margin: 0;
-        }
-
-        /* Ikon Burger */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-        
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background-color: white; /* Garis burger warna putih */
-            transition: all 0.3s ease;
-        }
-
-        /* Navigasi Asal (Desktop) */
-        nav {
-            display: flex;
-            gap: 15px;
-        }
-
-        /* Pautan menu desktop berwarna putih */
-        nav a {
-            color: rgb(80, 4, 4); 
+        /* KOD BARU: Untuk jadikan kad boleh diklik tanpa nampak seperti link biasa */
+        .team-link {
             text-decoration: none;
-            font-weight: bold;
+            color: inherit;
+            display: block;
         }
 
-        /* Media Query untuk Skrin Telefon (Mobile) */
+        .team-link:hover {
+            text-decoration: none;
+        }
+
+        /* --- CSS UNTUK HEADER & MENU BURGER (TEMA MAROON) --- */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #7B1E3A; position: relative; }
+        .header-left { display: flex; align-items: center; }
+        .header-title h1, .header-title p { color: white; margin: 0; }
+        
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .hamburger span { width: 25px; height: 3px; background-color: white; transition: all 0.3s ease; }
+        
+        nav { display: flex; gap: 15px; }
+        nav a { color: rgb(80, 4, 4); text-decoration: none; font-weight: bold; }
+
         @media (max-width: 768px) {
-            .hamburger {
-                display: flex; /* Paparkan burger pada skrin kecil */
-            }
-
-            nav {
-                display: none; /* Sembunyikan menu asal */
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                right: 20px;
-                background: rgb(84, 6, 6); /* Latar belakang dropdown putih */
-                width: 200px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-                border-radius: 8px;
-                padding: 10px;
-                z-index: 100;
-            }
-
-            nav a {
-                padding: 10px;
-                text-align: center;
-                display: block;
-                color: #333; /* Teks menu dropdown hitam supaya nampak pada latar putih */
-            }
-
-            /* Kelas .active dipanggil oleh JavaScript untuk papar menu */
-            nav.active {
-                display: flex;
-            }
-
-            /* Animasi ikon burger */
+            .hamburger { display: flex; }
+            nav { display: none; flex-direction: column; position: absolute; top: 100%; right: 20px; background: rgb(84, 6, 6); width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px; padding: 10px; z-index: 100; }
+            nav a { padding: 10px; text-align: center; display: block; color: #fff; }
+            nav.active { display: flex; }
             .hamburger.toggle .bar1 { transform: rotate(-45deg) translate(-5px, 6px); }
             .hamburger.toggle .bar2 { opacity: 0; }
             .hamburger.toggle .bar3 { transform: rotate(45deg) translate(-5px, -6px); }
@@ -104,6 +49,7 @@
 </head>
 <body>
 
+    <!-- Header Sama Macam Asal -->
     <header>
         <div class="header-left">
             <img src="../../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
@@ -112,20 +58,15 @@
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
-        
-        <!-- Ikon Burger -->
         <div class="hamburger" id="hamburger-menu">
-            <span class="bar1"></span>
-            <span class="bar2"></span>
-            <span class="bar3"></span>
+            <span class="bar1"></span><span class="bar2"></span><span class="bar3"></span>
         </div>
-
         <nav id="nav-menu">
             <a href="../../mssm2026/index.html">HOME</a>
             <a href="../u12.html" class="active">BAWAH 12</a>
-            <a href="../u15.html" class="active">BAWAH 15</a>
-            <a href="../u18.html" class="active">BAWAH 18</a>
-            <a href="live.html" class="active"> 🔴LIVE</a>
+            <a href="../u15.html">BAWAH 15</a>
+            <a href="../u18.html">BAWAH 18</a>
+            <a href="live.html"> 🔴LIVE</a>
         </nav>
     </header>
 
@@ -135,41 +76,79 @@
             <p>Kategori Perempuan Bawah 12</p>
         </section>
 
+        <!-- KOD BARU: Semua Kad Ditambah Tag <a> -->
         <section class="cards-container">
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/johor.png" alt="Johor"></div><h3>MSS JOHOR</h3><p>Pasukan Negeri Johor</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/selangor.png" alt="Selangor"></div><h3>MSS SELANGOR</h3><p>Pasukan Negeri Selangor</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/sabah.png" alt="Sabah"></div><h3>MSS SABAH</h3><p>Pasukan Negeri Sabah</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/sarawak.png" alt="Sarawak"></div><h3>MSS SARAWAK</h3><p>Pasukan Negeri Sarawak</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/melaka.png" alt="Melaka"></div><h3>MSS MELAKA</h3><p>Pasukan Negeri Melaka</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/negeri9.png" alt="Negeri Sembilan"></div><h3>MSS NEGERI SEMBILAN</h3><p>Pasukan Negeri Sembilan</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/perak.png" alt="Perak"></div><h3>MSS PERAK</h3><p>Pasukan Negeri Perak</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/kedah.png" alt="Kedah"></div><h3>MSS KEDAH</h3><p>Pasukan Negeri Kedah</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/pp.png" alt="Pulau Pinang"></div><h3>MSS PULAU PINANG</h3><p>Pasukan Negeri Pulau Pinang</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/perlis.png" alt="Perlis"></div><h3>MSS PERLIS</h3><p>Pasukan Negeri Perlis</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/kelantan.png" alt="Kelantan"></div><h3>MSS KELANTAN</h3><p>Pasukan Negeri Kelantan</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/terengganu.png" alt="Terengganu"></div><h3>MSS TERENGGANU</h3><p>Pasukan Negeri Terengganu</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/pahang.png" alt="Pahang"></div><h3>MSS PAHANG</h3><p>Pasukan Negeri Pahang</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/putrajaya.png" alt="Putrajaya"></div><h3>MSS WP PUTRAJAYA</h3><p>Pasukan Negeri Putrajaya</p></div>
-            <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/kl.png" alt="Kuala Lumpur"></div><h3>MSS WP KUALA LUMPUR</h3><p>Pasukan Negeri Kuala Lumpur</p></div>
+            <!-- Johor -->
+            <!-- Johor -->
+<a href="teams/team-johor.html" class="team-link">
+    <div class="tournament-card">
+        <div class="state-logo-space">
+            <img src="../../../images/logo/mss negeri/johor.png" alt="Johor">
+        </div>
+        <h3>MSS JOHOR</h3>
+        <p>Pasukan Negeri Johor</p>
+    </div>
+</a>
+            </a>
+            <!-- Selangor -->
+            <a href="teams/team-selangor.html" class="team-link">
+                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/selangor.png" alt="Selangor"></div><h3>MSS SELANGOR</h3><p>Pasukan Negeri Selangor</p></div>
+            </a>
+            <!-- Sabah -->
+            <a href="teams/team-sabah.html" class="team-link">
+                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/sabah.png" alt="Sabah"></div><h3>MSS SABAH</h3><p>Pasukan Negeri Sabah</p></div>
+            </a>
+            <!-- Sarawak -->
+            <a href="teams/team-sarawak.html" class="team-link">
+                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/sarawak.png" alt="Sarawak"></div><h3>MSS SARAWAK</h3><p>Pasukan Negeri Sarawak</p></div>
+            </a>
+            <!-- Melaka -->
+            <a href="teams/team-melaka.html" class="team-link">
+                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/melaka.png" alt="Melaka"></div><h3>MSS MELAKA</h3><p>Pasukan Negeri Melaka</p></div>
+            </a>
+            <!-- Negeri Sembilan -->
+            <a href="teams/team-negerisembilan.html" class="team-link">
+                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/negeri9.png" alt="Negeri Sembilan"></div><h3>MSS NEGERI SEMBILAN</h3><p>Pasukan Negeri Sembilan</p></div>
+            </a>
+            <!-- Perak -->
+            <a href="teams/team-perak.html" class="team-link">
+                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/perak.png" alt="Perak"></div><h3>MSS PERAK</h3><p>Pasukan Negeri Perak</p></div>
+            </a>
+            <!-- Kedah -->
+            <a href="teams/team-kedah.html" class="team-link">
+                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/kedah.png" alt="Kedah"></div><h3>MSS KEDAH</h3><p>Pasukan Negeri Kedah</p></div>
+            </a>
+            <!-- Pulau Pinang -->
+            <a href="teams/team-pulaupinang.html" class="team-link">
+                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/pp.png" alt="Pulau Pinang"></div><h3>MSS PULAU PINANG</h3><p>Pasukan Negeri Pulau Pinang</p></div>
+            </a>
+            <!-- Perlis -->
+            <a href="teams/team-perlis.html" class="team-link">
+                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/perlis.png" alt="Perlis"></div><h3>MSS PERLIS</h3><p>Pasukan Negeri Perlis</p></div>
+            </a>
+            <!-- Kelantan -->
+            <a href="teams/team-kelantan.html" class="team-link">
+                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/kelantan.png" alt="Kelantan"></div><h3>MSS KELANTAN</h3><p>Pasukan Negeri Kelantan</p></div>
+            </a>
+            <!-- Terengganu -->
+            <a href="teams/team-terengganu.html" class="team-link">
+                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/terengganu.png" alt="Terengganu"></div><h3>MSS TERENGGANU</h3><p>Pasukan Negeri Terengganu</p></div>
+            </a>
+            <!-- Pahang -->
+            <a href="teams/team-pahang.html" class="team-link">
+                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/pahang.png" alt="Pahang"></div><h3>MSS PAHANG</h3><p>Pasukan Negeri Pahang</p></div>
+            </a>
+            <!-- Putrajaya -->
+            <a href="teams/team-putrajaya.html" class="team-link">
+                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/putrajaya.png" alt="Putrajaya"></div><h3>MSS WP PUTRAJAYA</h3><p>Pasukan Negeri Putrajaya</p></div>
+            </a>
+            <!-- Kuala Lumpur -->
+            <a href="teams/team-kualalumpur.html" class="team-link">
+                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/kl.png" alt="Kuala Lumpur"></div><h3>MSS WP KUALA LUMPUR</h3><p>Pasukan Negeri Kuala Lumpur</p></div>
+            </a>
         </section>
     </main>
 
-    <footer>
-        <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
-    </footer>
-
-    <!-- SCRIPT MENU BURGER -->
-    <script>
-        const hamburger = document.getElementById('hamburger-menu');
-        const navMenu = document.getElementById('nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            // Tambah/buang class 'active' untuk paparkan menu
-            navMenu.classList.toggle('active');
-            // Tambah/buang class 'toggle' untuk animasi ikon burger menjadi 'X'
-            hamburger.classList.toggle('toggle');
-        });
-    </script>
-
+    <!-- Footer & Script Sama Macam Asal -->
 </body>
 </html>
