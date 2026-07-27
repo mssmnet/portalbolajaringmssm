@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keputusan Perlawanan | MSSM 2026</title>
+    <title>Keputusan Perlawanan | MSSM 2026 (B18)</title>
     <link rel="stylesheet" href="../../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
@@ -20,10 +20,17 @@
         .btn-print { background: #7B1E3A; color: white; border: none; padding: 12px 28px; border-radius: 40px; font-size: 15px; font-weight: 700; cursor: pointer; transition: .3s; }
         .btn-print:hover { background: #5d132c; transform: translateY(-2px); }
 
-        /* Komponen Jadual */
+        /* Komponen Jadual & Logo Seragam */
         .team-cell { display: flex; align-items: center; gap: 12px; }
         .team-cell.right { justify-content: flex-end; }
-        .team-logo { width: 50px; height: 50px; object-fit: contain; }
+        
+        .team-logo { 
+            width: 30px; 
+            height: 30px; 
+            object-fit: contain; 
+            flex-shrink: 0;
+        }
+        
         .team-name { font-weight: 700; color: #333; display: block; }
         .score-box { display: flex; justify-content: center; align-items: center; gap: 10px; }
         .score { background: #7B1E3A; color: #fff; padding: 10px 18px; border-radius: 12px; font-size: 22px; font-weight: bold; }
@@ -73,7 +80,7 @@
             <a href="../../mssm2026/index.html">HOME</a>
             <a href="../u12.html">BAWAH 12</a>
             <a href="../u15.html">BAWAH 15</a>
-            <a href="../u18.html">BAWAH 18</a>
+            <a href="../u18.html" class="active">BAWAH 18</a>
             <a href="live.html"> 🔴LIVE</a>
         </nav>
     </header>
@@ -83,7 +90,7 @@
         <div class="results-header">
             <div class="results-title">
                 <h2><i class="fa-solid fa-square-poll-horizontal"></i> Keputusan Perlawanan</h2>
-                <p>Kategori Bawah 12 MSSM 2026</p>
+                <p>Kategori Bawah 18 MSSM 2026</p>
             </div>
             <button class="btn-print" onclick="window.print()">
                 <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
@@ -103,7 +110,12 @@
                     </tr>
                 </thead>
                 <tbody id="resultsBody">
-                    </tbody>
+                    <tr>
+                        <td colspan="6" style="text-align:center; padding: 20px; font-style: italic; color: #888;">
+                            Memuatkan keputusan perlawanan B18...
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </main>
@@ -112,6 +124,108 @@
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
 
-    <script src="../../../script.js"></script>
+    <!-- KOD JAVASCRIPT DIRECT LINK UNTUK RESULT B18 & SISTEM LOGO SERAGAM -->
+    <script>
+        // Fungsi untuk memetakan nama pasukan kepada fail logo negeri yang seragam
+        function getLogo(team) {
+            const logoMap = {
+                "MSS JOHOR": "johor.png",
+                "MSS KEDAH": "kedah.png",
+                "MSS KELANTAN": "kelantan.png",
+                "MSS SELANGOR": "selangor.png",
+                "MSS PERAK": "perak.png",
+                "MSS PAHANG": "pahang.png",
+                "MSS MELAKA": "melaka.png",
+                "MSS SARAWAK": "sarawak.png",
+                "MSS SABAH": "sabah.png",
+                "MSS TERENGGANU": "terengganu.png",
+                "MSS PERLIS": "perlis.png",
+                "MSS PULAU PINANG": "pp.png",
+                "MSS WP PUTRAJAYA": "putrajaya.png",
+                "MSS WP KUALA LUMPUR": "kl.png",
+                "MSS WP LABUAN": "labuan.png",
+                "MSS NEGERI SEMBILAN": "negeri9.png"
+            };
+
+            const cleanTeam = team.toUpperCase().startsWith("MSS ") ? team.toUpperCase() : `MSS ${team.toUpperCase()}`;
+            const fileName = logoMap[cleanTeam] || logoMap[team.toUpperCase()] || "default.png";
+
+            return `../../../images/logo/mss negeri/${fileName}`;
+        }
+
+        // Pautan Gviz terus ke lembaran RESULT Google Sheet B18
+        const sheetUrlB18Results = "https://docs.google.com/spreadsheets/d/180gesLRs2fnsR677akZUTVFYFkkSiEu-aaVUnKquXHo/gviz/tq?tqx=out:json&sheet=RESULT";
+
+        async function muatKeputusanB18() {
+            const tableBody = document.getElementById("resultsBody");
+            if (!tableBody) return;
+
+            try {
+                const response = await fetch(sheetUrlB18Results);
+                const textData = await response.text();
+                
+                // Ekstrak teks gviz bertukar menjadi objek JSON
+                const rawJson = JSON.parse(textData.substring(47).slice(0, -2));
+                const rows = rawJson.table.rows;
+
+                tableBody.innerHTML = ""; 
+
+                rows.forEach((row) => {
+                    if (!row.c || row.c[0] === null) return;
+                    const r = row.c;
+                    const val = (index) => (r[index]?.f || r[index]?.v || "").toString().trim();
+
+                    const noMatch  = val(0);
+                    const kump     = val(1);
+                    const team1    = val(2);
+                    const skor1    = val(3);
+                    const team2    = val(4);
+                    const skor2    = val(5);
+                    const pemenang = val(6);
+
+                    // Abaikan baris tajuk
+                    if (noMatch.toLowerCase().includes("match") || noMatch.toLowerCase().includes("no") || noMatch === "") return;
+                    
+                    tableBody.innerHTML += `
+                    <tr>
+                        <td style="font-weight:bold;">${noMatch}</td>
+                        <td><span class="group-badge">${kump}</span></td>
+                        <td>
+                            <div class="team-cell">
+                                <img src="${getLogo(team1)}" class="team-logo" onerror="this.src='../../../images/logo/default.png'">
+                                <div><div class="team-name">${team1}</div></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="score-box">
+                                <span class="score">${skor1 || 0}</span>
+                                <span class="score-separator" style="font-weight:bold; font-size:18px;">-</span>
+                                <span class="score">${skor2 || 0}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="team-cell right">
+                                <div><div class="team-name">${team2}</div></div>
+                                <img src="${getLogo(team2)}" class="team-logo" onerror="this.src='../../../images/logo/default.png'">
+                            </div>
+                        </td>
+                        <td><span class="result-badge">${pemenang || "-"}</span></td>
+                    </tr>`;
+                });
+
+                if (tableBody.innerHTML === "") {
+                    tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:20px;">Tiada data keputusan ditemui.</td></tr>`;
+                }
+
+                console.log("Data Keputusan B18 berjaya dipaparkan.");
+
+            } catch (error) {
+                console.error("Ralat memuatkan data sheet RESULT B18:", error);
+                tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:red; padding:20px;">Gagal memuatkan keputusan. Sila pastikan tab bernama 'RESULT' wujud pada Google Sheet B18.</td></tr>`;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', muatKeputusanB18);
+    </script>
 </body>
 </html>

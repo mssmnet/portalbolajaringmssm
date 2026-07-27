@@ -46,14 +46,12 @@ const SHEET_SEKARANG = DATA_SOURCES[KATEGORI_AKTIF] || DATA_SOURCES.B12;
 let kumpulanURL, jadualURL, resultURL, standingURL, undianP2URL;
 
 if (SHEET_SEKARANG.isPublishedVersion) {
-    // Cara bina URL untuk format Published Web Link (B18)
     kumpulanURL = `${SHEET_SEKARANG.base}/gviz/tq?tqx=out:json&gid=${SHEET_SEKARANG.gidStanding}`;
     jadualURL   = `${SHEET_SEKARANG.base}/gviz/tq?tqx=out:json&gid=${SHEET_SEKARANG.gidJadual}`;
     resultURL   = `${SHEET_SEKARANG.base}/gviz/tq?tqx=out:json&sheet=RESULT`;
     standingURL = `${SHEET_SEKARANG.base}/gviz/tq?tqx=out:json&gid=${SHEET_SEKARANG.gidStanding}`;
     undianP2URL = `${SHEET_SEKARANG.base}/gviz/tq?tqx=out:json&gid=${SHEET_SEKARANG.gidUndianP2 || '0'}`;
 } else {
-    // Cara bina URL asal untuk format B12 & B15
     kumpulanURL = `${SHEET_SEKARANG.base}/gviz/tq?tqx=out:json&sheet=KUMPULAN`;
     jadualURL   = `${SHEET_SEKARANG.base}/gviz/tq?tqx=out:json&gid=${SHEET_SEKARANG.gidJadual}`;
     resultURL   = `${SHEET_SEKARANG.base}/gviz/tq?tqx=out:json&sheet=RESULT`;
@@ -65,6 +63,36 @@ if (SHEET_SEKARANG.isPublishedVersion) {
 
 let currentIndex = 0;
 let galleryImages = [];
+
+// ==========================================
+// FUNGSI UTAMA LOGO (DIGUNAKAN BERSAMA)
+// ==========================================
+function getLogo(team) {
+    const logoMap = {
+        "MSS JOHOR": "johor.png",
+        "MSS KEDAH": "kedah.png",
+        "MSS KELANTAN": "kelantan.png",
+        "MSS SELANGOR": "selangor.png",
+        "MSS PERAK": "perak.png",
+        "MSS PAHANG": "pahang.png",
+        "MSS MELAKA": "melaka.png",
+        "MSS SARAWAK": "sarawak.png",
+        "MSS SABAH": "sabah.png",
+        "MSS TERENGGANU": "terengganu.png",
+        "MSS PERLIS": "perlis.png",
+        "MSS PULAU PINANG": "pp.png",
+        "MSS WP PUTRAJAYA": "putrajaya.png",
+        "MSS WP KUALA LUMPUR": "kl.png",
+        "MSS WP LABUAN": "labuan.png",
+        "MSS NEGERI SEMBILAN": "negeri9.png"
+    };
+
+    // Menyokong nama pasukan yang bersih (tanpa 'MSS ') sekiranya dihantar dari result
+    const cleanTeam = team.toUpperCase().startsWith("MSS ") ? team.toUpperCase() : `MSS ${team.toUpperCase()}`;
+    const fileName = logoMap[cleanTeam] || logoMap[team.toUpperCase()] || "default.png";
+
+    return `../../../images/logo/mss negeri/${fileName}`;
+}
 
 // ==========================================
 // 1. FUNGSI UTAMA GALLERY & LIGHTBOX
@@ -166,7 +194,7 @@ window.onclick = function(e){
 };
 
 // ==========================================
-// 2. AMBIL DATA KUMPULAN (TAB: KUMPULAN)
+// 2. AMBIL DATA KUMPULAN (TAB: KUMPULAN) - DENGAN LOGO
 // ==========================================
 if (document.getElementById("groupA") || document.getElementById("groupB")) {
     fetch(kumpulanURL)
@@ -175,61 +203,33 @@ if (document.getElementById("groupA") || document.getElementById("groupB")) {
         const json = JSON.parse(data.substring(47).slice(0,-2));
         const rows = json.table.rows;
 
-        // Group A
-        const groupA = [];
-        for (let i = 7; i <= 10; i++) {
-            if(rows[i] && rows[i].c && rows[i].c[2]) {
-                const team = rows[i].c[2].v;
-                if(team) groupA.push(team);
-            }
-        }
-        const listA = document.getElementById("groupA");
-        if(listA){
-            listA.innerHTML = "";
-            groupA.forEach(team => { listA.innerHTML += `<li>${team}</li>`; });
-        }   
+        // Fungsi pembantu untuk paparkan senarai pasukan dengan logo bersaiz seragam
+        const renderGroup = (elementId, startRow, endRow, colIndex) => {
+            const listEl = document.getElementById(elementId);
+            if (!listEl) return;
 
-        // Group B
-        const groupB = [];
-        for (let i = 7; i <= 10; i++) {
-            if(rows[i] && rows[i].c && rows[i].c[5]) {
-                const team = rows[i].c[5].v;
-                if(team) groupB.push(team);
+            let groupTeams = [];
+            for (let i = startRow; i <= endRow; i++) {
+                if(rows[i] && rows[i].c && rows[i].c[colIndex]) {
+                    const team = rows[i].c[colIndex].v;
+                    if(team) groupTeams.push(team);
+                }
             }
-        }
-        const listB = document.getElementById("groupB");
-        if(listB){
-            listB.innerHTML = "";
-            groupB.forEach(team => { listB.innerHTML += `<li>${team}</li>`; });
-        }
 
-        // Group C
-        const groupC = [];
-        for (let i = 15; i <= 18; i++) {
-            if(rows[i] && rows[i].c && rows[i].c[2]) {
-                const team = rows[i].c[2].v;
-                if(team) groupC.push(team);
-            }
-        }
-        const listC = document.getElementById("groupC");
-        if (listC) {
-            listC.innerHTML = "";
-            groupC.forEach(team => { listC.innerHTML += `<li>${team}</li>`; });
-        }
+            listEl.innerHTML = "";
+            groupTeams.forEach(team => {
+                listEl.innerHTML += `
+                <li class="group-team">
+                    <img src="${getLogo(team)}" class="group-logo" onerror="this.src='../../../images/logo/default.png'">
+                    <span>${team}</span>
+                </li>`;
+            });
+        };
 
-        // Group D
-        const groupD = [];
-        for (let i = 15; i <= 18; i++) {
-            if(rows[i] && rows[i].c && rows[i].c[5]) {
-                const team = rows[i].c[5].v;
-                if(team) groupD.push(team);
-            }
-        }
-        const listD = document.getElementById("groupD");
-        if (listD) {
-            listD.innerHTML = "";
-            groupD.forEach(team => { listD.innerHTML += `<li>${team}</li>`; });
-        }
+        renderGroup("groupA", 7, 10, 2);
+        renderGroup("groupB", 7, 10, 5);
+        renderGroup("groupC", 15, 18, 2);
+        renderGroup("groupD", 15, 18, 5);
 
         console.log(`Data kumpulan ${KATEGORI_AKTIF} berjaya dimuatkan.`);
     })
@@ -332,11 +332,6 @@ if (tableBody) {
 
         tableBody.innerHTML = ""; 
 
-        const getLogo = (name) => {
-            const cleanName = name.toLowerCase().replace('mss ', '').trim();
-            return `../../../images/logo/${cleanName}.png`;
-        };
-
         rows.forEach((row, i) => {
             if (!row.c || row.c[0] === null) return;
             const r = row.c;
@@ -404,13 +399,7 @@ function downloadPDF(){
 // ==========================================
 function muatTurunUndianP2() {
     const tableBodyP2 = document.getElementById("undianP2Body");
-    
-    if (!tableBodyP2) {
-        console.warn("Makluman: Elemen 'undianP2Body' tiada dalam HTML halaman ini (Bukan halaman undian).");
-        return; 
-    }
-
-    console.log("Sedang menarik data Undian P2 dari:", undianP2URL);
+    if (!tableBodyP2) return; 
 
     fetch(undianP2URL)
     .then(res => res.text())
@@ -418,14 +407,10 @@ function muatTurunUndianP2() {
         const json = JSON.parse(data.substring(data.indexOf("{"), data.lastIndexOf("}") + 1));
         const rows = json.table.rows;
         
-        console.log("Berjaya tarik data sheet P2. Ini struktur datanya:", rows);
         tableBodyP2.innerHTML = "";
 
         rows.forEach((row, index) => {
-            if (!row.c) return;
-            
-            // Abaikan tajuk (row 0, row 1)
-            if (index < 2) return; 
+            if (!row.c || index < 2) return; 
 
             const val = (i) => row.c[i] ? (row.c[i].f ?? row.c[i].v ?? "").toString().trim() : "";
 
@@ -434,7 +419,6 @@ function muatTurunUndianP2() {
             const undianJohan = val(5); 
             const undianNaib  = val(6); 
 
-            // Jangan masukkan baris yang kosong sepenuhnya
             if (!johan && !naibJohan && !undianJohan && !undianNaib) return;
 
             tableBodyP2.innerHTML += `
@@ -477,8 +461,7 @@ function muatTurunStanding() {
             const rank = val(1);
             const kod  = val(2);
 
-            if (kod === "") return;
-            if (!/^[ABCD]\d+$/i.test(kod)) return;
+            if (kod === "" || !/^[ABCD]\d+$/i.test(kod)) return;
 
             const group = kod.charAt(0).toUpperCase();
 

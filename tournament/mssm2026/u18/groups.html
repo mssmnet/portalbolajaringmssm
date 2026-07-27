@@ -159,27 +159,40 @@
 
         .group-card ul {
             list-style: none;
-            padding: 15px 0 25px 0;
+            padding: 10px 0;
             margin: 0;
             flex-grow: 1; 
         }
 
-        .group-card li {
-            text-align: center;
-            padding: 12px 15px;
+        /* Gaya Baris Pasukan & Logo yang Seragam */
+        .group-team {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+            padding: 12px 25px;
             border-bottom: 1px solid #f7fafc;
             font-weight: 600;
             color: #2d3748;
-            font-size: 20px;
+            font-size: 18px;
             transition: background-color 0.2s ease;
         }
 
-        .group-card li:hover {
+        .group-team:hover {
             background-color: #fff5f8; 
             color: var(--maroon-utama);
         }
 
+        .group-logo {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
         .group-card li.empty-slot {
+            text-align: center;
+            padding: 12px 15px;
             color: #a0aec0;
             font-style: italic;
         }
@@ -266,8 +279,35 @@
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
 
-    <!-- KOD JAVASCRIPT DIRECT LINK DENGAN FORMAT GVIZ UNTUK TAB KUMPULAN B18 -->
+    <!-- KOD JAVASCRIPT DIRECT LINK DENGAN FORMAT GVIZ UNTUK TAB KUMPULAN B18 & LOGO -->
     <script>
+        // Fungsi untuk memetakan nama pasukan kepada fail logo negeri yang seragam
+        function getLogo(team) {
+            const logoMap = {
+                "MSS JOHOR": "johor.png",
+                "MSS KEDAH": "kedah.png",
+                "MSS KELANTAN": "kelantan.png",
+                "MSS SELANGOR": "selangor.png",
+                "MSS PERAK": "perak.png",
+                "MSS PAHANG": "pahang.png",
+                "MSS MELAKA": "melaka.png",
+                "MSS SARAWAK": "sarawak.png",
+                "MSS SABAH": "sabah.png",
+                "MSS TERENGGANU": "terengganu.png",
+                "MSS PERLIS": "perlis.png",
+                "MSS PULAU PINANG": "pp.png",
+                "MSS WP PUTRAJAYA": "putrajaya.png",
+                "MSS WP KUALA LUMPUR": "kl.png",
+                "MSS WP LABUAN": "labuan.png",
+                "MSS NEGERI SEMBILAN": "negeri9.png"
+            };
+
+            const cleanTeam = team.toUpperCase().startsWith("MSS ") ? team.toUpperCase() : `MSS ${team.toUpperCase()}`;
+            const fileName = logoMap[cleanTeam] || logoMap[team.toUpperCase()] || "default.png";
+
+            return `../../../images/logo/mss negeri/${fileName}`;
+        }
+
         // Menggunakan pautan ID Google Sheet B18 anda yang betul
         const sheetUrlB18 = "https://docs.google.com/spreadsheets/d/180gesLRs2fnsR677akZUTVFYFkkSiEu-aaVUnKquXHo/gviz/tq?tqx=out:json";
 
@@ -298,7 +338,7 @@
                     }
                 }
 
-                // Papar senarai pasukan ke paparan UI
+                // Papar senarai pasukan beserta logo ke paparan UI
                 kemaskiniSenaraiUI('groupA', kumpulan.A);
                 kemaskiniSenaraiUI('groupB', kumpulan.B);
                 kemaskiniSenaraiUI('groupC', kumpulan.C);
@@ -321,7 +361,12 @@
                 ul.innerHTML = `<li class="empty-slot">Tiada Pasukan</li>`;
                 return;
             }
-            ul.innerHTML = senaraiPasukan.map(pasukan => `<li>${pasukan}</li>`).join('');
+            ul.innerHTML = senaraiPasukan.map(team => `
+                <li class="group-team">
+                    <img src="${getLogo(team)}" class="group-logo" onerror="this.src='../../../images/logo/default.png'">
+                    <span>${team}</span>
+                </li>
+            `).join('');
         }
 
         window.addEventListener('DOMContentLoaded', muatDataKumpulanB18);

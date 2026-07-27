@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kedudukan Pasukan | MSSM 2026</title>
+    <title>Kedudukan Pasukan | MSSM 2026 (B15)</title>
     <link rel="stylesheet" href="../../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
         /* CSS Utama Jadual Kedudukan */
         .standings-container { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,.08); }
-        .group-title { background: #7B1E3A; color: #fff; padding: 12px 20px; font-size: 18px; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 10px; }
+        .group-title { background: #7B1E3A; color: #fff; padding: 15px 25px; font-size: 20px; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 12px; }
         .standings-table { width: 100%; border-collapse: collapse; }
         
-        /* Saiz fon & padding dikecilkan sedikit supaya muat 2 kolum bersebelahan */
-        .standings-table th { background: #f8f9fa; color: #333; padding: 10px 5px; font-size: 12px; text-transform: uppercase; border-bottom: 2px solid #eee; text-align: center; }
+        /* Saiz fon & padding DIBESARKAN */
+        .standings-table th { background: #f8f9fa; color: #333; padding: 14px 10px; font-size: 14px; text-transform: uppercase; border-bottom: 2px solid #eee; text-align: center; }
         .standings-table th.team-col { text-align: left; }
-        .standings-table td { padding: 10px 5px; border-bottom: 1px solid #eee; text-align: center; vertical-align: middle; color: #444; font-weight: 500; font-size: 13px; }
+        .standings-table td { padding: 14px 10px; border-bottom: 1px solid #eee; text-align: center; vertical-align: middle; color: #444; font-weight: 500; font-size: 15px; }
         .standings-table td.team-col { text-align: left; }
 
         /* Highlight untuk 2 Pasukan Teratas */
@@ -24,10 +24,12 @@
         .standings-table tr:nth-child(even) { background: #fafafa; }
         .standings-table tr:hover { background: #fff4f7; }
 
-        .team-cell { display: flex; align-items: center; gap: 8px; }
-        .team-logo { width: 25px; height: 25px; object-fit: contain; }
-        .team-name { font-weight: 700; color: #333; display: block; font-size: 13px; }
-        .pts-col { background: #fff4f7; color: #7B1E3A; font-weight: 800 !important; font-size: 14px; }
+        .team-cell { display: flex; align-items: center; gap: 12px; }
+        
+        /* Logo dibesarkan */
+        .team-logo { width: 35px; height: 35px; object-fit: contain; }
+        .team-name { font-weight: 700; color: #333; display: block; font-size: 16px; }
+        .pts-col { background: #fff4f7; color: #7B1E3A; font-weight: 800 !important; font-size: 16px; }
 
         /* Header & Button */
         .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; gap: 20px; }
@@ -36,19 +38,15 @@
         .btn-print { background: #7B1E3A; color: white; border: none; padding: 12px 28px; border-radius: 40px; font-size: 15px; font-weight: 700; cursor: pointer; transition: .3s; }
         .btn-print:hover { background: #5d132c; transform: translateY(-2px); }
 
-        /* GAYA BARU: GRID UNTUK MENYUSUN KUMPULAN BERSEBELAHAN */
+        /* GAYA BARU: GRID UNTUK MENYUSUN KUMPULAN KE BAWAH (1 LAJUR) */
         .standings-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Membahagikan kepada 2 lajur */
-            gap: 25px; /* Jarak antara kotak kumpulan */
+            grid-template-columns: 1fr; /* Tukar jadi 1 lajur sahaja */
+            gap: 35px; /* Jarak antara jadual kumpulan */
             margin-bottom: 40px;
-        }
-
-        /* Responsif untuk skrin kecil (Telefon Bimbit) */
-        @media (max-width: 992px) {
-            .standings-grid {
-                grid-template-columns: 1fr; /* Kembali menjadi 1 baris ke bawah */
-            }
+            max-width: 1000px; /* Maksimum kelebaran jadual */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Gaya untuk Footer */
@@ -66,8 +64,8 @@
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
             header, nav, footer, .btn-print { display: none !important; }
             body { background: white; }
-            .standings-grid { grid-template-columns: 1fr 1fr; gap: 15px; } /* Kekal 2 lajur ketika print */
-            .standings-container { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+            .standings-grid { max-width: 100%; gap: 20px; } 
+            .standings-container { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; margin-bottom: 20px; }
         }
     </style>
 </head>
@@ -84,7 +82,7 @@
         <nav>
             <a href="../../mssm2026/index.html">HOME</a>
             <a href="../u12.html">BAWAH 12</a>
-            <a href="../u15.html">BAWAH 15</a>
+            <a href="../u15.html" class="active">BAWAH 15</a>
             <a href="../u18.html">BAWAH 18</a>
             <a href="live.html"> 🔴LIVE</a>
             <a href="standing.html" class="active">KEDUDUKAN</a> 
@@ -95,8 +93,7 @@
         
         <div class="page-header">
             <div class="page-title">
-                <h2><i class="fa-solid fa-list-ol"></i> Kedudukan Kumpulan Bawah15</h2>
-        
+                <h2><i class="fa-solid fa-list-ol"></i> Kedudukan Kumpulan Bawah 15</h2>
             </div>
             <button class="btn-print" onclick="window.print()">
                 <i class="fa-solid fa-print"></i> Cetak PDF
@@ -105,104 +102,245 @@
 
         <div class="standings-grid">
             
+            <!-- KUMPULAN A -->
             <div class="standings-container">
                 <h3 class="group-title"><i class="fa-solid fa-users"></i> KUMPULAN A</h3>
                 <table class="standings-table">
                     <thead>
                         <tr>
                             <th style="width:6%;">#</th>
-                            <th class="team-col" style="width:28%;">PASUKAN</th>
-                            <th style="width:7%;">P</th>
-                            <th style="width:7%;">W</th>
-                            <th style="width:7%;">D</th>
-                            <th style="width:7%;">L</th>
+                            <th class="team-col" style="width:30%;">PASUKAN</th>
+                            <th style="width:6%;">P</th>
+                            <th style="width:6%;">W</th>
+                            <th style="width:6%;">D</th>
+                            <th style="width:6%;">L</th>
                             <th style="width:8%;">GF</th>
                             <th style="width:8%;">GA</th>
                             <th style="width:8%;">GD</th>
                             <th style="width:8%;">GAV</th>
-                            <th class="pts-col" style="width:6%;">PTS</th>
+                            <th class="pts-col" style="width:8%;">PTS</th>
                         </tr>
                     </thead>
                     <tbody id="standings-group-a">
-                        </tbody>
+                        <tr><td colspan="11" style="font-style:italic; color:#888;">Memuatkan data...</td></tr>
+                    </tbody>
                 </table>
             </div>
 
+            <!-- KUMPULAN B -->
             <div class="standings-container">
                 <h3 class="group-title"><i class="fa-solid fa-users"></i> KUMPULAN B</h3>
                 <table class="standings-table">
                     <thead>
                         <tr>
                             <th style="width:6%;">#</th>
-                            <th class="team-col" style="width:28%;">PASUKAN</th>
-                            <th style="width:7%;">P</th>
-                            <th style="width:7%;">W</th>
-                            <th style="width:7%;">D</th>
-                            <th style="width:7%;">L</th>
+                            <th class="team-col" style="width:30%;">PASUKAN</th>
+                            <th style="width:6%;">P</th>
+                            <th style="width:6%;">W</th>
+                            <th style="width:6%;">D</th>
+                            <th style="width:6%;">L</th>
                             <th style="width:8%;">GF</th>
                             <th style="width:8%;">GA</th>
                             <th style="width:8%;">GD</th>
                             <th style="width:8%;">GAV</th>
-                            <th class="pts-col" style="width:6%;">PTS</th>
+                            <th class="pts-col" style="width:8%;">PTS</th>
                         </tr>
                     </thead>
                     <tbody id="standings-group-b">
-                         </tbody>
+                         <tr><td colspan="11" style="font-style:italic; color:#888;">Memuatkan data...</td></tr>
+                    </tbody>
                 </table>
             </div>
 
+            <!-- KUMPULAN C -->
             <div class="standings-container">
                 <h3 class="group-title"><i class="fa-solid fa-users"></i> KUMPULAN C</h3>
                 <table class="standings-table">
                     <thead>
                         <tr>
                             <th style="width:6%;">#</th>
-                            <th class="team-col" style="width:28%;">PASUKAN</th>
-                            <th style="width:7%;">P</th>
-                            <th style="width:7%;">W</th>
-                            <th style="width:7%;">D</th>
-                            <th style="width:7%;">L</th>
+                            <th class="team-col" style="width:30%;">PASUKAN</th>
+                            <th style="width:6%;">P</th>
+                            <th style="width:6%;">W</th>
+                            <th style="width:6%;">D</th>
+                            <th style="width:6%;">L</th>
                             <th style="width:8%;">GF</th>
                             <th style="width:8%;">GA</th>
                             <th style="width:8%;">GD</th>
                             <th style="width:8%;">GAV</th>
-                            <th class="pts-col" style="width:6%;">PTS</th>
+                            <th class="pts-col" style="width:8%;">PTS</th>
                         </tr>
                     </thead>
                     <tbody id="standings-group-c">
-                         </tbody>
+                         <tr><td colspan="11" style="font-style:italic; color:#888;">Memuatkan data...</td></tr>
+                    </tbody>
                 </table>
             </div>
 
+            <!-- KUMPULAN D -->
             <div class="standings-container">
                 <h3 class="group-title"><i class="fa-solid fa-users"></i> KUMPULAN D</h3>
                 <table class="standings-table">
                     <thead>
                         <tr>
                             <th style="width:6%;">#</th>
-                            <th class="team-col" style="width:28%;">PASUKAN</th>
-                            <th style="width:7%;">P</th>
-                            <th style="width:7%;">W</th>
-                            <th style="width:7%;">D</th>
-                            <th style="width:7%;">L</th>
+                            <th class="team-col" style="width:30%;">PASUKAN</th>
+                            <th style="width:6%;">P</th>
+                            <th style="width:6%;">W</th>
+                            <th style="width:6%;">D</th>
+                            <th style="width:6%;">L</th>
                             <th style="width:8%;">GF</th>
                             <th style="width:8%;">GA</th>
                             <th style="width:8%;">GD</th>
                             <th style="width:8%;">GAV</th>
-                            <th class="pts-col" style="width:6%;">PTS</th>
+                            <th class="pts-col" style="width:8%;">PTS</th>
                         </tr>
                     </thead>
                     <tbody id="standings-group-d">
-                         </tbody>
+                         <tr><td colspan="11" style="font-style:italic; color:#888;">Memuatkan data...</td></tr>
+                    </tbody>
                 </table>
             </div>
 
-        </div> </main>
+        </div> 
+    </main>
 
     <footer>
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
     
-    <script src="../../../script.js"></script>
+    <!-- KOD JAVASCRIPT KHAS UNTUK CSV KEDUDUKAN & LOGO -->
+    <script>
+        // Fungsi untuk memetakan nama pasukan kepada fail logo negeri
+        function getLogo(team) {
+            if (!team) return `../../../images/logo/default.png`;
+            const logoMap = {
+                "MSS JOHOR": "johor.png",
+                "MSS KEDAH": "kedah.png",
+                "MSS KELANTAN": "kelantan.png",
+                "MSS SELANGOR": "selangor.png",
+                "MSS PERAK": "perak.png",
+                "MSS PAHANG": "pahang.png",
+                "MSS MELAKA": "melaka.png",
+                "MSS SARAWAK": "sarawak.png",
+                "MSS SABAH": "sabah.png",
+                "MSS TERENGGANU": "terengganu.png",
+                "MSS PERLIS": "perlis.png",
+                "MSS PULAU PINANG": "pp.png",
+                "MSS WP PUTRAJAYA": "putrajaya.png",
+                "MSS WP KUALA LUMPUR": "kl.png",
+                "MSS WP LABUAN": "labuan.png",
+                "MSS NEGERI SEMBILAN": "negeri9.png"
+            };
+
+            const cleanTeam = team.trim().toUpperCase().startsWith("MSS ") ? team.trim().toUpperCase() : `MSS ${team.trim().toUpperCase()}`;
+            const fileName = logoMap[cleanTeam] || logoMap[team.trim().toUpperCase()] || "default.png";
+
+            return `../../../images/logo/mss negeri/${fileName}`;
+        }
+
+        // Pautan Publish to Web CSV Google Sheet B15 yang dibekalkan
+        const csvUrlB15Standing = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQxapn6dxaob8mZiRF_7h0GrWDJWe15Hkzvi6ey1O8I2x1oNkgXXOPMAUTSsycbHQ8pIUTUqpF7Mv8j/pub?gid=626141204&single=true&output=csv";
+
+        // Parser CSV pintar
+        function parseCSV(str) {
+            const arr = [];
+            let quote = false;
+            let row = [], col = '';
+            for (let c = 0; c < str.length; c++) {
+                let cc = str[c], nc = str[c+1];
+                if (cc === '"' && quote && nc === '"') { col += cc; c++; continue; }
+                if (cc === '"') { quote = !quote; continue; }
+                if (cc === ',' && !quote) { row.push(col.trim()); col = ''; continue; }
+                if (cc === '\n' && !quote) { row.push(col.trim()); arr.push(row); row = []; col = ''; continue; }
+                if (cc === '\r' && !quote) { continue; }
+                col += cc;
+            }
+            if (col) row.push(col.trim());
+            if (row.length > 0) arr.push(row);
+            return arr;
+        }
+
+        async function muatKedudukanB15() {
+            try {
+                const response = await fetch(csvUrlB15Standing);
+                const csvText = await response.text();
+                const rows = parseCSV(csvText);
+
+                let html = { A: "", B: "", C: "", D: "" };
+                let currentGroup = "";
+
+                rows.forEach(cols => {
+                    // Bersihkan setiap lajur
+                    cols = cols.map(c => c.trim());
+
+                    // PENGESAN PINTAR KUMPULAN (Membaca A, B, C, D)
+                    for (let i = 0; i < Math.min(4, cols.length); i++) {
+                        const val = cols[i].toUpperCase();
+                        if (val === "A" || val === "KUMPULAN A" || val === "GROUP A") currentGroup = "A";
+                        else if (val === "B" || val === "KUMPULAN B" || val === "GROUP B") currentGroup = "B";
+                        else if (val === "C" || val === "KUMPULAN C" || val === "GROUP C") currentGroup = "C";
+                        else if (val === "D" || val === "KUMPULAN D" || val === "GROUP D") currentGroup = "D";
+                    }
+
+                    let r, t, p, w, d, l, gf, ga, gd, gav, pts;
+                    let groupToUse = currentGroup;
+
+                    // PENGESAN PINTAR KEDUDUKAN
+                    if (/^\d+$/.test(cols[0])) {
+                        [r, t, p, w, d, l, gf, ga, gd, gav, pts] = cols;
+                    } else if (/^\d+$/.test(cols[1])) {
+                        [, r, t, p, w, d, l, gf, ga, gd, gav, pts] = cols;
+                    } else if (/^\d+$/.test(cols[2])) {
+                        [, , r, t, p, w, d, l, gf, ga, gd, gav, pts] = cols;
+                    } else {
+                        return; // Abaikan baris kosong
+                    }
+
+                    if (!r || !t || t === "" || t.toUpperCase().includes("PASUKAN")) return;
+
+                    // Bina jadual HTML untuk pasukan tersebut
+                    if (groupToUse && html[groupToUse] !== undefined) {
+                        html[groupToUse] += `
+                        <tr class="${r == '1' || r == '2' ? 'qualified' : ''}">
+                            <td>${r}</td>
+                            <td class="team-col">
+                                <div class="team-cell">
+                                    <img src="${getLogo(t)}" class="team-logo" onerror="this.src='../../../images/logo/default.png'">
+                                    <span class="team-name">${t}</span>
+                                </div>
+                            </td>
+                            <td>${p || 0}</td>
+                            <td>${w || 0}</td>
+                            <td>${d || 0}</td>
+                            <td>${l || 0}</td>
+                            <td>${gf || 0}</td>
+                            <td>${ga || 0}</td>
+                            <td>${gd || 0}</td>
+                            <td>${gav || 0}</td>
+                            <td class="pts-col">${pts || 0}</td>
+                        </tr>`;
+                    }
+                });
+
+                // Paparkan data ke dalam UI yang sepadan
+                ["A", "B", "C", "D"].forEach(group => {
+                    const tbody = document.getElementById(`standings-group-${group.toLowerCase()}`);
+                    if (tbody) {
+                        tbody.innerHTML = html[group] || "<tr><td colspan='11' style='font-style:italic; color:#888;'>Tiada data...</td></tr>";
+                    }
+                });
+
+            } catch (error) {
+                console.error("Ralat memuatkan CSV Kedudukan:", error);
+                ["a", "b", "c", "d"].forEach(g => {
+                    const tbody = document.getElementById(`standings-group-${g}`);
+                    if (tbody) tbody.innerHTML = `<tr><td colspan="11" style="color:red; font-style:italic;">Gagal memuatkan data. Sila semak semula pautan Google Sheet.</td></tr>`;
+                });
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', muatKedudukanB15);
+    </script>
 </body>
 </html>

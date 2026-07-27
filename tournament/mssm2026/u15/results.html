@@ -20,10 +20,17 @@
         .btn-print { background: #7B1E3A; color: white; border: none; padding: 12px 28px; border-radius: 40px; font-size: 15px; font-weight: 700; cursor: pointer; transition: .3s; }
         .btn-print:hover { background: #5d132c; transform: translateY(-2px); }
 
-        /* Komponen Jadual */
+        /* Komponen Jadual & Logo Seragam */
         .team-cell { display: flex; align-items: center; gap: 12px; }
         .team-cell.right { justify-content: flex-end; }
-        .team-logo { width: 50px; height: 50px; object-fit: contain; }
+        
+        .team-logo { 
+            width: 30px; 
+            height: 30px; 
+            object-fit: contain; 
+            flex-shrink: 0;
+        }
+        
         .team-name { font-weight: 700; color: #333; display: block; }
         .score-box { display: flex; justify-content: center; align-items: center; gap: 10px; }
         .score { background: #7B1E3A; color: #fff; padding: 10px 18px; border-radius: 12px; font-size: 22px; font-weight: bold; }
@@ -112,8 +119,35 @@
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
 
-    <!-- KOD JAVASCRIPT DIRECT LINK KHUSUS UNTUK TAB RESULT B15 -->
+    <!-- KOD JAVASCRIPT DIRECT LINK KHUSUS UNTUK TAB RESULT B15 & SISTEM LOGO SERAGAM -->
     <script>
+        // Fungsi untuk memetakan nama pasukan kepada fail logo negeri yang seragam
+        function getLogo(team) {
+            const logoMap = {
+                "MSS JOHOR": "johor.png",
+                "MSS KEDAH": "kedah.png",
+                "MSS KELANTAN": "kelantan.png",
+                "MSS SELANGOR": "selangor.png",
+                "MSS PERAK": "perak.png",
+                "MSS PAHANG": "pahang.png",
+                "MSS MELAKA": "melaka.png",
+                "MSS SARAWAK": "sarawak.png",
+                "MSS SABAH": "sabah.png",
+                "MSS TERENGGANU": "terengganu.png",
+                "MSS PERLIS": "perlis.png",
+                "MSS PULAU PINANG": "pp.png",
+                "MSS WP PUTRAJAYA": "putrajaya.png",
+                "MSS WP KUALA LUMPUR": "kl.png",
+                "MSS WP LABUAN": "labuan.png",
+                "MSS NEGERI SEMBILAN": "negeri9.png"
+            };
+
+            const cleanTeam = team.toUpperCase().startsWith("MSS ") ? team.toUpperCase() : `MSS ${team.toUpperCase()}`;
+            const fileName = logoMap[cleanTeam] || logoMap[team.toUpperCase()] || "default.png";
+
+            return `../../../images/logo/mss negeri/${fileName}`;
+        }
+
         const sheetUrlB15Results = "https://docs.google.com/spreadsheets/d/1Oc_BowwyXJF8-AubPLmSompXQ5YUDp23LWesuOmQEMw/gviz/tq?tqx=out:json&sheet=RESULT";
 
         async function muatKeputusanB15() {
@@ -129,11 +163,6 @@
                 const rows = rawJson.table.rows;
 
                 tableBody.innerHTML = ""; 
-
-                const getLogo = (name) => {
-                    const cleanName = name.toLowerCase().replace('mss ', '').trim();
-                    return `../../../images/logo/${cleanName}.png`;
-                };
 
                 rows.forEach((row) => {
                     if (!row.c || row.c[0] === null) return;
@@ -156,7 +185,7 @@
                         <td><span class="group-badge">${kump}</span></td>
                         <td>
                             <div class="team-cell">
-                                <img src="${getLogo(team1)}" class="team-logo" onerror="this.style.display='none'">
+                                <img src="${getLogo(team1)}" class="team-logo" onerror="this.src='../../../images/logo/default.png'">
                                 <div><div class="team-name">${team1}</div></div>
                             </div>
                         </td>
@@ -170,7 +199,7 @@
                         <td>
                             <div class="team-cell right">
                                 <div><div class="team-name">${team2}</div></div>
-                                <img src="${getLogo(team2)}" class="team-logo" onerror="this.style.display='none'">
+                                <img src="${getLogo(team2)}" class="team-logo" onerror="this.src='../../../images/logo/default.png'">
                             </div>
                         </td>
                         <td><span class="result-badge">${pemenang || "-"}</span></td>
