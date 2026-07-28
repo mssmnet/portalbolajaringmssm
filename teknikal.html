@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Anugerah | Portal Bola Jaring MSSM</title>
+    <title>Teknikal Bola Jaring MSSM - Melaka</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     
     <style>
@@ -129,7 +129,7 @@
             top: 100%;
             left: 0;
             background-color: var(--maroon-mssm);
-            min-width: 220px;
+            min-width: 250px;
             border-radius: 10px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
             padding: 8px 0;
@@ -220,7 +220,7 @@
             font-size: 18px;
         }
         
-        /* GRID KAD (DIKECILKAN KEPADA MINMAX 220px SUPAYA LEBIH KEMAS) */
+        /* GRID KAD */
         .officers-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
@@ -398,19 +398,18 @@
         <nav id="navbar">
             <a href="index.html">Home</a>
 
-            <!-- BOLA JARING MSSM -->
+            <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
                 <button class="dropdown-btn">BOLA JARING MSSM ▼</button>
-                <div class="dropdown-content">
+                <div class="dropdown-content"> 
                     <a href="organisasi.html">Organisasi Bola Jaring MSSM</a>
-                    <a href="panel.html" class="active">Panel Anugerah MSSM</a>
-                    <a href="technical.html">Teknikal Kejohanan</a>
-                    <a href="umpires.html">Pengadil</a>
+                    <a href="panel.html">Panel Anugerah MSSM</a>
+                    <a href="Teknikal.html" class="active">Teknikal MSSM</a>
+                    <a href="Pengadil.html">Pengadil MSSM</a>
                     <hr>
                     <a href="about.html">Manual Pengurusan Bola Jaring MSSM</a>
                     <a href="rules.html">Peraturan</a>
                     <a href="calendar.html">Takwim</a>
-                    
                 </div>
             </div>
 
@@ -432,91 +431,80 @@
         </nav>
     </header>
 
-    <!-- KANDUNGAN UTAMA: PANEL ANUGERAH -->
+    <!-- KANDUNGAN UTAMA: TEKNIKAL BOLA JARING MSSM-MELAKA -->
     <main class="container">
         <section class="hero">
-            <h2>🏆 PANEL ANUGERAH BOLA JARING MSSM</h2>
-            <p>Jawatankuasa Panel Anugerah MSSM 2026</p>
+            <h2>⚙️ TEKNIKAL BOLA JARING MSSM - MELAKA</h2>
+            <p>Barisan Jawatankuasa Pengurusan Teknikal Kejohanan</p>
         </section>
 
-        <!-- KUMPULAN UTAMA (Penyelaras, PTPS, Ketua Panel digabungkan dalam satu grid sekata) -->
-        <div class="category-title"><i class="fa-solid fa-star"></i> JAWATANKUASA PANEL ANUGERAH MSSM</div>
+        <!-- KUMPULAN 1: TEKNIKAL BAWAH 12 TAHUN (15 ORANG) -->
+        <div class="category-title"><i class="fa-solid fa-users"></i> Jawatankuasa Teknikal Bawah 12 Tahun (15 Orang)</div>
         <section class="officers-grid">
-            <!-- 1. Penyelaras MSSM -->
-            <div class="officer-card">
-                <div class="officer-img-container">
-                    <img src="images/panel/penyelaras1.jpg" alt="Foto Penyelaras" class="officer-img">
-                </div>
-                <div class="officer-info">
-                    <div>
-                        <h3>NAMA PENYELARAS</h3>
-                        <div class="officer-role">Penyelaras Sukan MSSM</div>
-                    </div>
-                    <p class="officer-school"><i class="fa-solid fa-school"></i> BSKK, KPM</p>
-                </div>
-            </div>
-
-            <!-- 2. PTPS MSSM -->
-            <div class="officer-card">
-                <div class="officer-img-container">
-                    <img src="images/pegawai/nik.jpg" alt="Foto PTPS" class="officer-img">
-                </div>
-                <div class="officer-info">
-                    <div>
-                        <h3>NIK NOR ASIAH BINTI MAHMOOD</h3>
-                        <div class="officer-role">Pengerusi Teknik Pembangunan Sukan Bola Jaring MSSM</div>
-                    </div>
-                    <p class="officer-school"><i class="fa-solid fa-school"></i> SMK KOTA MASAI 2, PASIR GUDANG, JOHOR</p>
-                </div>
-            </div>
-
-            <!-- 3. Ketua Panel -->
-            <div class="officer-card">
-                <div class="officer-img-container">
-                    <img src="images/pegawai/pei.jpg" alt="Foto Ketua Panel" class="officer-img">
-                </div>
-                <div class="officer-info">
-                    <div>
-                        <h3>PUAH PEI SAN</h3>
-                        <div class="officer-role">Ketua Panel Anugerah MSSM</div>
-                    </div>
-                    <p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH SUKAN BUKIT JALIL</p>
-                </div>
-            </div>
+            <script>
+                for (let i = 1; i <= 15; i++) {
+                    document.write(`
+                        <div class="officer-card">
+                            <div class="officer-img-container">
+                                <img src="images/teknikal/b12_${i}.jpg" alt="Pegawai B12 ${i}" class="officer-img">
+                            </div>
+                            <div class="officer-info">
+                                <div>
+                                    <h3>NAMA PEGAWAI B12 - ${i}</h3>
+                                    <div class="officer-role">Pegawai Teknikal B12</div>
+                                </div>
+                                <p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH / DAERAH</p>
+                            </div>
+                        </div>
+                    `);
+                }
+            </script>
         </section>
 
-        <!-- 4. PANEL BAWAH 12 (6 Orang) -->
-        <div class="category-title"><i class="fa-solid fa-users"></i> Panel Bawah 12 Tahun</div>
+        <!-- KUMPULAN 2: TEKNIKAL BAWAH 15 TAHUN (15 ORANG) -->
+        <div class="category-title"><i class="fa-solid fa-users"></i> Jawatankuasa Teknikal Bawah 15 Tahun (15 Orang)</div>
         <section class="officers-grid">
-            <div class="officer-card"><div class="officer-img-container"><img src="images/pegawai/ara.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>SITI NUR FARA'SHAFIRA BINTI SALSABRI</h3><div class="officer-role">KETUA PANEL B12</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH SUKAN MALAYSIA PAHANG</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b12_2.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 2</h3><div class="officer-role">Ahli Panel B12</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b12_3.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 3</h3><div class="officer-role">Ahli Panel B12</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b12_4.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 4</h3><div class="officer-role">Ahli Panel B12</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b12_5.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 5</h3><div class="officer-role">Ahli Panel B12</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b12_6.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 6</h3><div class="officer-role">Ahli Panel B12</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
+            <script>
+                for (let i = 1; i <= 15; i++) {
+                    document.write(`
+                        <div class="officer-card">
+                            <div class="officer-img-container">
+                                <img src="images/teknikal/b15_${i}.jpg" alt="Pegawai B15 ${i}" class="officer-img">
+                            </div>
+                            <div class="officer-info">
+                                <div>
+                                    <h3>NAMA PEGAWAI B15 - ${i}</h3>
+                                    <div class="officer-role">Pegawai Teknikal B15</div>
+                                </div>
+                                <p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH / DAERAH</p>
+                            </div>
+                        </div>
+                    `);
+                }
+            </script>
         </section>
 
-        <!-- 5. PANEL BAWAH 15 (7 Orang) -->
-        <div class="category-title"><i class="fa-solid fa-users"></i> Panel Bawah 15 Tahun</div>
+        <!-- KUMPULAN 3: TEKNIKAL BAWAH 18 TAHUN (15 ORANG) -->
+        <div class="category-title"><i class="fa-solid fa-users"></i> Jawatankuasa Teknikal Bawah 18 Tahun (15 Orang)</div>
         <section class="officers-grid">
-            <div class="officer-card"><div class="officer-img-container"><img src="images/pegawai/anis.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>ANIS SUHAILA BINTI ABDULLAH</h3><div class="officer-role">KETUA PANEL B15</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH TUNKU MAHKOTA ISMAIL</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b15_2.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 2</h3><div class="officer-role">Ahli Panel B15</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b15_3.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 3</h3><div class="officer-role">Ahli Panel B15</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b15_4.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 4</h3><div class="officer-role">Ahli Panel B15</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b15_5.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 5</h3><div class="officer-role">Ahli Panel B15</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b15_6.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 6</h3><div class="officer-role">Ahli Panel B15</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b15_7.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 7</h3><div class="officer-role">Ahli Panel B15</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
-        </section>
-
-        <!-- 6. PANEL BAWAH 18 (6 Orang) -->
-        <div class="category-title"><i class="fa-solid fa-users"></i> Panel Bawah 18 Tahun</div>
-        <section class="officers-grid">
-            <div class="officer-card"><div class="officer-img-container"><img src="images/pegawai/ana.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>SITI NOR FARHANA BINTI MUSTAFA</h3><div class="officer-role">KETUA Panel B18</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH SUKAN BUKIT JALIL</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b18_2.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 2</h3><div class="officer-role">Ahli Panel B18</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b18_3.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 3</h3><div class="officer-role">Ahli Panel B18</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b18_4.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 4</h3><div class="officer-role">Ahli Panel B18</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b18_5.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 5</h3><div class="officer-role">Ahli Panel B18</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
-            <div class="officer-card"><div class="officer-img-container"><img src="images/panel/b18_6.jpg" alt="Foto" class="officer-img"></div><div class="officer-info"><div><h3>NAMA AHLI 6</h3><div class="officer-role">Ahli Panel B18</div></div><p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH</p></div></div>
+            <script>
+                for (let i = 1; i <= 15; i++) {
+                    document.write(`
+                        <div class="officer-card">
+                            <div class="officer-img-container">
+                                <img src="images/teknikal/b18_${i}.jpg" alt="Pegawai B18 ${i}" class="officer-img">
+                            </div>
+                            <div class="officer-info">
+                                <div>
+                                    <h3>NAMA PEGAWAI B18 - ${i}</h3>
+                                    <div class="officer-role">Pegawai Teknikal B18</div>
+                                </div>
+                                <p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH / DAERAH</p>
+                            </div>
+                        </div>
+                    `);
+                }
+            </script>
         </section>
 
     </main>
