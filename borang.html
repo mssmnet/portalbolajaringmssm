@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSSM 2026 | Portal Bola Jaring MSSM</title>
+    <title>Muat Turun Borang Rasmi | Portal Bola Jaring MSSM</title>
 
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -147,24 +147,25 @@
         }
 
         .container{
-            max-width:1200px;
+            max-width:1100px;
             margin:auto;
-            padding:50px 20px;
+            padding:60px 20px;
         }
 
         .title-box{
             background:rgba(255,255,255,.95);
             border-radius:15px;
-            padding:30px;
+            padding:35px;
             text-align:center;
-            margin-bottom:45px;
+            margin-bottom:40px;
             box-shadow:0 10px 25px rgba(0,0,0,.1);
         }
 
         .title-box h2{
             color:var(--maroon);
-            font-size:34px;
+            font-size:32px;
             margin-bottom:10px;
+            text-transform: uppercase;
         }
 
         .title-box p{
@@ -172,73 +173,60 @@
             font-size:17px;
         }
 
-        .category-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-            gap:30px;
-            margin-bottom: 40px;
+        /* GRID UNTUK PILIHAN KAD DOKUMEN */
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
         }
 
-        .category-card{
-            background:white;
-            border-radius:20px;
-            padding:40px 25px;
-            text-align:center;
-            transition:.35s;
-            box-shadow:0 12px 25px rgba(0,0,0,.08);
+        .form-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 6px solid var(--maroon);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .category-card:hover{
-            transform:translateY(-8px);
-            box-shadow:0 18px 35px rgba(0,0,0,.15);
+        .form-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
 
-        /* Styling Khas untuk Kad e-Kejohanan (Warna Tema Kuning Emas/Gold) */
-        .card-ekejohanan {
-            background: linear-gradient(135deg, #fff9c4, #ffecb3);
-            border: 2px solid #ffcc00;
+        .form-card .icon {
+            font-size: 45px;
+            color: #2b579a; /* Warna Tema Word */
+            margin-bottom: 15px;
         }
 
-        .emoji{
-            font-size:70px;
-            margin-bottom:15px;
+        .form-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 25px;
         }
 
-        .category-card h3{
-            color:var(--maroon);
-            font-size:30px;
-            margin-bottom:10px;
-        }
-
-        .category-card p{
-            color:#666;
-            margin-bottom:30px;
-            line-height:1.6;
-        }
-
-        .btn{
-            display:inline-block;
-            background:var(--maroon);
-            color:white;
-            text-decoration:none;
-            padding:13px 40px;
-            border-radius:10px;
-            font-weight:bold;
-            transition:.3s;
-        }
-
-        .btn:hover{
-            background:#5d132c;
-            transform:scale(1.05);
-        }
-
-        /* Butang Khas untuk Kad e-Kejohanan */
-        .btn-ekejohanan {
-            background: #ff8f00;
+        .btn-download {
+            display: inline-block;
+            background-color: #2b579a;
             color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-weight: bold;
+            border-radius: 50px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(43, 87, 154, 0.3);
         }
-        .btn-ekejohanan:hover {
-            background: #e65100;
+
+        .btn-download:hover {
+            background-color: #1d3c6c;
+            transform: scale(1.05);
         }
 
         footer{
@@ -246,10 +234,10 @@
             color:white;
             text-align:center;
             padding:25px;
-            margin-top:60px;
+            margin-top:80px;
         }
 
-        /* RESPONSIVE MENU TOGGLE FOR MOBILE */
+        /* RESPONSIVE MENU */
         .menu-toggle {
             display: none;
             font-size: 28px;
@@ -367,7 +355,7 @@
                 <a href="u18.html">Bawah 18 (B18)</a>
                 <hr>
                 <a href="venue.html">📍 Venue Pertandingan</a>
-                <a href="../borang.html">📄 Borang Pendaftaran</a>
+                <a href="borang.html" class="active">📄 Borang Pertandingan</a>
                 <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">📝 Pendaftaran e-Kejohanan ↗</a>
             </div>
         </div>
@@ -379,67 +367,57 @@
 
 <div class="container">
     <div class="title-box">
-        <h2>KEJOHANAN BOLA JARING MSSM 2026</h2>
-        <p>Sila buat pilihan menu di bawah untuk semakan venue, borang pendaftaran, pendaftaran e-kejohanan, atau pemilihan kategori pertandingan.</p>
+        <h2>MUAT TURUN BORANG & DOKUMEN RASMI</h2>
+        <p>Sila klik pada butang di bawah untuk memuat turun dokumen rasmi dalam format Microsoft Word.</p>
     </div>
 
-    <!-- RUANG GRID TAMBAHAN (DI ATAS KATEGORI) -->
-    <div class="category-grid">
-        <!-- 1. Venue Pertandingan -->
-        <div class="category-card">
-            <div class="emoji">📍</div>
-            <h3>Venue Pertandingan</h3>
-            <p>Semak lokasi, peta, dan maklumat gelanggang rasmi kejohanan.</p>
-            <a href="venue.html" class="btn">Lihat Venue</a>
+    <!-- KUMPULAN GRID 4 KAD DOKUMEN -->
+    <div class="forms-grid">
+        
+        <!-- 1. Borang Pemain Utama -->
+        <div class="form-card">
+            <div>
+                <div class="icon"><i class="fa-solid fa-file-word"></i></div>
+                <p>Muat turun senarai rasmi pemain utama pasukan.</p>
+            </div>
+            <a href="documents/borang-senarai-utama-pasukan.docx" download class="btn-download">
+                📄 Borang Pemain Utama (Word)
+            </a>
         </div>
 
-        <!-- 2. Borang Pertandingan -->
-        <div class="category-card">
-            <div class="emoji">📄</div>
-            <h3>Borang Pertandingan</h3>
-            <p>Muat turun borang pertandingan rasmi.</p>
-            <a href="../../borang.html" class="btn">Buka Borang</a>
+        <!-- 2. Borang Pertukaran -->
+        <div class="form-card">
+            <div>
+                <div class="icon"><i class="fa-solid fa-file-word"></i></div>
+                <p>Muat turun borang rekod pertukaran atau penggantian pemain.</p>
+            </div>
+            <a href="documents/borang-pertukaran-pemain.docx" download class="btn-download">
+                📄 Borang Pertukaran (Word)
+            </a>
         </div>
 
-        <!-- 3. Pendaftaran e-Kejohanan -->
-        <div class="category-card card-ekejohanan">
-            <div class="emoji">📝</div>
-            <h3>Pendaftaran e-Kejohanan</h3>
-            <p>Akses pantas sistem pendaftaran rasmi e-Kejohanan MSSM.</p>
-            <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank" class="btn btn-ekejohanan">Daftar Sekarang ↗</a>
-        </div>
-    </div>
-
-    <div class="title-box" style="margin-top: 50px;">
-        <h2>KATEGORI PERTANDINGAN</h2>
-        <p>Sila pilih kategori pertandingan untuk melihat maklumat Team, Groups, Fixtures, Results, Standings, Statistics dan Ranking.</p>
-    </div>
-
-    <!-- KATEGORI PERTANDINGAN UTAMA -->
-    <div class="category-grid">
-        <!-- B12 -->
-        <div class="category-card">
-            <div class="emoji">👧</div>
-            <h3>Bawah 12</h3>
-            <p>Kategori Perempuan Bawah 12 Tahun</p>
-            <a href="u12.html" class="btn">Masuk</a>
+        <!-- 3. Senarai Semak Pendaftaran -->
+        <div class="form-card">
+            <div>
+                <div class="icon"><i class="fa-solid fa-file-word"></i></div>
+                <p>Muat turun senarai semak dokumen pengesahan dan syarat kelayakan.</p>
+            </div>
+            <a href="documents/senarai-semak-pendaftaran.docx" download class="btn-download">
+                📄 Senarai Semak Pendaftaran (Word)
+            </a>
         </div>
 
-        <!-- B15 -->
-        <div class="category-card">
-            <div class="emoji">👧</div>
-            <h3>Bawah 15</h3>
-            <p>Kategori Perempuan Bawah 15 Tahun</p>
-            <a href="u15.html" class="btn">Masuk</a>
+        <!-- 4. Maklumat Undian dan Jadual -->
+        <div class="form-card">
+            <div>
+                <div class="icon"><i class="fa-solid fa-file-word"></i></div>
+                <p>Muat turun fail maklumat rasmi undian dan jadual kejohanan.</p>
+            </div>
+            <a href="documents/maklumat-undian-jadual.docx" download class="btn-download">
+                📄 Maklumat Undian & Jadual (Word)
+            </a>
         </div>
 
-        <!-- B18 -->
-        <div class="category-card">
-            <div class="emoji">👧</div>
-            <h3>Bawah 18</h3>
-            <p>Kategori Perempuan Bawah 18 Tahun</p>
-            <a href="u18.html" class="btn">Masuk</a>
-        </div>
     </div>
 </div>
 
@@ -448,7 +426,7 @@
 </footer>
 
 <script>
-    // Fungsi klik menu hamburger skrin mudah alih
+    // Fungsi menu hamburger skrin mudah alih
     document.getElementById('menuToggle').addEventListener('click', function() {
         document.getElementById('navbar').classList.toggle('active');
     });

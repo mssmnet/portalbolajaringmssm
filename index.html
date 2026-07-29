@@ -153,7 +153,6 @@
             margin: 6px 0;
         }
 
-        /* Memaparkan menu apabila tetikus digerakkan di atas kelas dropdown */
         .dropdown:hover .dropdown-content {
             display: block;
         }
@@ -176,6 +175,14 @@
         .hero h2 { color: var(--maroon-mssm); font-size: 38px; margin-bottom: 15px; text-transform: uppercase; }
         .hero p { color: #444; font-size: 18px; line-height: 1.6; max-width: 900px; margin: 0 auto 15px auto; }
         
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
         .btn-hub { 
             background-color: var(--maroon-mssm); 
             color: white; 
@@ -184,112 +191,121 @@
             font-weight: bold; 
             border-radius: 50px; 
             display: inline-block; 
-            margin-top: 25px; 
             font-size: 18px;
             box-shadow: 0 8px 20px rgba(123, 30, 58, 0.4);
             transition: all 0.3s ease;
         }
         .btn-hub:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(123, 30, 58, 0.6); }
 
+        .btn-ekejohanan {
+            background-color: #ffeb3b;
+            color: #7B1E3A;
+            padding: 16px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 18px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        .btn-ekejohanan:hover { transform: translateY(-3px); background-color: #fdd835; box-shadow: 0 12px 25px rgba(0,0,0,0.25); }
+
         footer { background-color: var(--maroon-mssm); color: white; text-align: center; padding: 25px; margin-top: 60px; font-size: 15px; }
 
         /* ============================
            BURGER MENU
         ============================ */
-
-        .menu-toggle{
-            display:none;
-            font-size:34px;
-            color:white;
-            background:none;
-            border:none;
-            cursor:pointer;
+        .menu-toggle {
+            display: none;
+            font-size: 34px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
         }
 
         /* ============================
            MOBILE
         ============================ */
-
-        @media (max-width:768px){
-
-            header{
-                flex-wrap:wrap;
-                justify-content:space-between;
-                padding:15px 20px;
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding: 15px 20px;
             }
 
-            .header-left{
-                gap:12px;
+            .header-left {
+                gap: 12px;
             }
 
-            .logo{
-                width:60px;
-                height:60px;
+            .logo {
+                width: 60px;
+                height: 60px;
             }
 
-            .header-title h1{
-                font-size:20px;
+            .header-title h1 {
+                font-size: 20px;
             }
 
-            .subtitle{
-                font-size:12px;
+            .subtitle {
+                font-size: 12px;
             }
 
-            .menu-toggle{
-                display:block;
+            .menu-toggle {
+                display: block;
             }
 
-            nav{
-                display:none;
-                width:100%;
-                flex-direction:column;
-                margin-top:20px;
-                margin-left:0;
-                gap:0;
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                margin-top: 20px;
+                margin-left: 0;
+                gap: 0;
             }
 
-            nav.active{
-                display:flex;
-            }
-
-            nav a,
-            .dropdown{
-                width:100%;
+            nav.active {
+                display: flex;
             }
 
             nav a,
-            .dropdown-btn{
-                width:100%;
-                text-align:left;
-                padding:15px;
-                border-radius:0;
+            .dropdown {
+                width: 100%;
             }
 
-            .dropdown-content{
-                position:static;
-                display:none;
-                box-shadow:none;
-                width:100%;
-                background:#6d1733;
+            nav a,
+            .dropdown-btn {
+                width: 100%;
+                text-align: left;
+                padding: 15px;
+                border-radius: 0;
             }
 
-            .dropdown:hover .dropdown-content{
-                display:block;
+            .dropdown-content {
+                position: static;
+                display: none;
+                box-shadow: none;
+                width: 100%;
+                background: #6d1733;
             }
 
-            .hero{
-                margin:25px 15px;
-                padding:40px 25px;
+            .dropdown:hover .dropdown-content {
+                display: block;
             }
 
-            .hero h2{
-                font-size:30px;
+            .hero {
+                margin: 25px 15px;
+                padding: 40px 25px;
             }
 
-            .hero p{
-                font-size:17px;
+            .hero h2 {
+                font-size: 30px;
             }
 
+            .hero p {
+                font-size: 17px;
+            }
         }
     </style>
 </head>
@@ -304,12 +320,12 @@
             </div>
         </div>
 
-        <!-- Tambahan Kod Butang Burger -->
+        <!-- Butang Burger -->
         <button class="menu-toggle" id="menu-toggle">
             <i class="fas fa-bars"></i>
         </button>
 
-        <!-- Tambahan id="nav-menu" -->
+        <!-- Navigasi Utama -->
         <nav id="nav-menu">
             <a href="index.html" class="active">Home</a>
             
@@ -322,11 +338,13 @@
                     <a href="teknikal.html">Teknikal MSSM</a>
                     <a href="pengadil.html">Pengadil MSSM</a>
                     <hr>
-                    <a href="about.html">Manual Pengurusan Bola JaringMSSM</a>
+                    <a href="about.html">Manual Pengurusan Bola Jaring MSSM</a>
                     <a href="rules.html">Peraturan</a>
                     <a href="calendar.html">Takwim</a>
-                    
-                    
+                    <hr>
+                   
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">Pendaftaran e-Kejohanan ↗</a>
+                    <a href="borang.html" target="_blank">Muat Turun Borang Pertandingan↗</a>
                 </div>
             </div>
             
@@ -334,8 +352,8 @@
             <div class="dropdown">
                 <button class="dropdown-btn">KEJOHANAN ▼</button>
                 <div class="dropdown-content">
-                     <a href="tournament/mssm2026/index.html">MSSM 2026</a>
-                   <hr>
+                    <a href="tournament/mssm2026/index.html">MSSM 2026</a>
+                    <hr>
                     <a href="international.html">Kejohanan Antarabangsa</a>
                 </div>
             </div>
@@ -343,7 +361,6 @@
             <a href="halloffame.html">Hall of Fame</a>
             <a href="gallery.html">Gallery</a>
             <a href="live.html" style="color: #ffeb3b;">🔴Live</a>
-            
         </nav>
     </header>
 
@@ -352,7 +369,12 @@
             <h2>Selamat Datang</h2>
             <p>Platform Pusat Kejohanan Bola Jaring Majlis Sukan Sekolah Malaysia</p>
             <p>Portal Rasmi Bola Jaring MSSM ialah platform digital rasmi yang menyediakan maklumat terkini mengenai kejohanan, keputusan, jadual perlawanan, kedudukan pasukan, carta pertandingan, siaran langsung, galeri, dokumen rasmi serta pelbagai informasi berkaitan bola jaring sekolah di Malaysia.</p>
-            <a href="tournament/index.html" class="btn-hub">🏆 Masuk Ke Hub Kejohanan</a>
+            
+            <!-- Bahagian Butang Tindakan (CTA Buttons) -->
+            <div class="button-group">
+                <a href="tournament/index.html" class="btn-hub">🏆 Masuk Ke Hub Kejohanan</a>
+               
+            </div>
         </section>
     </main>
 
@@ -360,7 +382,7 @@
         <p>© 2026 Portal Bola Jaring MSSM</p>
     </footer>
 
-    <!-- Tambahan Skrip Javascript -->
+    <!-- Skrip Javascript -->
     <script>
         const menuToggle = document.getElementById("menu-toggle");
         const nav = document.getElementById("nav-menu");
