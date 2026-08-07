@@ -182,16 +182,19 @@
             border-top: 6px solid var(--maroon-mssm);
         }
         
+        /* PEMBETULAN & PEMBESARAN SAIZ FONT TAJUK HERO */
         .hero h2 { 
             color: var(--maroon-mssm); 
-            font-size: 30px; 
-            margin-bottom: 10px; 
+            font-size: clamp(2.2rem, 5vw, 3.5rem); /* Flexible & besar di desktop (±56px) */
+            font-weight: 800; 
+            margin-bottom: 12px; 
             text-transform: uppercase; 
+            letter-spacing: 1px;
         }
 
         .hero p {
             color: #555;
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 600;
             margin: 0;
             text-transform: uppercase;
@@ -220,7 +223,7 @@
             font-size: 18px;
         }
         
-        /* GRID KAD (Kecil & Kemas) */
+        /* GRID KAD */
         .officers-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
@@ -410,7 +413,6 @@
                     <a href="about.html">Manual Pengurusan Bola Jaring MSSM</a>
                     <a href="rules.html">Peraturan</a>
                     <a href="calendar.html">Takwim</a>
-                    
                 </div>
             </div>
 
@@ -434,9 +436,10 @@
 
     <!-- KANDUNGAN UTAMA: PENGADIL -->
     <main class="container">
+        <!-- PEMBETULAN TAG H2 DI SINI -->
         <section class="hero">
-            <h2> whistle BARISAN PENGADIL BOLA JARING MSSM</h2>
-            <p>Senarai Ketua Pengadil & Barisan Pengadil Rasmi Kejohanan</p>
+            <h2>BARISAN PENGADIL BOLA JARING MSSM</h2>
+            <p>Barisan Pengadil Rasmi Kejohanan</p>
         </section>
 
         <!-- KETUA PENGADIL (1 Orang) -->
@@ -444,14 +447,14 @@
         <section class="officers-grid">
             <div class="officer-card">
                 <div class="officer-img-container">
-                    <img src="images/pengadil/ketua.jpg" alt="Foto Ketua Pengadil" class="officer-img">
+                    <img src="images/pengadil/ezan.jpg" alt="Foto Ketua Pengadil" class="officer-img">
                 </div>
                 <div class="officer-info">
                     <div>
-                        <h3>NAMA KETUA PENGADIL</h3>
+                        <h3>NUR SHAFRIEZAN BINTI SENA BUL</h3>
                         <div class="officer-role">Ketua Pengadil MSSM</div>
                     </div>
-                    <p class="officer-school"><i class="fa-solid fa-school"></i> NAMA SEKOLAH / INSTITUSI</p>
+                    <p class="officer-school"><i class="fa-solid fa-school"></i> SMK (P) IPOH WP KUALA LUMPUR</p>
                 </div>
             </div>
         </section>
@@ -459,9 +462,7 @@
         <!-- SENARAI 44 PENGADIL -->
         <div class="category-title"><i class="fa-solid fa-users"></i> Senarai Pengadil Rasmi (44 Orang)</div>
         <section class="officers-grid">
-            <!-- Pengadil 1 hingga 44 -->
             <script>
-                // Skrip automatik menjana 44 kad pengadil supaya kod lebih ringkas dan mudah disalin
                 for (let i = 1; i <= 44; i++) {
                     document.write(`
                         <div class="officer-card">
@@ -488,7 +489,7 @@
         <p>© 2026 Portal Bola Jaring MSSM</p>
     </footer>
 
-    <!-- SKRIP JAVASCRIPT UNTUK MENU RESPONSIF -->
+    <!-- SKRIP JAVASCRIPT -->
     <script>
         document.getElementById('menuToggle').addEventListener('click', function() {
             document.getElementById('navbar').classList.toggle('active');
