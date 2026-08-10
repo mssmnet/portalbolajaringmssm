@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku Program Kejohanan | Portal Bola Jaring MSSM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <style>
+        :root { 
+            --maroon-mssm: #7B1E3A; 
+            --pink-cair: #fdf2f6;
+            --accent-gold: #ffeb3b;
+        }
+        
+        /* BACKGROUND TEMA PREMIUM */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Tahoma, sans-serif; 
+            background-color: #fce4ec; 
+            background-image: url('images/bg-utama.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--maroon-mssm);
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            background: transparent;
+        }
+
+        .header-title h1 {
+            font-size: 22px;
+            margin: 0;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            margin: 2px 0 0 0;
+            color: var(--accent-gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a, .dropdown-btn {
+            padding: 10px 14px;   
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: .3s;
+            white-space: nowrap;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        nav a:hover, .dropdown:hover .dropdown-btn {
+            background-color: rgba(255,255,255,.2);
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            background-color: rgba(255,255,255,.15);
+            color: var(--accent-gold);
+        }
+
+        /* LIVE BUTTON SPECIAL STYLE */
+        .live-btn {
+            background-color: #d32f2f !important;
+            color: white !important;
+            animation: pulse-live 1.5s infinite;
+        }
+
+        @keyframes pulse-live {
+            0% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); }
+            70% { box-shadow: 0 0 0 8px rgba(211, 47, 47, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
+        }
+
+        /* DROPDOWN MENU */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--maroon-mssm);
+            min-width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            padding: 8px 0;
+            z-index: 1100;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 0;
+            transition: background 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: var(--accent-gold);
+            transform: none; 
+        }
+
+        .dropdown-content hr {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 6px 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* MAIN CONTENT */
+        .main-container {
+            max-width: 1150px; 
+            margin: 40px auto; 
+            padding: 0 20px;
+        }
+        
+        .hero { 
+            background: rgba(255, 255, 255, 0.93); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 35px 25px; 
+            border-radius: 20px; 
+            text-align: center; 
+            margin-bottom: 35px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+            border-top: 6px solid var(--maroon-mssm);
+        }
+        
+        .hero h2 { 
+            color: var(--maroon-mssm); 
+            font-size: 28px; 
+            margin-bottom: 8px; 
+            margin-top: 0;
+            text-transform: uppercase; 
+            font-weight: 800;
+        }
+
+        .hero p { 
+            color: #555; 
+            font-size: 16px; 
+            line-height: 1.5; 
+            margin: 0 auto; 
+            font-weight: 600;
+        }
+
+        /* SECTION KAD BUKU PROGRAM */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .program-card {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 16px;
+            padding: 25px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--maroon-mssm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .program-card:hover {
+            transform: translateY(-6px); 
+            box-shadow: 0 12px 25px rgba(123, 30, 58, 0.18);
+        }
+
+        .program-card .icon-box {
+            font-size: 50px;
+            color: var(--maroon-mssm);
+            margin-bottom: 15px;
+        }
+
+        .program-card h3 {
+            font-size: 18px;
+            color: var(--maroon-mssm);
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        .program-card p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--maroon-mssm);
+            color: white;
+            padding: 11px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #5a0000;
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background-color: #4a5568;
+        }
+
+        .btn-secondary:hover {
+            background-color: #2d3748;
+        }
+
+        /* EMBEDDED PDF VIEWER SECTION */
+        .pdf-viewer-container {
+            margin-top: 40px;
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .pdf-viewer-container h3 {
+            color: var(--maroon-mssm);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pdf-frame {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+            background-color: #f7fafc;
+        }
+
+        /* FOOTER */
+        footer { 
+            background-color: var(--maroon-mssm); 
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+            margin-top: 60px; 
+            font-size: 14px; 
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* RESPONSIVE MENU HAMBURGER UNTUK TELEFON (HANDSET) */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        @media(max-width: 1024px) {
+            header {
+                flex-wrap: wrap;
+                padding: 15px 20px;
+            }
+
+            .header-left {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .menu-toggle { 
+                display: block; 
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 15px;
+                gap: 0;
+            }
+
+            nav.active { 
+                display: flex; 
+            }
+
+            nav a, .dropdown-btn {
+                width: 100%;
+                text-align: left;
+                padding: 12px 15px;
+                box-sizing: border-box;
+                border-radius: 6px;
+            }
+
+            .dropdown { 
+                width: 100%; 
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                width: 100%;
+                box-shadow: none;
+                border-radius: 6px;
+                margin-top: 2px;
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+
+            .dropdown:hover .dropdown-content { 
+                display: none; 
+            }
+
+            .dropdown.active .dropdown-content { 
+                display: block; 
+            }
+
+            .dropdown-content a { 
+                padding-left: 30px; 
+            }
+        }
+
+        @media(max-width: 600px) {
+            .header-title h1 {
+                font-size: 18px;
+            }
+            .subtitle {
+                font-size: 11px;
+            }
+            .logo {
+                width: 55px;
+                height: 55px;
+            }
+            .hero h2 {
+                font-size: 22px;
+            }
+            .hero p {
+                font-size: 13px;
+            }
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .program-card {
+                width: 100%;
+                max-width: 320px;
+                box-sizing: border-box;
+            }
+            .pdf-frame {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAV -->
+    <header>
+        <div class="header-left">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo">
+                <div class="header-title">
+                    <h1>PORTAL BOLA JARING MSSM</h1>
+                    <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+                </div>
+            </div>
+
+            <!-- Butang Burger -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Navigasi Utama -->
+        <nav id="nav-menu">
+            <a href="index.html">HOME</a>
+            
+            <!-- DROPDOWN BOLA JARING MSSM -->
+            <div class="dropdown">
+                <button class="dropdown-btn">BOLA JARING MSSM ▼</button>
+                <div class="dropdown-content"> 
+                    <a href="organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="pengadil.html">PENGADIL</a>
+                    <hr>
+                    <a href="about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="rules.html">PERATURAN</a>
+                    <a href="calendar.html">TAKWIM</a>
+                </div>
+            </div>
+            
+            <!-- DROPDOWN KEJOHANAN -->
+            <div class="dropdown">
+                <button class="dropdown-btn">KEJOHANAN ▼</button>
+                <div class="dropdown-content">
+                    <a href="tournament/mssm2026/index.html">MSSM 2026</a> 
+                    <hr>
+                    <a href="bukuprogram.html" class="active">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
+                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>                 
+                </div>
+            </div>
+
+            <!-- DROPDOWN GALERI & MEDIA -->
+            <div class="dropdown">
+                <button class="dropdown-btn">GALERI & MEDIA ▼</button>
+                <div class="dropdown-content">
+                    <a href="halloffame.html">HALL OF FAME</a>
+                    <a href="gallery.html">GALLERY</a>
+                </div>
+            </div>
+
+            <!-- 🔴 LIVE -->
+            <a href="live.html" class="live-btn">🔴 LIVE</a>
+        </nav>
+    </header>
+
+    <!-- KANDUNGAN UTAMA -->
+    <main class="main-container">
+        
+        <section class="hero">
+            <h2>📘 BUKU PROGRAM KEJOHANAN</h2>
+            <p>Rujukan rasmi atur cara, senarai jawatankuasa, dan maklumat lengkap Kejohanan Bola Jaring MSSM 2026.</p>
+        </section>
+
+        <!-- KAD MUAT TURUN / BACA BUKU PROGRAM -->
+        <div class="cards">
+            
+            <div class="program-card">
+                <div>
+                    <div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>Buku Program MSSM 2026</h3>
+                    <p>Buku program rasmi Kejohanan Bola Jaring MSSM 2026 (Format PDF).</p>
+                </div>
+                <div class="btn-group">
+                    <a href="documents/buku-program-2026.pdf" target="_blank" class="btn">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka PDF
+                    </a>
+                    <a href="documents/buku-program-2026.pdf" download class="btn btn-secondary">
+                        <i class="fa-solid fa-download"></i> Muat Turun
+                    </a>
+                </div>
+            </div>
+
+            <div class="program-card">
+                <div>
+                    <div class="icon-box"><i class="fa-solid fa-file-pdf"></i></div>
+                    <h3>Buku Program Ringkas / Leaflet</h3>
+                    <p>Ringkasan atur cara majlis pembukaan, penutupan, dan jadual umum.</p>
+                </div>
+                <div class="btn-group">
+                    <a href="documents/buku-program-ringkas.pdf" target="_blank" class="btn">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka PDF
+                    </a>
+                    <a href="documents/buku-program-ringkas.pdf" download class="btn btn-secondary">
+                        <i class="fa-solid fa-download"></i> Muat Turun
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- BAHAGIAN EMBEDDED PDF VIEWER (PAPARAN TERUS DALAM WEB) -->
+        <section class="pdf-viewer-container">
+            <h3><i class="fa-solid fa-file-invoice"></i> Paparan Langsung Buku Program Rasmi</h3>
+            <iframe src="documents/buku-program-2026.pdf" class="pdf-frame" title="Buku Program MSSM 2026">
+                <p>Pelayar web anda tidak menyokong paparan PDF terus. Sila <a href="documents/buku-program-2026.pdf" target="_blank">klik di sini untuk memuat turun PDF</a>.</p>
+            </iframe>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Portal Bola Jaring MSSM</p>
+    </footer>
+
+    <!-- SKRIP JAVASCRIPT UNTUK MENU RESPONSIF -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            const btn = dropdown.querySelector('.dropdown-btn');
+            btn.addEventListener('click', function(e) {
+                if (window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    dropdowns.forEach(item => {
+                        if (item !== dropdown) item.classList.remove('active');
+                    });
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
