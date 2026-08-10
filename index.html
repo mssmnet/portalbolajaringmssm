@@ -9,26 +9,19 @@
     <style>
         :root { 
             --maroon-mssm: #7B1E3A; 
+            --maroon-dark: #581328;
             --pink-cair: #fdf2f6;
         }
         
-        /* =======================================================
-           SETTING BACKGROUND CANTIK (TEMA PREMIUM)
-           ======================================================= */
         body { 
             margin: 0; 
             padding: 0; 
             font-family: 'Segoe UI', Tahoma, sans-serif; 
-            
-            /* KOD BACKGROUND */
             background-color: #fce4ec; 
-            
-            /* Gambar Latar Belakang Utama */
             background-image: url('images/bg-utama.jpg'); 
-            
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Jadikan gambar statik bila scroll */
+            background-attachment: fixed;
         }
 
         /* HEADER */
@@ -38,8 +31,7 @@
             padding: 15px 40px;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            gap: 45px;          /* Jarak antara tajuk dan menu */
+            justify-content: space-between;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             position: sticky;
             top: 0;
@@ -53,16 +45,13 @@
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             object-fit: contain;
-            background: transparent;
-            border-radius: 0;
-            padding: 0;
         }
 
         .header-title h1 {
-            font-size: 26px;
+            font-size: 24px;
             margin: 0;
             font-weight: 800;
             text-transform: uppercase;
@@ -70,7 +59,7 @@
         }
 
         .subtitle {
-            font-size: 15px;
+            font-size: 14px;
             margin: 2px 0 0 0;
             color: #ffeb3b;
             font-weight: 600;
@@ -82,7 +71,6 @@
             display: flex;
             align-items: center;
             gap: 8px;          
-            margin-left: 20px;
         }
 
         nav a, .dropdown-btn {
@@ -92,25 +80,27 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 15px;
-            transition: .3s;
+            transition: 0.3s;
             white-space: nowrap;
             background: none;
             border: none;
             cursor: pointer;
             font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         nav a:hover, .dropdown:hover .dropdown-btn {
-            background-color: rgba(255,255,255,.2);
+            background-color: rgba(255,255,255,0.2);
             transform: translateY(-2px);
         }
 
         nav a.active {
-            background-color: rgba(255,255,255,.15);
+            background-color: rgba(255,255,255,0.15);
             color: #ffeb3b;
         }
 
-        /* LIVE BUTTON SPECIAL STYLE */
         .live-link {
             color: #ffeb3b !important;
             animation: pulse-live 1.5s infinite;
@@ -122,7 +112,7 @@
             100% { opacity: 1; }
         }
 
-        /* STRUCTURAL STYLING UNTUK DROPDOWN MENU */
+        /* DROPDOWN DESKTOP */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -134,7 +124,7 @@
             top: 100%;
             left: 0;
             background-color: var(--maroon-mssm);
-            min-width: 220px;
+            min-width: 240px;
             border-radius: 10px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
             padding: 8px 0;
@@ -165,11 +155,14 @@
             margin: 6px 0;
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
+        /* Hover berfungsikan desktop sahaja */
+        @media (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
         }
 
-        /* MAIN CONTENT - KESAN KACA (GLASSMORPHISM) */
+        /* MAIN CONTENT CONTAINER */
         .container { max-width: 1150px; margin: 50px auto; padding: 0 20px; }
         
         .hero { 
@@ -209,41 +202,23 @@
         }
         .btn-hub:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(123, 30, 58, 0.6); }
 
-        .btn-ekejohanan {
-            background-color: #ffeb3b;
-            color: #7B1E3A;
-            padding: 16px 35px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 50px;
-            display: inline-block;
-            font-size: 18px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-        }
-        .btn-ekejohanan:hover { transform: translateY(-3px); background-color: #fdd835; box-shadow: 0 12px 25px rgba(0,0,0,0.25); }
-
         footer { background-color: var(--maroon-mssm); color: white; text-align: center; padding: 25px; margin-top: 60px; font-size: 15px; }
 
-        /* ============================
-           BURGER MENU
-        ============================ */
+        /* BURGER MENU BUTTON */
         .menu-toggle {
             display: none;
-            font-size: 34px;
+            font-size: 26px;
             color: white;
             background: none;
             border: none;
             cursor: pointer;
+            padding: 5px 10px;
         }
 
-        /* ============================
-           MOBILE
-        ============================ */
+        /* RESPONSLE HANDSET (MOBILE) */
         @media (max-width: 768px) {
             header {
                 flex-wrap: wrap;
-                justify-content: space-between;
                 padding: 15px 20px;
             }
 
@@ -252,16 +227,16 @@
             }
 
             .logo {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
             }
 
             .header-title h1 {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .subtitle {
-                font-size: 12px;
+                font-size: 11px;
             }
 
             .menu-toggle {
@@ -272,26 +247,29 @@
                 display: none;
                 width: 100%;
                 flex-direction: column;
-                margin-top: 20px;
-                margin-left: 0;
+                margin-top: 15px;
                 gap: 0;
+                background-color: var(--maroon-dark);
+                border-radius: 10px;
+                overflow: hidden;
             }
 
             nav.active {
                 display: flex;
             }
 
-            nav a,
-            .dropdown {
+            nav a, .dropdown {
                 width: 100%;
+                box-sizing: border-box;
             }
 
-            nav a,
-            .dropdown-btn {
+            nav a, .dropdown-btn {
                 width: 100%;
                 text-align: left;
-                padding: 15px;
+                padding: 14px 20px;
                 border-radius: 0;
+                justify-content: space-between;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             }
 
             .dropdown-content {
@@ -299,25 +277,42 @@
                 display: none;
                 box-shadow: none;
                 width: 100%;
-                background: #6d1733;
+                background-color: rgba(0, 0, 0, 0.2);
+                padding: 0;
+                border-radius: 0;
             }
 
-            .dropdown:hover .dropdown-content,
-            .dropdown.active .dropdown-content {
+            .dropdown-content a {
+                padding: 12px 30px;
+                font-size: 13px;
+            }
+
+            .dropdown.open .dropdown-content {
                 display: block;
             }
 
+            .dropdown.open .dropdown-btn i {
+                transform: rotate(180deg);
+            }
+
             .hero {
-                margin: 25px 15px;
-                padding: 40px 25px;
+                margin: 25px 10px;
+                padding: 30px 20px;
             }
 
             .hero h2 {
-                font-size: 30px;
+                font-size: 26px;
             }
 
             .hero p {
-                font-size: 17px;
+                font-size: 15px;
+            }
+
+            .btn-hub {
+                width: 100%;
+                box-sizing: border-box;
+                font-size: 16px;
+                padding: 14px 20px;
             }
         }
     </style>
@@ -328,14 +323,14 @@
         <div class="header-left">
             <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo">
             <div class="header-title">
-                <h1> PORTAL BOLA JARING MSSM </h1>
+                <h1>PORTAL BOLA JARING MSSM</h1>
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
 
         <!-- Butang Burger -->
-        <button class="menu-toggle" id="menu-toggle">
-            <i class="fas fa-bars"></i>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
         </button>
 
         <!-- Navigasi Utama -->
@@ -344,7 +339,10 @@
             
             <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
-                <button class="dropdown-btn">BOLA JARING MSSM ▼</button>
+                <button class="dropdown-btn">
+                    <span>BOLA JARING MSSM</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="dropdown-content"> 
                     <a href="organisasi.html">ORGANISASI BOLA JARING MSSM</a>
                     <a href="panel.html">PANEL ANUGERAH MSSM</a>
@@ -355,30 +353,36 @@
                     <a href="rules.html">PERATURAN</a>
                     <a href="calendar.html">TAKWIM</a>
                     <hr>
-                    <a href="bUKUPROGRAM.html" target="_blank">BUKU PROGRAM KEJOHANAN↗</a>
-                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN↗</a>
-                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN↗</a>
+                    <a href="bUKUPROGRAM.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
+                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>
                 </div>
             </div>
             
             <!-- DROPDOWN KEJOHANAN -->
             <div class="dropdown">
-                <button class="dropdown-btn">KEJOHANAN ▼</button>
+                <button class="dropdown-btn">
+                    <span>KEJOHANAN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="dropdown-content">
                     <a href="tournament/mssm2026/index.html">MSSM 2026</a>                   
                 </div>
             </div>
 
-            <!-- DROPDOWN GALERI & MEDIA (Hall of Fame & Gallery sahaja) -->
+            <!-- DROPDOWN GALERI & MEDIA -->
             <div class="dropdown">
-                <button class="dropdown-btn">GALERI & MEDIA ▼</button>
+                <button class="dropdown-btn">
+                    <span>GALERI & MEDIA</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="dropdown-content">
                     <a href="halloffame.html">HALL OF FAME</a>
                     <a href="gallery.html">GALLERY</a>
                 </div>
             </div>
 
-            <!-- 🔴 LIVE (Terus di Header Nav) -->
+            <!-- LIVE LINK -->
             <a href="live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
@@ -389,7 +393,6 @@
             <p>Platform Pusat Kejohanan Bola Jaring Majlis Sukan Sekolah Malaysia</p>
             <p>Portal Rasmi Bola Jaring MSSM ialah platform digital rasmi yang menyediakan maklumat terkini mengenai kejohanan, keputusan, jadual perlawanan, kedudukan pasukan, carta pertandingan, siaran langsung, galeri, dokumen rasmi serta pelbagai informasi berkaitan bola jaring sekolah di Malaysia.</p>
             
-            <!-- Bahagian Butang Tindakan (CTA Buttons) -->
             <div class="button-group">
                 <a href="tournament/index.html" class="btn-hub">🏆 MASUK KE HUB KEJOHANAN</a>
             </div>
@@ -400,22 +403,43 @@
         <p>© 2026 Portal Bola Jaring MSSM</p>
     </footer>
 
-    <!-- Skrip Javascript -->
+    <!-- SKRIP JAVASCRIPT KEMAS & RESPONSIF -->
     <script>
         const menuToggle = document.getElementById("menu-toggle");
+        const menuIcon = document.getElementById("menu-icon");
         const nav = document.getElementById("nav-menu");
+        const dropdowns = document.querySelectorAll(".dropdown");
 
+        // Toggle Burger Menu pada Mobile
         menuToggle.addEventListener("click", () => {
             nav.classList.toggle("active");
+            
+            // Tukar ikon burger (fa-bars) kepada ikon tutup (fa-xmark)
+            if (nav.classList.contains("active")) {
+                menuIcon.classList.remove("fa-bars");
+                menuIcon.classList.add("fa-xmark");
+            } else {
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+            }
         });
 
-        /* Pengendalian klik dropdown pada skrin peranti mudah alih (Mobile) */
-        const dropdownBtns = document.querySelectorAll('.dropdown-btn');
-        dropdownBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
+        // Pengendalian Klik Dropdown pada Mobile
+        dropdowns.forEach(dropdown => {
+            const btn = dropdown.querySelector(".dropdown-btn");
+            btn.addEventListener("click", (e) => {
                 if (window.innerWidth <= 768) {
-                    const parent = btn.parentElement;
-                    parent.classList.toggle('active');
+                    e.preventDefault();
+                    
+                    // Tutup dropdown lain yang terbuka
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove("open");
+                        }
+                    });
+
+                    // Buka/Tutup dropdown yang diklik
+                    dropdown.classList.toggle("open");
                 }
             });
         });
