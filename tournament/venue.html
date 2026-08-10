@@ -6,104 +6,110 @@
     <title>Lokasi Venue Pertandingan | Portal Bola Jaring MSSM</title>
 
     <link rel="stylesheet" href="../../style.css">
+    <!-- Font Awesome untuk ikon burger & lokasi -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
-        :root{
-            --maroon:#7B1E3A;
-            --gold:#FFD700;
-            --pink:#FCE4EC;
-            --white:#ffffff;
+        :root {
+            --maroon: #7B1E3A;
+            --gold: #FFD700;
+            --pink: #FCE4EC;
+            --white: #ffffff;
         }
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        body{
-            font-family:'Segoe UI',Tahoma,sans-serif;
-            background:url('../../images/bg-utama.jpg') center/cover fixed;
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-image: url('../../images/bg-utama.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            background-color: var(--pink);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        header{
-            background:var(--maroon);
-            color:white;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:15px 5%;
-            box-shadow:0 4px 15px rgba(0,0,0,.3);
-            position:sticky;
-            top:0;
-            z-index:1000;
+        main {
+            flex: 1;
         }
 
-        .header-left{
-            display:flex;
-            align-items:center;
-            gap:18px;
+        /* HEADER & NAVIGATION */
+        header {
+            background: var(--maroon);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            box-shadow: 0 4px 15px rgba(0,0,0,.3);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             width: 100%;
             justify-content: space-between;
         }
 
-        .logo{
-            width:80px;
-            height:80px;
-            min-width: 80px;
-            object-fit:contain;
-            background:transparent;
-            padding:0;
-            border-radius:0;
+        .logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background: transparent;
         }
 
-        .header-title h1{
-            color:white;
-            font-size:26px;
+        .header-title h1 {
+            color: white;
+            font-size: 22px;
             margin: 0;
             line-height: 1.2;
         }
 
-        .subtitle{
-            color:#ffeb3b;
-            font-weight:bold;
-            margin-top:5px;
-            font-size: 16px;
+        .subtitle {
+            color: #ffeb3b;
+            font-weight: bold;
+            margin: 0;
+            font-size: 14px;
         }
 
-        nav{
-            display:flex;
-            gap:15px;
+        nav {
+            display: flex;
             align-items: center;
+            gap: 8px;
+            margin-left: auto;
         }
 
         nav a, .dropdown-btn {
-            color:white;
-            text-decoration:none;
-            padding:10px 16px;
-            border-radius:8px;
-            transition:.3s;
-            font-weight:bold;
+            color: white;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: .3s;
+            font-weight: bold;
             background: none;
             border: none;
+            font-size: 15px;
             cursor: pointer;
             font-family: inherit;
-            font-size: 16px;
             white-space: nowrap;
         }
 
-        nav a:hover,
-        nav a.active,
-        .dropdown:hover .dropdown-btn {
-            background:rgba(255,255,255,.15);
-            color:#FFD700;
+        nav a:hover, nav a.active, .dropdown:hover .dropdown-btn {
+            background: rgba(255,255,255,.15);
+            color: var(--gold);
         }
 
-        /* STRUCTURAL DROPDOWN */
+        /* DROPDOWN STYLES */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -114,71 +120,69 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: var(--maroon);
-            min-width: 200px;
+            background: var(--maroon);
+            min-width: 240px;
             border-radius: 10px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            padding: 8px 0;
-            z-index: 1100;
+            padding: 10px 0;
+            z-index: 1000;
         }
 
         .dropdown-content a {
             color: white;
-            padding: 12px 18px;
+            padding: 12px 20px;
             text-decoration: none;
             display: block;
             text-align: left;
-            font-size: 15px;
-            font-weight: bold;
+            font-size: 14px;
+            font-weight: 600;
             border-radius: 0;
-            transition: background 0.2s;
         }
 
         .dropdown-content a:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-            color: #ffeb3b;
+            background: #9b2b4d;
+            color: var(--gold);
         }
 
         .dropdown-content hr {
             border: none;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            margin: 6px 0;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            margin: 5px 0;
         }
 
         .dropdown:hover .dropdown-content {
             display: block;
         }
 
-        .container{
-            max-width:1100px;
-            margin:auto;
-            padding:60px 20px;
-            flex: 1;
+        /* KANDUNGAN VENUE */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px 60px 20px;
             width: 100%;
         }
 
-        .title-box{
-            background:rgba(255,255,255,.95);
-            border-radius:15px;
-            padding:35px;
-            text-align:center;
-            margin-bottom:40px;
-            box-shadow:0 10px 25px rgba(0,0,0,.1);
+        .title-box {
+            background: rgba(255,255,255,.95);
+            border-radius: 15px;
+            padding: 35px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,.1);
         }
 
-        .title-box h2{
-            color:var(--maroon);
-            font-size:32px;
-            margin-bottom:10px;
+        .title-box h2 {
+            color: var(--maroon);
+            font-size: 32px;
+            margin-bottom: 10px;
             text-transform: uppercase;
         }
 
-        .title-box p{
-            color:#555;
-            font-size:17px;
+        .title-box p {
+            color: #555;
+            font-size: 17px;
         }
 
-        /* GRID UNTUK VENUE CARD */
         .venue-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -201,7 +205,6 @@
             overflow: hidden;
         }
 
-        /* LAPISAN TRANSLUCENT UNTUK KEMUDAHAN MEMBACA TEKS */
         .venue-card::before {
             content: "";
             position: absolute;
@@ -209,7 +212,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.80); /* Laraskan transparency di sini (0.80 = 80% putih) */
+            background: rgba(255, 255, 255, 0.85);
             z-index: 1;
         }
 
@@ -218,12 +221,11 @@
             z-index: 2;
         }
 
-        /* GAMBAR LATAR BELAKANG DENGAN PATH 'images/' DARI FOLDER SUB-LEVEL */
-        .bg-uitm{
+        .bg-uitm {
             background-image: url('../../images/dewanuitm.jpg');
         }
 
-        .bg-kbs{
+        .bg-kbs {
             background-image: url('../../images/dewankbs.jpg');
         }
 
@@ -289,27 +291,32 @@
             transform: scale(1.03);
         }
 
-        footer{
-            background:var(--maroon);
-            color:white;
-            text-align:center;
-            padding:25px;
-            margin-top:auto;
+        /* FOOTER */
+        footer {
+            background: #5a1429;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            font-size: 14px;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
         }
 
-        /* RESPONSIVE MENU */
+        /* BURGER MENU RESPONSIF */
         .menu-toggle {
             display: none;
             font-size: 28px;
             color: white;
+            background: none;
+            border: none;
             cursor: pointer;
         }
 
-        @media(max-width:900px){
-            header{
-                flex-direction:column;
+        @media (max-width: 1000px) {
+            header {
+                flex-direction: column;
                 align-items: flex-start;
-                padding:15px 20px;
+                padding: 15px 20px;
                 gap: 0;
             }
 
@@ -320,26 +327,41 @@
                 align-items: center;
             }
 
-            .menu-toggle {
-                display: block;
+            .header-title h1 {
+                font-size: 18px;
             }
 
-            nav{
-                display: none;
-                flex-direction: column;
+            .subtitle {
+                font-size: 12px;
+            }
+
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .menu-toggle {
+                display: block; 
+            }
+            
+            nav {
+                display: none; 
                 width: 100%;
+                flex-direction: column;
                 margin-top: 15px;
+                margin-left: 0;
                 gap: 0;
             }
 
             nav.active {
-                display: flex;
+                display: flex; 
             }
 
-            nav a, .dropdown-btn {
+            nav a, .dropdown, .dropdown-btn {
                 width: 100%;
                 text-align: left;
                 padding: 14px 18px;
+                border-radius: 0;
                 box-sizing: border-box;
             }
 
@@ -350,11 +372,11 @@
             .dropdown-content {
                 position: static;
                 display: none;
-                width: 100%;
                 box-shadow: none;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.1);
                 border-radius: 8px;
                 margin-top: 5px;
-                background-color: rgba(0, 0, 0, 0.1);
             }
 
             .dropdown:hover .dropdown-content {
@@ -375,122 +397,129 @@
         }
     </style>
 </head>
-
 <body>
 
-<header>
-    <div class="header-left">
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <img src="../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
-            <div>
-                <h1>PORTAL BOLA JARING MSSM</h1>
-                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+    <header>
+        <div class="header-left">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <img src="../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
+                <div class="header-title">
+                    <h1>PORTAL BOLA JARING MSSM</h1>
+                    <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+                </div>
             </div>
-        </div>
-        <div class="menu-toggle" id="menuToggle">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-    </div>
-
-    <nav id="navbar">
-        <a href="../../index.html">Home</a>
-        
-        <!-- BOLA JARING MSSM -->
-        <div class="dropdown">
-            <button class="dropdown-btn">BOLA JARING MSSM ▼</button>
-            <div class="dropdown-content">
-                <a href="../../organisasi.html">Organisasi Bola Jaring MSSM</a>
-                <a href="../../panel.html">Panel Anugerah MSSM</a>
-                <a href="../../teknikal.html">Teknikal Kejohanan</a>
-                <a href="../../pengadil.html">Pengadil</a>
-                <hr>
-                <a href="../../about.html">Manual Pengurusan Bola Jaring MSSM</a>
-                <a href="../../rules.html">Peraturan</a>
-                <a href="../../calendar.html">Takwim</a>
-            </div>
-        </div>
-        
-        <!-- DROPDOWN KEJOHANAN -->
-        <div class="dropdown">
-            <button class="dropdown-btn">Kejohanan ▼</button>
-            <div class="dropdown-content">
-                <a href="u12.html">Bawah 12 (B12)</a>
-                <a href="u15.html">Bawah 15 (B15)</a>
-                <a href="u18.html">Bawah 18 (B18)</a>
-                <hr>
-                <a href="../venue.html" class="active">📍 Venue Pertandingan</a>
-                <a href="borang.html">📄 Borang Pertandingan</a>
-                <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">📝 Pendaftaran e-Kejohanan ↗</a>
+            <!-- Menu Toggle / Burger Button -->
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
             </div>
         </div>
 
-        <a href="../../live.html">🔴 Live</a>
-        <a href="../../contact.html">Contact</a>
-    </nav>
-</header>
-
-<div class="container">
-    <div class="title-box">
-        <h2>SENARAI VENUE PERTANDINGAN</h2>
-        <p>Sila klik butang lokasi untuk melihat laluan ke venue kejohanan menerusi Google Maps.</p>
-    </div>
-
-    <!-- GRID VENUE PERTANDINGAN -->
-    <div class="venue-grid">
-        
-        <!-- Venue Bawah 15 & 18 -->
-        <div class="venue-card bg-uitm">
-            <div>
-                <div class="icon"><div class="icon"><i class="fa-solid fa-location-dot"></i></div></div>
-                <div class="category">Kategori: Bawah 15 & Bawah 18</div>
-                <div class="tournament-info">Kejohanan Bola Jaring MSSM, 28 Ogos - 3 Sept 2028</div>
-                <div class="venue-name">Dewan Taming Sari, UiTM Lendu</div>
-                <p>Lokasi rasmi perlawanan bagi kategori Bawah 15 & Bawah 18 Tahun.</p>
+        <!-- Navigation Bar -->
+        <nav id="navbar">
+            <a href="../../index.html">Home</a>
+            
+            <!-- BOLA JARING MSSM -->
+            <div class="dropdown">
+                <button class="dropdown-btn">BOLA JARING MSSM ▼</button>
+                <div class="dropdown-content">
+                    <a href="../../organisasi.html">Organisasi Bola Jaring MSSM</a>
+                    <a href="../../panel.html">Panel Anugerah MSSM</a>
+                    <a href="../../teknikal.html">Teknikal Kejohanan</a>
+                    <a href="../../pengadil.html">Pengadil</a>
+                    <hr>
+                    <a href="../../about.html">Manual Pengurusan Bola Jaring MSSM</a>
+                    <a href="../../rules.html">Peraturan</a>
+                    <a href="../../calendar.html">Takwim</a>
+                </div>
             </div>
-            <a href="https://maps.app.goo.gl/HrVQjgcTZw65fEuj9" target="_blank" rel="noopener noreferrer" class="btn-map">
-                📍 Buka di Google Maps
-            </a>
-        </div>
-
-        <!-- Venue Bawah 12 -->
-        <div class="venue-card bg-kbs">
-            <div>
-                <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
-                <div class="category">Kategori: Bawah 12</div>
-                <div class="tournament-info">Kejohanan Bola Jaring MSSM, 28 Ogos - 3 Sept 2028</div>
-                <div class="venue-name">Dewan KBS Masjid Tanah</div>
-                <p>Lokasi rasmi perlawanan bagi kategori Bawah 12 Tahun.</p>
+            
+            <!-- DROPDOWN KEJOHANAN -->
+            <div class="dropdown">
+                <button class="dropdown-btn active">Kejohanan ▼</button>
+                <div class="dropdown-content">
+                    <a href="u12.html">Bawah 12 (B12)</a>
+                    <a href="u15.html">Bawah 15 (B15)</a>
+                    <a href="u18.html">Bawah 18 (B18)</a>
+                    <hr>
+                    <a href="venue.html" class="active">📍 Venue Pertandingan</a>
+                    <a href="../borang.html">📄 Borang Pendaftaran</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">📝 Pendaftaran e-Kejohanan ↗</a>
+                </div>
             </div>
-            <a href="https://maps.app.goo.gl/4eRaxWoFEBvyNUbB7" target="_blank" rel="noopener noreferrer" class="btn-map">
-                📍 Buka di Google Maps
-            </a>
+
+            <a href="../../live.html">🔴 Live</a>
+            <a href="../../contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="title-box">
+                <h2>SENARAI VENUE PERTANDINGAN</h2>
+                <p>Sila klik butang lokasi untuk melihat laluan ke venue kejohanan menerusi Google Maps.</p>
+            </div>
+
+            <!-- GRID VENUE PERTANDINGAN -->
+            <div class="venue-grid">
+                
+                <!-- Venue Bawah 15 & 18 -->
+                <div class="venue-card bg-uitm">
+                    <div>
+                        <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="category">Kategori: Bawah 15 & Bawah 18</div>
+                        <div class="tournament-info">Kejohanan Bola Jaring MSSM, 28 Ogos - 3 Sept 2028</div>
+                        <div class="venue-name">Dewan Taming Sari, UiTM Lendu</div>
+                        <p>Lokasi rasmi perlawanan bagi kategori Bawah 15 & Bawah 18 Tahun.</p>
+                    </div>
+                    <a href="https://maps.app.goo.gl/HrVQjgcTZw65fEuj9" target="_blank" rel="noopener noreferrer" class="btn-map">
+                        📍 Buka di Google Maps
+                    </a>
+                </div>
+
+                <!-- Venue Bawah 12 -->
+                <div class="venue-card bg-kbs">
+                    <div>
+                        <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="category">Kategori: Bawah 12</div>
+                        <div class="tournament-info">Kejohanan Bola Jaring MSSM, 28 Ogos - 3 Sept 2028</div>
+                        <div class="venue-name">Dewan KBS Masjid Tanah</div>
+                        <p>Lokasi rasmi perlawanan bagi kategori Bawah 12 Tahun.</p>
+                    </div>
+                    <a href="https://maps.app.goo.gl/4eRaxWoFEBvyNUbB7" target="_blank" rel="noopener noreferrer" class="btn-map">
+                        📍 Buka di Google Maps
+                    </a>
+                </div>
+
+            </div>
         </div>
+    </main>
 
-    </div>
-</div>
+    <footer>
+        <p>© 2026 Portal Bola Jaring MSSM | Majlis Sukan Sekolah Malaysia</p>
+    </footer>
 
-<footer>
-    <p>© 2026 Portal Bola Jaring MSSM</p>
-</footer>
+    <!-- Skrip Burger Menu & Dropdown Responsif -->
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const nav = document.getElementById("navbar");
 
-<script>
-    // Fungsi menu hamburger skrin mudah alih
-    document.getElementById('menuToggle').addEventListener('click', function() {
-        document.getElementById('navbar').classList.toggle('active');
-    });
-
-    // Fungsi dropdown skrin mudah alih
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(dropdown => {
-        const btn = dropdown.querySelector('.dropdown-btn');
-        btn.addEventListener('click', function(e) {
-            if (window.innerWidth <= 900) {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
-            }
+        menuToggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
         });
-    });
-</script>
 
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            const btn = dropdown.querySelector('.dropdown-btn');
+            btn.addEventListener('click', function(e) {
+                if (window.innerWidth <= 1000) {
+                    e.preventDefault();
+                    dropdowns.forEach(item => {
+                        if (item !== dropdown) item.classList.remove('active');
+                    });
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
