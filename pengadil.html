@@ -32,8 +32,8 @@
             padding: 15px 40px;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            gap: 45px;
+            justify-content: space-between;
+            gap: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             position: sticky;
             top: 0;
@@ -47,16 +47,14 @@
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             object-fit: contain;
             background: transparent;
-            border-radius: 0;
-            padding: 0;
         }
 
         .header-title h1 {
-            font-size: 26px;
+            font-size: 22px;
             margin: 0;
             font-weight: 800;
             text-transform: uppercase;
@@ -64,7 +62,7 @@
         }
 
         .subtitle {
-            font-size: 15px;
+            font-size: 13px;
             margin: 2px 0 0 0;
             color: var(--accent-gold);
             font-weight: 600;
@@ -75,8 +73,7 @@
         nav {
             display: flex;
             align-items: center;
-            gap: 8px;          
-            margin-left: 20px;
+            gap: 8px;
         }
 
         nav a, .dropdown-btn {
@@ -85,7 +82,7 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
-            font-size: 15px;
+            font-size: 14px;
             transition: .3s;
             white-space: nowrap;
             background: none;
@@ -167,33 +164,32 @@
         /* MAIN CONTENT */
         .container { 
             max-width: 1200px; 
-            margin: 40px auto; 
+            margin: 30px auto; 
             padding: 0 20px; 
         }
         
         .hero { 
             background: rgba(255, 255, 255, 0.93); 
             backdrop-filter: blur(10px);
-            padding: 40px; 
+            padding: 30px; 
             border-radius: 20px; 
             text-align: center; 
-            margin-bottom: 50px; 
+            margin-bottom: 40px; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
             border-top: 6px solid var(--maroon-mssm);
         }
         
         .hero h2 { 
             color: var(--maroon-mssm); 
-            font-size: clamp(2.2rem, 5vw, 3.5rem); 
-            font-weight: 800; 
-            margin-bottom: 12px; 
+            font-size: 26px; 
+            margin-bottom: 8px; 
             text-transform: uppercase; 
-            letter-spacing: 1px;
+            font-weight: 800;
         }
 
         .hero p {
             color: #555;
-            font-size: 20px;
+            font-size: 15px;
             font-weight: 600;
             margin: 0;
             text-transform: uppercase;
@@ -206,7 +202,7 @@
             background-color: var(--maroon-mssm);
             font-size: 16px;
             font-weight: 700;
-            margin: 45px 0 20px 0;
+            margin: 35px 0 20px 0;
             padding: 10px 18px;
             border-radius: 8px;
             text-transform: uppercase;
@@ -313,36 +309,37 @@
             background-color: var(--maroon-mssm); 
             color: white; 
             text-align: center; 
-            padding: 25px; 
-            margin-top: 70px; 
-            font-size: 15px; 
+            padding: 20px; 
+            margin-top: 50px; 
+            font-size: 14px; 
             box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
         }
 
-        /* RESPONSIVE MENU HAMBURGER */
+        /* RESPONSIVE MENU HAMBURGER UNTUK TELEFON (HANDSET) */
         .menu-toggle {
             display: none;
-            font-size: 28px;
+            font-size: 24px;
             color: white;
+            background: none;
+            border: none;
             cursor: pointer;
+            padding: 5px;
         }
 
-        @media(max-width:1000px){
+        @media(max-width: 1024px) {
             header {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-wrap: wrap;
                 padding: 15px 20px;
-                gap: 0;
             }
 
             .header-left {
                 width: 100%;
-                display: flex;
                 justify-content: space-between;
-                align-items: center;
             }
 
-            .menu-toggle { display: block; }
+            .menu-toggle { 
+                display: block; 
+            }
 
             nav {
                 display: none;
@@ -350,59 +347,106 @@
                 width: 100%;
                 margin-top: 15px;
                 gap: 0;
-                margin-left: 0;
             }
 
-            nav.active { display: flex; }
+            nav.active { 
+                display: flex; 
+            }
 
             nav a, .dropdown-btn {
                 width: 100%;
                 text-align: left;
-                padding: 14px 18px;
+                padding: 12px 15px;
                 box-sizing: border-box;
+                border-radius: 6px;
             }
 
-            .dropdown { width: 100%; }
+            .dropdown { 
+                width: 100%; 
+            }
 
             .dropdown-content {
                 position: static;
                 display: none;
                 width: 100%;
                 box-shadow: none;
-                border-radius: 8px;
-                margin-top: 5px;
-                background-color: rgba(0, 0, 0, 0.1);
+                border-radius: 6px;
+                margin-top: 2px;
+                background-color: rgba(0, 0, 0, 0.2);
             }
 
-            .dropdown:hover .dropdown-content { display: none; }
-            .dropdown.active .dropdown-content { display: block; }
-            .dropdown-content a { padding-left: 35px; }
+            .dropdown:hover .dropdown-content { 
+                display: none; 
+            }
+
+            .dropdown.active .dropdown-content { 
+                display: block; 
+            }
+
+            .dropdown-content a { 
+                padding-left: 30px; 
+            }
+        }
+
+        @media(max-width: 600px) {
+            .header-title h1 {
+                font-size: 18px;
+            }
+            .subtitle {
+                font-size: 11px;
+            }
+            .logo {
+                width: 55px;
+                height: 55px;
+            }
+            .hero h2 {
+                font-size: 22px;
+            }
+            .hero p {
+                font-size: 13px;
+            }
+            .officers-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 12px;
+            }
+            .officer-img-container {
+                width: 85px;
+                height: 85px;
+            }
+            .officer-info h3 {
+                font-size: 13px;
+            }
+            .officer-role {
+                font-size: 10px;
+            }
+            .officer-school {
+                font-size: 10.5px;
+            }
         }
     </style>
 </head>
 <body>
 
     <!-- HEADER & NAV -->
-   </head>
-<body>
-
     <header>
         <div class="header-left">
-            <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo">
-            <div class="header-title">
-                <h1> PORTAL BOLA JARING MSSM </h1>
-                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo">
+                <div class="header-title">
+                    <h1>PORTAL BOLA JARING MSSM</h1>
+                    <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+                </div>
             </div>
-        </div>
 
-        <!-- Butang Burger -->
-        <button class="menu-toggle" id="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
+            <!-- Butang Burger -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
 
         <!-- Navigasi Utama -->
         <nav id="nav-menu">
-            <a href="index.html" class="active">HOME</a>
+            <a href="index.html">HOME</a>
             
             <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
@@ -411,12 +455,11 @@
                     <a href="organisasi.html">ORGANISASI BOLA JARING MSSM</a>
                     <a href="panel.html">PANEL ANUGERAH MSSM</a>
                     <a href="teknikal.html">TEKNIKAL KEJOHANAN</a>
-                    <a href="pengadil.html">PENGADIL</a>
+                    <a href="pengadil.html" class="active">PENGADIL</a>
                     <hr>
                     <a href="about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
                     <a href="rules.html">PERATURAN</a>
                     <a href="calendar.html">TAKWIM</a>
-                   
                 </div>
             </div>
             
@@ -425,14 +468,14 @@
                 <button class="dropdown-btn">KEJOHANAN ▼</button>
                 <div class="dropdown-content">
                     <a href="tournament/mssm2026/index.html">MSSM 2026</a>  
-                 <hr>
+                    <hr>
                     <a href="bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
                     <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
                     <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>                 
                 </div>
             </div>
 
-            <!-- DROPDOWN GALERI & MEDIA (Hall of Fame & Gallery sahaja) -->
+            <!-- DROPDOWN GALERI & MEDIA -->
             <div class="dropdown">
                 <button class="dropdown-btn">GALERI & MEDIA ▼</button>
                 <div class="dropdown-content">
@@ -441,11 +484,10 @@
                 </div>
             </div>
 
-            <!-- 🔴 LIVE (Terus di Header Nav) -->
-            <a href="live.html" class="live-link">🔴 LIVE</a>
+            <!-- 🔴 LIVE -->
+            <a href="live.html" class="live-btn">🔴 LIVE</a>
         </nav>
     </header>
-
 
     <!-- KANDUNGAN UTAMA: PENGADIL -->
     <main class="container">
@@ -454,7 +496,7 @@
             <p>Barisan Pengadil Rasmi Kejohanan</p>
         </section>
 
-        <!-- KETUA PENGADIL (1 Orang) -->
+        <!-- KETUA PENGADIL -->
         <div class="category-title"><i class="fa-solid fa-medal"></i> Ketua Pengadil Kejohanan</div>
         <section class="officers-grid">
             <div class="officer-card">
@@ -471,11 +513,10 @@
             </div>
         </section>
 
-        <!-- SENARAI 44 PENGADIL (HTML MANUAL) -->
+        <!-- SENARAI PENGADIL RASMI -->
         <div class="category-title"><i class="fa-solid fa-users"></i> Senarai Pengadil Rasmi (44 Orang)</div>
         <section class="officers-grid">
 
-            <!-- PENGADIL 1 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil1.jpg" alt="Pengadil 1" class="officer-img">
@@ -489,7 +530,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 2 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil2.jpg" alt="Pengadil 2" class="officer-img">
@@ -503,7 +543,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 3 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil3.jpg" alt="Pengadil 3" class="officer-img">
@@ -517,7 +556,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 4 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil4.jpg" alt="Pengadil 4" class="officer-img">
@@ -531,7 +569,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 5 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil5.jpg" alt="Pengadil 5" class="officer-img">
@@ -545,7 +582,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 6 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil6.jpg" alt="Pengadil 6" class="officer-img">
@@ -559,7 +595,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 7 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil7.jpg" alt="Pengadil 7" class="officer-img">
@@ -573,7 +608,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 8 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil8.jpg" alt="Pengadil 8" class="officer-img">
@@ -587,7 +621,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 9 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil9.jpg" alt="Pengadil 9" class="officer-img">
@@ -601,7 +634,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 10 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil10.jpg" alt="Pengadil 10" class="officer-img">
@@ -615,7 +647,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 11 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil11.jpg" alt="Pengadil 11" class="officer-img">
@@ -629,7 +660,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 12 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil12.jpg" alt="Pengadil 12" class="officer-img">
@@ -643,7 +673,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 13 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil13.jpg" alt="Pengadil 13" class="officer-img">
@@ -657,7 +686,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 14 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil14.jpg" alt="Pengadil 14" class="officer-img">
@@ -671,7 +699,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 15 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil15.jpg" alt="Pengadil 15" class="officer-img">
@@ -685,7 +712,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 17 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil17.jpg" alt="Pengadil 17" class="officer-img">
@@ -699,7 +725,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 18 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil18.jpg" alt="Pengadil 18" class="officer-img">
@@ -713,7 +738,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 19 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil19.jpg" alt="Pengadil 19" class="officer-img">
@@ -727,7 +751,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 20 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil20.jpg" alt="Pengadil 20" class="officer-img">
@@ -741,7 +764,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 21 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil21.jpg" alt="Pengadil 21" class="officer-img">
@@ -755,7 +777,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 22 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil22.jpg" alt="Pengadil 22" class="officer-img">
@@ -769,7 +790,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 23 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil23.jpg" alt="Pengadil 23" class="officer-img">
@@ -783,7 +803,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 24 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil24.jpg" alt="Pengadil 24" class="officer-img">
@@ -797,7 +816,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 25 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil25.jpg" alt="Pengadil 25" class="officer-img">
@@ -811,7 +829,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 26 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil26.jpg" alt="Pengadil 26" class="officer-img">
@@ -825,7 +842,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 27 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil27.jpg" alt="Pengadil 27" class="officer-img">
@@ -839,7 +855,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 28 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil28.jpg" alt="Pengadil 28" class="officer-img">
@@ -853,7 +868,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 29 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil29.jpg" alt="Pengadil 29" class="officer-img">
@@ -867,7 +881,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 30 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil30.jpg" alt="Pengadil 30" class="officer-img">
@@ -881,7 +894,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 31 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil31.jpg" alt="Pengadil 31" class="officer-img">
@@ -895,7 +907,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 32 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil32.jpg" alt="Pengadil 32" class="officer-img">
@@ -909,7 +920,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 33 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil33.jpg" alt="Pengadil 33" class="officer-img">
@@ -923,7 +933,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 34 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil34.jpg" alt="Pengadil 34" class="officer-img">
@@ -937,7 +946,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 35 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil35.jpg" alt="Pengadil 35" class="officer-img">
@@ -951,7 +959,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 36 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil36.jpg" alt="Pengadil 36" class="officer-img">
@@ -965,7 +972,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 37 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil37.jpg" alt="Pengadil 37" class="officer-img">
@@ -979,7 +985,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 38 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil38.jpg" alt="Pengadil 38" class="officer-img">
@@ -993,7 +998,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 39 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil39.jpg" alt="Pengadil 39" class="officer-img">
@@ -1007,7 +1011,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 40 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil40.jpg" alt="Pengadil 40" class="officer-img">
@@ -1021,7 +1024,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 41 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil41.jpg" alt="Pengadil 41" class="officer-img">
@@ -1035,7 +1037,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 42 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil42.jpg" alt="Pengadil 42" class="officer-img">
@@ -1049,7 +1050,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 43 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil43.jpg" alt="Pengadil 43" class="officer-img">
@@ -1063,7 +1063,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 44 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil44.jpg" alt="Pengadil 44" class="officer-img">
@@ -1077,7 +1076,6 @@
                 </div>
             </div>
 
-            <!-- PENGADIL 16 -->
             <div class="officer-card">
                 <div class="officer-img-container">
                     <img src="images/pengadil/pengadil16.jpg" alt="Pengadil 16" class="officer-img">
@@ -1090,6 +1088,7 @@
                     <p class="officer-school"><i class="fa-solid fa-school"></i> SK LUBOK TEMIANG,WP LABUAN</p>
                 </div>
             </div>
+
         </section>
 
     </main>
@@ -1099,17 +1098,20 @@
         <p>© 2026 Portal Bola Jaring MSSM</p>
     </footer>
 
-    <!-- SKRIP JAVASCRIPT -->
+    <!-- SKRIP JAVASCRIPT UNTUK MENU RESPONSIF -->
     <script>
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            document.getElementById('navbar').classList.toggle('active');
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
         });
 
         const dropdowns = document.querySelectorAll('.dropdown');
         dropdowns.forEach(dropdown => {
             const btn = dropdown.querySelector('.dropdown-btn');
             btn.addEventListener('click', function(e) {
-                if (window.innerWidth <= 1000) {
+                if (window.innerWidth <= 1024) {
                     e.preventDefault();
                     dropdowns.forEach(item => {
                         if (item !== dropdown) item.classList.remove('active');
