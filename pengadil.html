@@ -383,55 +383,68 @@
 <body>
 
     <!-- HEADER & NAV -->
+   </head>
+<body>
+
     <header>
         <div class="header-left">
-            <div style="display: flex; align-items: center; gap: 20px;">
-                <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo">
-                <div class="header-title">
-                    <h1> PORTAL BOLA JARING MSSM </h1>
-                    <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
-                </div>
-            </div>
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fa-solid fa-bars"></i>
+            <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo">
+            <div class="header-title">
+                <h1> PORTAL BOLA JARING MSSM </h1>
+                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
 
-        <nav id="navbar">
-            <a href="index.html">Home</a>
+        <!-- Butang Burger -->
+        <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
 
-            <!-- BOLA JARING MSSM -->
+        <!-- Navigasi Utama -->
+        <nav id="nav-menu">
+            <a href="index.html" class="active">HOME</a>
+            
+            <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
                 <button class="dropdown-btn">BOLA JARING MSSM ▼</button>
-                <div class="dropdown-content">
-                    <a href="organisasi.html">Organisasi Bola Jaring MSSM</a>
-                    <a href="panel.html">Panel Anugerah MSSM</a>
-                    <a href="technical.html">Teknikal Kejohanan</a>
-                    <a href="pengadil.html" class="active">Pengadil</a>
+                <div class="dropdown-content"> 
+                    <a href="organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="pengadil.html">PENGADIL</a>
                     <hr>
-                    <a href="about.html">Manual Pengurusan Bola Jaring MSSM</a>
-                    <a href="rules.html">Peraturan</a>
-                    <a href="calendar.html">Takwim</a>
+                    <a href="about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="rules.html">PERATURAN</a>
+                    <a href="calendar.html">TAKWIM</a>
+                    <hr>
+                    <a href="bUKUPROGRAM.html" target="_blank">BUKU PROGRAM KEJOHANAN↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN↗</a>
+                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN↗</a>
                 </div>
             </div>
-
-            <!-- KEJOHANAN -->
+            
+            <!-- DROPDOWN KEJOHANAN -->
             <div class="dropdown">
                 <button class="dropdown-btn">KEJOHANAN ▼</button>
                 <div class="dropdown-content">
-                    <a href="tournament/mssm2026/index.html">MSSM 2026</a>
-                    <hr>
-                    <a href="ligakpm.html">Liga Sukan KPM</a>
-                    <a href="international.html">Kejohanan Antarabangsa</a>
+                    <a href="tournament/mssm2026/index.html">MSSM 2026</a>                   
                 </div>
-            </div>                
+            </div>
 
-            <a href="halloffame.html">Hall of Fame</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="live.html" class="live-btn">🔴 Live</a>
-            <a href="contact.html">Contact</a>
+            <!-- DROPDOWN GALERI & MEDIA (Hall of Fame & Gallery sahaja) -->
+            <div class="dropdown">
+                <button class="dropdown-btn">GALERI & MEDIA ▼</button>
+                <div class="dropdown-content">
+                    <a href="halloffame.html">HALL OF FAME</a>
+                    <a href="gallery.html">GALLERY</a>
+                </div>
+            </div>
+
+            <!-- 🔴 LIVE (Terus di Header Nav) -->
+            <a href="live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
+
 
     <!-- KANDUNGAN UTAMA: PENGADIL -->
     <main class="container">

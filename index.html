@@ -110,6 +110,18 @@
             color: #ffeb3b;
         }
 
+        /* LIVE BUTTON SPECIAL STYLE */
+        .live-link {
+            color: #ffeb3b !important;
+            animation: pulse-live 1.5s infinite;
+        }
+
+        @keyframes pulse-live {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
         /* STRUCTURAL STYLING UNTUK DROPDOWN MENU */
         .dropdown {
             position: relative;
@@ -290,7 +302,8 @@
                 background: #6d1733;
             }
 
-            .dropdown:hover .dropdown-content {
+            .dropdown:hover .dropdown-content,
+            .dropdown.active .dropdown-content {
                 display: block;
             }
 
@@ -327,24 +340,24 @@
 
         <!-- Navigasi Utama -->
         <nav id="nav-menu">
-            <a href="index.html" class="active">Home</a>
+            <a href="index.html" class="active">HOME</a>
             
             <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
                 <button class="dropdown-btn">BOLA JARING MSSM ▼</button>
                 <div class="dropdown-content"> 
-                    <a href="organisasi.html">Organisasi Bola Jaring MSSM</a>
-                    <a href="panel.html">Panel Anugerah MSSM</a>
-                    <a href="teknikal.html">Teknikal MSSM</a>
-                    <a href="pengadil.html">Pengadil MSSM</a>
+                    <a href="organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="pengadil.html">PENGADIL</a>
                     <hr>
-                    <a href="about.html">Manual Pengurusan Bola Jaring MSSM</a>
-                    <a href="rules.html">Peraturan</a>
-                    <a href="calendar.html">Takwim</a>
+                    <a href="about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="rules.html">PERATURAN</a>
+                    <a href="calendar.html">TAKWIM</a>
                     <hr>
-                   
-                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">Pendaftaran e-Kejohanan ↗</a>
-                    <a href="borang.html" target="_blank">Muat Turun Borang Pertandingan↗</a>
+                    <a href="bUKUPROGRAM.html" target="_blank">BUKU PROGRAM KEJOHANAN↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN↗</a>
+                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN↗</a>
                 </div>
             </div>
             
@@ -352,15 +365,21 @@
             <div class="dropdown">
                 <button class="dropdown-btn">KEJOHANAN ▼</button>
                 <div class="dropdown-content">
-                    <a href="tournament/mssm2026/index.html">MSSM 2026</a>
-                    <hr>
-                    <a href="international.html">Kejohanan Antarabangsa</a>
+                    <a href="tournament/mssm2026/index.html">MSSM 2026</a>                   
                 </div>
             </div>
 
-            <a href="halloffame.html">Hall of Fame</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="live.html" style="color: #ffeb3b;">🔴Live</a>
+            <!-- DROPDOWN GALERI & MEDIA (Hall of Fame & Gallery sahaja) -->
+            <div class="dropdown">
+                <button class="dropdown-btn">GALERI & MEDIA ▼</button>
+                <div class="dropdown-content">
+                    <a href="halloffame.html">HALL OF FAME</a>
+                    <a href="gallery.html">GALLERY</a>
+                </div>
+            </div>
+
+            <!-- 🔴 LIVE (Terus di Header Nav) -->
+            <a href="live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
 
@@ -372,8 +391,7 @@
             
             <!-- Bahagian Butang Tindakan (CTA Buttons) -->
             <div class="button-group">
-                <a href="tournament/index.html" class="btn-hub">🏆 Masuk Ke Hub Kejohanan</a>
-               
+                <a href="tournament/index.html" class="btn-hub">🏆 MASUK KE HUB KEJOHANAN</a>
             </div>
         </section>
     </main>
@@ -389,6 +407,17 @@
 
         menuToggle.addEventListener("click", () => {
             nav.classList.toggle("active");
+        });
+
+        /* Pengendalian klik dropdown pada skrin peranti mudah alih (Mobile) */
+        const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+        dropdownBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    const parent = btn.parentElement;
+                    parent.classList.toggle('active');
+                }
+            });
         });
     </script>
 </body>

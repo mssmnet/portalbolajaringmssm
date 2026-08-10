@@ -4,142 +4,327 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Takwim | Portal Bola Jaring MSSM 2026</title>
-    <!-- Pastikan path CSS ini betul mengikut kedudukan fail calendar.html anda -->
+    <!-- Font Awesome untuk ikon burger -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
     <style>
-        /* --- CSS TAMBAHAN KHAS UNTUK HALAMAN CALENDAR --- */
+        :root { 
+            --maroon-mssm: #7B1E3A; 
+            --pink-cair: #fdf2f6;
+        }
+
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Tahoma, sans-serif; 
+            background-color: #fce4ec; 
+            background-image: url('images/bg-utama.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* --- HEADER & NAVIGATION (MAROON THEME) --- */
+        header {
+            background-color: var(--maroon-mssm);
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 45px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+        }
+
+        .header-title h1 {
+            font-size: 26px;
+            margin: 0;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            margin: 2px 0 0 0;
+            color: #ffeb3b;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* NAVIGATION BAR */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;          
+            margin-left: 20px;
+        }
+
+        nav a, .dropdown-btn {
+            padding: 10px 14px;   
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            transition: .3s;
+            white-space: nowrap;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        nav a:hover, .dropdown:hover .dropdown-btn {
+            background-color: rgba(255,255,255,.2);
+            transform: translateY(-2px);
+        }
+
+        nav a.active, .dropdown-content a.active {
+            background-color: rgba(255,255,255,.15);
+            color: #ffeb3b;
+        }
+
+        /* LIVE BUTTON SPECIAL STYLE */
+        .live-link {
+            color: #ffeb3b !important;
+            animation: pulse-live 1.5s infinite;
+        }
+
+        @keyframes pulse-live {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        /* DROPDOWN MENU */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--maroon-mssm);
+            min-width: 240px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            padding: 8px 0;
+            z-index: 1100;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 0;
+            transition: background 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #ffeb3b;
+            transform: none; 
+        }
+
+        .dropdown-content hr {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 6px 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* --- KANDUNGAN UTAMA (TAKWIM) --- */
         .hero { 
             text-align: center; 
-            padding: 40px 20px; 
-            background: white; 
-            margin-bottom: 20px; 
+            padding: 50px 20px; 
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin: 40px auto 20px auto;
+            max-width: 1000px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .hero h2 {
-            color: #7B1E3A;
+            color: var(--maroon-mssm);
             margin-bottom: 10px;
+            font-size: 32px;
+            text-transform: uppercase;
         }
 
         .hero p {
-            color: #555;
-            font-size: 16px;
+            color: #444;
+            font-size: 17px;
         }
 
-        /* Seksyen Takwim */
         .calendar-section {
-            padding: 40px 20px;
+            max-width: 1100px;
+            margin: 30px auto 50px auto;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             text-align: center;
         }
 
         .calendar-section h2 {
+            color: var(--maroon-mssm);
             margin-bottom: 10px;
-            color: #8B1E3F;
+            font-size: 26px;
         }
 
         .calendar-section p {
             margin-bottom: 25px;
             color: #555;
+            font-size: 16px;
         }
 
         .calendar-image {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1000px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,.15);
             display: inline-block;
         }
 
-        /* --- CSS UNTUK HEADER & MENU BURGER (TEMA MAROON) --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: #7B1E3A;
-            position: relative;
-        }
-        
-        .header-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .header-title h1, .header-title p {
-            color: white;
-            margin: 0;
-        }
-
-        .logo {
-            height: 50px;
-            margin-right: 15px;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-        
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            gap: 15px;
-        }
-
-        nav a {
+        /* FOOTER */
+        footer { 
+            background-color: var(--maroon-mssm); 
             color: white; 
-            text-decoration: none;
-            font-weight: bold;
-            padding: 5px 10px;
-            transition: 0.3s;
+            text-align: center; 
+            padding: 25px; 
+            margin-top: auto; 
+            font-size: 15px; 
         }
 
-        nav a:hover, nav a.active {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
+        /* BURGER MENU BUTTON */
+        .menu-toggle {
+            display: none;
+            font-size: 34px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
         }
 
-        /* Media Query untuk Skrin Telefon (Mobile) */
+        /* MOBILE RESPONSIVE (MAX-WIDTH 768PX) */
         @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
+            header {
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding: 15px 20px;
+            }
+
+            .header-left {
+                gap: 12px;
+            }
+
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .header-title h1 {
+                font-size: 20px;
+            }
+
+            .subtitle {
+                font-size: 12px;
+            }
+
+            .menu-toggle {
+                display: block;
             }
 
             nav {
                 display: none;
+                width: 100%;
                 flex-direction: column;
-                position: absolute;
-                top: 100%;
-                right: 20px;
-                background: #7B1E3A;
-                width: 200px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-                border-radius: 8px;
-                padding: 10px;
-                z-index: 100;
-            }
-
-            nav a {
-                padding: 10px;
-                text-align: center;
-                display: block;
-                color: white;
+                margin-top: 20px;
+                margin-left: 0;
+                gap: 0;
             }
 
             nav.active {
                 display: flex;
             }
 
-            .hamburger.toggle .bar1 { transform: rotate(-45deg) translate(-5px, 6px); }
-            .hamburger.toggle .bar2 { opacity: 0; }
-            .hamburger.toggle .bar3 { transform: rotate(45deg) translate(-5px, -6px); }
+            nav a,
+            .dropdown {
+                width: 100%;
+            }
+
+            nav a,
+            .dropdown-btn {
+                width: 100%;
+                text-align: left;
+                padding: 15px;
+                border-radius: 0;
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                box-shadow: none;
+                width: 100%;
+                background: #6d1733;
+            }
+
+            .dropdown:hover .dropdown-content,
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .hero {
+                margin: 25px 15px;
+                padding: 30px 20px;
+            }
+
+            .hero h2 {
+                font-size: 26px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
         }
     </style>
 </head>
@@ -149,24 +334,58 @@
         <div class="header-left">
             <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo">
             <div class="header-title">
-                <h1>PORTAL BOLA JARING MSSM</h1>
+                <h1> PORTAL BOLA JARING MSSM </h1>
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
-        
-        <!-- Ikon Burger -->
-        <div class="hamburger" id="hamburger-menu">
-            <span class="bar1"></span>
-            <span class="bar2"></span>
-            <span class="bar3"></span>
-        </div>
 
+        <!-- Butang Burger -->
+        <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigasi Utama -->
         <nav id="nav-menu">
             <a href="index.html">HOME</a>
-            <a href="about.html">TENTANG KAMI</a>
-            <a href="calendar.html" class="active">TAKWIM</a>
-            <a href="u12/u12.html">BAWAH 12</a>
-            <a href="u12/teams/live.html"> 🔴LIVE</a>
+            
+            <!-- DROPDOWN BOLA JARING MSSM -->
+            <div class="dropdown">
+                <button class="dropdown-btn active">BOLA JARING MSSM ▼</button>
+                <div class="dropdown-content"> 
+                    <a href="organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="pengadil.html">PENGADIL</a>
+                    <hr>
+                    <a href="about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="rules.html">PERATURAN</a>
+                    <a href="calendar.html" class="active">TAKWIM</a>
+                    <hr>
+                    <a href="bUKUPROGRAM.html" target="_blank">BUKU PROGRAM KEJOHANAN↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN↗</a>
+                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN↗</a>
+                </div>
+            </div>
+            
+            <!-- DROPDOWN KEJOHANAN -->
+            <div class="dropdown">
+                <button class="dropdown-btn">KEJOHANAN ▼</button>
+                <div class="dropdown-content">
+                    <a href="tournament/mssm2026/index.html">MSSM 2026</a>                   
+                </div>
+            </div>
+
+            <!-- DROPDOWN GALERI & MEDIA (Hall of Fame & Gallery sahaja) -->
+            <div class="dropdown">
+                <button class="dropdown-btn">GALERI & MEDIA ▼</button>
+                <div class="dropdown-content">
+                    <a href="halloffame.html">HALL OF FAME</a>
+                    <a href="gallery.html">GALLERY</a>
+                </div>
+            </div>
+
+            <!-- 🔴 LIVE (Terus di Header Nav) -->
+            <a href="live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
 
@@ -189,18 +408,29 @@
         </section>
     </main>
 
-    <footer style="text-align: center; padding: 20px; background: #f8f9fa; margin-top: 40px; border-top: 1px solid #e2e8f0;">
+    <footer>
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
 
-    <!-- SCRIPT MENU BURGER -->
+    <!-- SCRIPT JAVASCRIPT LOGIK NAVIGATION -->
     <script>
-        const hamburger = document.getElementById('hamburger-menu');
-        const navMenu = document.getElementById('nav-menu');
+        const menuToggle = document.getElementById("menu-toggle");
+        const navMenu = document.getElementById("nav-menu");
 
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('toggle');
+        // Fungsi klik butang burger
+        menuToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+
+        // Pengendalian klik dropdown pada peranti mudah alih (Mobile)
+        const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+        dropdownBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    const parent = btn.parentElement;
+                    parent.classList.toggle('active');
+                }
+            });
         });
     </script>
 
