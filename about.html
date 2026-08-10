@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mengenai Kami | Portal Bola Jaring MSSM 2026</title>
-    <!-- Font Awesome untuk ikon burger -->
+    <!-- Font Awesome untuk ikon burger & chevron -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     
     <style>
         :root { 
             --maroon-mssm: #7B1E3A; 
+            --maroon-dark: #581328;
             --pink-cair: #fdf2f6;
         }
 
@@ -32,15 +32,14 @@
             flex: 1;
         }
 
-        /* --- HEADER & NAVIGATION (MAROON THEME) --- */
+        /* --- HEADER & NAVIGATION --- */
         header {
             background-color: var(--maroon-mssm);
             color: white;
             padding: 15px 40px;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            gap: 45px;
+            justify-content: space-between;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             position: sticky;
             top: 0;
@@ -54,16 +53,13 @@
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             object-fit: contain;
-            background: transparent;
-            border-radius: 0;
-            padding: 0;
         }
 
         .header-title h1 {
-            font-size: 26px;
+            font-size: 24px;
             margin: 0;
             font-weight: 800;
             text-transform: uppercase;
@@ -71,19 +67,18 @@
         }
 
         .subtitle {
-            font-size: 15px;
+            font-size: 14px;
             margin: 2px 0 0 0;
             color: #ffeb3b;
             font-weight: 600;
             letter-spacing: 1px;
         }
 
-        /* NAVIGATION BAR */
+        /* NAVIGATION BAR DESKTOP */
         nav {
             display: flex;
             align-items: center;
             gap: 8px;          
-            margin-left: 20px;
         }
 
         nav a, .dropdown-btn {
@@ -93,21 +88,29 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 15px;
-            transition: .3s;
+            transition: 0.3s;
             white-space: nowrap;
             background: none;
             border: none;
             cursor: pointer;
             font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         nav a:hover, .dropdown:hover .dropdown-btn {
-            background-color: rgba(255,255,255,.2);
+            background-color: rgba(255,255,255,0.2);
             transform: translateY(-2px);
         }
 
-        nav a.active, .dropdown-content a.active {
-            background-color: rgba(255,255,255,.15);
+        nav a.active, .dropdown-btn.active {
+            background-color: rgba(255,255,255,0.15);
+            color: #ffeb3b;
+        }
+
+        .dropdown-content a.active {
+            background-color: rgba(255,255,255,0.15);
             color: #ffeb3b;
         }
 
@@ -166,14 +169,17 @@
             margin: 6px 0;
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
+        /* Hover berfungsi di Desktop sahaja */
+        @media (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
         }
 
-        /* --- KANDUNGAN UTAMA (ABOUT & MANUAL) --- */
+        /* --- KANDUNGAN UTAMA --- */
         .hero { 
             text-align: center; 
-            padding: 50px 20px; 
+            padding: 40px 20px; 
             background: rgba(255, 255, 255, 0.85); 
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -193,11 +199,12 @@
         .hero p {
             color: #444;
             font-size: 17px;
+            margin: 0;
         }
 
         .manual-section {
             max-width: 1000px;
-            margin: 30px auto 50px auto;
+            margin: 20px auto 50px auto;
             padding: 30px 20px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
@@ -209,6 +216,13 @@
             color: var(--maroon-mssm);
             margin-bottom: 25px;
             font-size: 24px;
+        }
+
+        .pdf-frame {
+            width: 100%;
+            height: 750px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
         }
 
         .btn-manual {
@@ -243,18 +257,18 @@
         /* BURGER MENU BUTTON */
         .menu-toggle {
             display: none;
-            font-size: 34px;
+            font-size: 26px;
             color: white;
             background: none;
             border: none;
             cursor: pointer;
+            padding: 5px 10px;
         }
 
-        /* MOBILE RESPONSIVE (MAX-WIDTH 768PX) */
+        /* MOBILE RESPONSIVE (HANDSET) */
         @media (max-width: 768px) {
             header {
                 flex-wrap: wrap;
-                justify-content: space-between;
                 padding: 15px 20px;
             }
 
@@ -263,16 +277,16 @@
             }
 
             .logo {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
             }
 
             .header-title h1 {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .subtitle {
-                font-size: 12px;
+                font-size: 11px;
             }
 
             .menu-toggle {
@@ -283,26 +297,29 @@
                 display: none;
                 width: 100%;
                 flex-direction: column;
-                margin-top: 20px;
-                margin-left: 0;
+                margin-top: 15px;
                 gap: 0;
+                background-color: var(--maroon-dark);
+                border-radius: 10px;
+                overflow: hidden;
             }
 
             nav.active {
                 display: flex;
             }
 
-            nav a,
-            .dropdown {
+            nav a, .dropdown {
                 width: 100%;
+                box-sizing: border-box;
             }
 
-            nav a,
-            .dropdown-btn {
+            nav a, .dropdown-btn {
                 width: 100%;
                 text-align: left;
-                padding: 15px;
+                padding: 14px 20px;
                 border-radius: 0;
+                justify-content: space-between;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             }
 
             .dropdown-content {
@@ -310,25 +327,55 @@
                 display: none;
                 box-shadow: none;
                 width: 100%;
-                background: #6d1733;
+                background-color: rgba(0, 0, 0, 0.2);
+                padding: 0;
+                border-radius: 0;
             }
 
-            .dropdown:hover .dropdown-content,
-            .dropdown.active .dropdown-content {
+            .dropdown-content a {
+                padding: 12px 30px;
+                font-size: 13px;
+            }
+
+            .dropdown.open .dropdown-content {
                 display: block;
             }
 
+            .dropdown.open .dropdown-btn i {
+                transform: rotate(180deg);
+            }
+
             .hero {
-                margin: 25px 15px;
-                padding: 30px 20px;
+                margin: 20px 10px;
+                padding: 25px 15px;
             }
 
             .hero h2 {
-                font-size: 26px;
+                font-size: 22px;
             }
 
             .hero p {
-                font-size: 15px;
+                font-size: 14px;
+            }
+
+            .manual-section {
+                margin: 15px 10px 30px 10px;
+                padding: 20px 15px;
+            }
+
+            .manual-section h2 {
+                font-size: 18px;
+            }
+
+            .pdf-frame {
+                height: 480px; /* Pelarasan ketinggian PDF iframe untuk peranti mudah alih */
+            }
+
+            .btn-manual {
+                width: 100%;
+                box-sizing: border-box;
+                font-size: 14px;
+                padding: 12px 18px;
             }
         }
     </style>
@@ -339,14 +386,14 @@
         <div class="header-left">
             <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo">
             <div class="header-title">
-                <h1> PORTAL BOLA JARING MSSM </h1>
+                <h1>PORTAL BOLA JARING MSSM</h1>
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
 
         <!-- Butang Burger -->
-        <button class="menu-toggle" id="menu-toggle">
-            <i class="fas fa-bars"></i>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
         </button>
 
         <!-- Navigasi Utama -->
@@ -355,7 +402,10 @@
             
             <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
-                <button class="dropdown-btn active">BOLA JARING MSSM ▼</button>
+                <button class="dropdown-btn active">
+                    <span>BOLA JARING MSSM</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="dropdown-content"> 
                     <a href="organisasi.html">ORGANISASI BOLA JARING MSSM</a>
                     <a href="panel.html">PANEL ANUGERAH MSSM</a>
@@ -365,31 +415,37 @@
                     <a href="about.html" class="active">MANUAL PENGURUSAN BOLA JARING MSSM</a>
                     <a href="rules.html">PERATURAN</a>
                     <a href="calendar.html">TAKWIM</a>
-                    <hr>
-                    <a href="bUKUPROGRAM.html" target="_blank">BUKU PROGRAM KEJOHANAN↗</a>
-                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN↗</a>
-                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN↗</a>
                 </div>
             </div>
             
             <!-- DROPDOWN KEJOHANAN -->
             <div class="dropdown">
-                <button class="dropdown-btn">KEJOHANAN ▼</button>
+                <button class="dropdown-btn">
+                    <span>KEJOHANAN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="dropdown-content">
-                    <a href="tournament/mssm2026/index.html">MSSM 2026</a>                   
+                    <a href="tournament/mssm2026/index.html">MSSM 2026</a> 
+                    <hr>
+                    <a href="bUKUPROGRAM.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
+                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>                  
                 </div>
             </div>
 
             <!-- DROPDOWN GALERI & MEDIA -->
             <div class="dropdown">
-                <button class="dropdown-btn">GALERI & MEDIA ▼</button>
+                <button class="dropdown-btn">
+                    <span>GALERI & MEDIA</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="dropdown-content">
                     <a href="halloffame.html">HALL OF FAME</a>
                     <a href="gallery.html">GALLERY</a>
                 </div>
             </div>
 
-            <!-- 🔴 LIVE -->
+            <!-- LIVE LINK -->
             <a href="live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
@@ -407,12 +463,11 @@
             <!-- Paparan PDF Terus (Iframe) -->
             <iframe
                 src="documents/manual-pengurusan-bola-jaring-mssm-2026.pdf"
-                width="100%"
-                height="800"
-                style="border:1px solid #ccc; border-radius:10px;">
+                class="pdf-frame"
+                title="Manual Pengurusan Bola Jaring MSSM 2026">
             </iframe>
 
-            <!-- Pilihan Alternatif (Butang Buka di Tab Baru) -->
+            <!-- Pilihan Alternatif -->
             <div style="margin-top: 25px;">
                 <a href="documents/manual-pengurusan-bola-jaring-mssm-2026.pdf"
                    target="_blank"
@@ -427,23 +482,43 @@
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
 
-    <!-- SCRIPT JAVASCRIPT LOGIK NAVIGATION -->
+    <!-- SKRIP JAVASCRIPT KEMAS & RESPONSIF -->
     <script>
         const menuToggle = document.getElementById("menu-toggle");
+        const menuIcon = document.getElementById("menu-icon");
         const navMenu = document.getElementById("nav-menu");
+        const dropdowns = document.querySelectorAll(".dropdown");
 
-        // Fungsi klik butang burger
+        // Toggle Burger Menu pada Mobile
         menuToggle.addEventListener("click", () => {
             navMenu.classList.toggle("active");
+            
+            // Pertukaran ikon burger (fa-bars) dan pangkah (fa-xmark)
+            if (navMenu.classList.contains("active")) {
+                menuIcon.classList.remove("fa-bars");
+                menuIcon.classList.add("fa-xmark");
+            } else {
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+            }
         });
 
-        // Pengendalian klik dropdown pada peranti mudah alih (Mobile)
-        const dropdownBtns = document.querySelectorAll('.dropdown-btn');
-        dropdownBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
+        // Pengendalian Klik Dropdown pada Mobile
+        dropdowns.forEach(dropdown => {
+            const btn = dropdown.querySelector(".dropdown-btn");
+            btn.addEventListener("click", (e) => {
                 if (window.innerWidth <= 768) {
-                    const parent = btn.parentElement;
-                    parent.classList.toggle('active');
+                    e.preventDefault();
+                    
+                    // Tutup dropdown lain yang terbuka
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove("open");
+                        }
+                    });
+
+                    // Buka/Tutup dropdown yang diklik
+                    dropdown.classList.toggle("open");
                 }
             });
         });

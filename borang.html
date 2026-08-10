@@ -9,22 +9,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
-        :root{
-            --maroon:#7B1E3A;
-            --gold:#FFD700;
-            --pink:#FCE4EC;
-            --white:#ffffff;
+        :root {
+            --maroon: #7B1E3A;
+            --maroon-dark: #581328;
+            --gold: #FFD700;
+            --pink: #FCE4EC;
+            --white: #ffffff;
         }
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        body{
-            font-family:'Segoe UI',Tahoma,sans-serif;
-            background:url('images/bg-utama.jpg') center/cover fixed;
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: url('images/bg-utama.jpg') center/cover fixed;
             background-color: var(--pink);
             display: flex;
             flex-direction: column;
@@ -36,76 +37,79 @@
         }
 
         /* HEADER */
-        header{
-            background:var(--maroon);
-            color:white;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:15px 40px;
-            box-shadow:0 4px 15px rgba(0,0,0,.3);
-            position:sticky;
-            top:0;
-            z-index:1000;
+        header {
+            background: var(--maroon);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .header-left{
-            display:flex;
-            align-items:center;
-            gap:20px;
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
-        .logo{
-            width:80px;
-            height:80px;
-            object-fit:contain;
-            background:transparent;
+        .logo {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            background: transparent;
         }
 
-        .header-title h1{
-            color:white;
-            font-size:26px;
+        .header-title h1 {
+            color: white;
+            font-size: 24px;
             margin: 0;
             font-weight: 800;
             text-transform: uppercase;
         }
 
-        .subtitle{
-            color:#ffeb3b;
-            font-weight:600;
-            margin-top:2px;
-            font-size: 15px;
+        .subtitle {
+            color: #ffeb3b;
+            font-weight: 600;
+            margin-top: 2px;
+            font-size: 14px;
             letter-spacing: 1px;
         }
 
-        /* NAVIGATION */
-        nav{
-            display:flex;
-            gap:8px;
+        /* NAVIGATION BAR DESKTOP */
+        nav {
+            display: flex;
+            gap: 8px;
             align-items: center;
-            margin-left: 20px;
         }
 
         nav a, .dropdown-btn {
-            color:white;
-            text-decoration:none;
-            padding:10px 14px;
-            border-radius:8px;
-            transition:.3s;
-            font-weight:bold;
+            color: white;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: .3s;
+            font-weight: bold;
             background: none;
             border: none;
             cursor: pointer;
             font-family: inherit;
             font-size: 15px;
             white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         nav a:hover,
         nav a.active,
+        .dropdown-btn.active,
         .dropdown:hover .dropdown-btn {
-            background:rgba(255,255,255,.2);
-            color:var(--gold);
+            background: rgba(255,255,255,.2);
+            color: var(--gold);
         }
 
         .live-link {
@@ -161,37 +165,39 @@
             margin: 6px 0;
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
+        @media (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
         }
 
         /* CONTAINER UTAMA */
-        .container{
-            max-width:1100px;
-            margin:auto;
-            padding:50px 20px;
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px;
             width: 100%;
         }
 
-        .title-box{
-            background:rgba(255,255,255,.95);
-            border-radius:15px;
-            padding:35px;
-            text-align:center;
-            margin-bottom:40px;
-            box-shadow:0 10px 25px rgba(0,0,0,.1);
+        .title-box {
+            background: rgba(255,255,255,.95);
+            border-radius: 15px;
+            padding: 35px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,.1);
         }
 
-        .title-box h2{
-            color:var(--maroon);
-            font-size:32px;
-            margin-bottom:10px;
+        .title-box h2 {
+            color: var(--maroon);
+            font-size: 30px;
+            margin-bottom: 10px;
             text-transform: uppercase;
         }
 
-        .title-box p{
-            color:#555;
-            font-size:17px;
+        .title-box p {
+            color: #555;
+            font-size: 16px;
         }
 
         /* GRID UNTUK PILIHAN BORANG WORD */
@@ -205,7 +211,7 @@
         .form-card {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 35px 25px;
+            padding: 30px 20px;
             text-align: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -216,14 +222,14 @@
         }
 
         .form-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
 
         .form-card .icon {
-            font-size: 50px;
+            font-size: 45px;
             color: #2b579a; /* Warna Tema Word */
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .form-card p {
@@ -238,7 +244,7 @@
             background-color: #2b579a;
             color: white;
             text-decoration: none;
-            padding: 12px 25px;
+            padding: 12px 20px;
             font-weight: bold;
             border-radius: 50px;
             font-size: 15px;
@@ -248,14 +254,14 @@
 
         .btn-download:hover {
             background-color: #1d3c6c;
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         /* SEKSYEN PAPARAN PDF (VIEW FIRST) */
         .pdf-viewer-section {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 35px;
+            padding: 30px 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             border-top: 6px solid #d9534f;
             text-align: center;
@@ -292,6 +298,7 @@
         .btn-pdf-action {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             background-color: #d9534f;
             color: white;
@@ -306,33 +313,34 @@
 
         .btn-pdf-action:hover {
             background-color: #c9302c;
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
-        footer{
-            background:var(--maroon);
-            color:white;
-            text-align:center;
-            padding:25px;
-            margin-top:auto;
+        footer {
+            background: var(--maroon);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: auto;
             font-size: 15px;
         }
 
-        /* RESPONSIVE MENU */
+        /* BURGER MENU BUTTON */
         .menu-toggle {
             display: none;
-            font-size: 34px;
+            font-size: 26px;
             color: white;
             background: none;
             border: none;
             cursor: pointer;
+            padding: 5px 10px;
         }
 
-        @media(max-width:768px){
-            header{
+        /* RESPONSIVE HANDSET (MOBILE) */
+        @media (max-width: 768px) {
+            header {
                 flex-wrap: wrap;
-                justify-content: space-between;
-                padding:15px 20px;
+                padding: 15px 20px;
             }
 
             .header-left {
@@ -340,61 +348,98 @@
             }
 
             .logo {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
             }
 
             .header-title h1 {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .subtitle {
-                font-size: 12px;
+                font-size: 11px;
             }
 
             .menu-toggle {
                 display: block;
             }
 
-            nav{
+            nav {
                 display: none;
-                flex-direction: column;
                 width: 100%;
-                margin-top: 20px;
-                margin-left: 0;
+                flex-direction: column;
+                margin-top: 15px;
                 gap: 0;
+                background-color: var(--maroon-dark);
+                border-radius: 10px;
+                overflow: hidden;
             }
 
             nav.active {
                 display: flex;
             }
 
+            nav a, .dropdown {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
             nav a, .dropdown-btn {
                 width: 100%;
                 text-align: left;
-                padding: 15px;
+                padding: 14px 20px;
                 border-radius: 0;
-            }
-
-            .dropdown {
-                width: 100%;
+                justify-content: space-between;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             }
 
             .dropdown-content {
                 position: static;
                 display: none;
-                width: 100%;
                 box-shadow: none;
-                background-color: #6d1733;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.2);
+                padding: 0;
+                border-radius: 0;
             }
 
-            .dropdown:hover .dropdown-content,
-            .dropdown.active .dropdown-content {
+            .dropdown-content a {
+                padding: 12px 30px;
+                font-size: 13px;
+            }
+
+            .dropdown.open .dropdown-content {
                 display: block;
             }
 
+            .dropdown.open .dropdown-btn i {
+                transform: rotate(180deg);
+            }
+
+            .container {
+                padding: 20px 10px;
+            }
+
+            .title-box {
+                padding: 25px 15px;
+            }
+
+            .title-box h2 {
+                font-size: 22px;
+            }
+
+            .title-box p {
+                font-size: 14px;
+            }
+
             .pdf-frame {
-                height: 450px;
+                height: 450px; /* Saiz ideal PDF iframe untuk handset */
+            }
+
+            .btn-download, .btn-pdf-action {
+                width: 100%;
+                font-size: 14px;
+                padding: 12px 15px;
             }
         }
     </style>
@@ -406,14 +451,14 @@
         <div class="header-left">
             <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo">
             <div class="header-title">
-                <h1> PORTAL BOLA JARING MSSM </h1>
+                <h1>PORTAL BOLA JARING MSSM</h1>
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
 
         <!-- Butang Burger -->
-        <button class="menu-toggle" id="menu-toggle">
-            <i class="fas fa-bars"></i>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
         </button>
 
         <!-- Navigasi Utama -->
@@ -422,7 +467,10 @@
             
             <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
-                <button class="dropdown-btn active">BOLA JARING MSSM ▼</button>
+                <button class="dropdown-btn">
+                    <span>BOLA JARING MSSM</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="dropdown-content"> 
                     <a href="organisasi.html">ORGANISASI BOLA JARING MSSM</a>
                     <a href="panel.html">PANEL ANUGERAH MSSM</a>
@@ -432,31 +480,37 @@
                     <a href="about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
                     <a href="rules.html">PERATURAN</a>
                     <a href="calendar.html">TAKWIM</a>
-                    <hr>
-                    <a href="bUKUPROGRAM.html" target="_blank">BUKU PROGRAM KEJOHANAN↗</a>
-                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN↗</a>
-                    <a href="borang.html" class="active">MUAT TURUN BORANG PENDAFTARAN↗</a>
                 </div>
             </div>
             
             <!-- DROPDOWN KEJOHANAN -->
             <div class="dropdown">
-                <button class="dropdown-btn">KEJOHANAN ▼</button>
+                <button class="dropdown-btn active">
+                    <span>KEJOHANAN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="dropdown-content">
-                    <a href="tournament/mssm2026/index.html">MSSM 2026</a>                   
+                    <a href="tournament/mssm2026/index.html">MSSM 2026</a>  
+                    <hr>
+                    <a href="bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
+                    <a href="borang.html" class="active">MUAT TURUN BORANG PENDAFTARAN ↗</a>
                 </div>
             </div>
 
             <!-- DROPDOWN GALERI & MEDIA -->
             <div class="dropdown">
-                <button class="dropdown-btn">GALERI & MEDIA ▼</button>
+                <button class="dropdown-btn">
+                    <span>GALERI & MEDIA</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="dropdown-content">
                     <a href="halloffame.html">HALL OF FAME</a>
                     <a href="gallery.html">GALLERY</a>
                 </div>
             </div>
 
-            <!-- 🔴 LIVE -->
+            <!-- LIVE LINK -->
             <a href="live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
@@ -517,7 +571,7 @@
             title="Maklumat Undian dan Jadual MSSM 2026">
         </iframe>
 
-        <!-- Pilihan Tindakan: Buka / Muat Turun / Cetak -->
+        <!-- Pilihan Tindakan -->
         <div class="pdf-actions">
             <a href="documents/undian-jadual-mssm2026.PDF" target="_blank" class="btn-pdf-action">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Penuh / Cetak (Tab Baru)
@@ -535,21 +589,40 @@
 </footer>
 
 <script>
-    // Fungsi menu burger
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuIcon = document.getElementById("menu-icon");
+    const navMenu = document.getElementById("nav-menu");
+    const dropdowns = document.querySelectorAll(".dropdown");
 
-    menuToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
+    // Toggle Burger Menu pada Mobile
+    menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        
+        if (navMenu.classList.contains("active")) {
+            menuIcon.classList.remove("fa-bars");
+            menuIcon.classList.add("fa-xmark");
+        } else {
+            menuIcon.classList.remove("fa-xmark");
+            menuIcon.classList.add("fa-bars");
+        }
     });
 
-    // Fungsi dropdown skrin mudah alih (Mobile)
-    const dropdownBtns = document.querySelectorAll('.dropdown-btn');
-    dropdownBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
+    // Pengendalian Klik Dropdown pada Mobile
+    dropdowns.forEach(dropdown => {
+        const btn = dropdown.querySelector(".dropdown-btn");
+        btn.addEventListener("click", (e) => {
             if (window.innerWidth <= 768) {
-                const parent = btn.parentElement;
-                parent.classList.toggle('active');
+                e.preventDefault();
+                
+                // Tutup dropdown lain yang terbuka
+                dropdowns.forEach(otherDropdown => {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove("open");
+                    }
+                });
+
+                // Buka/Tutup dropdown yang diklik
+                dropdown.classList.toggle("open");
             }
         });
     });

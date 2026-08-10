@@ -4,42 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | Portal Bola Jaring MSSM</title>
+    <!-- Font Awesome untuk ikon burger & chevron -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     
     <style>
         :root { 
             --maroon-mssm: #7B1E3A; 
+            --maroon-dark: #581328;
             --pink-cair: #fdf2f6;
         }
-        
-        /* =======================================================
-           SETTING BACKGROUND CANTIK (TEMA PREMIUM)
-           ======================================================= */
+
         body { 
             margin: 0; 
             padding: 0; 
             font-family: 'Segoe UI', Tahoma, sans-serif; 
-            
-            /* KOD BACKGROUND */
             background-color: #fce4ec; 
-            
-            /* Gambar Latar Belakang Utama */
             background-image: url('images/bg-utama.jpg'); 
-            
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Jadikan gambar statik bila scroll */
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* HEADER */
+        main {
+            flex: 1;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
         header {
             background-color: var(--maroon-mssm);
             color: white;
             padding: 15px 40px;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            gap: 45px;          /* Jarak antara tajuk dan menu */
+            justify-content: space-between;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             position: sticky;
             top: 0;
@@ -53,16 +53,13 @@
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             object-fit: contain;
-            background: transparent;
-            border-radius: 0;
-            padding: 0;
         }
 
         .header-title h1 {
-            font-size: 26px;
+            font-size: 24px;
             margin: 0;
             font-weight: 800;
             text-transform: uppercase;
@@ -70,19 +67,18 @@
         }
 
         .subtitle {
-            font-size: 15px;
+            font-size: 14px;
             margin: 2px 0 0 0;
             color: #ffeb3b;
             font-weight: 600;
             letter-spacing: 1px;
         }
 
-        /* NAVIGATION */
+        /* NAVIGATION BAR DESKTOP */
         nav {
             display: flex;
             align-items: center;
             gap: 8px;          
-            margin-left: 20px;
         }
 
         nav a, .dropdown-btn {
@@ -92,25 +88,45 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 15px;
-            transition: .3s;
+            transition: 0.3s;
             white-space: nowrap;
             background: none;
             border: none;
             cursor: pointer;
             font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         nav a:hover, .dropdown:hover .dropdown-btn {
-            background-color: rgba(255,255,255,.2);
+            background-color: rgba(255,255,255,0.2);
             transform: translateY(-2px);
         }
 
-        nav a.active {
-            background-color: rgba(255,255,255,.15);
+        nav a.active, .dropdown-btn.active {
+            background-color: rgba(255,255,255,0.15);
             color: #ffeb3b;
         }
 
-        /* STRUCTURAL STYLING UNTUK DROPDOWN MENU */
+        .dropdown-content a.active {
+            background-color: rgba(255,255,255,0.15);
+            color: #ffeb3b;
+        }
+
+        /* LIVE BUTTON SPECIAL STYLE */
+        .live-link {
+            color: #ffeb3b !important;
+            animation: pulse-live 1.5s infinite;
+        }
+
+        @keyframes pulse-live {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        /* DROPDOWN MENU */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -122,7 +138,7 @@
             top: 100%;
             left: 0;
             background-color: var(--maroon-mssm);
-            min-width: 220px;
+            min-width: 240px;
             border-radius: 10px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
             padding: 8px 0;
@@ -153,45 +169,72 @@
             margin: 6px 0;
         }
 
-        /* Memaparkan menu apabila tetikus digerakkan di atas kelas dropdown */
-        .dropdown:hover .dropdown-content {
-            display: block;
+        /* Hover berfungsi di Desktop sahaja */
+        @media (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
         }
 
-        /* MAIN CONTENT - KESAN KACA (GLASSMORPHISM) */
-        .container { max-width: 1150px; margin: 50px auto; padding: 0 20px; }
-        
+        /* --- KANDUNGAN UTAMA (HERO & PORTAL GRID) --- */
+        .container { 
+            max-width: 1150px; 
+            margin: 40px auto 50px auto; 
+            padding: 0 20px; 
+            width: 100%;
+            box-sizing: border-box;
+        }
+
         .hero { 
             background: rgba(255, 255, 255, 0.85); 
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.5);
-            padding: 60px 40px; 
+            padding: 50px 40px; 
             border-radius: 20px; 
             text-align: center; 
-            margin-bottom: 50px; 
+            margin-bottom: 40px; 
             box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
         }
-        
-        .hero h2 { color: var(--maroon-mssm); font-size: 38px; margin-bottom: 15px; text-transform: uppercase; }
-        .hero p { color: #444; font-size: 18px; line-height: 1.6; max-width: 900px; margin: 0 auto 15px auto; }
-        
+
+        .hero h2 { 
+            color: var(--maroon-mssm); 
+            font-size: 34px; 
+            margin-bottom: 15px; 
+            text-transform: uppercase; 
+        }
+
+        .hero p { 
+            color: #444; 
+            font-size: 17px; 
+            line-height: 1.6; 
+            max-width: 900px; 
+            margin: 0 auto; 
+        }
+
         /* PORTAL GRID / KAD ALBUM GALERI */
-        .portal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        
+        .portal-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+        }
+
         .portal-card { 
             background: rgba(255, 255, 255, 0.95); 
             backdrop-filter: blur(10px);
             border-radius: 16px; 
-            padding: 35px 25px; 
+            padding: 30px 20px; 
             border: 1px solid rgba(255, 255, 255, 0.6); 
             text-align: center; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        
+
         .portal-card::before {
             content: "";
             position: absolute;
@@ -201,13 +244,16 @@
             height: 5px;
             background: var(--maroon-mssm);
         }
-        
-        .portal-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
-        
-        .card-icon { font-size: 45px; color: var(--maroon-mssm); margin-bottom: 20px; }
-        .portal-card h3 { color: var(--maroon-mssm); font-size: 22px; margin-bottom: 15px; text-transform: uppercase; }
-        .portal-card p { color: #555; margin-bottom: 25px; font-size: 16px; min-height: 48px; }
-        
+
+        .portal-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
+        }
+
+        .card-icon { font-size: 45px; color: var(--maroon-mssm); margin-bottom: 15px; }
+        .portal-card h3 { color: var(--maroon-mssm); font-size: 20px; margin-bottom: 10px; text-transform: uppercase; }
+        .portal-card p { color: #555; margin-bottom: 20px; font-size: 15px; min-height: 42px; }
+
         .portal-card a { 
             color: var(--maroon-mssm); 
             font-weight: bold; 
@@ -218,33 +264,55 @@
             transition: 0.3s;
             display: inline-block;
         }
-        .portal-card a:hover { background: var(--maroon-mssm); color: white; }
 
-        footer { background-color: var(--maroon-mssm); color: white; text-align: center; padding: 25px; margin-top: 60px; font-size: 15px; }
-
-        /*=========================
-        RESPONSIVE MENU
-        ==========================*/
-        .menu-toggle {
-            display: none;
-            font-size: 28px;
-            color: white;
-            cursor: pointer;
+        .portal-card a:hover { 
+            background: var(--maroon-mssm); 
+            color: white; 
         }
 
-        @media(max-width:1000px){
+        /* FOOTER */
+        footer { 
+            background-color: var(--maroon-mssm); 
+            color: white; 
+            text-align: center; 
+            padding: 25px; 
+            margin-top: auto; 
+            font-size: 15px; 
+        }
+
+        /* BURGER MENU BUTTON */
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        /* MOBILE RESPONSIVE (HANDSET) */
+        @media (max-width: 768px) {
             header {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-wrap: wrap;
                 padding: 15px 20px;
-                gap: 0;
             }
 
             .header-left {
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+                gap: 12px;
+            }
+
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .header-title h1 {
+                font-size: 18px;
+            }
+
+            .subtitle {
+                font-size: 11px;
             }
 
             .menu-toggle {
@@ -253,78 +321,114 @@
 
             nav {
                 display: none;
-                flex-direction: column;
                 width: 100%;
+                flex-direction: column;
                 margin-top: 15px;
                 gap: 0;
-                margin-left: 0;
+                background-color: var(--maroon-dark);
+                border-radius: 10px;
+                overflow: hidden;
             }
 
             nav.active {
                 display: flex;
             }
 
-            nav a, .dropdown-btn {
+            nav a, .dropdown {
                 width: 100%;
-                text-align: left;
-                padding: 14px 18px;
                 box-sizing: border-box;
             }
 
-            .dropdown {
+            nav a, .dropdown-btn {
                 width: 100%;
+                text-align: left;
+                padding: 14px 20px;
+                border-radius: 0;
+                justify-content: space-between;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             }
 
             .dropdown-content {
                 position: static;
                 display: none;
-                width: 100%;
                 box-shadow: none;
-                border-radius: 8px;
-                margin-top: 5px;
-                background-color: rgba(0, 0, 0, 0.1);
-            }
-
-            .dropdown:hover .dropdown-content {
-                display: none;
-            }
-
-            .dropdown.active .dropdown-content {
-                display: block;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.2);
+                padding: 0;
+                border-radius: 0;
             }
 
             .dropdown-content a {
-                padding-left: 35px;
+                padding: 12px 30px;
+                font-size: 13px;
+            }
+
+            .dropdown.open .dropdown-content {
+                display: block;
+            }
+
+            .dropdown.open .dropdown-btn i {
+                transform: rotate(180deg);
+            }
+
+            .container {
+                padding: 0 10px;
+                margin: 20px auto 30px auto;
+            }
+
+            .hero {
+                padding: 30px 15px;
+                border-radius: 15px;
+                margin-bottom: 25px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .portal-card {
+                padding: 25px 15px;
+            }
+
+            .portal-card a {
+                width: 100%;
+                box-sizing: border-box;
+                font-size: 14px;
+                padding: 12px;
             }
         }
     </style>
 </head>
 <body>
 
-    </head>
-<body>
-
     <header>
         <div class="header-left">
             <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo">
             <div class="header-title">
-                <h1> PORTAL BOLA JARING MSSM </h1>
+                <h1>PORTAL BOLA JARING MSSM</h1>
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
 
         <!-- Butang Burger -->
-        <button class="menu-toggle" id="menu-toggle">
-            <i class="fas fa-bars"></i>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
         </button>
 
         <!-- Navigasi Utama -->
         <nav id="nav-menu">
-            <a href="index.html" class="active">HOME</a>
+            <a href="index.html">HOME</a>
             
             <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
-                <button class="dropdown-btn">BOLA JARING MSSM ▼</button>
+                <button class="dropdown-btn">
+                    <span>BOLA JARING MSSM</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="dropdown-content"> 
                     <a href="organisasi.html">ORGANISASI BOLA JARING MSSM</a>
                     <a href="panel.html">PANEL ANUGERAH MSSM</a>
@@ -334,35 +438,40 @@
                     <a href="about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
                     <a href="rules.html">PERATURAN</a>
                     <a href="calendar.html">TAKWIM</a>
-                    <hr>
-                    <a href="bUKUPROGRAM.html" target="_blank">BUKU PROGRAM KEJOHANAN↗</a>
-                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN↗</a>
-                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN↗</a>
                 </div>
             </div>
             
             <!-- DROPDOWN KEJOHANAN -->
             <div class="dropdown">
-                <button class="dropdown-btn">KEJOHANAN ▼</button>
+                <button class="dropdown-btn">
+                    <span>KEJOHANAN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="dropdown-content">
-                    <a href="tournament/mssm2026/index.html">MSSM 2026</a>                   
+                    <a href="tournament/mssm2026/index.html">MSSM 2026</a> 
+                    <hr>
+                    <a href="bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
+                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>                  
                 </div>
             </div>
 
-            <!-- DROPDOWN GALERI & MEDIA (Hall of Fame & Gallery sahaja) -->
+            <!-- DROPDOWN GALERI & MEDIA -->
             <div class="dropdown">
-                <button class="dropdown-btn">GALERI & MEDIA ▼</button>
+                <button class="dropdown-btn active">
+                    <span>GALERI & MEDIA</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="dropdown-content">
                     <a href="halloffame.html">HALL OF FAME</a>
-                    <a href="gallery.html">GALLERY</a>
+                    <a href="gallery.html" class="active">GALLERY</a>
                 </div>
             </div>
 
-            <!-- 🔴 LIVE (Terus di Header Nav) -->
+            <!-- LIVE LINK -->
             <a href="live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
-
 
     <main class="container">
         <section class="hero">
@@ -370,79 +479,115 @@
             <p>Pilih album untuk melihat gambar kejohanan Bola Jaring.</p>
         </section>
 
-        <!-- KOTAK LAYOUT KAD GAMBAR ASAL (KEKAL & RESPONSIF) -->
+        <!-- KOTAK LAYOUT KAD GAMBAR ALBUM -->
         <section class="portal-grid">
             <!-- KAD 1: MSSM 2026 -->
             <div class="portal-card">
-                <div class="card-icon"><i class="fa-solid fa-trophy"></i></div>
-                <h3>🏆 MSSM 2026</h3>
-                <p>Galeri Rasmi Kejohanan MSSM 2026</p>
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-trophy"></i></div>
+                    <h3>🏆 MSSM 2026</h3>
+                    <p>Galeri Rasmi Kejohanan MSSM 2026</p>
+                </div>
                 <a href="albums/mssm2026.html">📷 Buka Album</a>
             </div>
 
             <!-- KAD 2: MSSM 2025 -->
             <div class="portal-card">
-                <div class="card-icon"><i class="fa-solid fa-medal"></i></div>
-                <h3>🏅 MSSM 2025</h3>
-                <p>Galeri Kejohanan MSSM 2025</p>
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-medal"></i></div>
+                    <h3>🏅 MSSM 2025</h3>
+                    <p>Galeri Kejohanan MSSM 2025</p>
+                </div>
                 <a href="albums/mssm2025.html">📷 Buka Album</a>
             </div>
 
             <!-- KAD 3: ASG 2025 -->
             <div class="portal-card">
-                <div class="card-icon"><i class="fa-solid fa-earth-asia"></i></div>
-                <h3>🌏 ASG 2025</h3>
-                <p>ASEAN School Games 2025</p>
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-earth-asia"></i></div>
+                    <h3>🌏 ASG 2025</h3>
+                    <p>ASEAN School Games 2025</p>
+                </div>
                 <a href="albums/asg2025.html">📷 Buka Album</a>
             </div>
 
             <!-- KAD 4: Liga KPM -->
             <div class="portal-card">
-                <div class="card-icon"><i class="fa-solid fa-volleyball"></i></div>
-                <h3>🏐 Liga KPM</h3>
-                <p>Liga Bola Jaring KPM</p>
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-volleyball"></i></div>
+                    <h3>🏐 Liga KPM</h3>
+                    <p>Liga Bola Jaring KPM</p>
+                </div>
                 <a href="albums/ligakpm.html">📷 Buka Album</a>
             </div>
 
             <!-- KAD 5: SIPMAX 2025 -->
             <div class="portal-card">
-                <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <h3>🎓 SIPMAX 2025</h3>
-                <p>Sukan Institusi Pendidikan Malaysia</p>
-                <a href="albums/sipmaX2025.html">📷 Buka Album</a>
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>🎓 SIPMAX 2025</h3>
+                    <p>Sukan Institusi Pendidikan Malaysia</p>
+                </div>
+                <a href="albums/sipmax2025.html">📷 Buka Album</a>
             </div>
 
             <!-- KAD 6: GALERI PTPS -->
             <div class="portal-card">
-                <div class="card-icon"><i class="fa-solid fa-image"></i></div>
-                <h3>🖼️ GALERI PTPS</h3>
-                <p>Program Teknikal Pembangunan Sukan Bola Jaring</p>
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-image"></i></div>
+                    <h3>🖼️ GALERI PTPS</h3>
+                    <p>Program Teknikal Pembangunan Sukan Bola Jaring</p>
+                </div>
                 <a href="albums/ptps2025.html">📷 Buka Album</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2026 Portal Bola Jaring MSSM</p>
+        <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
 
+    <!-- SKRIP JAVASCRIPT KEMAS & RESPONSIF -->
     <script>
-        // Fungsi klik butang menu hamburger pada telefon pintar
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            document.getElementById('navbar').classList.toggle('active');
+        const menuToggle = document.getElementById("menu-toggle");
+        const menuIcon = document.getElementById("menu-icon");
+        const navMenu = document.getElementById("nav-menu");
+        const dropdowns = document.querySelectorAll(".dropdown");
+
+        // Toggle Burger Menu pada Mobile
+        menuToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+            
+            // Pertukaran ikon burger (fa-bars) dan pangkah (fa-xmark)
+            if (navMenu.classList.contains("active")) {
+                menuIcon.classList.remove("fa-bars");
+                menuIcon.classList.add("fa-xmark");
+            } else {
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+            }
         });
 
-        // Fungsi klik butang dropdown pada telefon pintar
-        const dropdowns = document.querySelectorAll('.dropdown');
+        // Pengendalian Klik Dropdown pada Mobile
         dropdowns.forEach(dropdown => {
-            const btn = dropdown.querySelector('.dropdown-btn');
-            btn.addEventListener('click', function(e) {
-                if (window.innerWidth <= 1000) {
+            const btn = dropdown.querySelector(".dropdown-btn");
+            btn.addEventListener("click", (e) => {
+                if (window.innerWidth <= 768) {
                     e.preventDefault();
-                    dropdown.classList.toggle('active');
+                    
+                    // Tutup dropdown lain yang terbuka
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove("open");
+                        }
+                    });
+
+                    // Buka/Tutup dropdown yang diklik
+                    dropdown.classList.toggle("open");
                 }
             });
         });
     </script>
+
 </body>
 </html>
