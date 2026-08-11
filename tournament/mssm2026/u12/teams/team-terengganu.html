@@ -354,55 +354,93 @@
 
     <header>
         <div class="header-left">
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <img src="../../../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
-                <div class="header-title">
-                    <h1>PORTAL BOLA JARING MSSM</h1>
-                    <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
-                </div>
+            <img src="../../../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
+            <div class="header-title">
+                <h1>PORTAL BOLA JARING MSSM</h1>
+                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
-            <!-- Butang Burger -->
-            <button class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
 
-        <!-- Navigasi Menu Utama -->
-        <nav id="nav-menu">
-            <a href="../../../../index.html">Home</a>
+        <!-- Butang Burger -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
+        </button>
 
-            <!-- BOLA JARING MSSM -->
+        <!-- Navigasi Utama -->
+        <nav id="nav-menu">
+            <a href="../../../../index.html">HOME</a>
+            
+            <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
-                <button class="dropdown-btn">BOLA JARING MSSM ▼</button>
-                <div class="dropdown-content">
-                    <a href="../../../../organisasi.html">Organisasi Bola Jaring MSSM</a>
-                    <a href="../../../../panel.html">Panel Anugerah MSSM</a>
-                    <a href="../../../../teknikal.html">Teknikal Kejohanan</a>
-                    <a href="../../../../pengadil.html">Pengadil</a>
+                <button class="dropdown-btn">
+                    <span>BOLA JARING MSSM</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content"> 
+                    <a href="../../../../organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="../../../../panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="../../../../teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="../../../../pengadil.html">PENGADIL</a>
                     <hr>
-                    <a href="../../../../about.html">Manual Pengurusan Bola Jaring MSSM</a>
-                    <a href="../../../../rules.html">Peraturan</a>
-                    <a href="../../../../calendar.html">Takwim</a>
+                    <a href="../../../../about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="../../../../rules.html">PERATURAN</a>
+                    <a href="../../../../calendar.html">TAKWIM</a>
+                </div>
+            </div>
+            
+            <!-- DROPDOWN KEJOHANAN -->
+            <div class="dropdown">
+                <button class="dropdown-btn active">
+                    <span>KEJOHANAN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="../../index.html">MSSM 2026</a>  
+                    <hr>
+                    <a href="../../u12.html">BAWAH 12</a>
+                    <a href="../../u15.html">BAWAH 15</a>
+                    <a href="../../u18.html">BAWAH 18</a>
+                    <hr>
+                    <a href="../../../../bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
+                    <a href="../../../../borang.html" target="_blank">MUAT TURUN BORANG PERTANDINGAN ↗</a>
                 </div>
             </div>
 
-            <!-- KEJOHANAN -->
+            <!-- DROPDOWN KHUSUS BAWAH 12 (B12) -->
             <div class="dropdown">
-                <button class="dropdown-btn active">KEJOHANAN ▼</button>
+                <button class="dropdown-btn" style="color: #ffeb3b;">
+                    <span>MENU B12</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="dropdown-content">
-                    <a href="../../../mssm2026/index.html">🏆 MSSM 2026</a>
+                    <a href="../teams.html">👥 Teams</a>
+                    <a href="../groups.html">🏆 Groups</a>
+                    <a href="../fixtures.html">📅 Fixtures</a>
+                    <a href="../results.html">🏆 Results</a>
+                    <a href="../standings.html">📊 Standings</a>
                     <hr>
-                    <a href="https://jsports.com.my/ligakpm/bolajaring" target="_blank">🏐 Liga Bola Jaring KPM</a>
-                    <hr>
-                    <a href="../../../../ligakpm.html">Liga Sukan KPM</a>
-                    <a href="../../../../international.html">Kejohanan Antarabangsa</a>
+                    <a href="../undianp2.html">🎲 Second Round Draw</a>
+                    <a href="../chart.html">🏆 Tournament Bracket</a>
+                    <a href="../ranking.html">🥇 Ranking</a>
+                    <a href="../statistic.html">📈 Statistics Scorer</a>
                 </div>
-            </div>                
+            </div>
 
-            <a href="../../../../halloffame.html">Hall of Fame</a>
-            <a href="../../../../gallery.html">Gallery</a>
-            <a href="../../../../live.html" class="live-btn">🔴 Live</a>
-            <a href="../../../../contact.html">Contact</a>
+            <!-- DROPDOWN GALERI & MEDIA -->
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span>GALERI & MEDIA</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="../../../../halloffame.html">HALL OF FAME</a>
+                    <a href="../../../../gallery.html">GALLERY</a>
+                </div>
+            </div>
+
+            <!-- LIVE LINK -->
+            <a href="../../../../live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
 
@@ -419,7 +457,7 @@
             <div class="team-grid">
                 <!-- Pegawai 1 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/pengurus.jpg" alt="Pengurus">
+                    <img src="../../../../images/profile/johor/pengurus.jpg" alt="Pengurus">
                     <div class="member-info">
                         <h3>PENGURUS</h3>
                         <span class="badge">NAMA PENGURUS PASUKAN</span>
@@ -429,7 +467,7 @@
 
                 <!-- Pegawai 2 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/jurulatih.jpg" alt="Jurulatih">
+                    <img src="../../../../images/profile/johor/jurulatih.jpg" alt="Jurulatih">
                     <div class="member-info">
                         <h3>JURULATIH</h3>
                         <span class="badge">NAMA JURULATIH</span>
@@ -439,7 +477,7 @@
 
                 <!-- Pegawai 3 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/fisioterapi.jpg" alt="Fisioterapi">
+                    <img src="../../../../images/profile/johor/fisioterapi.jpg" alt="Fisioterapi">
                     <div class="member-info">
                         <h3>FISIOTERAPI</h3>
                         <span class="badge">NAMA FISIOTERAPI</span>
@@ -456,7 +494,7 @@
             <div class="team-grid">
                 <!-- Atlet 1 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/player1.jpg" alt="Player">
+                    <img src="../../../../images/profile/johor/player1.jpg" alt="Player">
                     <div class="member-info">
                         <h3>NAMA ATLET 1</h3>
                         <span class="badge-player">GS / GA</span>
@@ -470,7 +508,7 @@
 
                 <!-- Atlet 2 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/player2.jpg" alt="Player">
+                    <img src="../../../../images/profile/johor/player2.jpg" alt="Player">
                     <div class="member-info">
                         <h3>NAMA ATLET 2</h3>
                         <span class="badge-player">C / WA</span>
@@ -484,7 +522,7 @@
 
                 <!-- Atlet 3 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/player3.jpg" alt="Player">
+                    <img src="../../../../images/profile/johor/player3.jpg" alt="Player">
                     <div class="member-info">
                         <h3>NAMA ATLET 3</h3>
                         <span class="badge-player">GK / GD</span>
@@ -498,7 +536,7 @@
 
                 <!-- Atlet 4 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/player4.jpg" alt="Player">
+                    <img src="../../../../images/profile/johor/player4.jpg" alt="Player">
                     <div class="member-info">
                         <h3>NAMA ATLET 4</h3>
                         <span class="badge-player">POSISI</span>
@@ -512,7 +550,7 @@
 
                 <!-- Atlet 5 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/player5.jpg" alt="Player">
+                    <img src="../../../../images/profile/johor/player5.jpg" alt="Player">
                     <div class="member-info">
                         <h3>NAMA ATLET 5</h3>
                         <span class="badge-player">POSISI</span>
@@ -526,7 +564,7 @@
 
                 <!-- Atlet 6 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/player6.jpg" alt="Player">
+                    <img src="../../../../images/profile/johor/player6.jpg" alt="Player">
                     <div class="member-info">
                         <h3>NAMA ATLET 6</h3>
                         <span class="badge-player">POSISI</span>
@@ -540,7 +578,7 @@
 
                 <!-- Atlet 7 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/player7.jpg" alt="Player">
+                    <img src="../../../../images/profile/johor/player7.jpg" alt="Player">
                     <div class="member-info">
                         <h3>NAMA ATLET 7</h3>
                         <span class="badge-player">POSISI</span>
@@ -554,7 +592,7 @@
 
                 <!-- Atlet 8 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/player8.jpg" alt="Player">
+                    <img src="../../../../images/profile/johor/player8.jpg" alt="Player">
                     <div class="member-info">
                         <h3>NAMA ATLET 8</h3>
                         <span class="badge-player">POSISI</span>
@@ -568,7 +606,7 @@
 
                 <!-- Atlet 9 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/player9.jpg" alt="Player">
+                    <img src="../../../../images/profile/johor/player9.jpg" alt="Player">
                     <div class="member-info">
                         <h3>NAMA ATLET 9</h3>
                         <span class="badge-player">POSISI</span>
@@ -582,7 +620,7 @@
 
                 <!-- Atlet 10 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/player10.jpg" alt="Player">
+                    <img src="../../../../images/profile/johor/player10.jpg" alt="Player">
                     <div class="member-info">
                         <h3>NAMA ATLET 10</h3>
                         <span class="badge-player">POSISI</span>
@@ -596,7 +634,7 @@
 
                 <!-- Atlet 11 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/player11.jpg" alt="Player">
+                    <img src="../../../../images/profile/johor/player11.jpg" alt="Player">
                     <div class="member-info">
                         <h3>NAMA ATLET 11</h3>
                         <span class="badge-player">POSISI</span>
@@ -610,7 +648,7 @@
 
                 <!-- Atlet 12 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/terengganu/player12.jpg" alt="Player">
+                    <img src="../../../../images/profile/johor/player12.jpg" alt="Player">
                     <div class="member-info">
                         <h3>NAMA ATLET 12</h3>
                         <span class="badge-player">POSISI</span>
