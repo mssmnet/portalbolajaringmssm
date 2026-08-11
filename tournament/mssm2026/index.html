@@ -11,6 +11,7 @@
     <style>
         :root{
             --maroon:#7B1E3A;
+            --maroon-dark:#581328;
             --gold:#FFD700;
             --pink:#FCE4EC;
             --white:#ffffff;
@@ -89,6 +90,9 @@
             font-family:inherit;
             font-size:16px;
             white-space:nowrap;
+            display:inline-flex;
+            align-items:center;
+            gap:6px;
         }
 
         nav a:hover,
@@ -96,6 +100,10 @@
         .dropdown:hover .dropdown-btn {
             background:rgba(255,255,255,.15);
             color:#FFD700;
+        }
+
+        .dropdown-btn i {
+            transition: transform 0.3s ease;
         }
 
         /* STRUCTURAL DROPDOWN */
@@ -110,7 +118,7 @@
             top:100%;
             left:0;
             background-color:var(--maroon);
-            min-width:200px;
+            min-width:220px;
             border-radius:10px;
             box-shadow:0 8px 20px rgba(0,0,0,0.3);
             padding:8px 0;
@@ -194,7 +202,6 @@
             box-shadow:0 18px 35px rgba(0,0,0,.15);
         }
 
-        /* Styling Khas untuk Kad e-Kejohanan */
         .card-ekejohanan {
             background:linear-gradient(135deg, #fff9c4, #ffecb3);
             border:2px solid #ffcc00;
@@ -249,7 +256,7 @@
             margin-top:60px;
         }
 
-        /* RESPONSIVE MENU TOGGLE FOR MOBILE */
+        /* RESPONSIVE MENU TOGGLE FOR MOBILE (HANDSET) */
         .menu-toggle {
             display:none;
             font-size:26px;
@@ -257,32 +264,39 @@
             background:none;
             border:none;
             cursor:pointer;
-            padding:5px;
+            padding:8px;
+            border-radius:6px;
+            transition:background 0.2s ease;
+        }
+
+        .menu-toggle:hover {
+            background:rgba(255, 255, 255, 0.15);
         }
 
         @media(max-width:900px){
             header{
                 flex-wrap:wrap;
-                padding:15px 20px;
+                padding:12px 20px;
             }
 
             .header-left {
                 flex:1;
                 justify-content:flex-start;
+                gap:12px;
             }
 
             .logo {
-                width:60px;
-                height:60px;
-                min-width:60px;
+                width:55px;
+                height:55px;
+                min-width:55px;
             }
 
             .header-title h1 {
-                font-size:20px;
+                font-size:18px;
             }
 
             .subtitle {
-                font-size:13px;
+                font-size:12px;
             }
 
             .menu-toggle {
@@ -293,10 +307,12 @@
                 display:none;
                 flex-direction:column;
                 width:100%;
-                margin-top:15px;
+                margin-top:12px;
                 gap:0;
-                border-top:1px solid rgba(255,255,255,0.2);
-                padding-top:10px;
+                background-color:var(--maroon-dark);
+                border-radius:10px;
+                overflow:hidden;
+                box-shadow:inset 0 2px 8px rgba(0,0,0,0.2);
             }
 
             nav.active {
@@ -306,11 +322,13 @@
             nav a, .dropdown-btn {
                 width:100%;
                 text-align:left;
-                padding:12px 15px;
+                padding:14px 20px;
                 box-sizing:border-box;
                 display:flex;
                 justify-content:space-between;
                 align-items:center;
+                border-bottom:1px solid rgba(255,255,255,0.08);
+                border-radius:0;
             }
 
             .dropdown {
@@ -322,17 +340,40 @@
                 display:none;
                 width:100%;
                 box-shadow:none;
-                border-radius:8px;
-                margin-top:5px;
-                background-color:rgba(0, 0, 0, 0.2);
+                border-radius:0;
+                background-color:rgba(0, 0, 0, 0.25);
+                padding:0;
             }
 
             .dropdown.active .dropdown-content {
                 display:block;
             }
 
+            .dropdown.active .dropdown-btn i {
+                transform:rotate(180deg);
+            }
+
             .dropdown-content a {
-                padding-left:30px;
+                padding:12px 30px;
+                font-size:14px;
+                border-bottom:1px solid rgba(255,255,255,0.05);
+            }
+
+            .container {
+                padding:30px 15px;
+            }
+
+            .title-box {
+                padding:20px 15px;
+                margin-bottom:30px;
+            }
+
+            .title-box h2 {
+                font-size:24px;
+            }
+
+            .category-card {
+                padding:30px 20px;
             }
         }
     </style>
@@ -479,39 +520,61 @@
 </footer>
 
 <script>
-    // Penambahan ID yang sepadan
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     const menuIcon = document.getElementById('menu-icon');
+    const dropdowns = document.querySelectorAll('.dropdown');
 
-    // Fungsi klik menu burger skrin mudah alih
-    menuToggle.addEventListener('click', function() {
+    // Klik Butang Burger
+    menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation(); // Elak event terlepas ke document
         navMenu.classList.toggle('active');
         
-        // Tukar ikon burger (fa-bars) kepada pangkah (fa-xmark) apabila aktif
         if (navMenu.classList.contains('active')) {
-            menuIcon.classList.remove('fa-bars');
-            menuIcon.classList.add('fa-xmark');
+            menuIcon.className = 'fas fa-xmark';
         } else {
-            menuIcon.classList.remove('fa-xmark');
-            menuIcon.classList.add('fa-bars');
+            menuIcon.className = 'fas fa-bars';
+            dropdowns.forEach(d => d.classList.remove('active'));
         }
     });
 
-    // Fungsi dropdown skrin mudah alih
-    const dropdowns = document.querySelectorAll('.dropdown');
+    // Klik Dropdown Menu pada Skrin Mudah Alih
     dropdowns.forEach(dropdown => {
         const btn = dropdown.querySelector('.dropdown-btn');
         btn.addEventListener('click', function(e) {
             if (window.innerWidth <= 900) {
                 e.preventDefault();
-                // Tutup dropdown lain yang terbuka
+                e.stopPropagation();
+                
+                // Tutup dropdown lain yang sedang terbuka
                 dropdowns.forEach(other => {
                     if (other !== dropdown) other.classList.remove('active');
                 });
+
+                // Buka atau tutup dropdown terpilih
                 dropdown.classList.toggle('active');
             }
         });
+    });
+
+    // Tutup menu secara automatik jika pengguna klik di luar menu
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 900) {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                menuIcon.className = 'fas fa-bars';
+                dropdowns.forEach(d => d.classList.remove('active'));
+            }
+        }
+    });
+
+    // Tetap semula paparan jika saiz skrin bertukar ke desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+            navMenu.classList.remove('active');
+            menuIcon.className = 'fas fa-bars';
+            dropdowns.forEach(d => d.classList.remove('active'));
+        }
     });
 </script>
 
