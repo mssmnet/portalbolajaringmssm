@@ -326,58 +326,77 @@
 
 <body>
 
-<header>
-    <div class="header-left">
-        <div style="display: flex; align-items: center; gap: 15px;">
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
             <img src="../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
-            <div>
+            <div class="header-title">
                 <h1>PORTAL BOLA JARING MSSM</h1>
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
-        <div class="menu-toggle" id="menuToggle">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-    </div>
 
-    <nav id="navbar">
-        <a href="../index.html">HOME</a>
-        
-        <!-- BOLA JARING MSSM -->
-        <div class="dropdown">
-            <button class="dropdown-btn">BOLA JARING MSSM ▼</button>
-            <div class="dropdown-content">
-                <a href="../../organisasi.html">ORGANISASI BOLA JARING MSSM</a>
-                <a href="../../panel.html">PANEL ANUGERAH MSSM</a>
-                <a href="../../teknikal.html">TEKNIKAL KEJOHANAN</a>
-                <a href="../../pengadil.html">PENGADIL</a>
-                <hr>
-                <a href="../../about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
-                <a href="../../rules.html">PERATURAN</a>
-                <a href="../../calendar.html">TAKWIM</a>
-                <hr>
-                 <a href="../../bukuprogram.html">BUKU PROGRAM KEJOHANAN</a>
-            </div>
-        </div>
-        
-        <!-- DROPDOWN KEJOHANAN -->
-        <div class="dropdown">
-            <button class="dropdown-btn">KEJOHANAN▼</button>
-            <div class="dropdown-content">
-                <a href="u12.html">BAWAH 12</a>
-                <a href="u15.html">BAWAH 15</a>
-                <a href="u18.html">BAWAH 18</a>
-                <hr>
-                <a href="../venue.html">📍 VENUE PERTANDINGAN</a>
-                <a href="../../borang.html">📄 BORANG PENDAFTARAN</a>
-                <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">📝 PENDAFTARAN E-KJOHANAN ↗</a>
-            </div>
-        </div>
+        <!-- Butang Burger -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
+        </button>
 
-        <a href="../../live.html">🔴 LIVE</a>
-        <a href="../../contact.html">ADMIN</a>
-    </nav>
-</header>
+        <!-- Navigasi Utama -->
+        <nav id="nav-menu">
+             <a href="../../index.html">HOME</a>
+            
+            <!-- DROPDOWN BOLA JARING MSSM -->
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span>BOLA JARING MSSM</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content"> 
+                    <a href="../../organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="../../panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="../../teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="../../pengadil.html">PENGADIL</a>
+                    <hr>
+                    <a href="../../about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="../../rules.html">PERATURAN</a>
+                    <a href="../../calendar.html">TAKWIM</a>
+                   
+                </div>
+            </div>
+            
+            <!-- DROPDOWN KEJOHANAN -->
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span>KEJOHANAN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="index.html">MSSM 2026</a>  
+                     <hr>
+                    <a href="../../../bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
+                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>
+                </div>
+            </div>
+
+            <!-- DROPDOWN GALERI & MEDIA -->
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span>GALERI & MEDIA</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="halloffame.html">HALL OF FAME</a>
+                    <a href="gallery.html">GALLERY</a>
+                </div>
+            </div>
+
+            <!-- LIVE LINK -->
+            <a href="live.html" class="live-link">🔴 LIVE</a>
+        </nav>
+    </header>
 
 <div class="container">
     <div class="title-box">

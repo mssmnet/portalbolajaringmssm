@@ -268,55 +268,70 @@
 
     <header>
         <div class="header-left">
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <img src="../images/mssmlogo.png" alt="Logo MSSM" class="logo">
-                <div class="header-title">
-                    <h1>PORTAL BOLA JARING MSSM</h1>
-                    <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
-                </div>
+            <img src="../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
+            <div class="header-title">
+                <h1>PORTAL BOLA JARING MSSM</h1>
+                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
-            <!-- Butang Burger -->
-            <button class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
 
-        <!-- Navigasi Menu Baru -->
-        <nav id="nav-menu">
-            <a href="../index.html">HOME</a>
+        <!-- Butang Burger -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
+        </button>
 
-            <!-- BOLA JARING MSSM -->
+        <!-- Navigasi Utama -->
+        <nav id="nav-menu">
+             <a href="../../index.html">HOME</a>
+            
+            <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
-                <button class="dropdown-btn">BOLA JARING MSSM ▼</button>
-                <div class="dropdown-content">
-                   <a href="../organisasi.html">Organisasi Bola Jaring MSSM</a>
-                    <a href="../panel.html">Panel Anugerah MSSM</a>
-                    <a href="../teknikal.html">Teknikal Kejohanan</a>
-                    <a href="../pengadil.html">Pengadil</a>
+                <button class="dropdown-btn">
+                    <span>BOLA JARING MSSM</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content"> 
+                    <a href="../../organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="../../panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="../../teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="../../pengadil.html">PENGADIL</a>
                     <hr>
-                    <a href="../about.html">Manual Pengurusan Bola Jaring MSSM</a>
-                    <a href="../rules.html">Peraturan</a>
-                    <a href="../calendar.html">Takwim</a>
+                    <a href="../../about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="../../rules.html">PERATURAN</a>
+                    <a href="../../calendar.html">TAKWIM</a>
+                   
+                </div>
+            </div>
+            
+            <!-- DROPDOWN KEJOHANAN -->
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span>KEJOHANAN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="tournament/mssm2026/index.html">MSSM 2026</a>  
+                     <hr>
+                    <a href="../../../bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
+                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>
                 </div>
             </div>
 
-            <!-- KEJOHANAN -->
+            <!-- DROPDOWN GALERI & MEDIA -->
             <div class="dropdown">
-                <button class="dropdown-btn active">KEJOHANAN ▼</button>
+                <button class="dropdown-btn">
+                    <span>GALERI & MEDIA</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
                 <div class="dropdown-content">
-                    <a href="mssm2026/index.html">🏆 MSSM 2026</a>
-                    <hr>
-                    <a href="https://jsports.com.my/ligakpm/bolajaring" target="_blank">🏐 Liga Bola Jaring KPM</a>
-                    <hr>
-                    <a href="../ligakpm.html">Liga Sukan KPM</a>
-                    <a href="../international.html">Kejohanan Antarabangsa</a>
+                    <a href="halloffame.html">HALL OF FAME</a>
+                    <a href="gallery.html">GALLERY</a>
                 </div>
-            </div>                
+            </div>
 
-            <a href="../halloffame.html">Hall of Fame</a>
-            <a href="../gallery.html">Gallery</a>
-            <a href="../live.html" class="live-btn">🔴 Live</a>
-            <a href="../contact.html">Contact</a>
+            <!-- LIVE LINK -->
+            <a href="live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
 
