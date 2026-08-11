@@ -115,6 +115,10 @@
             color: var(--gold);
         }
 
+        .dropdown-btn i {
+            transition: transform 0.3s ease;
+        }
+
         .live-link {
             color: #ffeb3b !important;
             animation: pulse-live 1.5s infinite;
@@ -306,19 +310,25 @@
         /* BURGER MENU BUTTON */
         .menu-toggle {
             display: none;
-            font-size: 26px;
+            font-size: 24px;
             color: white;
             background: none;
             border: none;
             cursor: pointer;
-            padding: 5px 10px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.15);
         }
 
         /* MOBILE RESPONSIVE (HANDSET) */
         @media (max-width: 768px) {
             header {
                 flex-wrap: wrap;
-                padding: 15px 20px;
+                padding: 12px 20px;
             }
 
             .header-left {
@@ -331,7 +341,7 @@
             }
 
             .header-title h1 {
-                font-size: 18px;
+                font-size: 16px;
             }
 
             .subtitle {
@@ -346,11 +356,12 @@
                 display: none;
                 width: 100%;
                 flex-direction: column;
-                margin-top: 15px;
+                margin-top: 12px;
                 gap: 0;
                 background-color: var(--maroon-dark);
                 border-radius: 10px;
                 overflow: hidden;
+                box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
             }
 
             nav.active {
@@ -376,7 +387,7 @@
                 display: none;
                 box-shadow: none;
                 width: 100%;
-                background-color: rgba(0, 0, 0, 0.2);
+                background-color: rgba(0, 0, 0, 0.25);
                 padding: 0;
                 border-radius: 0;
             }
@@ -384,6 +395,7 @@
             .dropdown-content a {
                 padding: 12px 30px;
                 font-size: 13px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             }
 
             .dropdown.open .dropdown-content {
@@ -395,7 +407,7 @@
             }
 
             .title-section {
-                margin: 20px 10px;
+                margin: 20px 15px;
                 padding: 25px 15px;
             }
 
@@ -531,15 +543,15 @@
         const dropdowns = document.querySelectorAll(".dropdown");
 
         // Toggle Burger Menu pada Mobile
-        menuToggle.addEventListener("click", () => {
+        menuToggle.addEventListener("click", (e) => {
+            e.stopPropagation();
             navMenu.classList.toggle("active");
             
             if (navMenu.classList.contains("active")) {
-                menuIcon.classList.remove("fa-bars");
-                menuIcon.classList.add("fa-xmark");
+                menuIcon.className = "fas fa-xmark";
             } else {
-                menuIcon.classList.remove("fa-xmark");
-                menuIcon.classList.add("fa-bars");
+                menuIcon.className = "fas fa-bars";
+                dropdowns.forEach(d => d.classList.remove("open"));
             }
         });
 
@@ -549,6 +561,7 @@
             btn.addEventListener("click", (e) => {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
+                    e.stopPropagation();
                     
                     // Tutup dropdown lain yang terbuka
                     dropdowns.forEach(otherDropdown => {
@@ -557,21 +570,29 @@
                         }
                     });
 
-                    // Buka/Tutup dropdown yang diklik
+                    // Toggle dropdown pilihan
                     dropdown.classList.toggle("open");
                 }
             });
         });
 
-        // Tutup menu mobile jika pengguna klik di luar kawasan header/nav
+        // Tutup menu mobile apabila klik di luar
         document.addEventListener("click", (e) => {
             if (window.innerWidth <= 768) {
                 if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                     navMenu.classList.remove("active");
-                    menuIcon.classList.remove("fa-xmark");
-                    menuIcon.classList.add("fa-bars");
+                    menuIcon.className = "fas fa-bars";
                     dropdowns.forEach(d => d.classList.remove("open"));
                 }
+            }
+        });
+
+        // Reset kelas apabila tetingkap diubah saiz melebihi breakpoint 768px
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 768) {
+                navMenu.classList.remove("active");
+                menuIcon.className = "fas fa-bars";
+                dropdowns.forEach(d => d.classList.remove("open"));
             }
         });
     </script>
