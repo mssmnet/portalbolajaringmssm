@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STATISTIK JARINGAN BAWAH 12 | MSSM 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        :root {
+            --maroon: #7B1E3A;
+            --maroon-dark: #581328;
+            --gold: #FFD700;
+            --pink: #FCE4EC;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f4f4f4; 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Header Maroon */
+        header { 
+            background-color: var(--maroon); 
+            color: white; 
+            padding: 15px 5%;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left { 
+            display: flex; 
+            align-items: center; 
+            gap: 18px; 
+        }
+
+        .logo { 
+            width: 70px;
+            height: 70px;
+            min-width: 70px;
+            object-fit: contain;
+            background: transparent;
+        }
+        
+        .header-title h1 { 
+            margin: 0; 
+            font-size: 24px; 
+            color: white; 
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .header-title .subtitle { 
+            color: #FFD700; 
+            font-size: 14px; 
+            margin: 2px 0 0 0; 
+            font-weight: bold; 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3); 
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        nav a, .dropdown-btn { 
+            color: white; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 15px; 
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: .3s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        nav a:hover, nav a.active, .dropdown-btn.active, .dropdown:hover .dropdown-btn { 
+            background: rgba(255,255,255,.15);
+            color: var(--gold); 
+        }
+
+        .dropdown-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        /* STRUCTURAL DROPDOWN DESKTOP */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--maroon);
+            min-width: 220px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            padding: 8px 0;
+            z-index: 1100;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 0;
+            margin: 0;
+            transition: background 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #ffeb3b;
+        }
+
+        .dropdown-content hr {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 6px 0;
+        }
+
+        @media(min-width: 901px){
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
+
+        /* BUTANG BURGER MENU FOR MOBILE */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .container { 
+            max-width: 1000px; 
+            margin: 30px auto; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+            flex: 1;
+            width: 90%;
+        }
+
+        .header-actions { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 20px; 
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .header-actions h2 { color: var(--maroon); margin: 0; font-size: 22px; }
+        
+        .btn-print { 
+            background: var(--maroon); 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-print:hover { background: #5d132c; }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        /* Jadual Statistik */
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; min-width: 650px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background-color: #2c3e50; color: white; font-size: 15px; }
+        td { font-size: 15px; color: #333; }
+        
+        /* Highlight untuk Top 3 Penjaring */
+        .top1 td:first-child { background-color: #FFD700; font-weight: bold; font-size: 18px; }
+        .top2 td:first-child { background-color: #C0C0C0; font-weight: bold; font-size: 18px; }
+        .top3 td:first-child { background-color: #CD7F32; color: white; font-weight: bold; font-size: 18px; }
+
+        /* Zebra Striping */
+        tbody tr:nth-child(even) { background-color: #f9f9f9; }
+        tbody tr:hover { background-color: #f1f1f1; transition: 0.3s; }
+
+        footer { 
+            background: var(--maroon); 
+            color: #ffffff; 
+            text-align: center; 
+            padding: 20px; 
+            margin-top: auto; 
+            font-size: 14px; 
+            font-weight: 500; 
+        }
+
+        /* MOBILE RESPONSIVE (HANDSET) */
+        @media (max-width: 900px) {
+            header {
+                flex-wrap: wrap;
+                padding: 12px 20px;
+            }
+
+            .header-left {
+                flex: 1;
+                justify-content: flex-start;
+                gap: 12px;
+            }
+
+            .logo {
+                width: 50px;
+                height: 50px;
+                min-width: 50px;
+            }
+
+            .header-title h1 {
+                font-size: 16px;
+            }
+
+            .header-title .subtitle {
+                font-size: 11px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 12px;
+                gap: 0;
+                background-color: var(--maroon-dark);
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a, .dropdown-btn {
+                width: 100%;
+                text-align: left;
+                padding: 14px 20px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+                border-radius: 0;
+                margin: 0;
+            }
+
+            .dropdown {
+                width: 100%;
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                background-color: rgba(0, 0, 0, 0.25);
+                padding: 0;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .dropdown.active .dropdown-btn i {
+                transform: rotate(180deg);
+            }
+
+            .dropdown-content a {
+                padding: 12px 30px;
+                font-size: 13px;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .header-actions {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-actions h2 {
+                font-size: 18px;
+            }
+
+            .btn-print {
+                width: 100%;
+            }
+        }
+
+        @media print {
+            header, nav, .btn-print, footer, .menu-toggle { display: none !important; }
+            .container { box-shadow: none; border: none; margin: 0; padding: 0; width: 100%; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
+            <div class="header-title">
+                <h1>PORTAL BOLA JARING MSSM</h1>
+                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+            </div>
+        </div>
+
+        <!-- Butang Burger -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
+        </button>
+
+        <!-- Navigasi Utama -->
+        <nav id="nav-menu">
+            <a href="../../index.html">HOME</a>
+            
+            <!-- DROPDOWN BOLA JARING MSSM -->
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span>BOLA JARING MSSM</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content"> 
+                    <a href="../../organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="../../panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="../../teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="../../pengadil.html">PENGADIL</a>
+                    <hr>
+                    <a href="../../about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="../../rules.html">PERATURAN</a>
+                    <a href="../../calendar.html">TAKWIM</a>
+                </div>
+            </div>
+            
+            <!-- DROPDOWN KEJOHANAN -->
+            <div class="dropdown">
+                <button class="dropdown-btn active">
+                    <span>KEJOHANAN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="index.html">MSSM 2026</a>  
+                    <hr>
+                    <a href="../../bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
+                    <a href="../../borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>
+                </div>
+            </div>
+
+            <!-- DROPDOWN KHUSUS BAWAH 12 (B12) -->
+            <div class="dropdown">
+                <button class="dropdown-btn" style="color: #ffeb3b;">
+                    <span>MENU B12</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="u12teams.html">👥 Teams</a>
+                    <a href="u12groups.html">🏆 Groups</a>
+                    <a href="u12fixtures.html">📅 Fixtures</a>
+                    <a href="u12results.html">🏆 Results</a>
+                    <a href="u12standings.html">📊 Standings</a>
+                    <hr>
+                    <a href="u12undianp2.html">🎲 Second Round Draw</a>
+                    <a href="u12chart.html">🏆 Tournament Bracket</a>
+                    <a href="u12ranking.html">🥇 Ranking</a>
+                    <a href="u12statistic.html">📈 Statistics Scorer</a>
+                </div>
+            </div>
+
+            <!-- DROPDOWN GALERI & MEDIA -->
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span>GALERI & MEDIA</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="../../halloffame.html">HALL OF FAME</a>
+                    <a href="../../gallery.html">GALLERY</a>
+                </div>
+            </div>
+
+            <!-- LIVE LINK -->
+            <a href="../../live.html" class="live-link">🔴 LIVE</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="header-actions">
+            <h2><i class="fa-solid fa-bullseye"></i> STATISTIK JARINGAN PEMAIN BAWAH 12 (TOP SCORERS)</h2>
+            <button class="btn-print" onclick="window.print()">
+                <i class="fa-solid fa-print"></i> Cetak PDF
+            </button>
+        </div>
+        
+        <div class="table-responsive">
+            <table id="statsTable">
+                <thead>
+                    <tr>
+                        <th style="width: 8%;">NO</th>
+                        <th style="width: 32%;">NAMA PEMAIN</th>
+                        <th style="width: 20%;">PASUKAN</th>
+                        <th style="width: 12%;">POSISI</th>
+                        <th style="width: 10%;">PERCUBAAN</th>
+                        <th style="width: 10%;">JARINGAN</th>
+                        <th style="width: 8%;">%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="top1"><td>1</td><td style="font-weight:bold; text-align:left;">PEMAIN A</td><td>MSS</td><td>GS</td><td>50</td><td style="font-weight:bold; color:#7B1E3A;">45</td><td style="font-weight:bold;">90%</td></tr>
+                    <tr class="top2"><td>2</td><td style="font-weight:bold; text-align:left;">PEMAIN B</td><td>MSS</td><td>GA</td><td>45</td><td style="font-weight:bold; color:#7B1E3A;">38</td><td style="font-weight:bold;">84%</td></tr>
+                    <tr class="top3"><td>3</td><td style="font-weight:bold; text-align:left;">PEMAIN C</td><td>MSS</td><td>GS</td><td>40</td><td style="font-weight:bold; color:#7B1E3A;">35</td><td style="font-weight:bold;">88%</td></tr>
+                    <tr><td>4</td><td style="font-weight:bold; text-align:left;">PEMAIN D</td><td>MSS</td><td>GA</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>5</td><td style="font-weight:bold; text-align:left;">PEMAIN E</td><td>MSS</td><td>WA</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>6</td><td style="font-weight:bold; text-align:left;">PEMAIN F</td><td>MSS</td><td>GS</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>7</td><td style="font-weight:bold; text-align:left;">PEMAIN G</td><td>MSS</td><td>GA</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>8</td><td style="font-weight:bold; text-align:left;">PEMAIN H</td><td>MSS</td><td>GS</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>9</td><td style="font-weight:bold; text-align:left;">PEMAIN I</td><td>MSS</td><td>GA</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>10</td><td style="font-weight:bold; text-align:left;">PEMAIN J</td><td>MSS</td><td>WA</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>11</td><td style="font-weight:bold; text-align:left;">PEMAIN K</td><td>MSS</td><td>GS</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>12</td><td style="font-weight:bold; text-align:left;">PEMAIN L</td><td>MSS</td><td>GA</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>13</td><td style="font-weight:bold; text-align:left;">PEMAIN M</td><td>SABAH</td><td>GS</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>14</td><td style="font-weight:bold; text-align:left;">PEMAIN N</td><td>SARAWAK</td><td>GA</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>15</td><td style="font-weight:bold; text-align:left;">PEMAIN O</td><td>WP PUTRAJAYA</td><td>WA</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>16</td><td style="font-weight:bold; text-align:left;">PEMAIN P</td><td>WP LABUAN</td><td>GS</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>17</td><td style="font-weight:bold; text-align:left;">PEMAIN Q</td><td>MSSM</td><td>GA</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>18</td><td style="font-weight:bold; text-align:left;">PEMAIN R</td><td>MSSM</td><td>GS</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>19</td><td style="font-weight:bold; text-align:left;">PEMAIN S</td><td>MSSM</td><td>GA</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>20</td><td style="font-weight:bold; text-align:left;">PEMAIN T</td><td>MSSM</td><td>WA</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>21</td><td style="font-weight:bold; text-align:left;">PEMAIN U</td><td>MSSM</td><td>GS</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>22</td><td style="font-weight:bold; text-align:left;">PEMAIN V</td><td>MSSM</td><td>GA</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>23</td><td style="font-weight:bold; text-align:left;">PEMAIN W</td><td>MSSM</td><td>GS</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>24</td><td style="font-weight:bold; text-align:left;">PEMAIN X</td><td>MSSM</td><td>GA</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                    <tr><td>25</td><td style="font-weight:bold; text-align:left;">PEMAIN Y</td><td>MSSM</td><td>WA</td><td>-</td><td style="font-weight:bold; color:#7B1E3A;">0</td><td style="font-weight:bold;">0%</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script>
+        // FUNGSI UTAMA NAVIGATION RESPONSIVE & BURGER MENU
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        // Toggle Burger Menu pada Mobile
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+            
+            if (navMenu.classList.contains('active')) {
+                menuIcon.className = 'fas fa-xmark';
+            } else {
+                menuIcon.className = 'fas fa-bars';
+                dropdowns.forEach(d => d.classList.remove('active'));
+            }
+        });
+
+        // Toggle Dropdown Sub-menu pada Mobile
+        dropdowns.forEach(dropdown => {
+            const btn = dropdown.querySelector('.dropdown-btn');
+            btn.addEventListener('click', function(e) {
+                if (window.innerWidth <= 900) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    dropdowns.forEach(other => {
+                        if (other !== dropdown) other.classList.remove('active');
+                    });
+
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+
+        // Tutup menu secara automatik jika mengetik di luar
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 900) {
+                if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    menuIcon.className = 'fas fa-bars';
+                    dropdowns.forEach(d => d.classList.remove('active'));
+                }
+            }
+        });
+
+        // Reset menu jika skrin diubah saiz melebihi breakpoint mobile
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 900) {
+                navMenu.classList.remove('active');
+                menuIcon.className = 'fas fa-bars';
+                dropdowns.forEach(d => d.classList.remove('active'));
+            }
+        });
+
+        // MASUKKAN LINK CSV GOOGLE SHEETS UNTUK STATISTIK DI SINI
+        const statsCsvUrl = 'PASTE_URL_CSV_STATISTIK_ANDA_DI_SINI'; 
+
+        fetch(statsCsvUrl)
+            .then(response => {
+                if (!response.ok) throw new Error("Gagal memuatkan pautan CSV");
+                return response.text();
+            })
+            .then(csvData => {
+                const results = Papa.parse(csvData, { header: false, skipEmptyLines: true });
+                const rows = results.data;
+                
+                const namaCol = 1;       // Lajur B
+                const pasukanCol = 2;    // Lajur C
+                const posisiCol = 3;     // Lajur D
+                const percubaanCol = 4;  // Lajur E
+                const jaringanCol = 5;   // Lajur F
+                const peratusCol = 6;    // Lajur G
+
+                const startRowIndex = 5; 
+                const endRowIndex = 50; 
+
+                let newContent = "";
+                let validLiveRows = 0;
+                let kedudukan = 1;
+
+                for (let i = startRowIndex; i <= endRowIndex; i++) {
+                    if (!rows[i]) continue;
+
+                    let nama = rows[i][namaCol] ? rows[i][namaCol].trim() : "";
+                    let pasukan = rows[i][pasukanCol] ? rows[i][pasukanCol].trim() : "";
+                    let posisi = rows[i][posisiCol] ? rows[i][posisiCol].trim() : ""; 
+                    let percubaan = rows[i][percubaanCol] ? rows[i][percubaanCol].trim() : "0"; 
+                    let jaringan = rows[i][jaringanCol] ? rows[i][jaringanCol].trim() : "0"; 
+                    let peratus = rows[i][peratusCol] ? rows[i][peratusCol].trim() : "0%"; 
+
+                    if (!nama && jaringan === "0") continue;
+
+                    validLiveRows++;
+
+                    let rowClass = '';
+                    if (kedudukan == 1) rowClass = 'top1';
+                    else if (kedudukan == 2) rowClass = 'top2';
+                    else if (kedudukan == 3) rowClass = 'top3';
+
+                    newContent += `<tr class="${rowClass}">
+                        <td>${kedudukan}</td>
+                        <td style="font-weight:bold; text-align:left;">${nama || '-'}</td>
+                        <td>${pasukan || '-'}</td>
+                        <td>${posisi || '-'}</td>
+                        <td>${percubaan}</td>
+                        <td style="font-weight:bold; color:#7B1E3A;">${jaringan}</td>
+                        <td style="font-weight:bold;">${peratus}</td>
+                    </tr>`;
+    
+                    kedudukan++;
+                }
+
+                if (validLiveRows > 0) {
+                    document.querySelector('#statsTable tbody').innerHTML = newContent;
+                }
+            })
+            .catch(error => {
+                console.log('Mengekalkan templet asal. Menunggu data statistik rasmi...');
+            });
+    </script>
+</body>
+</html>

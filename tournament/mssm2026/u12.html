@@ -112,6 +112,10 @@
             color: var(--gold);
         }
 
+        .dropdown-btn i {
+            transition: transform 0.3s ease;
+        }
+
         .live-link {
             color: #ffeb3b !important;
             animation: pulse-live 1.5s infinite;
@@ -163,6 +167,15 @@
             border: none;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             margin: 6px 0;
+        }
+
+        /* MEMASAKAN DROPDOWN PAPAR APABILA DI-HOVER ATAU DIKLIK (.open) */
+        .dropdown.open .dropdown-content {
+            display: block !important;
+        }
+
+        .dropdown.open .dropdown-btn i {
+            transform: rotate(180deg);
         }
 
         @media (min-width: 769px) {
@@ -356,14 +369,6 @@
                 font-size: 13px;
             }
 
-            .dropdown.open .dropdown-content {
-                display: block;
-            }
-
-            .dropdown.open .dropdown-btn i {
-                transform: rotate(180deg);
-            }
-
             .main-container {
                 padding: 20px 10px;
                 margin: 20px auto;
@@ -413,7 +418,7 @@
             
             <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
-                <button class="dropdown-btn">
+                <button type="button" class="dropdown-btn">
                     <span>BOLA JARING MSSM</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
@@ -431,7 +436,7 @@
             
             <!-- DROPDOWN KEJOHANAN -->
             <div class="dropdown">
-                <button class="dropdown-btn active">
+                <button type="button" class="dropdown-btn active">
                     <span>KEJOHANAN</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
@@ -446,27 +451,28 @@
 
             <!-- DROPDOWN KHUSUS BAWAH 12 (B12) -->
             <div class="dropdown">
-                <button class="dropdown-btn" style="color: #ffeb3b;">
+                <button type="button" class="dropdown-btn" style="color: #ffeb3b;">
                     <span>MENU B12</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
+
                 <div class="dropdown-content">
-                    <a href="u12/teams.html">👥 Teams</a>
-                    <a href="u12/groups.html">🏆 Groups</a>
-                    <a href="u12/fixtures.html">📅 Fixtures</a>
-                    <a href="u12/results.html">🏆 Results</a>
-                    <a href="u12/standings.html">📊 Standings</a>
+                    <a href="./u12/u12teams.html">👥 Teams</a>
+                    <a href="./u12/u12groups.html">🏆 Groups</a>
+                    <a href="./u12/u12fixtures.html">📅 Fixtures</a>
+                    <a href="./u12/u12results.html">🏆 Results</a>
+                    <a href="./u12/u12standings.html">📊 Standings</a>
                     <hr>
-                    <a href="u12/undianp2.html">🎲 Second Round Draw</a>
-                    <a href="u12/chart.html">🏆 Tournament Bracket</a>
-                    <a href="u12/ranking.html">🥇 Ranking</a>
-                    <a href="u12/statistic.html">📈 Statistics Scorer</a>
+                    <a href="./u12/u12undianp2.html">🎲 Second Round Draw</a>
+                    <a href="./u12/u12chart.html">🏆 Tournament Bracket</a>
+                    <a href="./u12/u12ranking.html">🥇 Ranking</a>
+                    <a href="./u12/u12statistic.html">📈 Statistics Scorer</a>
                 </div>
             </div>
 
             <!-- DROPDOWN GALERI & MEDIA -->
             <div class="dropdown">
-                <button class="dropdown-btn">
+                <button type="button" class="dropdown-btn">
                     <span>GALERI & MEDIA</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
@@ -491,39 +497,39 @@
         <section class="cards">
             <div class="tournament-card">
                 <h3>👥 Teams</h3>
-                <a href="u12/teams.html" class="btn">Masuk</a>
+                <a href="./u12/u12teams.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>🏆 Groups</h3>
-                <a href="u12/groups.html" class="btn">Masuk</a>
+                <a href="./u12/u12groups.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>📅 Fixtures</h3>
-                <a href="u12/fixtures.html" class="btn">Masuk</a>
+                <a href="./u12/u12fixtures.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>🏆 Results</h3>
-                <a href="u12/results.html" class="btn">Masuk</a>
+                <a href="./u12/u12results.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>📊 Standings</h3>
-                <a href="u12/standings.html" class="btn">Masuk</a>
+                <a href="./u12/u12standings.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>🎲 Second Round Draw</h3>
-                <a href="u12/undianp2.html" class="btn">Masuk</a>
+                <a href="./u12/u12undianp2.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>🏆 Tournament Bracket</h3>
-                <a href="u12/chart.html" class="btn">Masuk</a>
+                <a href="./u12/u12chart.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>🥇 Ranking</h3>
-                <a href="u12/ranking.html" class="btn">Masuk</a>
+                <a href="./u12/u12ranking.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>📈 Statistics Scorer</h3>
-                <a href="u12/statistic.html" class="btn">Masuk</a>
+                <a href="./u12/u12statistic.html" class="btn">Masuk</a>
             </div>
         </section>
     </main>
@@ -532,54 +538,60 @@
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
 
-    <!-- SKRIP JAVASCRIPT KEMAS & RESPONSIF -->
+    <!-- SKRIP JAVASCRIPT KLIK DROPDOWN UNIVERSAL -->
     <script>
         const menuToggle = document.getElementById("menu-toggle");
         const menuIcon = document.getElementById("menu-icon");
         const navMenu = document.getElementById("nav-menu");
         const dropdowns = document.querySelectorAll(".dropdown");
 
-        // Toggle Burger Menu pada Mobile
-        menuToggle.addEventListener("click", () => {
+        /* BURGER MENU (MOBILE) */
+        menuToggle.addEventListener("click", function (e) {
+            e.stopPropagation();
             navMenu.classList.toggle("active");
-            
+
             if (navMenu.classList.contains("active")) {
                 menuIcon.classList.remove("fa-bars");
                 menuIcon.classList.add("fa-xmark");
             } else {
                 menuIcon.classList.remove("fa-xmark");
                 menuIcon.classList.add("fa-bars");
+                dropdowns.forEach(d => d.classList.remove("open"));
             }
         });
 
-        // Pengendalian Klik Dropdown pada Mobile
-        dropdowns.forEach(dropdown => {
+        /* DROPDOWN KLIK (BERFUNGSI UNTUK DESKTOP & MOBILE) */
+        dropdowns.forEach(function (dropdown) {
             const btn = dropdown.querySelector(".dropdown-btn");
-            btn.addEventListener("click", (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    
-                    // Tutup dropdown lain yang terbuka
-                    dropdowns.forEach(otherDropdown => {
-                        if (otherDropdown !== dropdown) {
-                            otherDropdown.classList.remove("open");
-                        }
-                    });
 
-                    // Buka/Tutup dropdown yang diklik
-                    dropdown.classList.toggle("open");
-                }
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                /* Tutup dropdown lain */
+                dropdowns.forEach(function (otherDropdown) {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove("open");
+                    }
+                });
+
+                /* Buka / tutup dropdown yang diklik */
+                dropdown.classList.toggle("open");
             });
         });
 
-        // Tutup menu mobile jika pengguna klik di luar kawasan header/nav
-        document.addEventListener("click", (e) => {
-            if (window.innerWidth <= 768) {
-                if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        /* TUTUP DROPDOWN APABILA KLIK DI LUAR */
+        document.addEventListener("click", function (e) {
+            if (!e.target.closest(".dropdown")) {
+                dropdowns.forEach(function (dropdown) {
+                    dropdown.classList.remove("open");
+                });
+            }
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                if (window.innerWidth <= 768) {
                     navMenu.classList.remove("active");
                     menuIcon.classList.remove("fa-xmark");
                     menuIcon.classList.add("fa-bars");
-                    dropdowns.forEach(d => d.classList.remove("open"));
                 }
             }
         });
