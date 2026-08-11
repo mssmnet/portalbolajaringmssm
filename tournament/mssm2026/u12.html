@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MSSM 2026 | Bawah 12</title>
 
+    <!-- PENANDA KATEGORI UNTUK SCRIPT.JS DINAMIK -->
+    <meta name="category-type" content="B12">
+    
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     
@@ -107,7 +110,8 @@
         nav a:hover,
         nav a.active,
         .dropdown-btn.active,
-        .dropdown:hover .dropdown-btn {
+        .dropdown:hover .dropdown-btn,
+        .dropdown.open .dropdown-btn {
             background: rgba(255,255,255,.2);
             color: var(--gold);
         }
@@ -169,7 +173,7 @@
             margin: 6px 0;
         }
 
-        /* MEMASAKAN DROPDOWN PAPAR APABILA DI-HOVER ATAU DIKLIK (.open) */
+        /* SUPPORT HOVER & CLICK OPEN DROPDOWN */
         .dropdown.open .dropdown-content {
             display: block !important;
         }
@@ -181,6 +185,9 @@
         @media (min-width: 769px) {
             .dropdown:hover .dropdown-content {
                 display: block;
+            }
+            .dropdown:hover .dropdown-btn i {
+                transform: rotate(180deg);
             }
         }
 
@@ -457,16 +464,16 @@
                 </button>
 
                 <div class="dropdown-content">
-                    <a href="./u12/u12teams.html">👥 Teams</a>
-                    <a href="./u12/u12groups.html">🏆 Groups</a>
-                    <a href="./u12/u12fixtures.html">📅 Fixtures</a>
-                    <a href="./u12/u12results.html">🏆 Results</a>
-                    <a href="./u12/u12standings.html">📊 Standings</a>
+                    <a href="u12/teams.html">👥 Teams</a>
+                    <a href="u12/groups.html">🏆 Groups</a>
+                    <a href="u12/fixtures.html">📅 Fixtures</a>
+                    <a href="u12/results.html">🏆 Results</a>
+                    <a href="u12/standings.html">📊 Standings</a>
                     <hr>
-                    <a href="./u12/u12undianp2.html">🎲 Second Round Draw</a>
-                    <a href="./u12/u12chart.html">🏆 Tournament Bracket</a>
-                    <a href="./u12/u12ranking.html">🥇 Ranking</a>
-                    <a href="./u12/u12statistic.html">📈 Statistics Scorer</a>
+                    <a href="u12/undianp2.html">🎲 Second Round Draw</a>
+                    <a href="u12/chart.html">🏆 Tournament Bracket</a>
+                    <a href="u12/ranking.html">🥇 Ranking</a>
+                    <a href="u12/statistic.html">📈 Statistics Scorer</a>
                 </div>
             </div>
 
@@ -497,39 +504,39 @@
         <section class="cards">
             <div class="tournament-card">
                 <h3>👥 Teams</h3>
-                <a href="./u12/u12teams.html" class="btn">Masuk</a>
+                <a href="u12/teams.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>🏆 Groups</h3>
-                <a href="./u12/u12groups.html" class="btn">Masuk</a>
+                <a href="u12/groups.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>📅 Fixtures</h3>
-                <a href="./u12/u12fixtures.html" class="btn">Masuk</a>
+                <a href="u12/fixtures.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>🏆 Results</h3>
-                <a href="./u12/u12results.html" class="btn">Masuk</a>
+                <a href="u12/results.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>📊 Standings</h3>
-                <a href="./u12/u12standings.html" class="btn">Masuk</a>
+                <a href="u12/standings.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>🎲 Second Round Draw</h3>
-                <a href="./u12/u12undianp2.html" class="btn">Masuk</a>
+                <a href="u12/undianp2.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>🏆 Tournament Bracket</h3>
-                <a href="./u12/u12chart.html" class="btn">Masuk</a>
+                <a href="u12/chart.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>🥇 Ranking</h3>
-                <a href="./u12/u12ranking.html" class="btn">Masuk</a>
+                <a href="u12/ranking.html" class="btn">Masuk</a>
             </div>
             <div class="tournament-card">
                 <h3>📈 Statistics Scorer</h3>
-                <a href="./u12/u12statistic.html" class="btn">Masuk</a>
+                <a href="u12/statistic.html" class="btn">Masuk</a>
             </div>
         </section>
     </main>
@@ -538,7 +545,8 @@
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
 
-    <!-- SKRIP JAVASCRIPT KLIK DROPDOWN UNIVERSAL -->
+    <!-- SKRIP JAVASCRIPT DINAMIK & RESPONSIF -->
+    <script src="../../script.js"></script>
     <script>
         const menuToggle = document.getElementById("menu-toggle");
         const menuIcon = document.getElementById("menu-icon");
@@ -560,7 +568,7 @@
             }
         });
 
-        /* DROPDOWN KLIK (BERFUNGSI UNTUK DESKTOP & MOBILE) */
+        /* DROPDOWN KLIK (UNIVERSAL DESKTOP & MOBILE) */
         dropdowns.forEach(function (dropdown) {
             const btn = dropdown.querySelector(".dropdown-btn");
 
@@ -568,7 +576,7 @@
                 e.preventDefault();
                 e.stopPropagation();
 
-                /* Tutup dropdown lain */
+                /* Tutup dropdown lain yang sedang terbuka */
                 dropdowns.forEach(function (otherDropdown) {
                     if (otherDropdown !== dropdown) {
                         otherDropdown.classList.remove("open");
@@ -594,6 +602,16 @@
                     menuIcon.classList.add("fa-bars");
                 }
             }
+        });
+
+        /* RESET TETAPAN BILA TETINGKAP DIUBAH SAIZ */
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 768) {
+                navMenu.classList.remove("active");
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+            }
+            dropdowns.forEach(d => d.classList.remove("open"));
         });
     </script>
 

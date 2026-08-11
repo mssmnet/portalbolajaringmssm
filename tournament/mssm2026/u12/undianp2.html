@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keputusan Perlawanan | MSSM 2026</title>
+    <title>Undian Pusingan Kedua | MSSM 2026</title>
+
     <link rel="stylesheet" href="../../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
     <style>
         :root {
             --maroon: #7B1E3A;
@@ -15,60 +17,61 @@
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: url('../../../images/bg-utama.jpg') center/cover fixed;
-            background-color: var(--pink);
+        body { 
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif; 
+            background-color: #f4f4f4; 
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        header {
-            background: var(--maroon);
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* HEADER & NAVIGASI */
+        header { 
+            background-color: var(--maroon); 
+            color: white; 
             padding: 15px 5%;
-            box-shadow: 0 4px 15px rgba(0,0,0,.3);
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 18px;
+        .header-left { 
+            display: flex; 
+            align-items: center; 
+            gap: 18px; 
         }
 
-        .logo {
+        .logo { 
             width: 70px;
             height: 70px;
             min-width: 70px;
             object-fit: contain;
             background: transparent;
         }
-
-        .header-title h1 {
-            color: white;
-            font-size: 24px;
-            margin: 0;
-            line-height: 1.2;
+        
+        .header-title h1 { 
+            margin: 0; 
+            font-size: 24px; 
+            color: white; 
             font-weight: 800;
+            line-height: 1.2;
         }
 
-        .subtitle {
-            color: #ffeb3b;
-            font-weight: bold;
-            margin-top: 2px;
-            font-size: 14px;
+        .header-title .subtitle { 
+            color: #FFD700; 
+            font-size: 14px; 
+            margin: 2px 0 0 0; 
+            font-weight: bold; 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3); 
         }
 
         nav {
@@ -77,30 +80,27 @@
             align-items: center;
         }
 
-        nav a, .dropdown-btn {
-            color: white;
-            text-decoration: none;
+        nav a, .dropdown-btn { 
+            color: white; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 15px; 
             padding: 10px 14px;
             border-radius: 8px;
             transition: .3s;
-            font-weight: bold;
             background: none;
             border: none;
             cursor: pointer;
             font-family: inherit;
-            font-size: 15px;
             white-space: nowrap;
             display: inline-flex;
             align-items: center;
             gap: 6px;
         }
 
-        nav a:hover,
-        nav a.active,
-        .dropdown-btn.active,
-        .dropdown:hover .dropdown-btn {
+        nav a:hover, nav a.active, .dropdown-btn.active, .dropdown:hover .dropdown-btn { 
             background: rgba(255,255,255,.15);
-            color: var(--gold);
+            color: var(--gold); 
         }
 
         .dropdown-btn i {
@@ -135,6 +135,7 @@
             font-size: 14px;
             font-weight: bold;
             border-radius: 0;
+            margin: 0;
             transition: background 0.2s;
         }
 
@@ -155,7 +156,7 @@
             }
         }
 
-        /* BURGER MENU BUTTON */
+        /* BUTANG BURGER MENU */
         .menu-toggle {
             display: none;
             font-size: 24px;
@@ -172,54 +173,104 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
-        /* CSS Utama untuk Hasil */
+        /* LAYOUT & CARDS */
         .main-container {
-            padding: 30px 20px;
-            max-width: 1000px;
+            padding: 40px 20px;
+            max-width: 1200px;
             margin: 0 auto;
             flex: 1;
             width: 100%;
         }
 
-        .table-container {
-            width: 100%;
-            overflow-x: auto;
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .page-title {
+            flex: 1;
+            text-align: center;
+        }
+
+        .page-title h2 {
+            color: var(--maroon);
+            font-size: 34px;
+            margin: 0;
+        }
+
+        .page-title p {
+            color: #666;
+            margin-top: 8px;
+        }
+
+        .draw-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        .draw-card {
             background: #fff;
             border-radius: 18px;
-            box-shadow: 0 10px 25px rgba(0,0,0,.08);
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,.08);
         }
 
-        .results-table { 
-            width: 100%; 
-            border-collapse: collapse; 
-            min-width: 750px;
+        .card-header {
+            color: #fff;
+            font-weight: bold;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
         }
 
-        .results-table th { background: var(--maroon); color: #fff; padding: 18px; font-size: 16px; text-transform: uppercase; }
-        .results-table td { padding: 16px; border-bottom: 1px solid #eee; text-align: center; vertical-align: middle; }
-        
-        .results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; gap: 20px; flex-wrap: wrap; }
-        .results-title { flex: 1; text-align: center; }
-        .results-title h2 { margin: 0; font-size: 32px; color: var(--maroon); }
-        
-        .btn-print { background: var(--maroon); color: white; border: none; padding: 12px 28px; border-radius: 40px; font-size: 15px; font-weight: 700; cursor: pointer; transition: .3s; white-space: nowrap; }
-        .btn-print:hover { background: #5d132c; transform: translateY(-2px); }
+        .blue { background: #169BD5; }
+        .gold { background: #f4b400; }
+        .yellow { background: #FFD600; color: #333; }
+        .green { background: #17c617; }
 
-        .team-cell { display: flex; align-items: center; gap: 12px; }
-        .team-cell.right { justify-content: flex-end; }
-        
-        .team-logo { 
-            width: 30px; 
-            height: 30px; 
-            object-fit: contain; 
-            flex-shrink: 0;
+        .draw-table {
+            width: 100%;
+            border-collapse: collapse;
         }
-        
-        .team-name { font-weight: 700; color: #333; display: block; }
-        .score-box { display: flex; justify-content: center; align-items: center; gap: 10px; }
-        .score { background: var(--maroon); color: #fff; padding: 10px 18px; border-radius: 12px; font-size: 22px; font-weight: bold; }
-        .group-badge { width: 45px; height: 45px; border-radius: 50%; background: var(--maroon); color: #fff; display: flex; justify-content: center; align-items: center; font-weight: bold; margin: auto; }
-        .result-badge { display: inline-block; background: #16a34a; color: white; padding: 7px 20px; border-radius: 30px; font-weight: bold; white-space: nowrap; }
+
+        .draw-table td, .draw-table th {
+            padding: 14px;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+
+        .draw-table tbody tr:nth-child(even) { background: #fafafa; }
+        .draw-table tbody tr:hover { background: #fff4f7; }
+
+        .print-btn {
+            background: var(--maroon);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            height: 48px;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,.15);
+            transition: all .3s ease;
+            white-space: nowrap;
+        }
+
+        .print-btn:hover {
+            background: #9A2348;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0,0,0,.20);
+        }
 
         footer {
             background: var(--maroon);
@@ -231,8 +282,8 @@
             font-weight: 500;
         }
 
-        /* RESPONSIVE MOBILE (HANDSET) */
-        @media (max-width: 900px) {
+        /* MOBILE RESPONSIVE (HANDSET) */
+        @media(max-width: 900px) {
             header {
                 flex-wrap: wrap;
                 padding: 12px 20px;
@@ -254,7 +305,7 @@
                 font-size: 16px;
             }
 
-            .subtitle {
+            .header-title .subtitle {
                 font-size: 11px;
             }
 
@@ -288,6 +339,7 @@
                 align-items: center;
                 border-bottom: 1px solid rgba(255,255,255,0.08);
                 border-radius: 0;
+                margin: 0;
             }
 
             .dropdown {
@@ -318,36 +370,33 @@
                 border-bottom: 1px solid rgba(255,255,255,0.05);
             }
 
-            .results-header {
+            .draw-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .results-title h2 {
+            .page-title h2 {
                 font-size: 24px;
             }
 
-            .btn-print {
+            .print-btn {
                 width: 100%;
             }
         }
 
         @media print {
-            * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-
-            header, nav, footer, .btn-print, .menu-toggle { 
-                display: none !important; 
-            }
-            
-            body { background: white; }
-            .table-container { box-shadow: none; overflow: visible; }
-            .results-table { min-width: 100%; }
+            header, nav, footer, .print-btn, .menu-toggle { display: none !important; }
+            .main-container { padding: 0; width: 100%; }
+            .draw-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -408,16 +457,16 @@
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="u12teams.html">👥 Teams</a>
-                    <a href="u12groups.html">🏆 Groups</a>
-                    <a href="u12fixtures.html">📅 Fixtures</a>
-                    <a href="u12results.html">🏆 Results</a>
-                    <a href="u12standings.html">📊 Standings</a>
+                    <a href="teams.html">👥 Teams</a>
+                    <a href="groups.html">🏆 Groups</a>
+                    <a href="fixtures.html">📅 Fixtures</a>
+                    <a href="results.html">🏆 Results</a>
+                    <a href="standings.html">📊 Standings</a>
                     <hr>
-                    <a href="u12undianp2.html">🎲 Second Round Draw</a>
-                    <a href="u12chart.html">🏆 Tournament Bracket</a>
-                    <a href="u12ranking.html">🥇 Ranking</a>
-                    <a href="u12statistic.html">📈 Statistics Scorer</a>
+                    <a href="undianp2.html">🎲 Second Round Draw</a>
+                    <a href="chart.html">🏆 Tournament Bracket</a>
+                    <a href="ranking.html">🥇 Ranking</a>
+                    <a href="statistic.html">📈 Statistics Scorer</a>
                 </div>
             </div>
 
@@ -439,52 +488,151 @@
     </header>
 
     <main class="main-container">
-        
-        <div class="results-header">
-            <div class="results-title">
-                <h2><i class="fa-solid fa-square-poll-horizontal"></i> Keputusan Perlawanan</h2>
+
+        <div class="page-header">
+            <div class="page-title">
+                <h2><i class="fa-solid fa-shuffle"></i> UNDIAN PUSINGAN KEDUA</h2>
                 <p>Kategori Bawah 12 MSSM 2026</p>
             </div>
-            <button class="btn-print" onclick="window.print()">
-                <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
-            </button>
+            <div class="page-actions">
+                <button class="print-btn" onclick="window.print()">
+                    <i class="fa-solid fa-print"></i>
+                    Cetak
+                </button>
+            </div>
         </div>
 
-        <div class="table-container">
-            <table class="results-table" id="results-table">
-                <thead>
-                    <tr>
-                        <th style="width:8%;">No.</th>
-                        <th style="width:10%;">Kumpulan</th>
-                        <th style="width:28%;">Pasukan 1</th>
-                        <th style="width:16%;">Skor</th>
-                        <th style="width:28%;">Pasukan 2</th>
-                        <th style="width:20%;">Keputusan</th>
-                    </tr>
-                </thead>
-                <tbody id="resultsBody">
-                    <tr>
-                        <td colspan="6" style="text-align:center; padding:20px; font-style:italic; color:#888;">
-                            Memuatkan keputusan perlawanan B12...
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="draw-grid">
+
+            <!-- JOHAN & NAIB JOHAN -->
+            <div class="draw-card">
+                <div class="card-header blue">
+                    <i class="fa-solid fa-trophy"></i>
+                    JOHAN DAN NAIB JOHAN KUMPULAN
+                </div>
+
+                <table class="draw-table">
+                    <tbody id="johanNaib">
+                        <tr><td>JOHAN A</td><td>...</td></tr>
+                        <tr><td>NAIB JOHAN A</td><td>...</td></tr>
+                        <tr><td>JOHAN B</td><td>...</td></tr>
+                        <tr><td>NAIB JOHAN B</td><td>...</td></tr>
+                        <tr><td>JOHAN C</td><td>...</td></tr>
+                        <tr><td>NAIB JOHAN C</td><td>...</td></tr>
+                        <tr><td>JOHAN D</td><td>...</td></tr>
+                        <tr><td>NAIB JOHAN D</td><td>...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SEBELAH KANAN -->
+            <div>
+                <div class="draw-card">
+                    <div class="card-header gold">
+                        🎲 UNDIAN JOHAN
+                    </div>
+                    <table class="draw-table">
+                        <tbody id="undianJohan">
+                            <tr><td>1</td><td>JOHAN 1</td></tr>
+                            <tr><td>2</td><td>JOHAN 3</td></tr>
+                            <tr><td>3</td><td>JOHAN 5</td></tr>
+                            <tr><td>4</td><td>JOHAN 7</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <br>
+
+                <div class="draw-card">
+                    <div class="card-header yellow">
+                        🥈 UNDIAN NAIB JOHAN
+                    </div>
+                    <table class="draw-table">
+                        <tbody id="undianNaib">
+                            <tr><td>1</td><td>NAIB JOHAN 2</td></tr>
+                            <tr><td>2</td><td>NAIB JOHAN 4</td></tr>
+                            <tr><td>3</td><td>NAIB JOHAN 6</td></tr>
+                            <tr><td>4</td><td>NAIB JOHAN 8</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
+
+        <br><br>
+
+        <!-- KLASIFIKASI -->
+        <div class="draw-card">
+            <div class="card-header green">
+                <i class="fa-solid fa-ranking-star"></i>
+                UNDIAN PUSINGAN KLASIFIKASI
+            </div>
+
+            <div class="draw-grid" style="padding: 15px;">
+                <div>
+                    <table class="draw-table">
+                        <tbody id="klasifikasi">
+                            <tr><td>KE-3 A</td><td>...</td></tr>
+                            <tr><td>KE-4 A</td><td>...</td></tr>
+                            <tr><td>KE-3 B</td><td>...</td></tr>
+                            <tr><td>KE-4 B</td><td>...</td></tr>
+                            <tr><td>KE-3 C</td><td>...</td></tr>
+                            <tr><td>KE-4 C</td><td>...</td></tr>
+                            <tr><td>KE-3 D</td><td>...</td></tr>
+                            <tr><td>KE-4 D</td><td>...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div>
+                    <table class="draw-table">
+                        <thead>
+                            <tr>
+                                <th colspan="2">UNDIAN KE-3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>9</td><td>KE 3 (9)</td></tr>
+                            <tr><td>11</td><td>KE 3 (11)</td></tr>
+                            <tr><td>13</td><td>KE 3 (13)</td></tr>
+                            <tr><td>15</td><td>KE 3 (15)</td></tr>
+                        </tbody>
+                    </table>
+
+                    <br>
+
+                    <table class="draw-table">
+                        <thead>
+                            <tr>
+                                <th colspan="2">UNDIAN KE-4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>10</td><td>KE 4 (10)</td></tr>
+                            <tr><td>12</td><td>KE 4 (12)</td></tr>
+                            <tr><td>14</td><td>KE 4 (14)</td></tr>
+                            <tr><td>16</td><td>KE 4 (16)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <footer>
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
 
+    <!-- SKRIP BURGER MENU & APARAN DROPDOWN RESPONSIVE -->
     <script>
-        // FUNGSI UTAMA NAVIGATION RESPONSIVE & BURGER MENU
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
         const menuIcon = document.getElementById('menu-icon');
         const dropdowns = document.querySelectorAll('.dropdown');
 
-        // Toggle Burger Menu
+        // Toggle Burger Menu pada Mobile
         menuToggle.addEventListener('click', function(e) {
             e.stopPropagation();
             navMenu.classList.toggle('active');
@@ -497,7 +645,7 @@
             }
         });
 
-        // Toggle Dropdown Menu pada Mobile
+        // Toggle Dropdown Sub-menu pada Mobile
         dropdowns.forEach(dropdown => {
             const btn = dropdown.querySelector('.dropdown-btn');
             btn.addEventListener('click', function(e) {
@@ -514,7 +662,7 @@
             });
         });
 
-        // Tutup menu secara automatik jika klik di luar
+        // Tutup menu secara automatik jika mengetik di luar
         document.addEventListener('click', function(e) {
             if (window.innerWidth <= 900) {
                 if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
@@ -525,7 +673,7 @@
             }
         });
 
-        // Reset menu apabila window diubah saiz
+        // Reset menu jika skrin diubah saiz melebihi breakpoint mobile
         window.addEventListener('resize', function() {
             if (window.innerWidth > 900) {
                 navMenu.classList.remove('active');
@@ -533,103 +681,9 @@
                 dropdowns.forEach(d => d.classList.remove('active'));
             }
         });
-
-        // Memetakan nama pasukan kepada fail logo negeri yang seragam
-        function getLogo(team) {
-            const logoMap = {
-                "MSS JOHOR": "johor.png",
-                "MSS KEDAH": "kedah.png",
-                "MSS KELANTAN": "kelantan.png",
-                "MSS SELANGOR": "selangor.png",
-                "MSS PERAK": "perak.png",
-                "MSS PAHANG": "pahang.png",
-                "MSS MELAKA": "melaka.png",
-                "MSS SARAWAK": "sarawak.png",
-                "MSS SABAH": "sabah.png",
-                "MSS TERENGGANU": "terengganu.png",
-                "MSS PERLIS": "perlis.png",
-                "MSS PULAU PINANG": "pp.png",
-                "MSS WP PUTRAJAYA": "putrajaya.png",
-                "MSS WP KUALA LUMPUR": "kl.png",
-                "MSS WP LABUAN": "labuan.png",
-                "MSS NEGERI SEMBILAN": "negeri9.png"
-            };
-
-            const cleanTeam = team.toUpperCase().startsWith("MSS ") ? team.toUpperCase() : `MSS ${team.toUpperCase()}`;
-            const fileName = logoMap[cleanTeam] || logoMap[team.toUpperCase()] || "default.png";
-
-            return `../../../images/logo/mss negeri/${fileName}`;
-        }
-
-        // Pautan Google Sheet B12 untuk tab RESULT
-        const sheetUrlB12Results = "https://docs.google.com/spreadsheets/d/1ItWWq1j0D2nO6zxQzgv24nQuzhKqyXEe3_Eu4wIHAg0/gviz/tq?tqx=out:json&sheet=RESULT";
-
-        async function muatKeputusanB12() {
-            const tableBody = document.getElementById("resultsBody");
-            if (!tableBody) return;
-
-            try {
-                const response = await fetch(sheetUrlB12Results);
-                const textData = await response.text();
-                
-                const rawJson = JSON.parse(textData.substring(47).slice(0, -2));
-                const rows = rawJson.table.rows;
-
-                tableBody.innerHTML = ""; 
-
-                rows.forEach((row) => {
-                    if (!row.c || row.c[0] === null) return;
-                    const r = row.c;
-                    const val = (index) => (r[index]?.f || r[index]?.v || "").toString().trim();
-
-                    const noMatch  = val(0);
-                    const kump     = val(1);
-                    const team1    = val(2);
-                    const skor1    = val(3);
-                    const team2    = val(4);
-                    const skor2    = val(5);
-                    const pemenang = val(6);
-
-                    if (noMatch.toLowerCase().includes("match") || noMatch.toLowerCase().includes("no") || noMatch === "") return;
-                    
-                    tableBody.innerHTML += `
-                    <tr>
-                        <td style="font-weight:bold;">${noMatch}</td>
-                        <td><span class="group-badge">${kump}</span></td>
-                        <td>
-                            <div class="team-cell">
-                                <img src="${getLogo(team1)}" class="team-logo" onerror="this.src='../../../images/logo/default.png'">
-                                <div><div class="team-name">${team1}</div></div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="score-box">
-                                <span class="score">${skor1 || 0}</span>
-                                <span class="score-separator" style="font-weight:bold; font-size:18px;">-</span>
-                                <span class="score">${skor2 || 0}</span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="team-cell right">
-                                <div><div class="team-name">${team2}</div></div>
-                                <img src="${getLogo(team2)}" class="team-logo" onerror="this.src='../../../images/logo/default.png'">
-                            </div>
-                        </td>
-                        <td><span class="result-badge">${pemenang || "-"}</span></td>
-                    </tr>`;
-                });
-
-                if (tableBody.innerHTML === "") {
-                    tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:20px;">Tiada data keputusan ditemui.</td></tr>`;
-                }
-
-            } catch (error) {
-                console.error("Ralat memuatkan data sheet RESULT B12:", error);
-                tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:red; padding:20px;">Gagal memuatkan keputusan. Sila pastikan tab bernama 'RESULT' wujud pada Google Sheet.</td></tr>`;
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', muatKeputusanB12);
     </script>
+
+    <script src="../../../script.js"></script>
+
 </body>
 </html>

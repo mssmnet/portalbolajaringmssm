@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kedudukan Pasukan | MSSM 2026 (B12)</title>
+    <title>Keputusan Perlawanan | MSSM 2026</title>
     <link rel="stylesheet" href="../../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
@@ -155,7 +155,7 @@
             }
         }
 
-        /* BUTANG BURGER MENU */
+        /* BURGER MENU BUTTON */
         .menu-toggle {
             display: none;
             font-size: 24px;
@@ -172,55 +172,54 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
-        /* CSS UTAMA JADUAL KEDUDUKAN */
+        /* CSS Utama untuk Hasil */
         .main-container {
             padding: 30px 20px;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             flex: 1;
             width: 100%;
         }
 
-        .standings-container { 
-            background: #fff; 
-            border-radius: 18px; 
-            overflow-x: auto; 
-            box-shadow: 0 10px 25px rgba(0,0,0,.08); 
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0,0,0,.08);
         }
 
-        .group-title { background: var(--maroon); color: #fff; padding: 15px 25px; font-size: 20px; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 12px; }
-        .standings-table { width: 100%; border-collapse: collapse; min-width: 650px; }
+        .results-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            min-width: 750px;
+        }
+
+        .results-table th { background: var(--maroon); color: #fff; padding: 18px; font-size: 16px; text-transform: uppercase; }
+        .results-table td { padding: 16px; border-bottom: 1px solid #eee; text-align: center; vertical-align: middle; }
         
-        .standings-table th { background: #f8f9fa; color: #333; padding: 14px 10px; font-size: 14px; text-transform: uppercase; border-bottom: 2px solid #eee; text-align: center; }
-        .standings-table th.team-col { text-align: left; }
-        .standings-table td { padding: 14px 10px; border-bottom: 1px solid #eee; text-align: center; vertical-align: middle; color: #444; font-weight: 500; font-size: 15px; }
-        .standings-table td.team-col { text-align: left; }
-
-        .standings-table tr.qualified td:first-child { border-left: 5px solid #16a34a; background: #f0fdf4; }
-        .standings-table tr.qualified:hover td { background: #dcfce7; }
-        .standings-table tr:nth-child(even) { background: #fafafa; }
-        .standings-table tr:hover { background: #fff4f7; }
-
-        .team-cell { display: flex; align-items: center; gap: 12px; }
-        .team-logo { width: 35px; height: 35px; object-fit: contain; }
-        .team-name { font-weight: 700; color: #333; display: block; font-size: 16px; white-space: nowrap; }
-        .pts-col { background: #fff4f7; color: var(--maroon); font-weight: 800 !important; font-size: 16px; }
-
-        .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; gap: 20px; flex-wrap: wrap; }
-        .page-title { flex: 1; text-align: center; }
-        .page-title h2 { margin: 0; font-size: 32px; color: var(--maroon); }
+        .results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; gap: 20px; flex-wrap: wrap; }
+        .results-title { flex: 1; text-align: center; }
+        .results-title h2 { margin: 0; font-size: 32px; color: var(--maroon); }
+        
         .btn-print { background: var(--maroon); color: white; border: none; padding: 12px 28px; border-radius: 40px; font-size: 15px; font-weight: 700; cursor: pointer; transition: .3s; white-space: nowrap; }
         .btn-print:hover { background: #5d132c; transform: translateY(-2px); }
 
-        .standings-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 35px;
-            margin-bottom: 40px;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
+        .team-cell { display: flex; align-items: center; gap: 12px; }
+        .team-cell.right { justify-content: flex-end; }
+        
+        .team-logo { 
+            width: 30px; 
+            height: 30px; 
+            object-fit: contain; 
+            flex-shrink: 0;
         }
+        
+        .team-name { font-weight: 700; color: #333; display: block; }
+        .score-box { display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .score { background: var(--maroon); color: #fff; padding: 10px 18px; border-radius: 12px; font-size: 22px; font-weight: bold; }
+        .group-badge { width: 45px; height: 45px; border-radius: 50%; background: var(--maroon); color: #fff; display: flex; justify-content: center; align-items: center; font-weight: bold; margin: auto; }
+        .result-badge { display: inline-block; background: #16a34a; color: white; padding: 7px 20px; border-radius: 30px; font-weight: bold; white-space: nowrap; }
 
         footer {
             background: var(--maroon);
@@ -319,12 +318,12 @@
                 border-bottom: 1px solid rgba(255,255,255,0.05);
             }
 
-            .page-header {
+            .results-header {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .page-title h2 {
+            .results-title h2 {
                 font-size: 24px;
             }
 
@@ -334,18 +333,24 @@
         }
 
         @media print {
-            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-            header, nav, footer, .btn-print, .menu-toggle { display: none !important; }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            header, nav, footer, .btn-print, .menu-toggle { 
+                display: none !important; 
+            }
+            
             body { background: white; }
-            .standings-grid { max-width: 100%; gap: 20px; } 
-            .standings-container { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; margin-bottom: 20px; overflow: visible; }
-            .standings-table { min-width: 100%; }
+            .table-container { box-shadow: none; overflow: visible; }
+            .results-table { min-width: 100%; }
         }
     </style>
 </head>
 <body>
 
-   <header>
+    <header>
         <div class="header-left">
             <img src="../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
             <div class="header-title">
@@ -403,16 +408,16 @@
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="u12teams.html">👥 Teams</a>
-                    <a href="u12groups.html">🏆 Groups</a>
-                    <a href="u12fixtures.html">📅 Fixtures</a>
-                    <a href="u12results.html">🏆 Results</a>
-                    <a href="u12standings.html">📊 Standings</a>
+                    <a href="teams.html">👥 Teams</a>
+                    <a href="groups.html">🏆 Groups</a>
+                    <a href="fixtures.html">📅 Fixtures</a>
+                    <a href="results.html">🏆 Results</a>
+                    <a href="standings.html">📊 Standings</a>
                     <hr>
-                    <a href="u12undianp2.html">🎲 Second Round Draw</a>
-                    <a href="u12chart.html">🏆 Tournament Bracket</a>
-                    <a href="u12ranking.html">🥇 Ranking</a>
-                    <a href="u12statistic.html">📈 Statistics Scorer</a>
+                    <a href="undianp2.html">🎲 Second Round Draw</a>
+                    <a href="chart.html">🏆 Tournament Bracket</a>
+                    <a href="ranking.html">🥇 Ranking</a>
+                    <a href="statistic.html">📈 Statistics Scorer</a>
                 </div>
             </div>
 
@@ -435,124 +440,43 @@
 
     <main class="main-container">
         
-        <div class="page-header">
-            <div class="page-title">
-                <h2><i class="fa-solid fa-list-ol"></i> Kedudukan Kumpulan Bawah 12</h2>
+        <div class="results-header">
+            <div class="results-title">
+                <h2><i class="fa-solid fa-square-poll-horizontal"></i> Keputusan Perlawanan</h2>
+                <p>Kategori Bawah 12 MSSM 2026</p>
             </div>
             <button class="btn-print" onclick="window.print()">
-                <i class="fa-solid fa-print"></i> Cetak PDF
+                <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
             </button>
         </div>
 
-        <div class="standings-grid">
-            
-            <!-- KUMPULAN A -->
-            <div class="standings-container">
-                <h3 class="group-title"><i class="fa-solid fa-users"></i> KUMPULAN A</h3>
-                <table class="standings-table">
-                    <thead>
-                        <tr>
-                            <th style="width:6%;">#</th>
-                            <th class="team-col" style="width:30%;">PASUKAN</th>
-                            <th style="width:6%;">P</th>
-                            <th style="width:6%;">W</th>
-                            <th style="width:6%;">D</th>
-                            <th style="width:6%;">L</th>
-                            <th style="width:8%;">GF</th>
-                            <th style="width:8%;">GA</th>
-                            <th style="width:8%;">GD</th>
-                            <th style="width:8%;">GAV</th>
-                            <th class="pts-col" style="width:8%;">PTS</th>
-                        </tr>
-                    </thead>
-                    <tbody id="standings-group-a">
-                        <tr><td colspan="11" style="font-style:italic; color:#888;">Memuatkan data...</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- KUMPULAN B -->
-            <div class="standings-container">
-                <h3 class="group-title"><i class="fa-solid fa-users"></i> KUMPULAN B</h3>
-                <table class="standings-table">
-                    <thead>
-                        <tr>
-                            <th style="width:6%;">#</th>
-                            <th class="team-col" style="width:30%;">PASUKAN</th>
-                            <th style="width:6%;">P</th>
-                            <th style="width:6%;">W</th>
-                            <th style="width:6%;">D</th>
-                            <th style="width:6%;">L</th>
-                            <th style="width:8%;">GF</th>
-                            <th style="width:8%;">GA</th>
-                            <th style="width:8%;">GD</th>
-                            <th style="width:8%;">GAV</th>
-                            <th class="pts-col" style="width:8%;">PTS</th>
-                        </tr>
-                    </thead>
-                    <tbody id="standings-group-b">
-                         <tr><td colspan="11" style="font-style:italic; color:#888;">Memuatkan data...</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- KUMPULAN C -->
-            <div class="standings-container">
-                <h3 class="group-title"><i class="fa-solid fa-users"></i> KUMPULAN C</h3>
-                <table class="standings-table">
-                    <thead>
-                        <tr>
-                            <th style="width:6%;">#</th>
-                            <th class="team-col" style="width:30%;">PASUKAN</th>
-                            <th style="width:6%;">P</th>
-                            <th style="width:6%;">W</th>
-                            <th style="width:6%;">D</th>
-                            <th style="width:6%;">L</th>
-                            <th style="width:8%;">GF</th>
-                            <th style="width:8%;">GA</th>
-                            <th style="width:8%;">GD</th>
-                            <th style="width:8%;">GAV</th>
-                            <th class="pts-col" style="width:8%;">PTS</th>
-                        </tr>
-                    </thead>
-                    <tbody id="standings-group-c">
-                         <tr><td colspan="11" style="font-style:italic; color:#888;">Memuatkan data...</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- KUMPULAN D -->
-            <div class="standings-container">
-                <h3 class="group-title"><i class="fa-solid fa-users"></i> KUMPULAN D</h3>
-                <table class="standings-table">
-                    <thead>
-                        <tr>
-                            <th style="width:6%;">#</th>
-                            <th class="team-col" style="width:30%;">PASUKAN</th>
-                            <th style="width:6%;">P</th>
-                            <th style="width:6%;">W</th>
-                            <th style="width:6%;">D</th>
-                            <th style="width:6%;">L</th>
-                            <th style="width:8%;">GF</th>
-                            <th style="width:8%;">GA</th>
-                            <th style="width:8%;">GD</th>
-                            <th style="width:8%;">GAV</th>
-                            <th class="pts-col" style="width:8%;">PTS</th>
-                        </tr>
-                    </thead>
-                    <tbody id="standings-group-d">
-                         <tr><td colspan="11" style="font-style:italic; color:#888;">Memuatkan data...</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-        </div> 
+        <div class="table-container">
+            <table class="results-table" id="results-table">
+                <thead>
+                    <tr>
+                        <th style="width:8%;">No.</th>
+                        <th style="width:10%;">Kumpulan</th>
+                        <th style="width:28%;">Pasukan 1</th>
+                        <th style="width:16%;">Skor</th>
+                        <th style="width:28%;">Pasukan 2</th>
+                        <th style="width:20%;">Keputusan</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody">
+                    <tr>
+                        <td colspan="6" style="text-align:center; padding:20px; font-style:italic; color:#888;">
+                            Memuatkan keputusan perlawanan B12...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
 
     <footer>
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
-    
+
     <script>
         // FUNGSI UTAMA NAVIGATION RESPONSIVE & BURGER MENU
         const menuToggle = document.getElementById('menu-toggle');
@@ -560,7 +484,7 @@
         const menuIcon = document.getElementById('menu-icon');
         const dropdowns = document.querySelectorAll('.dropdown');
 
-        // Toggle Burger Menu pada Mobile
+        // Toggle Burger Menu
         menuToggle.addEventListener('click', function(e) {
             e.stopPropagation();
             navMenu.classList.toggle('active');
@@ -610,9 +534,8 @@
             }
         });
 
-        // FUNGSI UNTUK CSV KEDUDUKAN & LOGO
+        // Memetakan nama pasukan kepada fail logo negeri yang seragam
         function getLogo(team) {
-            if (!team) return `../../../images/logo/default.png`;
             const logoMap = {
                 "MSS JOHOR": "johor.png",
                 "MSS KEDAH": "kedah.png",
@@ -632,107 +555,81 @@
                 "MSS NEGERI SEMBILAN": "negeri9.png"
             };
 
-            const cleanTeam = team.trim().toUpperCase().startsWith("MSS ") ? team.trim().toUpperCase() : `MSS ${team.trim().toUpperCase()}`;
-            const fileName = logoMap[cleanTeam] || logoMap[team.trim().toUpperCase()] || "default.png";
+            const cleanTeam = team.toUpperCase().startsWith("MSS ") ? team.toUpperCase() : `MSS ${team.toUpperCase()}`;
+            const fileName = logoMap[cleanTeam] || logoMap[team.toUpperCase()] || "default.png";
 
             return `../../../images/logo/mss negeri/${fileName}`;
         }
 
-        const csvUrlB12Standing = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRaQAo5tHzCfLQbXZzxo68RXBcSwZvU5tMaKigF1FaL48xP3dPdxbmJpQs7tgy2QeDNg0PVYncbUCLu/pub?gid=626141204&single=true&output=csv";
+        // Pautan Google Sheet B12 untuk tab RESULT
+        const sheetUrlB12Results = "https://docs.google.com/spreadsheets/d/1ItWWq1j0D2nO6zxQzgv24nQuzhKqyXEe3_Eu4wIHAg0/gviz/tq?tqx=out:json&sheet=RESULT";
 
-        function parseCSV(str) {
-            const arr = [];
-            let quote = false;
-            let row = [], col = '';
-            for (let c = 0; c < str.length; c++) {
-                let cc = str[c], nc = str[c+1];
-                if (cc === '"' && quote && nc === '"') { col += cc; c++; continue; }
-                if (cc === '"') { quote = !quote; continue; }
-                if (cc === ',' && !quote) { row.push(col.trim()); col = ''; continue; }
-                if (cc === '\n' && !quote) { row.push(col.trim()); arr.push(row); row = []; col = ''; continue; }
-                if (cc === '\r' && !quote) { continue; }
-                col += cc;
-            }
-            if (col) row.push(col.trim());
-            if (row.length > 0) arr.push(row);
-            return arr;
-        }
+        async function muatKeputusanB12() {
+            const tableBody = document.getElementById("resultsBody");
+            if (!tableBody) return;
 
-        async function muatKedudukanB12() {
             try {
-                const response = await fetch(csvUrlB12Standing);
-                const csvText = await response.text();
-                const rows = parseCSV(csvText);
+                const response = await fetch(sheetUrlB12Results);
+                const textData = await response.text();
+                
+                const rawJson = JSON.parse(textData.substring(47).slice(0, -2));
+                const rows = rawJson.table.rows;
 
-                let html = { A: "", B: "", C: "", D: "" };
-                let currentGroup = "";
+                tableBody.innerHTML = ""; 
 
-                rows.forEach(cols => {
-                    cols = cols.map(c => c.trim());
+                rows.forEach((row) => {
+                    if (!row.c || row.c[0] === null) return;
+                    const r = row.c;
+                    const val = (index) => (r[index]?.f || r[index]?.v || "").toString().trim();
 
-                    for (let i = 0; i < Math.min(4, cols.length); i++) {
-                        const val = cols[i].toUpperCase();
-                        if (val === "A" || val === "KUMPULAN A" || val === "GROUP A") currentGroup = "A";
-                        else if (val === "B" || val === "KUMPULAN B" || val === "GROUP B") currentGroup = "B";
-                        else if (val === "C" || val === "KUMPULAN C" || val === "GROUP C") currentGroup = "C";
-                        else if (val === "D" || val === "KUMPULAN D" || val === "GROUP D") currentGroup = "D";
-                    }
+                    const noMatch  = val(0);
+                    const kump     = val(1);
+                    const team1    = val(2);
+                    const skor1    = val(3);
+                    const team2    = val(4);
+                    const skor2    = val(5);
+                    const pemenang = val(6);
 
-                    let r, t, p, w, d, l, gf, ga, gd, gav, pts;
-                    let groupToUse = currentGroup;
-
-                    if (/^\d+$/.test(cols[0])) {
-                        [r, t, p, w, d, l, gf, ga, gd, gav, pts] = cols;
-                    } else if (/^\d+$/.test(cols[1])) {
-                        [, r, t, p, w, d, l, gf, ga, gd, gav, pts] = cols;
-                    } else if (/^\d+$/.test(cols[2])) {
-                        [, , r, t, p, w, d, l, gf, ga, gd, gav, pts] = cols;
-                    } else {
-                        return;
-                    }
-
-                    if (!r || !t || t === "" || t.toUpperCase().includes("PASUKAN")) return;
-
-                    if (groupToUse && html[groupToUse] !== undefined) {
-                        html[groupToUse] += `
-                        <tr class="${r == '1' || r == '2' ? 'qualified' : ''}">
-                            <td>${r}</td>
-                            <td class="team-col">
-                                <div class="team-cell">
-                                    <img src="${getLogo(t)}" class="team-logo" onerror="this.src='../../../images/logo/default.png'">
-                                    <span class="team-name">${t}</span>
-                                </div>
-                            </td>
-                            <td>${p || 0}</td>
-                            <td>${w || 0}</td>
-                            <td>${d || 0}</td>
-                            <td>${l || 0}</td>
-                            <td>${gf || 0}</td>
-                            <td>${ga || 0}</td>
-                            <td>${gd || 0}</td>
-                            <td>${gav || 0}</td>
-                            <td class="pts-col">${pts || 0}</td>
-                        </tr>`;
-                    }
+                    if (noMatch.toLowerCase().includes("match") || noMatch.toLowerCase().includes("no") || noMatch === "") return;
+                    
+                    tableBody.innerHTML += `
+                    <tr>
+                        <td style="font-weight:bold;">${noMatch}</td>
+                        <td><span class="group-badge">${kump}</span></td>
+                        <td>
+                            <div class="team-cell">
+                                <img src="${getLogo(team1)}" class="team-logo" onerror="this.src='../../../images/logo/default.png'">
+                                <div><div class="team-name">${team1}</div></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="score-box">
+                                <span class="score">${skor1 || 0}</span>
+                                <span class="score-separator" style="font-weight:bold; font-size:18px;">-</span>
+                                <span class="score">${skor2 || 0}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="team-cell right">
+                                <div><div class="team-name">${team2}</div></div>
+                                <img src="${getLogo(team2)}" class="team-logo" onerror="this.src='../../../images/logo/default.png'">
+                            </div>
+                        </td>
+                        <td><span class="result-badge">${pemenang || "-"}</span></td>
+                    </tr>`;
                 });
 
-                ["A", "B", "C", "D"].forEach(group => {
-                    const tbody = document.getElementById(`standings-group-${group.toLowerCase()}`);
-                    if (tbody) {
-                        tbody.innerHTML = html[group] || "<tr><td colspan='11' style='font-style:italic; color:#888;'>Tiada data...</td></tr>";
-                    }
-                });
+                if (tableBody.innerHTML === "") {
+                    tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:20px;">Tiada data keputusan ditemui.</td></tr>`;
+                }
 
             } catch (error) {
-                console.error("Ralat memuatkan CSV Kedudukan:", error);
-                ["a", "b", "c", "d"].forEach(g => {
-                    const tbody = document.getElementById(`standings-group-${g}`);
-                    if (tbody) tbody.innerHTML = `<tr><td colspan="11" style="color:red; font-style:italic;">Gagal memuatkan data. Sila pastikan pautan Publish to Web aktif.</td></tr>`;
-                });
+                console.error("Ralat memuatkan data sheet RESULT B12:", error);
+                tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:red; padding:20px;">Gagal memuatkan keputusan. Sila pastikan tab bernama 'RESULT' wujud pada Google Sheet.</td></tr>`;
             }
         }
 
-        window.addEventListener('DOMContentLoaded', muatKedudukanB12);
+        window.addEventListener('DOMContentLoaded', muatKeputusanB12);
     </script>
 </body>
 </html>
