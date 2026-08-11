@@ -286,6 +286,8 @@
             border: 1px solid #ccc;
             border-radius: 12px;
             margin-bottom: 25px;
+            -webkit-overflow-scrolling: touch;
+            overflow: auto;
         }
 
         .pdf-actions {
@@ -494,7 +496,7 @@
                     <hr>
                     <a href="bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
                     <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
-                    <a href="borang.html" class="active">MUAT TURUN BORANG PENDAFTARAN ↗</a>
+                    <a href="borang.html" class="active">MUAT TURUN BORANG PERTANDINGAN ↗</a>
                 </div>
             </div>
 
@@ -564,9 +566,9 @@
         <h3>📄 Maklumat Undian dan Jadual MSSM 2026</h3>
         <p>Anda boleh menyemak jadual dan undian secara terus di bawah sebelum memuat turun atau mencetak fail ini.</p>
 
-        <!-- Paparan Terus PDF -->
+        <!-- Paparan Terus PDF (diseragamkan kepada .pdf) -->
         <iframe 
-            src="documents/undian-jadual-mssm2026.PDF" 
+            src="documents/undian-jadual-mssm2026.pdf" 
             class="pdf-frame" 
             title="Maklumat Undian dan Jadual MSSM 2026">
         </iframe>
@@ -625,6 +627,18 @@
                 dropdown.classList.toggle("open");
             }
         });
+    });
+
+    // Tutup menu mobile jika pengguna klik di luar kawasan header/nav
+    document.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                navMenu.classList.remove("active");
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+                dropdowns.forEach(d => d.classList.remove("open"));
+            }
+        }
     });
 </script>
 

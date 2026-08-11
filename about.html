@@ -223,6 +223,8 @@
             height: 750px;
             border: 1px solid #ccc;
             border-radius: 10px;
+            -webkit-overflow-scrolling: touch;
+            overflow: auto;
         }
 
         .btn-manual {
@@ -427,9 +429,9 @@
                 <div class="dropdown-content">
                     <a href="tournament/mssm2026/index.html">MSSM 2026</a> 
                     <hr>
-                    <a href="bUKUPROGRAM.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
                     <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
-                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>                  
+                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PERTANDINGAN ↗</a>                  
                 </div>
             </div>
 
@@ -521,6 +523,18 @@
                     dropdown.classList.toggle("open");
                 }
             });
+        });
+
+        // Tutup menu mobile jika pengguna klik di luar kawasan header/nav
+        document.addEventListener("click", (e) => {
+            if (window.innerWidth <= 768) {
+                if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navMenu.classList.remove("active");
+                    menuIcon.classList.remove("fa-xmark");
+                    menuIcon.classList.add("fa-bars");
+                    dropdowns.forEach(d => d.classList.remove("open"));
+                }
+            }
         });
     </script>
 
