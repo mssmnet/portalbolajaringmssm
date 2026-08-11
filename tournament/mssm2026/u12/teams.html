@@ -4,52 +4,401 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teams | MSSM 2026 U12</title>
+    
     <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
     <style>
-        /* CSS Tambahan untuk Header & Kad */
-        .hero { text-align: center; padding: 40px 20px; background: white; margin-bottom: 30px; }
-        .cards-container { max-width: 1200px; margin: 0 auto 40px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .tournament-card { background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; padding: 25px; text-align: center; transition: 0.3s; }
-        .tournament-card:hover { transform: translateY(-5px); border-color: #7B1E3A; }
-        .state-logo-space { width: 80px; height: 80px; margin: 0 auto 15px; border-radius: 50%; overflow: hidden; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; }
-        .state-logo-space img { width: 100%; height: 100%; object-fit: contain; padding: 5px; }
+        :root {
+            --maroon: #7B1E3A;
+            --maroon-dark: #581328;
+            --gold: #FFD700;
+            --pink: #FCE4EC;
+            --white: #ffffff;
+        }
 
-        /* KOD BARU: Untuk jadikan kad boleh diklik tanpa nampak seperti link biasa */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: url('../../../images/bg-utama.jpg') center/cover fixed;
+            background-color: var(--pink);
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* HEADER & NAVIGATION DESKTOP */
+        header {
+            background: var(--maroon);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            background: transparent;
+        }
+
+        .header-title h1 {
+            color: white;
+            font-size: 24px;
+            margin: 0;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: #ffeb3b;
+            font-weight: 600;
+            margin-top: 2px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        nav a, .dropdown-btn {
+            color: white;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: .3s;
+            font-weight: bold;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 15px;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        nav a:hover,
+        nav a.active,
+        .dropdown-btn.active,
+        .dropdown:hover .dropdown-btn {
+            background: rgba(255,255,255,.2);
+            color: var(--gold);
+        }
+
+        .live-link {
+            color: #ffeb3b !important;
+            animation: pulse-live 1.5s infinite;
+        }
+
+        @keyframes pulse-live {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        /* STRUCTURAL DROPDOWN */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--maroon);
+            min-width: 240px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            padding: 8px 0;
+            z-index: 1100;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 0;
+            transition: background 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #ffeb3b;
+        }
+
+        .dropdown-content hr {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 6px 0;
+        }
+
+        @media (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
+
+        /* CONTAINER UTAMA & GRID KAD PASUKAN */
+        .hero {
+            text-align: center;
+            padding: 35px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin: 30px auto;
+            max-width: 1200px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .hero h2 {
+            color: var(--maroon);
+            font-size: 30px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            color: #555;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .cards-container {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
         .team-link {
             text-decoration: none;
             color: inherit;
             display: block;
         }
 
-        .team-link:hover {
-            text-decoration: none;
+        .tournament-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-top: 6px solid var(--maroon);
+            padding: 25px 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* --- CSS UNTUK HEADER & MENU BURGER (TEMA MAROON) --- */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #7B1E3A; position: relative; }
-        .header-left { display: flex; align-items: center; }
-        .header-title h1, .header-title p { color: white; margin: 0; }
-        
-        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
-        .hamburger span { width: 25px; height: 3px; background-color: white; transition: all 0.3s ease; }
-        
-        nav { display: flex; gap: 15px; }
-        nav a { color: white; text-decoration: none; font-weight: bold; }
+        .team-link:hover .tournament-card {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .state-logo-space {
+            width: 85px;
+            height: 85px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: white;
+            border: 2px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .state-logo-space img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 8px;
+        }
+
+        .tournament-card h3 {
+            color: var(--maroon);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .tournament-card p {
+            color: #666;
+            font-size: 13px;
+        }
+
+        footer {
+            background: var(--maroon);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: auto;
+            font-size: 15px;
+        }
+
+        /* BURGER MENU BUTTON */
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        /* MOBILE RESPONSIVE (HANDSET) */
+        @media (max-width: 1024px) {
+            .cards-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
 
         @media (max-width: 768px) {
-            .hamburger { display: flex; }
-            nav { display: none; flex-direction: column; position: absolute; top: 100%; right: 20px; background: #7B1E3A; width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px; padding: 10px; z-index: 100; }
-            nav a { padding: 10px; text-align: center; display: block; color: #fff; }
-            nav.active { display: flex; }
-            .hamburger.toggle .bar1 { transform: rotate(-45deg) translate(-5px, 6px); }
-            .hamburger.toggle .bar2 { opacity: 0; }
-            .hamburger.toggle .bar3 { transform: rotate(45deg) translate(-5px, -6px); }
+            header {
+                flex-wrap: wrap;
+                padding: 15px 20px;
+            }
+
+            .header-left {
+                gap: 12px;
+            }
+
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .header-title h1 {
+                font-size: 18px;
+            }
+
+            .subtitle {
+                font-size: 11px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                margin-top: 15px;
+                gap: 0;
+                background-color: var(--maroon-dark);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a, .dropdown {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            nav a, .dropdown-btn {
+                width: 100%;
+                text-align: left;
+                padding: 14px 20px;
+                border-radius: 0;
+                justify-content: space-between;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                box-shadow: none;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.2);
+                padding: 0;
+                border-radius: 0;
+            }
+
+            .dropdown-content a {
+                padding: 12px 30px;
+                font-size: 13px;
+            }
+
+            .dropdown.open .dropdown-content {
+                display: block;
+            }
+
+            .dropdown.open .dropdown-btn i {
+                transform: rotate(180deg);
+            }
+
+            .hero {
+                margin: 20px 10px;
+                padding: 25px 15px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Sama Macam Asal -->
     <header>
         <div class="header-left">
             <img src="../../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
@@ -58,25 +407,93 @@
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
-        <div class="hamburger" id="hamburger-menu">
-            <span class="bar1"></span><span class="bar2"></span><span class="bar3"></span>
-        </div>
+
+        <!-- Butang Burger -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
+        </button>
+
+        <!-- Navigasi Utama -->
         <nav id="nav-menu">
-            <a href="../../mssm2026/index.html">HOME</a>
-            <a href="../u12.html" class="active">BAWAH 12</a>
-            <a href="../u15.html">BAWAH 15</a>
-            <a href="../u18.html">BAWAH 18</a>
-            <a href="live.html"> 🔴LIVE</a>
+            <a href="../../../index.html">HOME</a>
+            
+            <!-- DROPDOWN BOLA JARING MSSM -->
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span>BOLA JARING MSSM</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content"> 
+                    <a href="../../../organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="../../../panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="../../../teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="../../../pengadil.html">PENGADIL</a>
+                    <hr>
+                    <a href="../../../about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="../../../rules.html">PERATURAN</a>
+                    <a href="../../../calendar.html">TAKWIM</a>
+                </div>
+            </div>
+            
+            <!-- DROPDOWN KEJOHANAN -->
+            <div class="dropdown">
+                <button class="dropdown-btn active">
+                    <span>KEJOHANAN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="../index.html">MSSM 2026</a>  
+                    <hr>
+                    <a href="../../../bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
+                    <a href="../../../borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>
+                </div>
+            </div>
+
+            <!-- DROPDOWN KHUSUS BAWAH 12 (B12) -->
+            <div class="dropdown">
+                <button class="dropdown-btn" style="color: #ffeb3b;">
+                    <span>MENU B12</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="teams.html" class="active">👥 Teams</a>
+                    <a href="groups.html">🏆 Groups</a>
+                    <a href="fixtures.html">📅 Fixtures</a>
+                    <a href="results.html">🏆 Results</a>
+                    <a href="standings.html">📊 Standings</a>
+                    <hr>
+                    <a href="undianp2.html">🎲 Second Round Draw</a>
+                    <a href="chart.html">🏆 Tournament Bracket</a>
+                    <a href="ranking.html">🥇 Ranking</a>
+                    <a href="statistic.html">📈 Statistics Scorer</a>
+                </div>
+            </div>
+
+            <!-- DROPDOWN GALERI & MEDIA -->
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span>GALERI & MEDIA</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="../../../halloffame.html">HALL OF FAME</a>
+                    <a href="../../../gallery.html">GALLERY</a>
+                </div>
+            </div>
+
+            <!-- LIVE LINK -->
+            <a href="../../../live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
 
     <main>
         <section class="hero">
             <h2>👥 Senarai Pasukan</h2>
-            <p>Kategori Perempuan Bawah 12</p>
+            <p>Kategori Bawah 12 (B12)</p>
         </section>
 
-        <!-- KOD BARU: Semua Kad Ditambah Tag <a> -->
+        <!-- KAD PASUKAN (15 NEGERI) -->
         <section class="cards-container">
             <!-- Johor -->
             <a href="teams/team-johor.html" class="team-link">
@@ -90,71 +507,201 @@
             </a>
             <!-- Selangor -->
             <a href="teams/team-selangor.html" class="team-link">
-                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/selangor.png" alt="Selangor"></div><h3>MSS SELANGOR</h3><p>Pasukan Negeri Selangor</p></div>
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/selangor.png" alt="Selangor">
+                    </div>
+                    <h3>MSS SELANGOR</h3>
+                    <p>Pasukan Negeri Selangor</p>
+                </div>
             </a>
             <!-- Sabah -->
             <a href="teams/team-sabah.html" class="team-link">
-                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/sabah.png" alt="Sabah"></div><h3>MSS SABAH</h3><p>Pasukan Negeri Sabah</p></div>
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/sabah.png" alt="Sabah">
+                    </div>
+                    <h3>MSS SABAH</h3>
+                    <p>Pasukan Negeri Sabah</p>
+                </div>
             </a>
             <!-- Sarawak -->
             <a href="teams/team-sarawak.html" class="team-link">
-                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/sarawak.png" alt="Sarawak"></div><h3>MSS SARAWAK</h3><p>Pasukan Negeri Sarawak</p></div>
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/sarawak.png" alt="Sarawak">
+                    </div>
+                    <h3>MSS SARAWAK</h3>
+                    <p>Pasukan Negeri Sarawak</p>
+                </div>
             </a>
             <!-- Melaka -->
             <a href="teams/team-melaka.html" class="team-link">
-                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/melaka.png" alt="Melaka"></div><h3>MSS MELAKA</h3><p>Pasukan Negeri Melaka</p></div>
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/melaka.png" alt="Melaka">
+                    </div>
+                    <h3>MSS MELAKA</h3>
+                    <p>Pasukan Negeri Melaka</p>
+                </div>
             </a>
             <!-- Negeri Sembilan -->
             <a href="teams/team-negerisembilan.html" class="team-link">
-                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/negeri9.png" alt="Negeri Sembilan"></div><h3>MSS NEGERI SEMBILAN</h3><p>Pasukan Negeri Sembilan</p></div>
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/negeri9.png" alt="Negeri Sembilan">
+                    </div>
+                    <h3>MSS NEGERI SEMBILAN</h3>
+                    <p>Pasukan Negeri Sembilan</p>
+                </div>
             </a>
             <!-- Perak -->
             <a href="teams/team-perak.html" class="team-link">
-                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/perak.png" alt="Perak"></div><h3>MSS PERAK</h3><p>Pasukan Negeri Perak</p></div>
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/perak.png" alt="Perak">
+                    </div>
+                    <h3>MSS PERAK</h3>
+                    <p>Pasukan Negeri Perak</p>
+                </div>
             </a>
             <!-- Kedah -->
             <a href="teams/team-kedah.html" class="team-link">
-                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/kedah.png" alt="Kedah"></div><h3>MSS KEDAH</h3><p>Pasukan Negeri Kedah</p></div>
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/kedah.png" alt="Kedah">
+                    </div>
+                    <h3>MSS KEDAH</h3>
+                    <p>Pasukan Negeri Kedah</p>
+                </div>
             </a>
             <!-- Pulau Pinang -->
             <a href="teams/team-pulaupinang.html" class="team-link">
-                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/pp.png" alt="Pulau Pinang"></div><h3>MSS PULAU PINANG</h3><p>Pasukan Negeri Pulau Pinang</p></div>
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/pp.png" alt="Pulau Pinang">
+                    </div>
+                    <h3>MSS PULAU PINANG</h3>
+                    <p>Pasukan Negeri Pulau Pinang</p>
+                </div>
             </a>
             <!-- Perlis -->
             <a href="teams/team-perlis.html" class="team-link">
-                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/perlis.png" alt="Perlis"></div><h3>MSS PERLIS</h3><p>Pasukan Negeri Perlis</p></div>
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/perlis.png" alt="Perlis">
+                    </div>
+                    <h3>MSS PERLIS</h3>
+                    <p>Pasukan Negeri Perlis</p>
+                </div>
             </a>
             <!-- Kelantan -->
             <a href="teams/team-kelantan.html" class="team-link">
-                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/kelantan.png" alt="Kelantan"></div><h3>MSS KELANTAN</h3><p>Pasukan Negeri Kelantan</p></div>
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/kelantan.png" alt="Kelantan">
+                    </div>
+                    <h3>MSS KELANTAN</h3>
+                    <p>Pasukan Negeri Kelantan</p>
+                </div>
             </a>
             <!-- Terengganu -->
             <a href="teams/team-terengganu.html" class="team-link">
-                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/terengganu.png" alt="Terengganu"></div><h3>MSS TERENGGANU</h3><p>Pasukan Negeri Terengganu</p></div>
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/terengganu.png" alt="Terengganu">
+                    </div>
+                    <h3>MSS TERENGGANU</h3>
+                    <p>Pasukan Negeri Terengganu</p>
+                </div>
             </a>
             <!-- Pahang -->
             <a href="teams/team-pahang.html" class="team-link">
-                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/pahang.png" alt="Pahang"></div><h3>MSS PAHANG</h3><p>Pasukan Negeri Pahang</p></div>
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/pahang.png" alt="Pahang">
+                    </div>
+                    <h3>MSS PAHANG</h3>
+                    <p>Pasukan Negeri Pahang</p>
+                </div>
             </a>
             <!-- Putrajaya -->
             <a href="teams/team-putrajaya.html" class="team-link">
-                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/putrajaya.png" alt="Putrajaya"></div><h3>MSS WP PUTRAJAYA</h3><p>Pasukan Negeri Putrajaya</p></div>
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/putrajaya.png" alt="Putrajaya">
+                    </div>
+                    <h3>MSS WP PUTRAJAYA</h3>
+                    <p>Pasukan Negeri Putrajaya</p>
+                </div>
             </a>
             <!-- Kuala Lumpur -->
             <a href="teams/team-kualalumpur.html" class="team-link">
-                <div class="tournament-card"><div class="state-logo-space"><img src="../../../images/logo/mss negeri/kl.png" alt="Kuala Lumpur"></div><h3>MSS WP KUALA LUMPUR</h3><p>Pasukan Negeri Kuala Lumpur</p></div>
+                <div class="tournament-card">
+                    <div class="state-logo-space">
+                        <img src="../../../images/logo/mss negeri/kl.png" alt="Kuala Lumpur">
+                    </div>
+                    <h3>MSS WP KUALA LUMPUR</h3>
+                    <p>Pasukan Negeri Kuala Lumpur</p>
+                </div>
             </a>
         </section>
     </main>
 
-    <!-- Skrip untuk mengaktifkan fungsi menu burger -->
-    <script>
-        const hamburger = document.getElementById('hamburger-menu');
-        const navMenu = document.getElementById('nav-menu');
+    <footer>
+        <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
+    </footer>
 
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('toggle');
+    <!-- SKRIP JAVASCRIPT DINAMIK & RESPONSIF -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const menuIcon = document.getElementById("menu-icon");
+        const navMenu = document.getElementById("nav-menu");
+        const dropdowns = document.querySelectorAll(".dropdown");
+
+        // Toggle Burger Menu pada Mobile
+        menuToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+            
+            if (navMenu.classList.contains("active")) {
+                menuIcon.classList.remove("fa-bars");
+                menuIcon.classList.add("fa-xmark");
+            } else {
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+            }
+        });
+
+        // Pengendalian Klik Dropdown pada Mobile
+        dropdowns.forEach(dropdown => {
+            const btn = dropdown.querySelector(".dropdown-btn");
+            btn.addEventListener("click", (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    
+                    // Tutup dropdown lain yang terbuka
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove("open");
+                        }
+                    });
+
+                    // Buka/Tutup dropdown yang diklik
+                    dropdown.classList.toggle("open");
+                }
+            });
+        });
+
+        // Tutup menu mobile jika pengguna klik di luar kawasan header/nav
+        document.addEventListener("click", (e) => {
+            if (window.innerWidth <= 768) {
+                if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navMenu.classList.remove("active");
+                    menuIcon.classList.remove("fa-xmark");
+                    menuIcon.classList.add("fa-bars");
+                    dropdowns.forEach(d => d.classList.remove("open"));
+                }
+            }
         });
     </script>
 </body>
