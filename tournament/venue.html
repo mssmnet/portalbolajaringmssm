@@ -205,73 +205,32 @@
 
         .venue-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
 
         .venue-card {
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 30px 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            padding: 25px 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-top: 6px solid var(--maroon);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             text-align: center;
-            /* Pastikan imej latar belakang penuh & tengah */
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-            /* Beri ruang supaya imej lebih jelas pada handset */
-            min-height: 400px; 
         }
 
-        /* OVERLAY - Menambah lapisan legap pada imej supaya teks mudah dibaca */
-        .venue-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* Warna latar overlay - cerahkan imej sikit */
-            background: rgba(255, 255, 255, 0.85); 
-            z-index: 1;
-            transition: background 0.3s ease;
-        }
-
-        /* Pastikan kandungan kad berada di atas overlay */
-        .venue-card > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Imej Latar Belakang Khusus */
-        .bg-uitm {
-            background-image: url('../../images/dewanuitm.jpg');
-        }
-
-        .bg-kbs {
-            background-image: url('../../images/dewankbs.jpg');
-        }
-
-        /* Kesan Hover */
         .venue-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
 
-        .venue-card:hover::before {
-            /* Sedikit gelapkan overlay pada hover untuk kontras */
-            background: rgba(255, 255, 255, 0.75);
-        }
-
         .venue-card .icon {
-            font-size: 40px;
+            font-size: 38px;
             color: var(--maroon);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             text-align: center;
         }
 
@@ -300,8 +259,30 @@
             color: #333;
             font-size: 14px;
             line-height: 1.5;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: 500;
+        }
+
+        /* GAYA GAMBAR VENUE DI DALAM KAD */
+        .venue-img-box {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .venue-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .venue-card:hover .venue-img {
+            transform: scale(1.05);
         }
 
         .btn-map {
@@ -442,18 +423,12 @@
                 font-size: 14px;
             }
 
-            /* Pelarasan untuk imej latar pada handset */
             .venue-grid {
-                grid-template-columns: 1fr; /* Satu kad sebaris */
+                grid-template-columns: 1fr;
             }
 
-            .venue-card {
-                min-height: 450px; /* Lebih tinggi sikit pada handset supaya imej lebih jelas */
-                padding: 25px 15px;
-            }
-
-            .venue-card::before {
-                background: rgba(255, 255, 255, 0.88); /* Sedikit lebih legap pada mobile untuk pembacaan */
+            .venue-img-box {
+                height: 180px;
             }
 
             .btn-map {
@@ -546,13 +521,18 @@
             <div class="venue-grid">
                 
                 <!-- Venue Bawah 15 & 18 -->
-                <div class="venue-card bg-uitm">
+                <div class="venue-card">
                     <div>
                         <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="category">Kategori: Bawah 15 & Bawah 18</div>
                         <div class="tournament-info">Kejohanan Bola Jaring MSSM, 28 Ogos - 3 Sept 2028</div>
                         <div class="venue-name">Dewan Taming Sari, UiTM Lendu</div>
                         <p>Lokasi rasmi perlawanan bagi kategori Bawah 15 & Bawah 18 Tahun.</p>
+                        
+                        <!-- Gambar Dewan UiTM -->
+                        <div class="venue-img-box">
+                            <img src="../../images/dewanuitm.jpg" alt="Dewan Taming Sari UiTM" class="venue-img">
+                        </div>
                     </div>
                     <a href="https://maps.app.goo.gl/HrVQjgcTZw65fEuj9" target="_blank" rel="noopener noreferrer" class="btn-map">
                         📍 Buka di Google Maps
@@ -560,13 +540,18 @@
                 </div>
 
                 <!-- Venue Bawah 12 -->
-                <div class="venue-card bg-kbs">
+                <div class="venue-card">
                     <div>
                         <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="category">Kategori: Bawah 12</div>
                         <div class="tournament-info">Kejohanan Bola Jaring MSSM, 28 Ogos - 3 Sept 2028</div>
                         <div class="venue-name">Dewan KBS Masjid Tanah</div>
                         <p>Lokasi rasmi perlawanan bagi kategori Bawah 12 Tahun.</p>
+                        
+                        <!-- Gambar Dewan KBS -->
+                        <div class="venue-img-box">
+                            <img src="../../images/dewankbs.jpg" alt="Dewan KBS Masjid Tanah" class="venue-img">
+                        </div>
                     </div>
                     <a href="https://maps.app.goo.gl/4eRaxWoFEBvyNUbB7" target="_blank" rel="noopener noreferrer" class="btn-map">
                         📍 Buka di Google Maps
