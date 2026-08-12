@@ -12,6 +12,7 @@
             --maroon-dark: #581328;
             --gold: #FFD700;
             --pink: #FCE4EC;
+            --white: #ffffff;
         }
 
         * {
@@ -27,8 +28,10 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            color: #2d3748;
         }
 
+        /* HEADER & NAVIGASI */
         header {
             background: var(--maroon);
             color: white;
@@ -98,8 +101,7 @@
         nav a:hover,
         nav a.active,
         .dropdown-btn.active,
-        .dropdown:hover .dropdown-btn,
-        .dropdown.open .dropdown-btn {
+        .dropdown:hover .dropdown-btn {
             background: rgba(255,255,255,.15);
             color: var(--gold);
         }
@@ -108,7 +110,18 @@
             transition: transform 0.3s ease;
         }
 
-        /* STRUCTURAL DROPDOWN DESKTOP */
+        .live-link {
+            color: #ffeb3b !important;
+            animation: pulse-live 1.5s infinite;
+        }
+
+        @keyframes pulse-live {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        /* STRUCTURAL DROPDOWN */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -150,18 +163,18 @@
             margin: 6px 0;
         }
 
+        @media(min-width: 901px){
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
+
         .dropdown.open .dropdown-content {
             display: block !important;
         }
 
         .dropdown.open .dropdown-btn i {
             transform: rotate(180deg);
-        }
-
-        @media(min-width: 901px){
-            .dropdown:hover .dropdown-content {
-                display: block;
-            }
         }
 
         /* BUTANG BURGER MENU */
@@ -200,7 +213,7 @@
         }
         
         .page-title { flex: 1; text-align: center; }
-        .page-title h2 { margin: 0; font-size: 32px; color: var(--maroon); }
+        .page-title h2 { margin: 0; font-size: 32px; color: var(--maroon); font-weight: 800; }
         .btn-print { background: var(--maroon); color: white; border: none; padding: 12px 28px; border-radius: 40px; font-size: 15px; font-weight: 700; cursor: pointer; transition: .3s; white-space: nowrap; }
         .btn-print:hover { background: #5d132c; transform: translateY(-2px); }
 
@@ -437,7 +450,7 @@
 </head>
 <body>
 
-   <header>
+    <header>
         <div class="header-left">
             <img src="../../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
             <div class="header-title">
@@ -453,7 +466,7 @@
 
         <!-- Navigasi Utama -->
         <nav id="nav-menu">
-            <a href="../../index.html">HOME</a>
+            <a href="../../../index.html">HOME</a>
             
             <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
@@ -462,14 +475,14 @@
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-content"> 
-                    <a href="../../organisasi.html">ORGANISASI BOLA JARING MSSM</a>
-                    <a href="../../panel.html">PANEL ANUGERAH MSSM</a>
-                    <a href="../../teknikal.html">TEKNIKAL KEJOHANAN</a>
-                    <a href="../../pengadil.html">PENGADIL</a>
+                    <a href="../../../organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="../../../panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="../../../teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="../../../pengadil.html">PENGADIL</a>
                     <hr>
-                    <a href="../../about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
-                    <a href="../../rules.html">PERATURAN</a>
-                    <a href="../../calendar.html">TAKWIM</a>
+                    <a href="../../../about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="../../../rules.html">PERATURAN</a>
+                    <a href="../../../calendar.html">TAKWIM</a>
                 </div>
             </div>
             
@@ -480,11 +493,15 @@
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="index.html">MSSM 2026</a>  
+                    <a href="../../index.html">MSSM 2026</a>  
                     <hr>
-                    <a href="../../bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="../u12.html">BAWAH 12</a>
+                    <a href="../u15.html" class="active">BAWAH 15</a>
+                    <a href="../u18.html">BAWAH 18</a>
+                    <hr>
+                    <a href="../../../bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
                     <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
-                    <a href="../../borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>
+                    <a href="../../../borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>
                 </div>
             </div>
 
@@ -499,7 +516,7 @@
                     <a href="groups.html">🏆 Groups</a>
                     <a href="fixtures.html">📅 Fixtures</a>
                     <a href="results.html">🏆 Results</a>
-                    <a href="standings.html">📊 Standings</a>
+                    <a href="standings.html" class="active">📊 Standings</a>
                     <hr>
                     <a href="undianp2.html">🎲 Second Round Draw</a>
                     <a href="chart.html">🏆 Tournament Bracket</a>
@@ -515,13 +532,13 @@
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="../../halloffame.html">HALL OF FAME</a>
-                    <a href="../../gallery.html">GALLERY</a>
+                    <a href="../../../halloffame.html">HALL OF FAME</a>
+                    <a href="../../../gallery.html">GALLERY</a>
                 </div>
             </div>
 
             <!-- LIVE LINK -->
-            <a href="../../live.html" class="live-link">🔴 LIVE</a>
+            <a href="../../../live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
 
@@ -674,11 +691,10 @@
             }
         });
 
-        // Toggle Dropdown Menu (Universal Desktop & Mobile)
+        // Toggle Dropdown Menu
         dropdowns.forEach(dropdown => {
             const btn = dropdown.querySelector('.dropdown-btn');
             btn.addEventListener('click', function(e) {
-                e.preventDefault();
                 e.stopPropagation();
                 
                 dropdowns.forEach(other => {
@@ -706,7 +722,6 @@
                 navMenu.classList.remove('active');
                 menuIcon.className = 'fas fa-bars';
             }
-            dropdowns.forEach(d => d.classList.remove('open'));
         });
 
         // FUNGSI UNTUK CSV KEDUDUKAN & LOGO
