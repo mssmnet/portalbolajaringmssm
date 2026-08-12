@@ -219,12 +219,16 @@
             flex-direction: column;
             justify-content: space-between;
             text-align: center;
+            /* Pastikan imej latar belakang penuh & tengah */
             background-size: cover;
             background-position: center;
             position: relative;
             overflow: hidden;
+            /* Beri ruang supaya imej lebih jelas pada handset */
+            min-height: 400px; 
         }
 
+        /* OVERLAY - Menambah lapisan legap pada imej supaya teks mudah dibaca */
         .venue-card::before {
             content: "";
             position: absolute;
@@ -232,26 +236,36 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.92);
+            /* Warna latar overlay - cerahkan imej sikit */
+            background: rgba(255, 255, 255, 0.85); 
             z-index: 1;
+            transition: background 0.3s ease;
         }
 
+        /* Pastikan kandungan kad berada di atas overlay */
         .venue-card > * {
             position: relative;
             z-index: 2;
         }
 
+        /* Imej Latar Belakang Khusus */
         .bg-uitm {
-            background-image: url('images/dewanuitm.jpg');
+            background-image: url('../../images/dewanuitm.jpg');
         }
 
         .bg-kbs {
-            background-image: url('images/dewankbs.jpg');
+            background-image: url('../../images/dewankbs.jpg');
         }
 
+        /* Kesan Hover */
         .venue-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .venue-card:hover::before {
+            /* Sedikit gelapkan overlay pada hover untuk kontras */
+            background: rgba(255, 255, 255, 0.75);
         }
 
         .venue-card .icon {
@@ -428,6 +442,20 @@
                 font-size: 14px;
             }
 
+            /* Pelarasan untuk imej latar pada handset */
+            .venue-grid {
+                grid-template-columns: 1fr; /* Satu kad sebaris */
+            }
+
+            .venue-card {
+                min-height: 450px; /* Lebih tinggi sikit pada handset supaya imej lebih jelas */
+                padding: 25px 15px;
+            }
+
+            .venue-card::before {
+                background: rgba(255, 255, 255, 0.88); /* Sedikit lebih legap pada mobile untuk pembacaan */
+            }
+
             .btn-map {
                 width: 100%;
                 box-sizing: border-box;
@@ -441,7 +469,7 @@
 
     <header>
         <div class="header-left">
-            <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo">
+            <img src="../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
             <div class="header-title">
                 <h1>PORTAL BOLA JARING MSSM</h1>
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
@@ -503,7 +531,7 @@
             </div>
 
             <!-- LIVE LINK -->
-            <a href="live.html" class="live-link">🔴 LIVE</a>
+            <a href="../../live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
 
