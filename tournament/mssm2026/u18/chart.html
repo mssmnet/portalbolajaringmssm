@@ -3,19 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carta Kejohanan | MSSM 2026</title>
+    <title>Carta Kejohanan | MSSM 2026 (B18)</title>
     
     <link rel="stylesheet" href="../../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
+        :root{
+            --maroon:#7B1E3A;
+            --maroon-dark:#581328;
+            --gold:#FFD700;
+            --pink:#FCE4EC;
+            --white:#ffffff;
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Segoe UI',Tahoma,sans-serif;
+            background:url('../../../images/bg-utama.jpg') center/cover fixed;
+            background-color: var(--pink);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header{
+            background:var(--maroon);
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 5%;
+            box-shadow:0 4px 15px rgba(0,0,0,.3);
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+
+        .header-left{
+            display:flex;
+            align-items:center;
+            gap:18px;
+        }
+
+        .logo{
+            width:70px;
+            height:70px;
+            min-width:70px;
+            object-fit:contain;
+            background:transparent;
+        }
+
+        .header-title h1{
+            color:white;
+            font-size:24px;
+            margin:0;
+            line-height:1.2;
+            font-weight: 800;
+        }
+
+        .subtitle{
+            color:#ffeb3b;
+            font-weight:bold;
+            margin-top:2px;
+            font-size:14px;
+        }
+
+        nav{
+            display:flex;
+            gap:10px;
+            align-items:center;
+        }
+
+        nav a, .dropdown-btn {
+            color:white;
+            text-decoration:none;
+            padding:10px 14px;
+            border-radius:8px;
+            transition:.3s;
+            font-weight:bold;
+            background:none;
+            border:none;
+            cursor:pointer;
+            font-family:inherit;
+            font-size:15px;
+            white-space:nowrap;
+            display:inline-flex;
+            align-items:center;
+            gap:6px;
+        }
+
+        nav a:hover,
+        nav a.active,
+        .dropdown-btn.active,
+        .dropdown:hover .dropdown-btn {
+            background:rgba(255,255,255,.15);
+            color:var(--gold);
+        }
+
+        .dropdown-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .live-link {
+            color: #ffeb3b !important;
+            animation: pulse-live 1.5s infinite;
+        }
+
+        @keyframes pulse-live {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        /* STRUCTURAL DROPDOWN */
+        .dropdown {
+            position:relative;
+            display:inline-block;
+        }
+
+        .dropdown-content {
+            display:none;
+            position:absolute;
+            top:100%;
+            left:0;
+            background-color:var(--maroon);
+            min-width:220px;
+            border-radius:10px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.3);
+            padding:8px 0;
+            z-index:1100;
+        }
+
+        .dropdown-content a {
+            color:white;
+            padding:12px 18px;
+            text-decoration:none;
+            display:block;
+            text-align:left;
+            font-size:14px;
+            font-weight:bold;
+            border-radius:0;
+            transition:background 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color:rgba(255, 255, 255, 0.15);
+            color:#ffeb3b;
+        }
+
+        .dropdown-content hr {
+            border:none;
+            border-top:1px solid rgba(255, 255, 255, 0.2);
+            margin:6px 0;
+        }
+
+        /* Desktop Dropdown Hover & Open States */
+        @media(min-width:901px){
+            .dropdown:hover .dropdown-content {
+                display:block;
+            }
+        }
+
+        .dropdown.open .dropdown-content {
+            display: block !important;
+        }
+
+        .dropdown.open .dropdown-btn i {
+            transform: rotate(180deg);
+        }
+
+        /* BURGER MENU TOGGLE FOR MOBILE */
+        .menu-toggle {
+            display:none;
+            font-size:24px;
+            color:white;
+            background:none;
+            border:none;
+            cursor:pointer;
+            padding:8px;
+            border-radius:6px;
+            transition:background 0.2s ease;
+        }
+
+        .menu-toggle:hover {
+            background:rgba(255, 255, 255, 0.15);
+        }
+
         /*====================================
-           PAGE HEADER
+           PAGE HEADER & TOOLBAR
         ====================================*/
         .page-header {
-            max-width: 1400px;
-            margin: 40px auto;
-            padding: 0 30px;
+            max-width: 1600px;
+            margin: 25px auto;
+            padding: 0 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -28,25 +214,35 @@
 
         .page-title h2 {
             margin: 0;
-            font-size: 42px;
-            color: #7B1E3A;
+            font-size: 32px;
+            color: var(--maroon);
             font-weight: 800;
         }
 
+        .page-title p {
+            margin-top: 4px;
+            color: #555;
+            font-weight: 600;
+        }
+
         .print-btn {
-            background: #7B1E3A;
+            background: var(--maroon);
             color: #fff;
             border: none;
-            border-radius: 10px;
-            height: 48px;
-            padding: 0 24px;
-            display: flex;
+            border-radius: 40px;
+            padding: 10px 24px;
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
-            font-size: 15px;
-            font-weight: 600;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 700;
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(0,0,0,.15);
+            transition: .3s;
+        }
+
+        .print-btn:hover {
+            background: var(--maroon-dark);
         }
 
         /*====================================
@@ -55,8 +251,8 @@
         .chart-wrapper {
             width: 100%;
             max-width: 1600px;
-            margin: 30px auto 60px auto;
-            padding: 40px 20px;
+            margin: 20px auto 40px auto;
+            padding: 30px 20px;
             background: #fff;
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
@@ -67,7 +263,7 @@
             display: flex;
             justify-content: center;
             gap: 50px;
-            min-width: 1300px; /* Pastikan tak penyek di skrin kecil */
+            min-width: 1300px; /* Alang-alang elak hancur di skrin kecil */
         }
 
         .round {
@@ -81,11 +277,11 @@
         .column-header {
             text-align: center;
             font-weight: 800;
-            color: #7B1E3A;
+            color: var(--maroon);
             font-size: 16px;
             text-transform: uppercase;
             padding-bottom: 10px;
-            border-bottom: 3px solid #7B1E3A;
+            border-bottom: 3px solid var(--maroon);
             margin-bottom: 30px;
             height: 30px;
         }
@@ -98,7 +294,7 @@
         /* KOTAK PERLAWANAN */
         .match-box {
             background: #fff;
-            border: 2px solid #7B1E3A;
+            border: 2px solid var(--maroon);
             border-radius: 8px;
             box-shadow: 0 3px 8px rgba(0,0,0,0.08);
             margin: 15px 0;
@@ -111,7 +307,7 @@
         }
 
         .match-header {
-            background: #7B1E3A;
+            background: var(--maroon);
             color: #fff;
             text-align: center;
             font-size: 12px;
@@ -145,7 +341,7 @@
         .team-score {
             font-size: 14px;
             font-weight: bold;
-            color: #7B1E3A;
+            color: var(--maroon);
             background: #f4f4f4;
             padding: 2px 6px;
             border-radius: 4px;
@@ -157,7 +353,7 @@
             color: #555;
         }
 
-        /* LABEL KEDUDUKAN (FINAL & KETIGA) */
+        /* LABEL KEDUDUKAN */
         .placement-label {
             text-align: center;
             font-size: 12px;
@@ -169,15 +365,13 @@
         /*====================================
            GARISAN PENYAMBUNG (CSS)
         ====================================*/
-        
-        /* Garisan Menang (Bergerak ke Kanan) */
         .menang-right::after {
             content: "";
             position: absolute;
             right: -25px;
             top: 50%;
             width: 25px;
-            border-top: 2px solid #7B1E3A;
+            border-top: 2px solid var(--maroon);
             z-index: 1;
         }
         
@@ -187,22 +381,20 @@
             left: -25px;
             top: 50%;
             width: 25px;
-            border-top: 2px solid #7B1E3A;
+            border-top: 2px solid var(--maroon);
             z-index: 1;
         }
 
-        /* Joiner menegak untuk Menang (Suku ke Separuh) */
         .round-menang-join::after {
             content: "";
             position: absolute;
             left: -25px;
-            top: 25%; /* Bergantung pada jarak */
+            top: 25%;
             height: 50%;
-            border-left: 2px solid #7B1E3A;
+            border-left: 2px solid var(--maroon);
             z-index: 1;
         }
 
-        /* Garisan Kalah (Bergerak ke Kiri) */
         .kalah-left::before {
             content: "";
             position: absolute;
@@ -223,7 +415,6 @@
             z-index: 1;
         }
 
-        /* Joiner menegak untuk Kalah (Suku ke Separuh Klasifikasi) */
         .round-kalah-join::after {
             content: "";
             position: absolute;
@@ -238,7 +429,121 @@
             border: 0;
             height: 2px;
             background-image: linear-gradient(to right, transparent, #ccc, transparent);
-            margin: 60px 0;
+            margin: 40px 0;
+        }
+
+        footer{
+            background:var(--maroon);
+            color:white;
+            text-align:center;
+            padding:20px;
+            margin-top:auto;
+        }
+
+        /* MOBILE RESPONSIVE (HANDSET) */
+        @media(max-width:900px){
+            header{
+                flex-wrap:wrap;
+                padding:12px 20px;
+            }
+
+            .header-left {
+                flex:1;
+                justify-content:flex-start;
+                gap:12px;
+            }
+
+            .logo {
+                width:50px;
+                height:50px;
+                min-width:50px;
+            }
+
+            .header-title h1 {
+                font-size:16px;
+            }
+
+            .subtitle {
+                font-size:11px;
+            }
+
+            .menu-toggle {
+                display:block;
+            }
+
+            nav{
+                display:none;
+                flex-direction:column;
+                width:100%;
+                margin-top:12px;
+                gap:0;
+                background-color:var(--maroon-dark);
+                border-radius:10px;
+                overflow:hidden;
+                box-shadow:inset 0 2px 8px rgba(0,0,0,0.2);
+            }
+
+            nav.active {
+                display:flex;
+            }
+
+            nav a, .dropdown-btn {
+                width:100%;
+                text-align:left;
+                padding:14px 20px;
+                box-sizing:border-box;
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                border-bottom:1px solid rgba(255,255,255,0.08);
+                border-radius:0;
+            }
+
+            .dropdown {
+                width:100%;
+            }
+
+            .dropdown-content {
+                position:static;
+                display:none;
+                width:100%;
+                box-shadow:none;
+                border-radius:0;
+                background-color:rgba(0, 0, 0, 0.25);
+                padding:0;
+            }
+
+            .dropdown-content a {
+                padding:12px 30px;
+                font-size:13px;
+                border-bottom:1px solid rgba(255,255,255,0.05);
+            }
+
+            .page-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .page-title h2 {
+                font-size: 24px;
+            }
+
+            .print-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            header, nav, footer, .print-btn, .menu-toggle { 
+                display: none !important; 
+            }
+            body { background: white; }
+            .chart-wrapper { box-shadow: none; padding: 0; }
         }
     </style>
 </head>
@@ -247,27 +552,102 @@
 
     <header>
         <div class="header-left">
-            <img src="../../../images/mssmlogo.png" class="logo" alt="MSSM Logo">
+            <img src="../../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
             <div class="header-title">
                 <h1>PORTAL BOLA JARING MSSM</h1>
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
-        <nav>
-            <a href="../../mssm2026/index.html">HOME</a>
-            <a href="../u12.html">BAWAH 12</a>
-            <a href="../u15.html">BAWAH 15</a>
-            <a href="../u18.html" class="active">BAWAH 18</a>
-            <a href="live.html"> 🔴LIVE</a>
+
+        <!-- Butang Burger -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
+        </button>
+
+        <!-- Navigasi Utama -->
+        <nav id="nav-menu">
+            <a href="../../../index.html">HOME</a>
+            
+            <!-- DROPDOWN BOLA JARING MSSM -->
+            <div class="dropdown">
+                <button type="button" class="dropdown-btn">
+                    <span>BOLA JARING MSSM</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content"> 
+                    <a href="../../../organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="../../../panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="../../../teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="../../../pengadil.html">PENGADIL</a>
+                    <hr>
+                    <a href="../../../about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="../../../rules.html">PERATURAN</a>
+                    <a href="../../../calendar.html">TAKWIM</a>
+                </div>
+            </div>
+            
+            <!-- DROPDOWN KEJOHANAN -->
+            <div class="dropdown">
+                <button type="button" class="dropdown-btn active">
+                    <span>KEJOHANAN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="../../index.html">MSSM 2026</a>  
+                    <hr>
+                    <a href="../u12.html">BAWAH 12</a>
+                    <a href="../u15.html">BAWAH 15</a>
+                    <a href="../u18.html" class="active">BAWAH 18</a>
+                    <hr>
+                    <a href="../../../bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
+                    <a href="../../../borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>
+                </div>
+            </div>
+
+            <!-- DROPDOWN KHUSUS BAWAH 18 (B18) -->
+            <div class="dropdown">
+                <button type="button" class="dropdown-btn" style="color: #ffeb3b;">
+                    <span>MENU B18</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="teams.html">👥 Teams</a>
+                    <a href="groups.html">🏆 Groups</a>
+                    <a href="fixtures.html">📅 Fixtures</a>
+                    <a href="results.html">🏆 Results</a>
+                    <a href="standings.html">📊 Standings</a>
+                    <hr>
+                    <a href="undianp2.html">🎲 Second Round Draw</a>
+                    <a href="chart.html" class="active">🏆 Tournament Bracket</a>
+                    <a href="ranking.html">🥇 Ranking</a>
+                    <a href="statistic.html">📈 Statistics Scorer</a>
+                </div>
+            </div>
+
+            <!-- DROPDOWN GALERI & MEDIA -->
+            <div class="dropdown">
+                <button type="button" class="dropdown-btn">
+                    <span>GALERI & MEDIA</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="../../../halloffame.html">HALL OF FAME</a>
+                    <a href="../../../gallery.html">GALLERY</a>
+                </div>
+            </div>
+
+            <!-- LIVE LINK -->
+            <a href="../../../live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
 
-    <main class="main-container">
+    <main style="max-width: 1600px; margin: 0 auto; padding: 0 20px; width: 100%;">
         
         <section class="page-header">
             <div class="page-title">
                 <h2>CARTA KEPUTUSAN</h2>
-                <p>Kejohanan Bola Jaring MSSM 2026</p>
+                <p>Kejohanan Bola Jaring MSSM 2026 (Bawah 18)</p>
             </div>
             <div class="page-actions">
                 <button class="print-btn" onclick="window.print()">
@@ -276,8 +656,9 @@
             </div>
         </section>
 
+        <!-- CARTA TEMPAT 1 - 8 -->
         <section class="chart-wrapper">
-            <h3 style="text-align: center; color: #7B1E3A; margin-bottom: 40px; font-size: 24px;">CARTA KEPUTUSAN (TEMPAT 1 - 8)</h3>
+            <h3 style="text-align: center; color: var(--maroon); margin-bottom: 40px; font-size: 24px;">CARTA KEPUTUSAN (TEMPAT 1 - 8)</h3>
             
             <div class="bracket-container">
                 
@@ -365,7 +746,7 @@
                         <div>
                             <div class="placement-label" style="color: #B8860B;">AKHIR (JOHAN & NAIB)</div>
                             <div class="match-box menang-receive" style="border-color: gold; background: #FFFBF0;">
-                                <div class="match-header" style="background: gold; color: #7B1E3A;">M48</div>
+                                <div class="match-header" style="background: gold; color: var(--maroon);">M48</div>
                                 <div class="team-row"><span class="team-name" id="m48-t1">MENANG 37</span><span class="team-score" id="m48-s1">-</span></div>
                                 <div class="team-row"><span class="team-name" id="m48-t2">MENANG 38</span><span class="team-score" id="m48-s2">-</span></div>
                             </div>
@@ -386,8 +767,9 @@
 
         <hr class="section-divider">
 
+        <!-- CARTA TEMPAT 9 - 16 -->
         <section class="chart-wrapper">
-            <h3 style="text-align: center; color: #7B1E3A; margin-bottom: 40px; font-size: 24px;">CARTA KEPUTUSAN (TEMPAT 9 - 16)</h3>
+            <h3 style="text-align: center; color: var(--maroon); margin-bottom: 40px; font-size: 24px;">CARTA KEPUTUSAN (TEMPAT 9 - 16)</h3>
             
             <div class="bracket-container">
                 
@@ -501,6 +883,59 @@
     </footer>
 
     <script>
+        // FUNGSI UTAMA NAVIGATION RESPONSIVE & BURGER MENU
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        // Toggle Burger Menu
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+            
+            if (navMenu.classList.contains('active')) {
+                menuIcon.className = 'fas fa-xmark';
+            } else {
+                menuIcon.className = 'fas fa-bars';
+                dropdowns.forEach(d => d.classList.remove('open'));
+            }
+        });
+
+        // Toggle Dropdown Menu (Universal untuk Klik Desktop & Mobile)
+        dropdowns.forEach(dropdown => {
+            const btn = dropdown.querySelector('.dropdown-btn');
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                dropdowns.forEach(other => {
+                    if (other !== dropdown) other.classList.remove('open');
+                });
+
+                dropdown.classList.toggle('open');
+            });
+        });
+
+        // Tutup menu secara automatik jika klik di luar kawasan header/nav
+        document.addEventListener('click', function(e) {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                if (window.innerWidth <= 900) {
+                    navMenu.classList.remove('active');
+                    menuIcon.className = 'fas fa-bars';
+                }
+                dropdowns.forEach(d => d.classList.remove('open'));
+            }
+        });
+
+        // Reset menu apabila window diubah saiz
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 900) {
+                navMenu.classList.remove('active');
+                menuIcon.className = 'fas fa-bars';
+            }
+        });
+
+        // INTEGRASI DATA GOOGLE SHEETS
         const SHEET_ID = "1ItWWq1j0D2nO6zxQzgv24nQuzhKqyXEe3_Eu4wIHAg0"; 
         const GID = "481009488"; 
 
