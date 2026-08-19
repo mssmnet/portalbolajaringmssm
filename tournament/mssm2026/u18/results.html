@@ -659,7 +659,7 @@
             }
         });
 
-        // Fungsi untuk memetakan nama pasukan kepada fail logo negeri yang seragam
+        // Fungsi untuk memetakan nama pasukan kepada fail logo negeri yang seragam (DIBETULKAN LALUAN KE ../../../images/logo/)
         function getLogo(team) {
             const logoMap = {
                 "MSS JOHOR": "johor.png",
@@ -683,7 +683,7 @@
             const cleanTeam = team.toUpperCase().startsWith("MSS ") ? team.toUpperCase() : `MSS ${team.toUpperCase()}`;
             const fileName = logoMap[cleanTeam] || logoMap[team.toUpperCase()] || "default.png";
 
-            return `../../../images/logo/mss negeri/${fileName}`;
+            return `../../../images/logo/${fileName}`;
         }
 
         // Pautan Gviz terus ke lembaran RESULT Google Sheet B18

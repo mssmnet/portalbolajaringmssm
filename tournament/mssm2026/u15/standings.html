@@ -724,7 +724,7 @@
             }
         });
 
-        // FUNGSI UNTUK CSV KEDUDUKAN & LOGO
+        // FUNGSI UNTUK CSV KEDUDUKAN & LOGO (DIBETULKAN LALUAN KE ../../../images/logo/)
         function getLogo(team) {
             if (!team) return `../../../images/logo/default.png`;
             const logoMap = {
@@ -749,7 +749,7 @@
             const cleanTeam = team.trim().toUpperCase().startsWith("MSS ") ? team.trim().toUpperCase() : `MSS ${team.trim().toUpperCase()}`;
             const fileName = logoMap[cleanTeam] || logoMap[team.trim().toUpperCase()] || "default.png";
 
-            return `../../../images/logo/mss negeri/${fileName}`;
+            return `../../../images/logo/${fileName}`;
         }
 
         // Pautan Publish to Web CSV Google Sheet B15 yang dibekalkan

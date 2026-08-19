@@ -730,7 +730,7 @@
             dropdowns.forEach(d => d.classList.remove('open'));
         });
 
-        // FUNGSI UNTUK CSV KEDUDUKAN & LOGO B18
+        // FUNGSI UNTUK CSV KEDUDUKAN & LOGO B18 (DIBETULKAN LALUAN KE ../../../images/logo/)
         function getLogo(team) {
             if (!team) return `../../../images/logo/default.png`;
             const logoMap = {
@@ -755,7 +755,7 @@
             const cleanTeam = team.trim().toUpperCase().startsWith("MSS ") ? team.trim().toUpperCase() : `MSS ${team.trim().toUpperCase()}`;
             const fileName = logoMap[cleanTeam] || logoMap[team.trim().toUpperCase()] || "default.png";
 
-            return `../../../images/logo/mss negeri/${fileName}`;
+            return `../../../images/logo/${fileName}`;
         }
 
         // Pautan Publish to Web CSV Google Sheet B18

@@ -738,7 +738,7 @@
             const cleanTeam = team.trim().toUpperCase().startsWith("MSS ") ? team.trim().toUpperCase() : `MSS ${team.trim().toUpperCase()}`;
             const fileName = logoMap[cleanTeam] || logoMap[team.trim().toUpperCase()] || "default.png";
 
-            return `../../../images/logo/mss negeri/${fileName}`;
+            return `../../../images/logo/${fileName}`;
         }
 
         const csvUrlB12Standing = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRaQAo5tHzCfLQbXZzxo68RXBcSwZvU5tMaKigF1FaL48xP3dPdxbmJpQs7tgy2QeDNg0PVYncbUCLu/pub?gid=626141204&single=true&output=csv";

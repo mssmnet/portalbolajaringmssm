@@ -91,7 +91,7 @@ function getLogo(team) {
     const cleanTeam = team.toUpperCase().startsWith("MSS ") ? team.toUpperCase() : `MSS ${team.toUpperCase()}`;
     const fileName = logoMap[cleanTeam] || logoMap[team.toUpperCase()] || "default.png";
 
-    return `../../../images/logo/mss negeri/${fileName}`;
+    return `../../../images/logo/${fileName}`;
 }
 
 // ==========================================
