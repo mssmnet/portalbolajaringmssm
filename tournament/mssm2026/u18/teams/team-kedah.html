@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSS Johor | MSSM 2026 U12</title>
+    <title>MSS Kedah | MSSM 2026 BAWAH18</title>
     <link rel="stylesheet" href="../../../../style.css">
     <!-- Font Awesome untuk ikon burger -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -184,63 +184,79 @@
             border-radius: 8px;
         }
 
+        /* GRID & KAD PEMAIN (PINK & PUTIH) */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 20px;
+            align-items: stretch;
         }
 
         .member-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f9 100%);
+            border: 2px solid #f3b6cc;
+            border-radius: 20px;
+            padding: 20px;
             display: flex;
             align-items: center;
-            gap: 18px;
-            background: #fff;
-            padding: 18px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,.08);
-            transition: .3s;
+            gap: 20px;
+            box-shadow: 0 6px 18px rgba(180, 60, 100, 0.12);
+            transition: all 0.3s ease;
+            height: 100%;
+            box-sizing: border-box;
         }
 
         .member-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,.12);
+            transform: translateY(-4px); 
+            box-shadow: 0 10px 25px rgba(180, 60, 100, 0.20);
+            border-color: #d94f7c;
         }
 
-        .member-card img {
+        /* BAHAGIAN GAMBAR & LOGO NEGERI */
+        .player-photo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+            width: 95px; /* Ditingkatkan sedikit untuk menampung logo lebih besar */
+        }
+
+        .player-photo img:first-child {
             width: 90px;
             height: 90px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #7B1E3A;
-            flex-shrink: 0;
+            border: 3px solid #d94f7c;
         }
 
+        /* LOGO NEGERI DIBAWAH GAMBAR (DIBESARKAN) */
+        .team-logo {
+            width: 65px !important;  /* Disesuaikan daripada 45px kepada 65px */
+            height: 65px !important; /* Disesuaikan daripada 45px kepada 65px */
+            object-fit: contain !important;
+            border: none !important;
+            border-radius: 0 !important;
+            margin-top: 6px;
+        }
+
+        /* MAKLUMAT PEMAIN */
         .member-info {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .member-info h3 {
-            margin: 0;
-            color: #7B1E3A;
+            color: #8b1e3f;
+            margin: 0 0 6px 0;
             font-size: 16px;
         }
 
         .member-info p {
-            margin: 4px 0;
+            margin: 4px 0 8px 0;
             color: #555;
             font-size: 13px;
-        }
-
-        .player-details {
-            display: flex;
-            gap: 12px;
-            margin-top: 6px;
-            font-size: 12px;
-            color: #333;
-            background: #f8f9fa;
-            padding: 6px 10px;
-            border-radius: 6px;
-            width: fit-content;
         }
 
         .badge {
@@ -252,17 +268,31 @@
             border-radius: 20px;
             font-size: 11px;
             font-weight: 600;
+            width: fit-content;
         }
 
         .badge-player {
-            display: inline-block;
-            margin: 6px 0;
-            background: #FFD700;
-            color: #000;
-            font-weight: bold;
-            padding: 4px 12px;
+            background: #f8c4d8;
+            color: #7a1638;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 11px;
+            font-weight: bold;
+            display: inline-block;
+            font-size: 12px;
+            width: fit-content;
+        }
+
+        .player-details {
+            background: #fff;
+            border: 1px solid #f3d2df;
+            border-radius: 12px;
+            padding: 8px 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 12px;
+            color: #333;
+            margin-top: 4px;
         }
 
         /* Footer */
@@ -290,19 +320,10 @@
                 justify-content: space-between;
                 align-items: center;
             }
-            .header-title h1 {
-                font-size: 18px;
-            }
-            .subtitle {
-                font-size: 12px;
-            }
-            .logo {
-                width: 50px;
-                height: 50px;
-            }
-            .menu-toggle {
-                display: block; 
-            }
+            .header-title h1 { font-size: 18px; }
+            .subtitle { font-size: 12px; }
+            .logo { width: 50px; height: 50px; }
+            .menu-toggle { display: block; }
             
             nav {
                 display: none; 
@@ -312,9 +333,7 @@
                 margin-left: 0;
                 gap: 0;
             }
-            nav.active {
-                display: flex; 
-            }
+            nav.active { display: flex; }
             nav a, .dropdown, .dropdown-btn {
                 width: 100%;
                 text-align: left;
@@ -322,9 +341,7 @@
                 border-radius: 0;
                 box-sizing: border-box;
             }
-            .dropdown {
-                width: 100%;
-            }
+            .dropdown { width: 100%; }
             .dropdown-content {
                 position: static;
                 display: none;
@@ -334,19 +351,11 @@
                 border-radius: 8px;
                 margin-top: 5px;
             }
-            .dropdown:hover .dropdown-content {
-                display: none;
-            }
-            .dropdown.active .dropdown-content {
-                display: block;
-            }
-            .dropdown-content a {
-                padding-left: 35px;
-            }
+            .dropdown:hover .dropdown-content { display: none; }
+            .dropdown.active .dropdown-content { display: block; }
+            .dropdown-content a { padding-left: 35px; }
 
-            .team-grid {
-                grid-template-columns: 1fr; 
-            }
+            .team-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -407,7 +416,7 @@
                 </div>
             </div>
 
-            <!-- DROPDOWN KHUSUS BAWAH 18  -->
+            <!-- DROPDOWN KHUSUS BAWAH 18 -->
             <div class="dropdown">
                 <button class="dropdown-btn" style="color: #ffeb3b;">
                     <span>MENU B18</span>
@@ -447,7 +456,7 @@
     <main>
         <section class="hero">
             <h2>👥 MSS KEDAH</h2>
-            <p>Kategori Perempuan Bawah 12</p>
+            <p>Kategori Bawah 18</p>
         </section>
 
         <!-- PEGAWAI PASUKAN -->
@@ -455,36 +464,45 @@
             <h2>👔 Pegawai Pasukan</h2>
 
             <div class="team-grid">
-                <!-- Pegawai 1 -->
+                <!-- Pegawai 1: Pengurus -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/pengurus.jpg" alt="Pengurus">
+                    <div class="player-photo">
+                        <img src="../../../../images/profile/kedah/pengurus.jpg" alt="Pengurus">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
                         <h3>PENGURUS</h3>
-                        <span class="badge">NAMA PENGURUS PASUKAN</span>
-                        <p>Sekolah / Institusi</p>
+                        <span class="badge">PEGAWAI</span>
+                        <p>SK  KEDAH</p>
                     </div>
                 </div>
 
-                <!-- Pegawai 2 -->
+                <!-- Pegawai 2: Jurulatih -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/jurulatih.jpg" alt="Jurulatih">
+                    <div class="player-photo">
+                        <img src="../../../../images/profile/kedah/jurulatih.jpg" alt="Jurulatih">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
-                        <h3>JURULATIH</h3>
-                        <span class="badge">NAMA JURULATIH</span>
-                        <p>Sekolah / Institusi</p>
+                        <h3>PEGAWAI</h3>
+                        <span class="badge">JURULATIH</span>
+                        <p>SK  KEDAH</p>
                     </div>
                 </div>
 
-                <!-- Pegawai 3 -->
+                <!-- Pegawai 3: Fisioterapi -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/fisioterapi.jpg" alt="Fisioterapi">
+                    <div class="player-photo">
+                        <img src="../../../../images/profile/kedah/fisioterapi.jpg" alt="Fisioterapi">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
-                        <h3>FISIOTERAPI</h3>
-                        <span class="badge">NAMA FISIOTERAPI</span>
-                        <p>Sekolah / Institusi</p>
+                        <h3>NURUL IZZAH BINTI MOHD FAZI</h3>
+                        <span class="badge">FISIOTERAPI</span>
+                        <p>SK KEDAH, KEDAH</p>
                     </div>
                 </div>
-            </div>
+        
         </section>
 
         <!-- SENARAI ATLET -->
@@ -494,49 +512,63 @@
             <div class="team-grid">
                 <!-- Atlet 1 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/player1.jpg" alt="Player">
+                    <div class="player-photo">
+                        <img src="profile/kedah/player1.jpg" alt="Nur Adriana Damia">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
-                        <h3>NAMA ATLET 1</h3>
+                        <h3>NUR ADRIANA DAMIA BINTI MOHD AIDIL</h3>
                         <span class="badge-player">GS / GA</span>
-                        <p>SK </p>
+                        <p>SK TAMAN SCIENTEX, PASIR GUDANG, JOHOR</p>
                         <div class="player-details">
                             <span>🎂 <strong>Umur:</strong> 12 Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong>  cm</span>
+                            <span>📏 <strong>Tinggi:</strong> 168 cm</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Atlet 2 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/player2.jpg" alt="Player">
+                    <div class="player-photo">
+                        <img src="profile/kedah/player2.jpg" alt="NOR ADILAH">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
-                        <h3>NAMA ATLET 2</h3>
-                        <span class="badge-player">C / WA</span>
-                        <p>SK </p>
+                        <h3>NOR ADILAH BINTI HASAN</h3>
+                        <span class="badge-player">GD / GK</span>
+                        <p>SK TAMAN SCIENTEX, PASIR GUDANG, JOHOR</p>
                         <div class="player-details">
                             <span>🎂 <strong>Umur:</strong> 12 Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong>  cm</span>
+                            <span>📏 <strong>Tinggi:</strong> 160 cm</span>
+                           
                         </div>
                     </div>
                 </div>
 
                 <!-- Atlet 3 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/player3.jpg" alt="Player">
+                    <div class="player-photo">
+                        <img src="../../../../images/profile/kedah/player3.jpg" alt="Player 3">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
                         <h3>NAMA ATLET 3</h3>
                         <span class="badge-player">GK / GD</span>
-                        <p>SK </p>
+                        <p>SEKOLAH</p>
                         <div class="player-details">
                             <span>🎂 <strong>Umur:</strong> 12 Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong>  cm</span>
+                            <span>📏 <strong>Tinggi:</strong> -- cm</span>
+                           
                         </div>
                     </div>
                 </div>
 
                 <!-- Atlet 4 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/player4.jpg" alt="Player">
+                    <div class="player-photo">
+                        <img src="../../../../images/profile/kedah/player4.jpg" alt="Player 4">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
                         <h3>NAMA ATLET 4</h3>
                         <span class="badge-player">POSISI</span>
@@ -544,13 +576,17 @@
                         <div class="player-details">
                             <span>🎂 <strong>Umur:</strong> -- Tahun</span>
                             <span>📏 <strong>Tinggi:</strong> -- cm</span>
+                           
                         </div>
                     </div>
                 </div>
 
                 <!-- Atlet 5 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/player5.jpg" alt="Player">
+                    <div class="player-photo">
+                        <img src="../../../../images/profile/kedah/player5.jpg" alt="Player 5">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
                         <h3>NAMA ATLET 5</h3>
                         <span class="badge-player">POSISI</span>
@@ -558,13 +594,17 @@
                         <div class="player-details">
                             <span>🎂 <strong>Umur:</strong> -- Tahun</span>
                             <span>📏 <strong>Tinggi:</strong> -- cm</span>
+                            
                         </div>
                     </div>
                 </div>
 
                 <!-- Atlet 6 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/player6.jpg" alt="Player">
+                    <div class="player-photo">
+                        <img src="../../../../images/profile/kedah/player6.jpg" alt="Player 6">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
                         <h3>NAMA ATLET 6</h3>
                         <span class="badge-player">POSISI</span>
@@ -572,13 +612,17 @@
                         <div class="player-details">
                             <span>🎂 <strong>Umur:</strong> -- Tahun</span>
                             <span>📏 <strong>Tinggi:</strong> -- cm</span>
+                            
                         </div>
                     </div>
                 </div>
 
                 <!-- Atlet 7 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/player7.jpg" alt="Player">
+                    <div class="player-photo">
+                        <img src="../../../../images/profile/kedah/player7.jpg" alt="Player 7">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
                         <h3>NAMA ATLET 7</h3>
                         <span class="badge-player">POSISI</span>
@@ -586,13 +630,17 @@
                         <div class="player-details">
                             <span>🎂 <strong>Umur:</strong> -- Tahun</span>
                             <span>📏 <strong>Tinggi:</strong> -- cm</span>
+                           
                         </div>
                     </div>
                 </div>
 
                 <!-- Atlet 8 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/player8.jpg" alt="Player">
+                    <div class="player-photo">
+                        <img src="../../../../images/profile/kedah/player8.jpg" alt="Player 8">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
                         <h3>NAMA ATLET 8</h3>
                         <span class="badge-player">POSISI</span>
@@ -600,13 +648,17 @@
                         <div class="player-details">
                             <span>🎂 <strong>Umur:</strong> -- Tahun</span>
                             <span>📏 <strong>Tinggi:</strong> -- cm</span>
+                           
                         </div>
                     </div>
                 </div>
 
                 <!-- Atlet 9 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/player9.jpg" alt="Player">
+                    <div class="player-photo">
+                        <img src="../../../../images/profile/kedah/player9.jpg" alt="Player 9">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
                         <h3>NAMA ATLET 9</h3>
                         <span class="badge-player">POSISI</span>
@@ -614,13 +666,17 @@
                         <div class="player-details">
                             <span>🎂 <strong>Umur:</strong> -- Tahun</span>
                             <span>📏 <strong>Tinggi:</strong> -- cm</span>
+                           
                         </div>
                     </div>
                 </div>
 
                 <!-- Atlet 10 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/player10.jpg" alt="Player">
+                    <div class="player-photo">
+                        <img src="../../../../images/profile/kedah/player10.jpg" alt="Player 10">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
                         <h3>NAMA ATLET 10</h3>
                         <span class="badge-player">POSISI</span>
@@ -628,13 +684,17 @@
                         <div class="player-details">
                             <span>🎂 <strong>Umur:</strong> -- Tahun</span>
                             <span>📏 <strong>Tinggi:</strong> -- cm</span>
+                            
                         </div>
                     </div>
                 </div>
 
                 <!-- Atlet 11 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/player11.jpg" alt="Player">
+                    <div class="player-photo">
+                        <img src="../../../../images/profile/kedah/player11.jpg" alt="Player 11">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
                         <h3>NAMA ATLET 11</h3>
                         <span class="badge-player">POSISI</span>
@@ -642,13 +702,17 @@
                         <div class="player-details">
                             <span>🎂 <strong>Umur:</strong> -- Tahun</span>
                             <span>📏 <strong>Tinggi:</strong> -- cm</span>
+                            
                         </div>
                     </div>
                 </div>
 
                 <!-- Atlet 12 -->
                 <div class="member-card">
-                    <img src="../../../../images/profile/johor/player12.jpg" alt="Player">
+                    <div class="player-photo">
+                        <img src="../../../../images/profile/kedah/player12.jpg" alt="Player 12">
+                        <img src="../../../../images/logo/kedah.png" class="team-logo" alt="Logo Kedah">
+                    </div>
                     <div class="member-info">
                         <h3>NAMA ATLET 12</h3>
                         <span class="badge-player">POSISI</span>
@@ -656,6 +720,7 @@
                         <div class="player-details">
                             <span>🎂 <strong>Umur:</strong> -- Tahun</span>
                             <span>📏 <strong>Tinggi:</strong> -- cm</span>
+                            
                         </div>
                     </div>
                 </div>
