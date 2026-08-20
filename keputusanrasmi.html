@@ -63,6 +63,7 @@
             width: 70px;
             height: 70px;
             object-fit: contain;
+            flex-shrink: 0;
         }
 
         .header-title h1 {
@@ -288,9 +289,13 @@
         }
 
         .team-logo {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
+            min-width: 45px;
+            min-height: 45px;
             object-fit: contain;
+            flex-shrink: 0;
+            display: inline-block;
         }
 
         .team-details h4 {
@@ -337,10 +342,12 @@
             background: #fafafa;
             padding: 12px 20px;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .quarter-table {
             width: 100%;
+            min-width: 450px;
             max-width: 600px;
             margin: 0 auto;
             border-collapse: collapse;
@@ -410,16 +417,18 @@
             }
 
             .logo {
-                width: 50px;
-                height: 50px;
+                width: 45px;
+                height: 45px;
+                min-width: 45px;
+                min-height: 45px;
             }
 
             .header-title h1 {
-                font-size: 18px;
+                font-size: 16px;
             }
 
             .subtitle {
-                font-size: 12px;
+                font-size: 11px;
             }
 
             .menu-toggle {
@@ -454,15 +463,28 @@
                 justify-content: center;
                 text-align: center;
                 flex-direction: column;
-                gap: 8px;
+                gap: 6px;
+                width: 100%;
             }
 
             .team-box.left {
                 flex-direction: column-reverse;
             }
 
+            .team-logo {
+                width: 35px;
+                height: 35px;
+                min-width: 35px;
+                min-height: 35px;
+                display: inline-block !important;
+            }
+
+            .team-details h4 {
+                font-size: 14px;
+            }
+
             .main-score {
-                font-size: 28px;
+                font-size: 26px;
             }
 
             .tab-btn, .print-btn {
@@ -523,7 +545,7 @@
     </footer>
 
     <script>
-        // DATA KEPUTUSAN DARI FAIL WORD DOKUMEN JADUAL PERLAWANAN 2026 MSSM
+        // DATA KEPUTUSAN DARI FAIL JADUAL PERLAWANAN 2026 MSSM
         const scheduleData = {
             u12: {
                 location: "Dewan KBS, Masjid Tanah Melaka",

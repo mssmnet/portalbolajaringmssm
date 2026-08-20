@@ -63,6 +63,7 @@
             height: 70px;
             object-fit: contain;
             background: transparent;
+            flex-shrink: 0;
         }
 
         .header-title h1 {
@@ -322,6 +323,7 @@
         .table-responsive {
             width: 100%;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
             border-radius: 10px;
             border: 1px solid #eee;
             margin-bottom: 10px;
@@ -329,6 +331,7 @@
 
         table {
             width: 100%;
+            min-width: 600px;
             border-collapse: collapse;
             text-align: center;
             background: white;
@@ -347,6 +350,7 @@
             padding: 10px;
             border-bottom: 1px solid #f0f0f0;
             color: #333;
+            vertical-align: middle;
         }
 
         tr:nth-child(even) {
@@ -375,27 +379,24 @@
             font-weight: bold;
         }
 
-        /* SUSUNAN BARU FLEXBOX LOKASI LOGO DI TEPI KIRI */
         .team-cell {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: flex-start;
-            gap: 10px;
+            gap: 8px;
             font-weight: bold;
             color: #222;
             white-space: nowrap;
             width: 100%;
         }
 
-        .team-cell.left,
-        .team-cell.right {
-            justify-content: flex-start;
-        }
-
         .team-logo {
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+            min-height: 28px;
             object-fit: contain;
+            display: inline-block;
             flex-shrink: 0;
         }
 
@@ -418,24 +419,25 @@
         @media (max-width: 768px) {
             header {
                 flex-wrap: wrap;
-                padding: 15px 20px;
+                padding: 12px 15px;
             }
 
             .header-left {
-                gap: 12px;
+                gap: 10px;
             }
 
             .logo {
-                width: 50px;
-                height: 50px;
+                width: 45px;
+                height: 45px;
+                display: block !important;
             }
 
             .header-title h1 {
-                font-size: 18px;
+                font-size: 16px;
             }
 
             .subtitle {
-                font-size: 11px;
+                font-size: 10px;
             }
 
             .menu-toggle {
@@ -495,22 +497,29 @@
             }
 
             .hero h2 {
-                font-size: 22px;
+                font-size: 20px;
             }
 
             .tab-btn, .print-btn {
-                padding: 10px 18px;
-                font-size: 13px;
+                padding: 8px 14px;
+                font-size: 12px;
             }
 
             th, td {
-                padding: 8px 5px;
+                padding: 8px 6px;
                 font-size: 12px;
             }
 
             .team-logo {
-                width: 20px;
-                height: 20px;
+                width: 22px;
+                height: 22px;
+                min-width: 22px;
+                min-height: 22px;
+                display: inline-block !important;
+            }
+
+            .team-name {
+                font-size: 11px;
             }
         }
 
