@@ -165,9 +165,38 @@
             }
         }
 
-        /* MAIN CONTAINER & HERO */
-        .container { max-width: 1150px; margin: 40px auto; padding: 0 20px; }
-        
+        /* MAIN CONTAINER */
+        .container { 
+            max-width: 1150px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+        }
+
+        /* RUANGAN POSTER ATAS (PENUH GRID 100%) */
+        .poster-section {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            padding: 0; /* Padding dibuang supaya poster penuh hingga ke bucu grid */
+            margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+            box-sizing: border-box;
+            width: 100%;
+            line-height: 0; /* Menghilangkan celah bawah imej */
+        }
+
+        .poster-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover; /* Poster memenuhi seluruh grid */
+            border-radius: 20px;
+        }
+
+        /* HERO / KOTAK SELAMAT DATANG */
         .hero { 
             background: rgba(255, 255, 255, 0.9); 
             backdrop-filter: blur(10px);
@@ -315,6 +344,8 @@
             .dropdown.open .dropdown-content { display: block; }
             .dropdown.open .dropdown-btn i { transform: rotate(180deg); }
 
+            .poster-section { margin-bottom: 20px; }
+
             .hero { margin: 20px 0; padding: 30px 20px; }
             .hero h2 { font-size: 24px; }
             .hero p { font-size: 14px; }
@@ -399,13 +430,19 @@
     </header>
 
     <main class="container">
+        <!-- RUANGAN POSTER ATAS (DI ATAS GRID SELAMAT DATANG) -->
+        <section class="poster-section">
+            <img src="images/melaka2026.jpeg" alt="Poster Kejohanan Bola Jaring MSSM 2026 Melaka">
+        </section>
+
+        <!-- KOTAK SELAMAT DATANG & AKSES PANTAS -->
         <section class="hero">
             <h2>Selamat Datang</h2>
             <p>Platform Pusat Kejohanan Bola Jaring Majlis Sukan Sekolah Malaysia</p>
             <p>Portal Rasmi Bola Jaring MSSM ialah platform digital rasmi yang menyediakan maklumat terkini mengenai kejohanan, keputusan, jadual perlawanan, kedudukan pasukan, carta pertandingan, siaran langsung, galeri, dokumen rasmi serta pelbagai informasi berkaitan bola jaring sekolah di Malaysia.</p>
             
             <div class="button-group">
-                <a href="kejohanan.html" class="btn-hub">🏆 MASUK KE HUB KEJOHANAN</a>
+                <a href="tournament/index.html" class="btn-hub">🏆 MASUK KE HUB KEJOHANAN</a>
             </div>
 
             <!-- AKSES PANTAS -->
