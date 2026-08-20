@@ -16,7 +16,7 @@
         body { 
             margin: 0; 
             padding: 0; 
-            font-family: 'Segoe UI', Tahoma, sans-serif; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             background-color: #fce4ec; 
             background-image: url('images/bg-utama.jpg'); 
             background-size: cover;
@@ -118,6 +118,10 @@
             display: inline-block;
         }
 
+        .dropdown-btn i {
+            transition: transform 0.3s ease;
+        }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -155,37 +159,36 @@
             margin: 6px 0;
         }
 
-        /* Hover berfungsikan desktop sahaja */
         @media (min-width: 769px) {
             .dropdown:hover .dropdown-content {
                 display: block;
             }
         }
 
-        /* MAIN CONTENT CONTAINER */
-        .container { max-width: 1150px; margin: 50px auto; padding: 0 20px; }
+        /* MAIN CONTAINER & HERO */
+        .container { max-width: 1150px; margin: 40px auto; padding: 0 20px; }
         
         .hero { 
-            background: rgba(255, 255, 255, 0.85); 
+            background: rgba(255, 255, 255, 0.9); 
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            padding: 60px 40px; 
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            padding: 50px 40px; 
             border-radius: 20px; 
             text-align: center; 
-            margin-bottom: 50px; 
+            margin-bottom: 40px; 
             box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
         }
         
-        .hero h2 { color: var(--maroon-mssm); font-size: 38px; margin-bottom: 15px; text-transform: uppercase; }
-        .hero p { color: #444; font-size: 18px; line-height: 1.6; max-width: 900px; margin: 0 auto 15px auto; }
+        .hero h2 { color: var(--maroon-mssm); font-size: 36px; margin-bottom: 15px; text-transform: uppercase; }
+        .hero p { color: #444; font-size: 17px; line-height: 1.6; max-width: 900px; margin: 0 auto 15px auto; }
         
         .button-group {
             display: flex;
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
-            margin-top: 25px;
+            margin: 25px 0 35px 0;
         }
 
         .btn-hub { 
@@ -202,12 +205,61 @@
         }
         .btn-hub:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(123, 30, 58, 0.6); }
 
+        /* AKSES PANTAS SECTIONS */
+        .quick-access { margin-top: 40px; text-align: center; }
+        .quick-access h2 { margin: 0; color: var(--maroon-mssm); font-size: 26px; font-weight: 800; }
+        .quick-subtitle { margin: 8px 0 25px; color: #666; font-size: 15px; }
+
+        .quick-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px; 
+            max-width: 850px; 
+            margin: 0 auto; 
+        }
+
+        .quick-card { 
+            position: relative; 
+            display: flex; 
+            align-items: center; 
+            text-align: left; 
+            gap: 16px; 
+            padding: 20px 24px; 
+            background: linear-gradient(135deg, #ffffff, #fff5f8); 
+            border: 2px solid #f1c6d3; 
+            border-radius: 18px; 
+            text-decoration: none; 
+            color: #333; 
+            box-shadow: 0 8px 20px rgba(123, 30, 58, 0.08); 
+            transition: all 0.3s ease; 
+        }
+
+        .quick-icon { 
+            width: 55px; 
+            height: 55px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background: var(--maroon-mssm); 
+            color: white; 
+            border-radius: 14px; 
+            font-size: 26px; 
+            flex-shrink: 0; 
+        }
+
+        .quick-card h3 { margin: 0 0 4px; color: var(--maroon-mssm); font-size: 17px; font-weight: 800; }
+        .quick-card p { margin: 0; color: #666; font-size: 13px; line-height: 1.4; }
+        .quick-card .arrow { margin-left: auto; color: var(--maroon-mssm); font-size: 24px; font-weight: bold; transition: transform 0.3s ease; }
+
+        .quick-card:hover { transform: translateY(-4px); border-color: var(--maroon-mssm); box-shadow: 0 12px 25px rgba(123, 30, 58, 0.18); }
+        .quick-card:hover .arrow { transform: translateX(6px); }
+
         footer { background-color: var(--maroon-mssm); color: white; text-align: center; padding: 25px; margin-top: 60px; font-size: 15px; }
 
         /* BURGER MENU BUTTON */
         .menu-toggle {
             display: none;
-            font-size: 26px;
+            font-size: 24px;
             color: white;
             background: none;
             border: none;
@@ -215,53 +267,30 @@
             padding: 5px 10px;
         }
 
-        /* RESPONSLE HANDSET (MOBILE) */
+        /* RESPONSIVE MOBILE */
         @media (max-width: 768px) {
-            header {
-                flex-wrap: wrap;
-                padding: 15px 20px;
-            }
+            header { flex-wrap: wrap; padding: 12px 20px; }
+            .header-left { gap: 12px; }
+            .logo { width: 50px; height: 50px; }
+            .header-title h1 { font-size: 18px; }
+            .subtitle { font-size: 11px; }
 
-            .header-left {
-                gap: 12px;
-            }
-
-            .logo {
-                width: 50px;
-                height: 50px;
-            }
-
-            .header-title h1 {
-                font-size: 18px;
-            }
-
-            .subtitle {
-                font-size: 11px;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
+            .menu-toggle { display: block; }
 
             nav {
                 display: none;
                 width: 100%;
                 flex-direction: column;
-                margin-top: 15px;
+                margin-top: 12px;
                 gap: 0;
                 background-color: var(--maroon-dark);
                 border-radius: 10px;
                 overflow: hidden;
             }
 
-            nav.active {
-                display: flex;
-            }
+            nav.active { display: flex; }
 
-            nav a, .dropdown {
-                width: 100%;
-                box-sizing: border-box;
-            }
+            nav a, .dropdown { width: 100%; box-sizing: border-box; }
 
             nav a, .dropdown-btn {
                 width: 100%;
@@ -277,43 +306,22 @@
                 display: none;
                 box-shadow: none;
                 width: 100%;
-                background-color: rgba(0, 0, 0, 0.2);
+                background-color: rgba(0, 0, 0, 0.25);
                 padding: 0;
                 border-radius: 0;
             }
 
-            .dropdown-content a {
-                padding: 12px 30px;
-                font-size: 13px;
-            }
+            .dropdown-content a { padding: 12px 30px; font-size: 13px; }
+            .dropdown.open .dropdown-content { display: block; }
+            .dropdown.open .dropdown-btn i { transform: rotate(180deg); }
 
-            .dropdown.open .dropdown-content {
-                display: block;
-            }
+            .hero { margin: 20px 0; padding: 30px 20px; }
+            .hero h2 { font-size: 24px; }
+            .hero p { font-size: 14px; }
 
-            .dropdown.open .dropdown-btn i {
-                transform: rotate(180deg);
-            }
-
-            .hero {
-                margin: 25px 10px;
-                padding: 30px 20px;
-            }
-
-            .hero h2 {
-                font-size: 26px;
-            }
-
-            .hero p {
-                font-size: 15px;
-            }
-
-            .btn-hub {
-                width: 100%;
-                box-sizing: border-box;
-                font-size: 16px;
-                padding: 14px 20px;
-            }
+            .btn-hub { width: 100%; box-sizing: border-box; font-size: 16px; padding: 14px 20px; }
+            .quick-grid { grid-template-columns: 1fr; }
+            .quick-card { padding: 16px 20px; }
         }
     </style>
 </head>
@@ -328,7 +336,7 @@
             </div>
         </div>
 
-        <!-- Butang Burger -->
+        <!-- Butang Burger Menu -->
         <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
             <i class="fas fa-bars" id="menu-icon"></i>
         </button>
@@ -352,7 +360,6 @@
                     <a href="about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
                     <a href="rules.html">PERATURAN</a>
                     <a href="calendar.html">TAKWIM</a>
-                   
                 </div>
             </div>
             
@@ -364,7 +371,10 @@
                 </button>
                 <div class="dropdown-content">
                     <a href="tournament/mssm2026/index.html">MSSM 2026</a>  
-                     <hr>
+                    <hr>
+                    <a href="jadual.html">JADUAL PERLAWANAN MSSM 2026</a>
+                    <a href="keputusanrasmi.html">KEPUTUSAN RASMI MSSM 2026</a>
+                    <hr>
                     <a href="../../../bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
                     <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
                     <a href="borang.html" target="_blank">MUAT TURUN BORANG PERTANDINGAN ↗</a>
@@ -395,7 +405,35 @@
             <p>Portal Rasmi Bola Jaring MSSM ialah platform digital rasmi yang menyediakan maklumat terkini mengenai kejohanan, keputusan, jadual perlawanan, kedudukan pasukan, carta pertandingan, siaran langsung, galeri, dokumen rasmi serta pelbagai informasi berkaitan bola jaring sekolah di Malaysia.</p>
             
             <div class="button-group">
-                <a href="tournament/index.html" class="btn-hub">🏆 MASUK KE HUB KEJOHANAN</a>
+                <a href="kejohanan.html" class="btn-hub">🏆 MASUK KE HUB KEJOHANAN</a>
+            </div>
+
+            <!-- AKSES PANTAS -->
+            <div class="quick-access">
+                <h2>AKSES PANTAS</h2>
+                <p class="quick-subtitle">Akses terus kepada maklumat kejohanan</p>
+
+                <div class="quick-grid">
+                    <!-- JADUAL -->
+                    <a href="jadual.html" class="quick-card">
+                        <div class="quick-icon">📅</div>
+                        <div>
+                            <h3>JADUAL PERLAWANAN</h3>
+                            <p>Lihat jadual perlawanan dan waktu permainan</p>
+                        </div>
+                        <span class="arrow">→</span>
+                    </a>
+
+                    <!-- KEPUTUSAN -->
+                    <a href="keputusanrasmi.html" class="quick-card">
+                        <div class="quick-icon">🏆</div>
+                        <div>
+                            <h3>KEPUTUSAN RASMI</h3>
+                            <p>Lihat keputusan rasmi dan keputusan terkini</p>
+                        </div>
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
@@ -404,7 +442,7 @@
         <p>© 2026 Portal Bola Jaring MSSM</p>
     </footer>
 
-    <!-- SKRIP JAVASCRIPT KEMAS & RESPONSIF -->
+    <!-- SKRIP JAVASCRIPT RESPONSIF -->
     <script>
         const menuToggle = document.getElementById("menu-toggle");
         const menuIcon = document.getElementById("menu-icon");
@@ -412,10 +450,10 @@
         const dropdowns = document.querySelectorAll(".dropdown");
 
         // Toggle Burger Menu pada Mobile
-        menuToggle.addEventListener("click", () => {
+        menuToggle.addEventListener("click", (e) => {
+            e.stopPropagation();
             nav.classList.toggle("active");
             
-            // Tukar ikon burger (fa-bars) kepada ikon tutup (fa-xmark)
             if (nav.classList.contains("active")) {
                 menuIcon.classList.remove("fa-bars");
                 menuIcon.classList.add("fa-xmark");
@@ -431,6 +469,7 @@
             btn.addEventListener("click", (e) => {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
+                    e.stopPropagation();
                     
                     // Tutup dropdown lain yang terbuka
                     dropdowns.forEach(otherDropdown => {
@@ -443,6 +482,16 @@
                     dropdown.classList.toggle("open");
                 }
             });
+        });
+
+        // Tutup menu mobile apabila pengguna klik di luar header
+        document.addEventListener("click", (e) => {
+            if (window.innerWidth <= 768 && !nav.contains(e.target) && !menuToggle.contains(e.target)) {
+                nav.classList.remove("active");
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+                dropdowns.forEach(dropdown => dropdown.classList.remove("open"));
+            }
         });
     </script>
 </body>

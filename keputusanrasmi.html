@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keputusan Rasmi | MSSM 2026</title>
+    
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --maroon: #7B1E3A;
+            --maroon-dark: #581328;
+            --gold: #FFD700;
+            --pink: #FCE4EC;
+            --white: #ffffff;
+            --gray-bg: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: url('../../../images/bg-utama.jpg') center/cover fixed;
+            background-color: var(--pink);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px 10px;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: var(--maroon);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        .header-title h1 {
+            color: white;
+            font-size: 24px;
+            margin: 0;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: #ffeb3b;
+            font-weight: 600;
+            margin-top: 2px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        /* HAMBURGER BUTTON (MOBILE) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: .3s;
+            font-weight: bold;
+            font-size: 15px;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        nav a:hover, nav a.active {
+            background: rgba(255,255,255,.2);
+            color: var(--gold);
+        }
+
+        /* HERO & CONTENT SECTION */
+        .hero {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .hero h2 {
+            color: var(--maroon);
+            font-size: 28px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        /* TAB CONTAINER SEBARIS DENGAN BUTANG PRINT */
+        .tab-container {
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: white;
+            color: var(--maroon);
+            border: 2px solid var(--maroon);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--maroon);
+            color: var(--gold);
+        }
+
+        /* BUTANG PRINT */
+        .print-btn {
+            background: #27ae60;
+            color: white;
+            border: 2px solid #27ae60;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .print-btn:hover {
+            background: #219150;
+            border-color: #219150;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .results-container {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            display: none;
+        }
+
+        .results-container.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .day-header {
+            background: var(--maroon);
+            color: var(--gold);
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin: 25px 0 15px 0;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* REKABENTUK KAD KEPUTUSAN DETAIL */
+        .match-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .match-header {
+            background: #fdf3f5;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            border-bottom: 1px solid #f1e1e5;
+        }
+
+        .match-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .badge-kump {
+            background: var(--maroon);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .status-badge {
+            background: #e67e22;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .match-body {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .team-box {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .team-box.left {
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        .team-box.right {
+            justify-content: flex-start;
+            text-align: left;
+        }
+
+        .team-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .team-details h4 {
+            font-size: 16px;
+            color: #222;
+            font-weight: 800;
+        }
+
+        .score-center {
+            text-align: center;
+            padding: 0 15px;
+            min-width: 160px;
+        }
+
+        .main-score {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--maroon-dark);
+            letter-spacing: 2px;
+            line-height: 1;
+        }
+
+        .vs-text {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        /* RUANG PEMENANG */
+        .winner-box {
+            margin-top: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #27ae60;
+            background: #e8f8f5;
+            padding: 3px 8px;
+            border-radius: 12px;
+            display: inline-block;
+            min-height: 22px;
+        }
+
+        .quarter-breakdown {
+            background: #fafafa;
+            padding: 12px 20px;
+            overflow-x: auto;
+        }
+
+        .quarter-table {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .quarter-table th {
+            color: #666;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .quarter-table td {
+            padding: 6px 8px;
+            font-weight: 700;
+            color: #333;
+            text-align: center;
+        }
+
+        footer {
+            background: var(--maroon);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: auto;
+            font-size: 15px;
+        }
+
+        /* STYLING KHAS APABILA DICETAK (PRINT CSS) */
+        @media print {
+            header, footer, .tab-container, .print-btn, .menu-toggle {
+                display: none !important;
+            }
+
+            body {
+                background: none !important;
+                background-color: white !important;
+            }
+
+            main {
+                padding: 0;
+            }
+
+            .hero {
+                box-shadow: none !important;
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+            }
+
+            .results-container {
+                display: block !important;
+            }
+
+            .match-card {
+                page-break-inside: avoid;
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+            }
+        }
+
+        /* MEDIA QUERIES (RESPONSIF MOBILE) */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .header-title h1 {
+                font-size: 18px;
+            }
+
+            .subtitle {
+                font-size: 12px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 15px;
+                background: var(--maroon-dark);
+                padding: 10px;
+                border-radius: 8px;
+            }
+
+            nav.show {
+                display: flex;
+            }
+
+            nav a {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .match-body {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .team-box.left, .team-box.right {
+                justify-content: center;
+                text-align: center;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .team-box.left {
+                flex-direction: column-reverse;
+            }
+
+            .main-score {
+                font-size: 28px;
+            }
+
+            .tab-btn, .print-btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="../../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
+            <div class="header-title">
+                <h1>PORTAL BOLA JARING MSSM</h1>
+                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+            </div>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav id="navMenu">
+            <a href="../../index.html"><i class="fas fa-home"></i> HOME</a>
+            <a href="fixtures.html"><i class="far fa-calendar-alt"></i> Fixtures</a>
+            <a href="results.html" class="active"><i class="fas fa-trophy"></i> Results</a>
+            <a href="standings.html"><i class="fas fa-chart-bar"></i> Standings</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>🏆 Keputusan Rasmi Perlawanan</h2>
+            <p>Kejohanan Bola Jaring Majlis Sukan Sekolah Malaysia 2026</p>
+        </section>
+
+        <!-- KATEGORI TAB & BUTANG PRINT SEBARIS -->
+        <div class="tab-container">
+            <button class="tab-btn active" onclick="switchCategory('u12', event)">👶 Bawah 12 Tahun</button>
+            <button class="tab-btn" onclick="switchCategory('u15', event)">🧒 Bawah 15 Tahun</button>
+            <button class="tab-btn" onclick="switchCategory('u18', event)">🧑 Bawah 18 Tahun</button>
+            <button class="print-btn" onclick="window.print()">
+                <i class="fas fa-print"></i> Cetak Keputusan
+            </button>
+        </div>
+
+        <!-- CONTAINERS UNTUK JANAAN AUTOMATIK -->
+        <div id="u12" class="results-container active"></div>
+        <div id="u15" class="results-container"></div>
+        <div id="u18" class="results-container"></div>
+    </main>
+
+    <footer>
+        <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
+    </footer>
+
+    <script>
+        // DATA KEPUTUSAN DARI FAIL WORD DOKUMEN JADUAL PERLAWANAN 2026 MSSM
+        const scheduleData = {
+            u12: {
+                location: "Dewan KBS, Masjid Tanah Melaka",
+                days: [
+                    {
+                        day: "HARI 1 : 29 OGOS 2026 (SABTU)",
+                        matches: [
+                            { bil: 1, time: "08.00 AM", kump: "Kumpulan B", teamA: "MSS SELANGOR", teamB: "MSS NEGERI SEMBILAN" },
+                            { bil: 2, time: "09.00 AM", kump: "Kumpulan C", teamA: "MSS TERENGGANU", teamB: "MSS PUTRAJAYA" },
+                            { bil: 3, time: "10.00 AM", kump: "Kumpulan D", teamA: "MSS KEDAH", teamB: "MSS PERAK" },
+                            { bil: 4, time: "11.00 AM", kump: "Kumpulan B", teamA: "MSS PULAU PINANG", teamB: "MSS PERLIS" },
+                            { bil: 5, time: "12.00 PM", kump: "Kumpulan C", teamA: "MSS KUALA LUMPUR", teamB: "MSS PAHANG" },
+                            { bil: 6, time: "01.00 PM", kump: "Kumpulan D", teamA: "MSS SABAH", teamB: "MSS MELAKA" },
+                            { bil: 7, time: "02.00 PM", kump: "Kumpulan A", teamA: "MSS JOHOR", teamB: "MSS SARAWAK" },
+                            { bil: 8, time: "03.00 PM", kump: "Kumpulan B", teamA: "MSS SELANGOR", teamB: "MSS PULAU PINANG" },
+                            { bil: 9, time: "04.00 PM", kump: "Kumpulan C", teamA: "MSS TERENGGANU", teamB: "MSS KUALA LUMPUR" },
+                            { bil: 10, time: "05.00 PM", kump: "Kumpulan D", teamA: "MSS KEDAH", teamB: "MSS SABAH" },
+                            { bil: 11, time: "06.00 PM", kump: "Kumpulan B", teamA: "MSS NEGERI SEMBILAN", teamB: "MSS PERLIS" }
+                        ]
+                    },
+                    {
+                        day: "HARI 2 : 30 OGOS 2026 (AHAD)",
+                        matches: [
+                            { bil: 12, time: "08.00 AM", kump: "Kumpulan C", teamA: "MSS PUTRAJAYA", teamB: "MSS PAHANG" },
+                            { bil: 13, time: "09.00 AM", kump: "Kumpulan D", teamA: "MSS PERAK", teamB: "MSS MELAKA" },
+                            { bil: 14, time: "10.00 AM", kump: "Kumpulan A", teamA: "MSS JOHOR", teamB: "MSS KELANTAN" },
+                            { bil: 15, time: "11.00 AM", kump: "Kumpulan B", teamA: "MSS SELANGOR", teamB: "MSS PERLIS" },
+                            { bil: 16, time: "12.00 PM", kump: "Kumpulan C", teamA: "MSS TERENGGANU", teamB: "MSS PAHANG" },
+                            { bil: 17, time: "01.00 PM", kump: "Kumpulan D", teamA: "MSS KEDAH", teamB: "MSS MELAKA" },
+                            { bil: 18, time: "02.00 PM", kump: "Kumpulan B", teamA: "MSS NEGERI SEMBILAN", teamB: "MSS PULAU PINANG" },
+                            { bil: 19, time: "03.00 PM", kump: "Kumpulan C", teamA: "MSS PUTRAJAYA", teamB: "MSS KUALA LUMPUR" },
+                            { bil: 20, time: "04.00 PM", kump: "Kumpulan D", teamA: "MSS PERAK", teamB: "MSS SABAH" },
+                            { bil: 21, time: "05.00 PM", kump: "Kumpulan A", teamA: "MSS SARAWAK", teamB: "MSS KELANTAN" }
+                        ]
+                    },
+                    {
+                        day: "HARI 3 : 31 OGOS 2026 (ISNIN)",
+                        matches: [
+                            { bil: 22, time: "02.00 PM", kump: "Klasifikasi CS1", teamA: "KE 3 (10)", teamB: "KE 4 (11)" },
+                            { bil: 23, time: "02.30 PM", kump: "Klasifikasi CS2", teamA: "KE 3 (12)", teamB: "KE 4 (13)" },
+                            { bil: 24, time: "03.00 PM", kump: "Klasifikasi CS3", teamA: "KE 3 (14)", teamB: "KE 4 (15)" },
+                            { bil: 25, time: "04.00 PM", kump: "Suku Akhir Q1", teamA: "JOHAN 1", teamB: "NAIB JOHAN 2" },
+                            { bil: 26, time: "05.00 PM", kump: "Suku Akhir Q2", teamA: "JOHAN 3", teamB: "NAIB JOHAN 4" }
+                        ]
+                    },
+                    {
+                        day: "HARI 4 : 01 SEPTEMBER 2026 (SELASA)",
+                        matches: [
+                            { bil: 27, time: "08.30 AM", kump: "Suku Akhir Q3", teamA: "JOHAN 5", teamB: "NAIB JOHAN 6" },
+                            { bil: 28, time: "09.30 AM", kump: "Suku Akhir Q4", teamA: "JOHAN 7", teamB: "NAIB JOHAN 8" },
+                            { bil: 29, time: "10.30 AM", kump: "Klasifikasi CS4", teamA: "KE 3(9) BYE", teamB: "MENANG 22" },
+                            { bil: 30, time: "11.00 AM", kump: "Klasifikasi CS5", teamA: "MENANG 23", teamB: "MENANG 24" },
+                            { bil: 31, time: "11.30 AM", kump: "Klasifikasi CS6", teamA: "KALAH 23", teamB: "KALAH 24" },
+                            { bil: 32, time: "12.00 PM", kump: "Klasifikasi CS7", teamA: "KALAH 25", teamB: "KALAH 26" },
+                            { bil: 33, time: "12.30 PM", kump: "Klasifikasi CS8", teamA: "KALAH 27", teamB: "KALAH 28" },
+                            { bil: 34, time: "02.00 PM", kump: "Separuh Akhir SF1", teamA: "MENANG 25", teamB: "MENANG 26" },
+                            { bil: 35, time: "03.00 PM", kump: "Separuh Akhir SF2", teamA: "MENANG 27", teamB: "MENANG 28" },
+                            { bil: 36, time: "04.00 PM", kump: "Ke 13/14", teamA: "KALAH 22", teamB: "MENANG 31" },
+                            { bil: 37, time: "04.30 PM", kump: "Ke 11/12", teamA: "KALAH 29", teamB: "KALAH 30" },
+                            { bil: 38, time: "05.00 PM", kump: "Ke 9/10", teamA: "MENANG 29", teamB: "MENANG 30" },
+                            { bil: 39, time: "05.30 PM", kump: "Ke 7/8", teamA: "KALAH 32", teamB: "KALAH 33" },
+                            { bil: 40, time: "06.00 PM", kump: "Ke 5/6", teamA: "MENANG 32", teamB: "MENANG 33" }
+                        ]
+                    },
+                    {
+                        day: "HARI 5 : 02 SEPTEMBER 2026 (RABU)",
+                        matches: [
+                            { bil: 41, time: "09.00 AM", kump: "Ke 3/4", teamA: "KALAH 34", teamB: "KALAH 35" },
+                            { bil: 42, time: "10.00 AM", kump: "Akhir (J/NJ)", teamA: "MENANG 34", teamB: "MENANG 35" }
+                        ]
+                    }
+                ]
+            },
+            u15: {
+                location: "Dewan Taming Sari, UiTM Lendu",
+                days: [
+                    {
+                        day: "HARI 1 : 29 OGOS 2026 (SABTU)",
+                        matches: [
+                            { bil: 1, time: "08.00 AM", kump: "Kumpulan A", teamA: "MSS SELANGOR", teamB: "MSS PAHANG" },
+                            { bil: 2, time: "09.00 AM", kump: "Kumpulan B", teamA: "MSS SARAWAK", teamB: "MSS WP LABUAN" },
+                            { bil: 3, time: "10.00 AM", kump: "Kumpulan C", teamA: "MSS WP KUALA LUMPUR", teamB: "MSS KELANTAN" },
+                            { bil: 4, time: "11.00 AM", kump: "Kumpulan D", teamA: "MSS JOHOR", teamB: "MSS PERAK" },
+                            { bil: 5, time: "12.00 PM", kump: "Kumpulan A", teamA: "MSS WP PUTRAJAYA", teamB: "MSS PULAU PINANG" },
+                            { bil: 6, time: "01.00 PM", kump: "Kumpulan B", teamA: "MSS TERENGGANU", teamB: "MSS MELAKA" },
+                            { bil: 7, time: "02.00 PM", kump: "Kumpulan C", teamA: "MSS NEGERI SEMBILAN", teamB: "MSS KEDAH" },
+                            { bil: 8, time: "03.00 PM", kump: "Kumpulan D", teamA: "MSS SABAH", teamB: "MSS PERLIS" },
+                            { bil: 9, time: "04.00 PM", kump: "Kumpulan A", teamA: "MSS SELANGOR", teamB: "MSS WP PUTRAJAYA" },
+                            { bil: 10, time: "05.00 PM", kump: "Kumpulan B", teamA: "MSS SARAWAK", teamB: "MSS TERENGGANU" },
+                            { bil: 11, time: "06.00 PM", kump: "Kumpulan C", teamA: "MSS WP KUALA LUMPUR", teamB: "MSS NEGERI SEMBILAN" }
+                        ]
+                    },
+                    {
+                        day: "HARI 2 : 30 OGOS 2026 (AHAD)",
+                        matches: [
+                            { bil: 12, time: "08.00 AM", kump: "Kumpulan D", teamA: "MSS JOHOR", teamB: "MSS SABAH" },
+                            { bil: 13, time: "09.00 AM", kump: "Kumpulan A", teamA: "MSS PAHANG", teamB: "MSS PULAU PINANG" },
+                            { bil: 14, time: "10.00 AM", kump: "Kumpulan B", teamA: "MSS WP LABUAN", teamB: "MSS MELAKA" },
+                            { bil: 15, time: "11.00 AM", kump: "Kumpulan C", teamA: "MSS KELANTAN", teamB: "MSS KEDAH" },
+                            { bil: 16, time: "12.00 PM", kump: "Kumpulan D", teamA: "MSS PERAK", teamB: "MSS PERLIS" },
+                            { bil: 17, time: "01.00 PM", kump: "Kumpulan A", teamA: "MSS SELANGOR", teamB: "MSS PULAU PINANG" },
+                            { bil: 18, time: "02.00 PM", kump: "Kumpulan B", teamA: "MSS SARAWAK", teamB: "MSS MELAKA" },
+                            { bil: 19, time: "03.00 PM", kump: "Kumpulan C", teamA: "MSS WP KUALA LUMPUR", teamB: "MSS KEDAH" },
+                            { bil: 20, time: "04.00 PM", kump: "Kumpulan D", teamA: "MSS JOHOR", teamB: "MSS PERLIS" },
+                            { bil: 21, time: "05.00 PM", kump: "Kumpulan A", teamA: "MSS PAHANG", teamB: "MSS WP PUTRAJAYA" },
+                            { bil: 22, time: "06.00 PM", kump: "Kumpulan B", teamA: "MSS WP LABUAN", teamB: "MSS TERENGGANU" }
+                        ]
+                    },
+                    {
+                        day: "HARI 3 : 31 OGOS 2026 (ISNIN)",
+                        matches: [
+                            { bil: 23, time: "09.30 AM", kump: "Kumpulan C", teamA: "MSS KELANTAN", teamB: "MSS NEGERI SEMBILAN" },
+                            { bil: 24, time: "10.30 AM", kump: "Kumpulan D", teamA: "MSS PERAK", teamB: "MSS SABAH" },
+                            { bil: 25, time: "02.00 PM", kump: "Klasifikasi CS1", teamA: "KE-3 (9)", teamB: "KE-4 (10)" },
+                            { bil: 26, time: "02.30 PM", kump: "Klasifikasi CS2", teamA: "KE-3 (11)", teamB: "KE-4 (12)" },
+                            { bil: 27, time: "03.00 PM", kump: "Klasifikasi CS3", teamA: "KE-3 (13)", teamB: "KE-4 (14)" },
+                            { bil: 28, time: "03.30 PM", kump: "Klasifikasi CS4", teamA: "KE-3 (15)", teamB: "KE-4 (16)" },
+                            { bil: 29, time: "04.00 PM", kump: "Suku Akhir Q1", teamA: "JOHAN 1", teamB: "NAIB JOHAN 2" },
+                            { bil: 30, time: "05.00 PM", kump: "Suku Akhir Q2", teamA: "JOHAN 3", teamB: "NAIB JOHAN 4" }
+                        ]
+                    },
+                    {
+                        day: "HARI 4 : 01 SEPTEMBER 2026 (SELASA)",
+                        matches: [
+                            { bil: 31, time: "08.30 AM", kump: "Suku Akhir Q3", teamA: "JOHAN 5", teamB: "NAIB JOHAN 6" },
+                            { bil: 32, time: "09.30 AM", kump: "Suku Akhir Q4", teamA: "JOHAN 7", teamB: "NAIB JOHAN 8" },
+                            { bil: 33, time: "10.30 AM", kump: "Klasifikasi CS5", teamA: "KALAH 25", teamB: "KALAH 26" },
+                            { bil: 34, time: "11.00 AM", kump: "Klasifikasi CS6", teamA: "KALAH 27", teamB: "KALAH 28" },
+                            { bil: 35, time: "11.30 AM", kump: "Klasifikasi CS7", teamA: "MENANG 25", teamB: "MENANG 26" },
+                            { bil: 36, time: "12.00 PM", kump: "Klasifikasi CS8", teamA: "MENANG 27", teamB: "MENANG 28" },
+                            { bil: 37, time: "12.30 PM", kump: "Klasifikasi CS9", teamA: "KALAH 29", teamB: "KALAH 30" },
+                            { bil: 38, time: "01.00 PM", kump: "Klasifikasi CS10", teamA: "KALAH 31", teamB: "KALAH 32" },
+                            { bil: 39, time: "02.00 PM", kump: "Separuh Akhir SF1", teamA: "MENANG 29", teamB: "MENANG 30" },
+                            { bil: 40, time: "03.00 PM", kump: "Separuh Akhir SF2", teamA: "MENANG 31", teamB: "MENANG 32" },
+                            { bil: 41, time: "04.00 PM", kump: "Ke 15/16", teamA: "KALAH 33", teamB: "KALAH 34" },
+                            { bil: 42, time: "04.30 PM", kump: "Ke 13/14", teamA: "MENANG 33", teamB: "MENANG 34" },
+                            { bil: 43, time: "05.00 PM", kump: "Ke 11/12", teamA: "KALAH 35", teamB: "KALAH 36" },
+                            { bil: 44, time: "05.30 PM", kump: "Ke 9/10", teamA: "MENANG 35", teamB: "MENANG 36" },
+                            { bil: 45, time: "06.00 PM", kump: "Ke 7/8", teamA: "KALAH 37", teamB: "KALAH 38" },
+                            { bil: 46, time: "06.30 PM", kump: "Ke 5/6", teamA: "MENANG 37", teamB: "MENANG 38" }
+                        ]
+                    },
+                    {
+                        day: "HARI 5 : 02 SEPTEMBER 2026 (RABU)",
+                        matches: [
+                            { bil: 47, time: "09.00 AM", kump: "Ke 3/4", teamA: "KALAH 39", teamB: "KALAH 40" },
+                            { bil: 48, time: "10.00 AM", kump: "Akhir (J/NJ)", teamA: "MENANG 39", teamB: "MENANG 40" }
+                        ]
+                    }
+                ]
+            },
+            u18: {
+                location: "Dewan Taming Sari, UiTM Lendu",
+                days: [
+                    {
+                        day: "HARI 1 : 29 OGOS 2026 (SABTU)",
+                        matches: [
+                            { bil: 1, time: "08.00 AM", kump: "Kumpulan B", teamA: "MSS JOHOR", teamB: "MSS SABAH" },
+                            { bil: 2, time: "09.00 AM", kump: "Kumpulan C", teamA: "WP KUALA LUMPUR", teamB: "MSS TERENGGANU" },
+                            { bil: 3, time: "10.00 AM", kump: "Kumpulan D", teamA: "WP PERAK", teamB: "MSS PAHANG" },
+                            { bil: 4, time: "11.00 AM", kump: "Kumpulan B", teamA: "MSS NEGERI SEMBILAN", teamB: "MSS PERLIS" },
+                            { bil: 5, time: "12.00 PM", kump: "Kumpulan C", teamA: "MSS KELANTAN", teamB: "MSS KEDAH" },
+                            { bil: 6, time: "01.00 PM", kump: "Kumpulan D", teamA: "MSS MELAKA", teamB: "MSS PULAU PINANG" },
+                            { bil: 7, time: "02.00 PM", kump: "Kumpulan A", teamA: "MSS SELANGOR", teamB: "MSS PUTRAJAYA" },
+                            { bil: 8, time: "03.00 PM", kump: "Kumpulan B", teamA: "MSS JOHOR", teamB: "MSS NEGERI SEMBILAN" },
+                            { bil: 9, time: "04.00 PM", kump: "Kumpulan C", teamA: "WP KUALA LUMPUR", teamB: "MSS KELANTAN" },
+                            { bil: 10, time: "05.00 PM", kump: "Kumpulan D", teamA: "WP PERAK", teamB: "MSS MELAKA" },
+                            { bil: 11, time: "06.00 PM", kump: "Kumpulan B", teamA: "MSS SABAH", teamB: "MSS PERLIS" }
+                        ]
+                    },
+                    {
+                        day: "HARI 2 : 30 OGOS 2026 (AHAD)",
+                        matches: [
+                            { bil: 12, time: "08.00 AM", kump: "Kumpulan C", teamA: "MSS TERENGGANU", teamB: "MSS KEDAH" },
+                            { bil: 13, time: "09.00 AM", kump: "Kumpulan D", teamA: "MSS PAHANG", teamB: "MSS PULAU PINANG" },
+                            { bil: 14, time: "10.00 AM", kump: "Kumpulan A", teamA: "MSS SELANGOR", teamB: "MSS SARAWAK" },
+                            { bil: 15, time: "11.00 AM", kump: "Kumpulan B", teamA: "MSS JOHOR", teamB: "MSS PERLIS" },
+                            { bil: 16, time: "12.00 PM", kump: "Kumpulan C", teamA: "WP KUALA LUMPUR", teamB: "MSS KEDAH" },
+                            { bil: 17, time: "01.00 PM", kump: "Kumpulan D", teamA: "WP PERAK", teamB: "MSS PULAU PINANG" },
+                            { bil: 18, time: "02.00 PM", kump: "Kumpulan B", teamA: "MSS SABAH", teamB: "MSS NEGERI SEMBILAN" },
+                            { bil: 19, time: "03.00 PM", kump: "Kumpulan C", teamA: "MSS TERENGGANU", teamB: "MSS KELANTAN" },
+                            { bil: 20, time: "04.00 PM", kump: "Kumpulan D", teamA: "MSS PAHANG", teamB: "MSS MELAKA" },
+                            { bil: 21, time: "05.00 PM", kump: "Kumpulan A", teamA: "MSS PUTRAJAYA", teamB: "MSS SARAWAK" }
+                        ]
+                    },
+                    {
+                        day: "HARI 3 : 31 OGOS 2026 (ISNIN)",
+                        matches: [
+                            { bil: 22, time: "02.00 PM", kump: "Klasifikasi CS1", teamA: "KE 3 (10)", teamB: "KE 4 (11)" },
+                            { bil: 23, time: "02.30 PM", kump: "Klasifikasi CS2", teamA: "KE 3 (12)", teamB: "KE 4 (13)" },
+                            { bil: 24, time: "03.00 PM", kump: "Klasifikasi CS3", teamA: "KE 3 (14)", teamB: "KE 4 (15)" },
+                            { bil: 25, time: "04.00 PM", kump: "Suku Akhir Q1", teamA: "JOHAN 1", teamB: "NAIB JOHAN 2" },
+                            { bil: 26, time: "05.00 PM", kump: "Suku Akhir Q2", teamA: "JOHAN 3", teamB: "NAIB JOHAN 4" }
+                        ]
+                    },
+                    {
+                        day: "HARI 4 : 01 SEPTEMBER 2026 (SELASA)",
+                        matches: [
+                            { bil: 27, time: "08.30 AM", kump: "Suku Akhir Q3", teamA: "JOHAN 5", teamB: "NAIB JOHAN 6" },
+                            { bil: 28, time: "09.30 AM", kump: "Suku Akhir Q4", teamA: "JOHAN 7", teamB: "NAIB JOHAN 8" },
+                            { bil: 29, time: "10.30 AM", kump: "Klasifikasi CS4", teamA: "KE 3(9) BYE", teamB: "MENANG 22" },
+                            { bil: 30, time: "11.00 AM", kump: "Klasifikasi CS5", teamA: "MENANG 23", teamB: "MENANG 24" },
+                            { bil: 31, time: "11.30 AM", kump: "Klasifikasi CS6", teamA: "KALAH 23", teamB: "KALAH 24" },
+                            { bil: 32, time: "12.00 PM", kump: "Klasifikasi CS7", teamA: "KALAH 25", teamB: "KALAH 26" },
+                            { bil: 33, time: "12.30 PM", kump: "Klasifikasi CS8", teamA: "KALAH 27", teamB: "KALAH 28" },
+                            { bil: 34, time: "02.00 PM", kump: "Separuh Akhir SF1", teamA: "MENANG 25", teamB: "MENANG 26" },
+                            { bil: 35, time: "03.00 PM", kump: "Separuh Akhir SF2", teamA: "MENANG 27", teamB: "MENANG 28" },
+                            { bil: 36, time: "04.00 PM", kump: "Ke 13/14", teamA: "KALAH 22", teamB: "MENANG 31" },
+                            { bil: 37, time: "04.30 PM", kump: "Ke 11/12", teamA: "KALAH 29", teamB: "KALAH 30" },
+                            { bil: 38, time: "05.00 PM", kump: "Ke 9/10", teamA: "MENANG 29", teamB: "MENANG 30" },
+                            { bil: 39, time: "05.30 PM", kump: "Ke 7/8", teamA: "KALAH 32", teamB: "KALAH 33" },
+                            { bil: 40, time: "06.00 PM", kump: "Ke 5/6", teamA: "MENANG 32", teamB: "MENANG 33" }
+                        ]
+                    },
+                    {
+                        day: "HARI 5 : 02 SEPTEMBER 2026 (RABU)",
+                        matches: [
+                            { bil: 41, time: "09.00 AM", kump: "Ke 3/4", teamA: "KALAH 34", teamB: "KALAH 35" },
+                            { bil: 42, time: "10.00 AM", kump: "Akhir (J/NJ)", teamA: "MENANG 34", teamB: "MENANG 35" }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // FUNGSI LOGO PASUKAN
+        function getTeamLogo(teamName) {
+            const name = teamName.toUpperCase();
+            const logoMap = {
+                'SELANGOR': 'selangor.png',
+                'NEGERI SEMBILAN': 'negeri9.png',
+                'TERENGGANU': 'terengganu.png',
+                'PUTRAJAYA': 'putrajaya.png',
+                'KEDAH': 'kedah.png',
+                'PERAK': 'perak.png',
+                'PULAU PINANG': 'penang.png',
+                'PUPAU PINANG': 'penang.png',
+                'PERLIS': 'perlis.png',
+                'KUALA LUMPUR': 'kl.png',
+                'PAHANG': 'pahang.png',
+                'SABAH': 'sabah.png',
+                'MELAKA': 'melaka.png',
+                'JOHOR': 'johor.png',
+                'SARAWAK': 'sarawak.png',
+                'KELANTAN': 'kelantan.png',
+                'LABUAN': 'labuan.png'
+            };
+
+            for (let key in logoMap) {
+                if (name.includes(key)) {
+                    return `../../../../images/logo/${logoMap[key]}`;
+                }
+            }
+            return `../../../../images/mssmlogo.png`;
+        }
+
+        // FUNGSI JANA KAD KEPUTUSAN DARI DATA
+        function renderSchedule() {
+            Object.keys(scheduleData).forEach(catKey => {
+                const container = document.getElementById(catKey);
+                const category = scheduleData[catKey];
+                let htmlContent = '';
+
+                category.days.forEach(dayGroup => {
+                    htmlContent += `
+                        <div class="day-header">
+                            <span><i class="far fa-calendar-alt"></i> ${dayGroup.day}</span>
+                            <span style="font-size: 13px; font-weight: normal;">Pusat: ${category.location}</span>
+                        </div>
+                    `;
+
+                    dayGroup.matches.forEach(m => {
+                        const logoA = getTeamLogo(m.teamA);
+                        const logoB = getTeamLogo(m.teamB);
+
+                        htmlContent += `
+                            <div class="match-card">
+                                <div class="match-header">
+                                    <div class="match-info">
+                                        <strong>Perlawanan #${m.bil}</strong> • ${m.time} 
+                                        <span class="badge-kump">${m.kump}</span>
+                                    </div>
+                                    <span class="status-badge">Belum Bermula</span>
+                                </div>
+                                <div class="match-body">
+                                    <div class="team-box left">
+                                        <div class="team-details"><h4>${m.teamA}</h4></div>
+                                        <img src="${logoA}" alt="${m.teamA}" class="team-logo">
+                                    </div>
+                                    <div class="score-center">
+                                        <div class="main-score">- vs -</div>
+                                        <div class="vs-text">SKOR AKHIR</div>
+                                        <div class="winner-box">🏆 PEMENANG: -</div>
+                                    </div>
+                                    <div class="team-box right">
+                                        <img src="${logoB}" alt="${m.teamB}" class="team-logo">
+                                        <div class="team-details"><h4>${m.teamB}</h4></div>
+                                    </div>
+                                </div>
+                                <div class="quarter-breakdown">
+                                    <table class="quarter-table">
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align: left;">Pasukan</th>
+                                                <th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th><th>Jumlah</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="text-align: left;">${m.teamA}</td>
+                                                <td>-</td><td>-</td><td>-</td><td>-</td><td><strong>-</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: left;">${m.teamB}</td>
+                                                <td>-</td><td>-</td><td>-</td><td>-</td><td><strong>-</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        `;
+                    });
+                });
+
+                container.innerHTML = htmlContent;
+            });
+        }
+
+        // TUKAR TAB KATEGORI
+        function switchCategory(catId, evt) {
+            const cards = document.querySelectorAll('.results-container');
+            cards.forEach(card => card.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(catId).classList.add('active');
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.classList.add('active');
+            }
+        }
+
+        // MENU HAMBURGER MOBILE
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+
+        // JANA JADUAL APABILA HALAMAN DIMUATKAN
+        window.onload = renderSchedule;
+    </script>
+</body>
+</html>
