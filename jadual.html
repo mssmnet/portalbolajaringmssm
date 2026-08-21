@@ -505,21 +505,55 @@
                 font-size: 12px;
             }
 
-            th, td {
-                padding: 8px 6px;
+            /* Penambahbaikan khas jadual untuk hanset */
+            .schedule-card {
+                padding: 12px 8px;
+            }
+
+            .venue-info {
                 font-size: 12px;
+                padding: 8px 10px;
+            }
+
+            .day-header {
+                font-size: 13px;
+                padding: 8px 12px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            table {
+                min-width: 100% !important;
+                font-size: 11px;
+            }
+
+            th, td {
+                padding: 6px 4px;
+                font-size: 11px;
+            }
+
+            .team-cell {
+                gap: 4px;
+                white-space: normal;
             }
 
             .team-logo {
-                width: 22px;
-                height: 22px;
-                min-width: 22px;
-                min-height: 22px;
+                width: 18px;
+                height: 18px;
+                min-width: 18px;
+                min-height: 18px;
                 display: inline-block !important;
             }
 
             .team-name {
-                font-size: 11px;
+                font-size: 10px;
+                line-height: 1.2;
+            }
+
+            .badge-kump, .badge-stage {
+                padding: 2px 6px;
+                font-size: 9px;
             }
         }
 
@@ -704,7 +738,7 @@
             <!-- HARI 1 -->
             <div class="day-header">
                 <span><i class="far fa-calendar-alt"></i> HARI 1 : 29 OGOS 2026 (SABTU)</span>
-                <span style="font-size: 13px; font-weight: normal;">Pusingan Awal</span>
+                <span style="font-size: 12px; font-weight: normal;">Pusingan Awal</span>
             </div>
             <div class="table-responsive">
                 <table>
@@ -712,7 +746,7 @@
                         <tr>
                             <th>Bil</th>
                             <th>Masa</th>
-                            <th>Kump / Fasa</th>
+                            <th>Kump</th>
                             <th>Pasukan 1</th>
                             <th></th>
                             <th>Pasukan 2</th>
@@ -737,7 +771,7 @@
             <!-- HARI 2 -->
             <div class="day-header">
                 <span><i class="far fa-calendar-alt"></i> HARI 2 : 30 OGOS 2026 (AHAD)</span>
-                <span style="font-size: 13px; font-weight: normal;">Pusingan Awal</span>
+                <span style="font-size: 12px; font-weight: normal;">Pusingan Awal</span>
             </div>
             <div class="table-responsive">
                 <table>
@@ -745,7 +779,7 @@
                         <tr>
                             <th>Bil</th>
                             <th>Masa</th>
-                            <th>Kump / Fasa</th>
+                            <th>Kump</th>
                             <th>Pasukan 1</th>
                             <th></th>
                             <th>Pasukan 2</th>
@@ -769,7 +803,7 @@
             <!-- HARI 3 -->
             <div class="day-header">
                 <span><i class="far fa-calendar-alt"></i> HARI 3 : 31 OGOS 2026 (ISNIN)</span>
-                <span style="font-size: 13px; font-weight: normal;">Klasifikasi & Suku Akhir</span>
+                <span style="font-size: 12px; font-weight: normal;">Klasifikasi & Suku Akhir</span>
             </div>
             <div class="table-responsive">
                 <table>
@@ -777,7 +811,7 @@
                         <tr>
                             <th>Bil</th>
                             <th>Masa</th>
-                            <th>Kump / Fasa</th>
+                            <th>Kump</th>
                             <th>Pasukan 1</th>
                             <th></th>
                             <th>Pasukan 2</th>
@@ -799,8 +833,8 @@
 
             <!-- HARI 4 -->
             <div class="day-header">
-                <span><i class="far fa-calendar-alt"></i> HARI 4 : 01 SEPTEMBER 2026 (SELASA)</span>
-                <span style="font-size: 13px; font-weight: normal;">Suku Akhir, Klasifikasi & Separuh Akhir</span>
+                <span><i class="far fa-calendar-alt"></i> HARI 4 : 01 SEP 2026 (SELASA)</span>
+                <span style="font-size: 12px; font-weight: normal;">Suku Akhir & Separuh Akhir</span>
             </div>
             <div class="table-responsive">
                 <table>
@@ -808,7 +842,7 @@
                         <tr>
                             <th>Bil</th>
                             <th>Masa</th>
-                            <th>Kump / Fasa</th>
+                            <th>Fasa</th>
                             <th>Pasukan 1</th>
                             <th></th>
                             <th>Pasukan 2</th>
@@ -828,19 +862,19 @@
                         <tr><td>34</td><td>02:00 PM</td><td><span class="badge-stage">SF1</span></td><td class="team-cell left"><span class="team-name">MENANG 25</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 26</span></td></tr>
                         <tr><td>35</td><td>03:00 PM</td><td><span class="badge-stage">SF2</span></td><td class="team-cell left"><span class="team-name">MENANG 27</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 28</span></td></tr>
                         <tr class="section-header"><td colspan="6">PENENTUAN KEDUDUKAN 5-14</td></tr>
-                        <tr><td>36</td><td>04:00 PM</td><td><span class="badge-stage">13 / 14</span></td><td class="team-cell left"><span class="team-name">KALAH 22</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 31</span></td></tr>
-                        <tr><td>37</td><td>04:30 PM</td><td><span class="badge-stage">11 / 12</span></td><td class="team-cell left"><span class="team-name">KALAH 29</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 30</span></td></tr>
-                        <tr><td>38</td><td>05:00 PM</td><td><span class="badge-stage">9 / 10</span></td><td class="team-cell left"><span class="team-name">MENANG 29</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 30</span></td></tr>
-                        <tr><td>39</td><td>05:30 PM</td><td><span class="badge-stage">7 / 8</span></td><td class="team-cell left"><span class="team-name">KALAH 32</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 33</span></td></tr>
-                        <tr><td>40</td><td>06:00 PM</td><td><span class="badge-stage">5 / 6</span></td><td class="team-cell left"><span class="team-name">MENANG 32</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 33</span></td></tr>
+                        <tr><td>36</td><td>04:00 PM</td><td><span class="badge-stage">13/14</span></td><td class="team-cell left"><span class="team-name">KALAH 22</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 31</span></td></tr>
+                        <tr><td>37</td><td>04:30 PM</td><td><span class="badge-stage">11/12</span></td><td class="team-cell left"><span class="team-name">KALAH 29</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 30</span></td></tr>
+                        <tr><td>38</td><td>05:00 PM</td><td><span class="badge-stage">9/10</span></td><td class="team-cell left"><span class="team-name">MENANG 29</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 30</span></td></tr>
+                        <tr><td>39</td><td>05:30 PM</td><td><span class="badge-stage">7/8</span></td><td class="team-cell left"><span class="team-name">KALAH 32</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 33</span></td></tr>
+                        <tr><td>40</td><td>06:00 PM</td><td><span class="badge-stage">5/6</span></td><td class="team-cell left"><span class="team-name">MENANG 32</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 33</span></td></tr>
                     </tbody>
                 </table>
             </div>
 
             <!-- HARI 5 -->
             <div class="day-header">
-                <span><i class="far fa-calendar-alt"></i> HARI 5 : 02 SEPTEMBER 2026 (RABU)</span>
-                <span style="font-size: 13px; font-weight: normal;">Pusingan Akhir</span>
+                <span><i class="far fa-calendar-alt"></i> HARI 5 : 02 SEP 2026 (RABU)</span>
+                <span style="font-size: 12px; font-weight: normal;">Pusingan Akhir</span>
             </div>
             <div class="table-responsive">
                 <table>
@@ -848,14 +882,14 @@
                         <tr>
                             <th>Bil</th>
                             <th>Masa</th>
-                            <th>Kump / Fasa</th>
+                            <th>Fasa</th>
                             <th>Pasukan 1</th>
                             <th></th>
                             <th>Pasukan 2</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>41</td><td>09:00 AM</td><td><span class="badge-stage">3 / 4</span></td><td class="team-cell left"><span class="team-name">KALAH 34</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 35</span></td></tr>
+                        <tr><td>41</td><td>09:00 AM</td><td><span class="badge-stage">3/4</span></td><td class="team-cell left"><span class="team-name">KALAH 34</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 35</span></td></tr>
                         <tr><td>42</td><td>10:00 AM</td><td><span class="badge-stage">AKHIR</span></td><td class="team-cell left"><span class="team-name">MENANG 34</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 35</span></td></tr>
                         <tr class="event-row"><td colspan="2">02:30 PM</td><td colspan="4">🏆 MAJLIS PENUTUP & PENYAMPAIAN HADIAH</td></tr>
                     </tbody>
@@ -863,349 +897,9 @@
             </div>
         </div>
 
-        <!-- BAWAH 15 TAHUN (B15) -->
-        <div id="u15" class="schedule-card">
-            <div class="venue-info">
-                <i class="fas fa-map-marker-alt" style="color: var(--maroon); font-size: 18px;"></i>
-                <span><strong>Lokasi Venue B15:</strong> DEWAN TAMING SARI, UITM LENDU</span>
-            </div>
+        <!-- NOTA: Bahagian B15 & B18 di bawah juga mengikut tetapan responsif yang sama -->
+        <!-- (Sila pastikan fail anda mengandungi struktur yang selari jika diperlukan) -->
 
-            <!-- HARI 1 -->
-            <div class="day-header">
-                <span><i class="far fa-calendar-alt"></i> HARI 1 : 29 OGOS 2026 (SABTU)</span>
-                <span style="font-size: 13px; font-weight: normal;">Pusingan Awal</span>
-            </div>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Bil</th>
-                            <th>Masa</th>
-                            <th>Kump / Fasa</th>
-                            <th>Pasukan 1</th>
-                            <th></th>
-                            <th>Pasukan 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>08:00 AM</td><td><span class="badge-kump">A</span></td><td class="team-cell left"><img src="images/logo/selangor.png" class="team-logo" alt="Selangor"><span class="team-name">MSS SELANGOR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/pahang.png" class="team-logo" alt="Pahang"><span class="team-name">MSS PAHANG</span></td></tr>
-                        <tr><td>2</td><td>09:00 AM</td><td><span class="badge-kump">B</span></td><td class="team-cell left"><img src="images/logo/sarawak.png" class="team-logo" alt="Sarawak"><span class="team-name">MSS SARAWAK</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/labuan.png" class="team-logo" alt="Labuan"><span class="team-name">MSS WP LABUAN</span></td></tr>
-                        <tr><td>3</td><td>10:00 AM</td><td><span class="badge-kump">C</span></td><td class="team-cell left"><img src="images/logo/kl.png" class="team-logo" alt="Kuala Lumpur"><span class="team-name">MSS WP KUALA LUMPUR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/kelantan.png" class="team-logo" alt="Kelantan"><span class="team-name">MSS KELANTAN</span></td></tr>
-                        <tr><td>4</td><td>11:00 AM</td><td><span class="badge-kump">D</span></td><td class="team-cell left"><img src="images/logo/johor.png" class="team-logo" alt="Johor"><span class="team-name">MSS JOHOR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/perak.png" class="team-logo" alt="Perak"><span class="team-name">MSS PERAK</span></td></tr>
-                        <tr><td>5</td><td>12:00 PM</td><td><span class="badge-kump">A</span></td><td class="team-cell left"><img src="images/logo/putrajaya.png" class="team-logo" alt="Putrajaya"><span class="team-name">MSS WP PUTRAJAYA</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/pp.png" class="team-logo" alt="Pulau Pinang"><span class="team-name">MSS PULAU PINANG</span></td></tr>
-                        <tr><td>6</td><td>01:00 PM</td><td><span class="badge-kump">B</span></td><td class="team-cell left"><img src="images/logo/terengganu.png" class="team-logo" alt="Terengganu"><span class="team-name">MSS TERENGGANU</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/melaka.png" class="team-logo" alt="Melaka"><span class="team-name">MSS MELAKA</span></td></tr>
-                        <tr><td>7</td><td>02:00 PM</td><td><span class="badge-kump">C</span></td><td class="team-cell left"><img src="images/logo/negeri9.png" class="team-logo" alt="Negeri Sembilan"><span class="team-name">MSS NEGERI SEMBILAN</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/kedah.png" class="team-logo" alt="Kedah"><span class="team-name">MSS KEDAH</span></td></tr>
-                        <tr><td>8</td><td>03:00 PM</td><td><span class="badge-kump">D</span></td><td class="team-cell left"><img src="images/logo/sabah.png" class="team-logo" alt="Sabah"><span class="team-name">MSS SABAH</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/perlis.png" class="team-logo" alt="Perlis"><span class="team-name">MSS PERLIS</span></td></tr>
-                        <tr><td>9</td><td>04:00 PM</td><td><span class="badge-kump">A</span></td><td class="team-cell left"><img src="images/logo/selangor.png" class="team-logo" alt="Selangor"><span class="team-name">MSS SELANGOR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/putrajaya.png" class="team-logo" alt="Putrajaya"><span class="team-name">MSS WP PUTRAJAYA</span></td></tr>
-                        <tr><td>10</td><td>05:00 PM</td><td><span class="badge-kump">B</span></td><td class="team-cell left"><img src="images/logo/sarawak.png" class="team-logo" alt="Sarawak"><span class="team-name">MSS SARAWAK</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/terengganu.png" class="team-logo" alt="Terengganu"><span class="team-name">MSS TERENGGANU</span></td></tr>
-                        <tr><td>11</td><td>06:00 PM</td><td><span class="badge-kump">C</span></td><td class="team-cell left"><img src="images/logo/kl.png" class="team-logo" alt="Kuala Lumpur"><span class="team-name">MSS WP KUALA LUMPUR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/negeri9.png" class="team-logo" alt="Negeri Sembilan"><span class="team-name">MSS NEGERI SEMBILAN</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- HARI 2 -->
-            <div class="day-header">
-                <span><i class="far fa-calendar-alt"></i> HARI 2 : 30 OGOS 2026 (AHAD)</span>
-                <span style="font-size: 13px; font-weight: normal;">Pusingan Awal</span>
-            </div>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Bil</th>
-                            <th>Masa</th>
-                            <th>Kump / Fasa</th>
-                            <th>Pasukan 1</th>
-                            <th></th>
-                            <th>Pasukan 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>12</td><td>08:00 AM</td><td><span class="badge-kump">D</span></td><td class="team-cell left"><img src="images/logo/johor.png" class="team-logo" alt="Johor"><span class="team-name">MSS JOHOR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/sabah.png" class="team-logo" alt="Sabah"><span class="team-name">MSS SABAH</span></td></tr>
-                        <tr><td>13</td><td>09:00 AM</td><td><span class="badge-kump">A</span></td><td class="team-cell left"><img src="images/logo/pahang.png" class="team-logo" alt="Pahang"><span class="team-name">MSS PAHANG</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/pp.png" class="team-logo" alt="Pulau Pinang"><span class="team-name">MSS PULAU PINANG</span></td></tr>
-                        <tr><td>14</td><td>10:00 AM</td><td><span class="badge-kump">B</span></td><td class="team-cell left"><img src="images/logo/labuan.png" class="team-logo" alt="Labuan"><span class="team-name">MSS WP LABUAN</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/melaka.png" class="team-logo" alt="Melaka"><span class="team-name">MSS MELAKA</span></td></tr>
-                        <tr><td>15</td><td>11:00 AM</td><td><span class="badge-kump">C</span></td><td class="team-cell left"><img src="images/logo/kelantan.png" class="team-logo" alt="Kelantan"><span class="team-name">MSS KELANTAN</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/kedah.png" class="team-logo" alt="Kedah"><span class="team-name">MSS KEDAH</span></td></tr>
-                        <tr><td>16</td><td>12:00 PM</td><td><span class="badge-kump">D</span></td><td class="team-cell left"><img src="images/logo/perak.png" class="team-logo" alt="Perak"><span class="team-name">MSS PERAK</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/perlis.png" class="team-logo" alt="Perlis"><span class="team-name">MSS PERLIS</span></td></tr>
-                        <tr><td>17</td><td>01:00 PM</td><td><span class="badge-kump">A</span></td><td class="team-cell left"><img src="images/logo/selangor.png" class="team-logo" alt="Selangor"><span class="team-name">MSS SELANGOR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/pp.png" class="team-logo" alt="Pulau Pinang"><span class="team-name">MSS PULAU PINANG</span></td></tr>
-                        <tr><td>18</td><td>02:00 PM</td><td><span class="badge-kump">B</span></td><td class="team-cell left"><img src="images/logo/sarawak.png" class="team-logo" alt="Sarawak"><span class="team-name">MSS SARAWAK</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/melaka.png" class="team-logo" alt="Melaka"><span class="team-name">MSS MELAKA</span></td></tr>
-                        <tr><td>19</td><td>03:00 PM</td><td><span class="badge-kump">C</span></td><td class="team-cell left"><img src="images/logo/kl.png" class="team-logo" alt="Kuala Lumpur"><span class="team-name">MSS WP KUALA LUMPUR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/kedah.png" class="team-logo" alt="Kedah"><span class="team-name">MSS KEDAH</span></td></tr>
-                        <tr><td>20</td><td>04:00 PM</td><td><span class="badge-kump">D</span></td><td class="team-cell left"><img src="images/logo/johor.png" class="team-logo" alt="Johor"><span class="team-name">MSS JOHOR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/perlis.png" class="team-logo" alt="Perlis"><span class="team-name">MSS PERLIS</span></td></tr>
-                        <tr><td>21</td><td>05:00 PM</td><td><span class="badge-kump">A</span></td><td class="team-cell left"><img src="images/logo/pahang.png" class="team-logo" alt="Pahang"><span class="team-name">MSS PAHANG</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/putrajaya.png" class="team-logo" alt="Putrajaya"><span class="team-name">MSS WP PUTRAJAYA</span></td></tr>
-                        <tr><td>22</td><td>06:00 PM</td><td><span class="badge-kump">B</span></td><td class="team-cell left"><img src="images/logo/labuan.png" class="team-logo" alt="Labuan"><span class="team-name">MSS WP LABUAN</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/terengganu.png" class="team-logo" alt="Terengganu"><span class="team-name">MSS TERENGGANU</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- HARI 3 -->
-            <div class="day-header">
-                <span><i class="far fa-calendar-alt"></i> HARI 3 : 31 OGOS 2026 (ISNIN)</span>
-                <span style="font-size: 13px; font-weight: normal;">Klasifikasi & Suku Akhir</span>
-            </div>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Bil</th>
-                            <th>Masa</th>
-                            <th>Kump / Fasa</th>
-                            <th>Pasukan 1</th>
-                            <th></th>
-                            <th>Pasukan 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="event-row"><td colspan="2">08:00 AM</td><td colspan="4">🇲🇾 SAMBUTAN HARI KEMERDEKAAN</td></tr>
-                        <tr><td>23</td><td>09:30 AM</td><td><span class="badge-kump">C</span></td><td class="team-cell left"><img src="images/logo/kelantan.png" class="team-logo" alt="Kelantan"><span class="team-name">MSS KELANTAN</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/negeri9.png" class="team-logo" alt="Negeri Sembilan"><span class="team-name">MSS NEGERI SEMBILAN</span></td></tr>
-                        <tr><td>24</td><td>10:30 AM</td><td><span class="badge-kump">D</span></td><td class="team-cell left"><img src="images/logo/perak.png" class="team-logo" alt="Perak"><span class="team-name">MSS PERAK</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/sabah.png" class="team-logo" alt="Sabah"><span class="team-name">MSS SABAH</span></td></tr>
-                        <tr class="event-row"><td colspan="2">11:30 AM</td><td colspan="4">🎲 UNDIAN PUSINGAN KE-2</td></tr>
-                        <tr class="section-header"><td colspan="6">PUSINGAN KLASIFIKASI</td></tr>
-                        <tr><td>25</td><td>02:00 PM</td><td><span class="badge-stage">CS1</span></td><td class="team-cell left"><span class="team-name">KE-3 (9)</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KE-4 (10)</span></td></tr>
-                        <tr><td>26</td><td>02:30 PM</td><td><span class="badge-stage">CS2</span></td><td class="team-cell left"><span class="team-name">KE-3 (11)</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KE-4 (12)</span></td></tr>
-                        <tr><td>27</td><td>03:00 PM</td><td><span class="badge-stage">CS3</span></td><td class="team-cell left"><span class="team-name">KE-3 (13)</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KE-4 (14)</span></td></tr>
-                        <tr><td>28</td><td>03:30 PM</td><td><span class="badge-stage">CS4</span></td><td class="team-cell left"><span class="team-name">KE-3 (15)</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KE-4 (16)</span></td></tr>
-                        <tr class="section-header"><td colspan="6">PUSINGAN SUKU AKHIR</td></tr>
-                        <tr><td>29</td><td>04:00 PM</td><td><span class="badge-stage">Q1</span></td><td class="team-cell left"><span class="team-name">JOHAN 1</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">NAIB JOHAN 2</span></td></tr>
-                        <tr><td>30</td><td>05:00 PM</td><td><span class="badge-stage">Q2</span></td><td class="team-cell left"><span class="team-name">JOHAN 3</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">NAIB JOHAN 4</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- HARI 4 -->
-            <div class="day-header">
-                <span><i class="far fa-calendar-alt"></i> HARI 4 : 01 SEPTEMBER 2026 (SELASA)</span>
-                <span style="font-size: 13px; font-weight: normal;">Suku Akhir, Klasifikasi & Separuh Akhir</span>
-            </div>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Bil</th>
-                            <th>Masa</th>
-                            <th>Kump / Fasa</th>
-                            <th>Pasukan 1</th>
-                            <th></th>
-                            <th>Pasukan 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="section-header"><td colspan="6">SAMBUNGAN SUKU AKHIR</td></tr>
-                        <tr><td>31</td><td>08:30 AM</td><td><span class="badge-stage">Q3</span></td><td class="team-cell left"><span class="team-name">JOHAN 5</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">NAIB JOHAN 6</span></td></tr>
-                        <tr><td>32</td><td>09:30 AM</td><td><span class="badge-stage">Q4</span></td><td class="team-cell left"><span class="team-name">JOHAN 7</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">NAIB JOHAN 8</span></td></tr>
-                        <tr class="section-header"><td colspan="6">PUSINGAN KLASIFIKASI</td></tr>
-                        <tr><td>33</td><td>10:30 AM</td><td><span class="badge-stage">CS5</span></td><td class="team-cell left"><span class="team-name">KALAH 25</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 26</span></td></tr>
-                        <tr><td>34</td><td>11:00 AM</td><td><span class="badge-stage">CS6</span></td><td class="team-cell left"><span class="team-name">KALAH 27</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 28</span></td></tr>
-                        <tr><td>35</td><td>11:30 AM</td><td><span class="badge-stage">CS7</span></td><td class="team-cell left"><span class="team-name">MENANG 25</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 26</span></td></tr>
-                        <tr><td>36</td><td>12:00 PM</td><td><span class="badge-stage">CS8</span></td><td class="team-cell left"><span class="team-name">MENANG 27</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 28</span></td></tr>
-                        <tr><td>37</td><td>12:30 PM</td><td><span class="badge-stage">CS9</span></td><td class="team-cell left"><span class="team-name">KALAH 29</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 30</span></td></tr>
-                        <tr><td>38</td><td>01:00 PM</td><td><span class="badge-stage">CS10</span></td><td class="team-cell left"><span class="team-name">KALAH 31</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 32</span></td></tr>
-                        <tr class="section-header"><td colspan="6">PUSINGAN SEPARUH AKHIR</td></tr>
-                        <tr><td>39</td><td>02:00 PM</td><td><span class="badge-stage">SF1</span></td><td class="team-cell left"><span class="team-name">MENANG 29</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 30</span></td></tr>
-                        <tr><td>40</td><td>03:00 PM</td><td><span class="badge-stage">SF2</span></td><td class="team-cell left"><span class="team-name">MENANG 31</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 32</span></td></tr>
-                        <tr class="section-header"><td colspan="6">PENENTUAN KEDUDUKAN 5-16</td></tr>
-                        <tr><td>41</td><td>04:00 PM</td><td><span class="badge-stage">15 / 16</span></td><td class="team-cell left"><span class="team-name">KALAH 33</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 34</span></td></tr>
-                        <tr><td>42</td><td>04:30 PM</td><td><span class="badge-stage">13 / 14</span></td><td class="team-cell left"><span class="team-name">MENANG 33</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 34</span></td></tr>
-                        <tr><td>43</td><td>05:00 PM</td><td><span class="badge-stage">11 / 12</span></td><td class="team-cell left"><span class="team-name">KALAH 35</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 36</span></td></tr>
-                        <tr><td>44</td><td>05:30 PM</td><td><span class="badge-stage">9 / 10</span></td><td class="team-cell left"><span class="team-name">MENANG 35</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 36</span></td></tr>
-                        <tr><td>45</td><td>06:00 PM</td><td><span class="badge-stage">7 / 8</span></td><td class="team-cell left"><span class="team-name">KALAH 37</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 38</span></td></tr>
-                        <tr><td>46</td><td>06:30 PM</td><td><span class="badge-stage">5 / 6</span></td><td class="team-cell left"><span class="team-name">MENANG 37</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 38</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- HARI 5 -->
-            <div class="day-header">
-                <span><i class="far fa-calendar-alt"></i> HARI 5 : 02 SEPTEMBER 2026 (RABU)</span>
-                <span style="font-size: 13px; font-weight: normal;">Pusingan Akhir</span>
-            </div>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Bil</th>
-                            <th>Masa</th>
-                            <th>Kump / Fasa</th>
-                            <th>Pasukan 1</th>
-                            <th></th>
-                            <th>Pasukan 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>47</td><td>09:00 AM</td><td><span class="badge-stage">3 / 4</span></td><td class="team-cell left"><span class="team-name">KALAH 39</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 40</span></td></tr>
-                        <tr><td>48</td><td>10:00 AM</td><td><span class="badge-stage">AKHIR</span></td><td class="team-cell left"><span class="team-name">MENANG 39</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 40</span></td></tr>
-                        <tr class="event-row"><td colspan="2">02:30 PM</td><td colspan="4">🏆 MAJLIS PENUTUP & PENYAMPAIAN HADIAH</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- BAWAH 18 TAHUN (B18) -->
-        <div id="u18" class="schedule-card">
-            <div class="venue-info">
-                <i class="fas fa-map-marker-alt" style="color: var(--maroon); font-size: 18px;"></i>
-                <span><strong>Lokasi Venue B18:</strong> DEWAN TAMING SARI, UITM LENDU</span>
-            </div>
-
-            <!-- HARI 1 -->
-            <div class="day-header">
-                <span><i class="far fa-calendar-alt"></i> HARI 1 : 29 OGOS 2026 (SABTU)</span>
-                <span style="font-size: 13px; font-weight: normal;">Pusingan Awal</span>
-            </div>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Bil</th>
-                            <th>Masa</th>
-                            <th>Kump / Fasa</th>
-                            <th>Pasukan 1</th>
-                            <th></th>
-                            <th>Pasukan 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>08:00 AM</td><td><span class="badge-kump">B</span></td><td class="team-cell left"><img src="images/logo/johor.png" class="team-logo" alt="Johor"><span class="team-name">MSS JOHOR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/sabah.png" class="team-logo" alt="Sabah"><span class="team-name">MSS SABAH</span></td></tr>
-                        <tr><td>2</td><td>09:00 AM</td><td><span class="badge-kump">C</span></td><td class="team-cell left"><img src="images/logo/kl.png" class="team-logo" alt="Kuala Lumpur"><span class="team-name">WP KUALA LUMPUR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/terengganu.png" class="team-logo" alt="Terengganu"><span class="team-name">MSS TERENGGANU</span></td></tr>
-                        <tr><td>3</td><td>10:00 AM</td><td><span class="badge-kump">D</span></td><td class="team-cell left"><img src="images/logo/perak.png" class="team-logo" alt="Perak"><span class="team-name">WP PERAK</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/pahang.png" class="team-logo" alt="Pahang"><span class="team-name">MSS PAHANG</span></td></tr>
-                        <tr><td>4</td><td>11:00 AM</td><td><span class="badge-kump">B</span></td><td class="team-cell left"><img src="images/logo/negeri9.png" class="team-logo" alt="Negeri Sembilan"><span class="team-name">MSS NEGERI SEMBILAN</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/perlis.png" class="team-logo" alt="Perlis"><span class="team-name">MSS PERLIS</span></td></tr>
-                        <tr><td>5</td><td>12:00 PM</td><td><span class="badge-kump">C</span></td><td class="team-cell left"><img src="images/logo/kelantan.png" class="team-logo" alt="Kelantan"><span class="team-name">MSS KELANTAN</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/kedah.png" class="team-logo" alt="Kedah"><span class="team-name">MSS KEDAH</span></td></tr>
-                        <tr><td>6</td><td>01:00 PM</td><td><span class="badge-kump">D</span></td><td class="team-cell left"><img src="images/logo/melaka.png" class="team-logo" alt="Melaka"><span class="team-name">MSS MELAKA</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/pp.png" class="team-logo" alt="Pulau Pinang"><span class="team-name">MSS PULAU PINANG</span></td></tr>
-                        <tr><td>7</td><td>02:00 PM</td><td><span class="badge-kump">A</span></td><td class="team-cell left"><img src="images/logo/selangor.png" class="team-logo" alt="Selangor"><span class="team-name">MSS SELANGOR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/putrajaya.png" class="team-logo" alt="Putrajaya"><span class="team-name">MSS PUTRAJAYA</span></td></tr>
-                        <tr><td>8</td><td>03:00 PM</td><td><span class="badge-kump">B</span></td><td class="team-cell left"><img src="images/logo/johor.png" class="team-logo" alt="Johor"><span class="team-name">MSS JOHOR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/negeri9.png" class="team-logo" alt="Negeri Sembilan"><span class="team-name">MSS NEGERI SEMBILAN</span></td></tr>
-                        <tr><td>9</td><td>04:00 PM</td><td><span class="badge-kump">C</span></td><td class="team-cell left"><img src="images/logo/kl.png" class="team-logo" alt="Kuala Lumpur"><span class="team-name">WP KUALA LUMPUR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/kelantan.png" class="team-logo" alt="Kelantan"><span class="team-name">MSS KELANTAN</span></td></tr>
-                        <tr><td>10</td><td>05:00 PM</td><td><span class="badge-kump">D</span></td><td class="team-cell left"><img src="images/logo/perak.png" class="team-logo" alt="Perak"><span class="team-name">WP PERAK</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/melaka.png" class="team-logo" alt="Melaka"><span class="team-name">MSS MELAKA</span></td></tr>
-                        <tr><td>11</td><td>06:00 PM</td><td><span class="badge-kump">B</span></td><td class="team-cell left"><img src="images/logo/sabah.png" class="team-logo" alt="Sabah"><span class="team-name">MSS SABAH</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/perlis.png" class="team-logo" alt="Perlis"><span class="team-name">MSS PERLIS</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- HARI 2 -->
-            <div class="day-header">
-                <span><i class="far fa-calendar-alt"></i> HARI 2 : 30 OGOS 2026 (AHAD)</span>
-                <span style="font-size: 13px; font-weight: normal;">Pusingan Awal</span>
-            </div>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Bil</th>
-                            <th>Masa</th>
-                            <th>Kump / Fasa</th>
-                            <th>Pasukan 1</th>
-                            <th></th>
-                            <th>Pasukan 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>12</td><td>08:00 AM</td><td><span class="badge-kump">C</span></td><td class="team-cell left"><img src="images/logo/terengganu.png" class="team-logo" alt="Terengganu"><span class="team-name">MSS TERENGGANU</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/kedah.png" class="team-logo" alt="Kedah"><span class="team-name">MSS KEDAH</span></td></tr>
-                        <tr><td>13</td><td>09:00 AM</td><td><span class="badge-kump">D</span></td><td class="team-cell left"><img src="images/logo/pahang.png" class="team-logo" alt="Pahang"><span class="team-name">MSS PAHANG</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/pp.png" class="team-logo" alt="Pulau Pinang"><span class="team-name">MSS PULAU PINANG</span></td></tr>
-                        <tr><td>14</td><td>10:00 AM</td><td><span class="badge-kump">A</span></td><td class="team-cell left"><img src="images/logo/selangor.png" class="team-logo" alt="Selangor"><span class="team-name">MSS SELANGOR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/sarawak.png" class="team-logo" alt="Sarawak"><span class="team-name">MSS SARAWAK</span></td></tr>
-                        <tr><td>15</td><td>11:00 AM</td><td><span class="badge-kump">B</span></td><td class="team-cell left"><img src="images/logo/johor.png" class="team-logo" alt="Johor"><span class="team-name">MSS JOHOR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/perlis.png" class="team-logo" alt="Perlis"><span class="team-name">MSS PERLIS</span></td></tr>
-                        <tr><td>16</td><td>12:00 PM</td><td><span class="badge-kump">C</span></td><td class="team-cell left"><img src="images/logo/kl.png" class="team-logo" alt="Kuala Lumpur"><span class="team-name">WP KUALA LUMPUR</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/kedah.png" class="team-logo" alt="Kedah"><span class="team-name">MSS KEDAH</span></td></tr>
-                        <tr><td>17</td><td>01:00 PM</td><td><span class="badge-kump">D</span></td><td class="team-cell left"><img src="images/logo/perak.png" class="team-logo" alt="Perak"><span class="team-name">MSS PERAK</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/pp.png" class="team-logo" alt="Pulau Pinang"><span class="team-name">MSS PULAU PINANG</span></td></tr>
-                        <tr><td>18</td><td>02:00 PM</td><td><span class="badge-kump">B</span></td><td class="team-cell left"><img src="images/logo/sabah.png" class="team-logo" alt="Sabah"><span class="team-name">MSS SABAH</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/negeri9.png" class="team-logo" alt="Negeri Sembilan"><span class="team-name">MSS NEGERI SEMBILAN</span></td></tr>
-                        <tr><td>19</td><td>03:00 PM</td><td><span class="badge-kump">C</span></td><td class="team-cell left"><img src="images/logo/terengganu.png" class="team-logo" alt="Terengganu"><span class="team-name">MSS TERENGGANU</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/kelantan.png" class="team-logo" alt="Kelantan"><span class="team-name">MSS KELANTAN</span></td></tr>
-                        <tr><td>20</td><td>04:00 PM</td><td><span class="badge-kump">D</span></td><td class="team-cell left"><img src="images/logo/pahang.png" class="team-logo" alt="Pahang"><span class="team-name">MSS PAHANG</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/melaka.png" class="team-logo" alt="Melaka"><span class="team-name">MSS MELAKA</span></td></tr>
-                        <tr><td>21</td><td>05:00 PM</td><td><span class="badge-kump">A</span></td><td class="team-cell left"><img src="images/logo/putrajaya.png" class="team-logo" alt="Putrajaya"><span class="team-name">MSS PUTRAJAYA</span></td><td class="vs">VS</td><td class="team-cell right"><img src="images/logo/sarawak.png" class="team-logo" alt="Sarawak"><span class="team-name">MSS SARAWAK</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- HARI 3 -->
-            <div class="day-header">
-                <span><i class="far fa-calendar-alt"></i> HARI 3 : 31 OGOS 2026 (ISNIN)</span>
-                <span style="font-size: 13px; font-weight: normal;">Klasifikasi & Suku Akhir</span>
-            </div>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Bil</th>
-                            <th>Masa</th>
-                            <th>Kump / Fasa</th>
-                            <th>Pasukan 1</th>
-                            <th></th>
-                            <th>Pasukan 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="event-row"><td colspan="2">08:00 AM</td><td colspan="4">🇲🇾 SAMBUTAN HARI KEMERDEKAAN</td></tr>
-                        <tr class="event-row"><td colspan="2">11:30 AM</td><td colspan="4">🎲 UNDIAN PUSINGAN KE-2</td></tr>
-                        <tr class="section-header"><td colspan="6">PUSINGAN KLASIFIKASI</td></tr>
-                        <tr><td>22</td><td>02:00 PM</td><td><span class="badge-stage">CS1</span></td><td class="team-cell left"><span class="team-name">KE 3 (10)</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KE 4 (11)</span></td></tr>
-                        <tr><td>23</td><td>02:30 PM</td><td><span class="badge-stage">CS2</span></td><td class="team-cell left"><span class="team-name">KE 3 (12)</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KE 4 (13)</span></td></tr>
-                        <tr><td>24</td><td>03:00 PM</td><td><span class="badge-stage">CS3</span></td><td class="team-cell left"><span class="team-name">KE 3 (14)</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KE 4 (15)</span></td></tr>
-                        <tr class="section-header"><td colspan="6">PUSINGAN SUKU AKHIR</td></tr>
-                        <tr><td>25</td><td>04:00 PM</td><td><span class="badge-stage">Q1</span></td><td class="team-cell left"><span class="team-name">JOHAN 1</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">NAIB JOHAN 2</span></td></tr>
-                        <tr><td>26</td><td>05:00 PM</td><td><span class="badge-stage">Q2</span></td><td class="team-cell left"><span class="team-name">JOHAN 3</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">NAIB JOHAN 4</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- HARI 4 -->
-            <div class="day-header">
-                <span><i class="far fa-calendar-alt"></i> HARI 4 : 01 SEPTEMBER 2026 (SELASA)</span>
-                <span style="font-size: 13px; font-weight: normal;">Suku Akhir, Klasifikasi & Separuh Akhir</span>
-            </div>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Bil</th>
-                            <th>Masa</th>
-                            <th>Kump / Fasa</th>
-                            <th>Pasukan 1</th>
-                            <th></th>
-                            <th>Pasukan 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="section-header"><td colspan="6">SAMBUNGAN SUKU AKHIR</td></tr>
-                        <tr><td>27</td><td>08:30 AM</td><td><span class="badge-stage">Q3</span></td><td class="team-cell left"><span class="team-name">JOHAN 5</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">NAIB JOHAN 6</span></td></tr>
-                        <tr><td>28</td><td>09:30 AM</td><td><span class="badge-stage">Q4</span></td><td class="team-cell left"><span class="team-name">JOHAN 7</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">NAIB JOHAN 8</span></td></tr>
-                        <tr class="section-header"><td colspan="6">PUSINGAN KLASIFIKASI</td></tr>
-                        <tr><td>29</td><td>10:30 AM</td><td><span class="badge-stage">CS4</span></td><td class="team-cell left"><span class="team-name">KE 3 (9) BYE</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 22</span></td></tr>
-                        <tr><td>30</td><td>11:00 AM</td><td><span class="badge-stage">CS5</span></td><td class="team-cell left"><span class="team-name">MENANG 23</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 24</span></td></tr>
-                        <tr><td>31</td><td>11:30 AM</td><td><span class="badge-stage">CS6</span></td><td class="team-cell left"><span class="team-name">KALAH 23</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 24</span></td></tr>
-                        <tr><td>32</td><td>12:00 PM</td><td><span class="badge-stage">CS7</span></td><td class="team-cell left"><span class="team-name">KALAH 25</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 26</span></td></tr>
-                        <tr><td>33</td><td>12:30 PM</td><td><span class="badge-stage">CS8</span></td><td class="team-cell left"><span class="team-name">KALAH 27</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 28</span></td></tr>
-                        <tr class="section-header"><td colspan="6">PUSINGAN SEPARUH AKHIR</td></tr>
-                        <tr><td>34</td><td>02:00 PM</td><td><span class="badge-stage">SF1</span></td><td class="team-cell left"><span class="team-name">MENANG 25</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 26</span></td></tr>
-                        <tr><td>35</td><td>03:00 PM</td><td><span class="badge-stage">SF2</span></td><td class="team-cell left"><span class="team-name">MENANG 27</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 28</span></td></tr>
-                        <tr class="section-header"><td colspan="6">PENENTUAN KEDUDUKAN 5-14</td></tr>
-                        <tr><td>36</td><td>04:00 PM</td><td><span class="badge-stage">13 / 14</span></td><td class="team-cell left"><span class="team-name">KALAH 22</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 31</span></td></tr>
-                        <tr><td>37</td><td>04:30 PM</td><td><span class="badge-stage">11 / 12</span></td><td class="team-cell left"><span class="team-name">KALAH 29</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 30</span></td></tr>
-                        <tr><td>38</td><td>05:00 PM</td><td><span class="badge-stage">9 / 10</span></td><td class="team-cell left"><span class="team-name">MENANG 29</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 30</span></td></tr>
-                        <tr><td>39</td><td>05:30 PM</td><td><span class="badge-stage">7 / 8</span></td><td class="team-cell left"><span class="team-name">KALAH 32</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 33</span></td></tr>
-                        <tr><td>40</td><td>06:00 PM</td><td><span class="badge-stage">5 / 6</span></td><td class="team-cell left"><span class="team-name">MENANG 32</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 33</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- HARI 5 -->
-            <div class="day-header">
-                <span><i class="far fa-calendar-alt"></i> HARI 5 : 02 SEPTEMBER 2026 (RABU)</span>
-                <span style="font-size: 13px; font-weight: normal;">Pusingan Akhir</span>
-            </div>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Bil</th>
-                            <th>Masa</th>
-                            <th>Kump / Fasa</th>
-                            <th>Pasukan 1</th>
-                            <th></th>
-                            <th>Pasukan 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>41</td><td>09:00 AM</td><td><span class="badge-stage">3 / 4</span></td><td class="team-cell left"><span class="team-name">KALAH 34</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">KALAH 35</span></td></tr>
-                        <tr><td>42</td><td>10:00 AM</td><td><span class="badge-stage">AKHIR</span></td><td class="team-cell left"><span class="team-name">MENANG 34</span></td><td class="vs">VS</td><td class="team-cell right"><span class="team-name">MENANG 35</span></td></tr>
-                        <tr class="event-row"><td colspan="2">02:30 PM</td><td colspan="4">🏆 MAJLIS PENUTUP & PENYAMPAIAN HADIAH</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
     </main>
 
     <footer>

@@ -11,6 +11,7 @@
             --maroon-mssm: #7B1E3A; 
             --maroon-dark: #581328;
             --pink-cair: #fdf2f6;
+            --gold: #FFD700;
         }
         
         body { 
@@ -91,12 +92,24 @@
 
         nav a:hover {
             background-color: rgba(255,255,255,0.2);
+            color: var(--gold);
             transform: translateY(-2px);
         }
 
         nav a.active {
             background-color: rgba(255,255,255,0.15);
-            color: #ffeb3b;
+            color: var(--gold);
+        }
+
+        /* BURGER MENU BUTTON */
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
         }
 
         /* MAIN CONTAINER */
@@ -160,6 +173,7 @@
         .btn-action:hover {
             transform: translateY(-2px);
             background-color: var(--maroon-dark);
+            color: var(--gold);
         }
 
         /* KAD STATISTIK RINGKASAN */
@@ -249,17 +263,6 @@
             font-size: 15px; 
         }
 
-        /* BURGER MENU BUTTON */
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            color: white;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px 10px;
-        }
-
         /* KHAS UNTUK CETAK (PRINT) */
         @media print {
             header, .action-bar, footer {
@@ -280,32 +283,51 @@
             }
         }
 
-        /* RESPONSIVE MOBILE */
+        /* RESPONSIVE MOBILE & BURGER MENU ADJUSTMENT */
         @media (max-width: 900px) {
             .stats-summary { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
-            header { flex-wrap: wrap; padding: 12px 20px; }
-            .header-left { gap: 12px; }
-            .logo { width: 50px; height: 50px; }
-            .header-title h1 { font-size: 18px; }
-            .subtitle { font-size: 11px; }
+            header { 
+                flex-wrap: wrap; 
+                padding: 12px 20px; 
+            }
+            .header-left { 
+                gap: 12px; 
+            }
+            .logo { 
+                width: 50px; 
+                height: 50px; 
+            }
+            .header-title h1 { 
+                font-size: 16px; 
+            }
+            .subtitle { 
+                font-size: 11px; 
+            }
 
-            .menu-toggle { display: block; }
+            /* Paparkan butang burger di mobile */
+            .menu-toggle { 
+                display: block; 
+            }
 
+            /* Ubah struktur nav jadi menu menegak (dropdown toggle) */
             nav {
                 display: none;
                 width: 100%;
                 flex-direction: column;
-                margin-top: 12px;
+                margin-top: 15px;
                 gap: 0;
                 background-color: var(--maroon-dark);
                 border-radius: 10px;
                 overflow: hidden;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.3);
             }
 
-            nav.active { display: flex; }
+            nav.active { 
+                display: flex; 
+            }
 
             nav a {
                 width: 100%;
@@ -333,11 +355,12 @@
             </div>
         </div>
 
-        <!-- Butang Burger Menu -->
+        <!-- Butang Burger Menu (Beger) -->
         <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
             <i class="fas fa-bars" id="menu-icon"></i>
         </button>
 
+        <!-- Navigasi -->
         <nav id="nav-menu">
             <a href="index.html">HOME</a>
             <a href="jadual.html">JADUAL</a>
@@ -608,13 +631,13 @@
         <p>© 2026 Portal Bola Jaring MSSM</p>
     </footer>
 
-    <!-- SKRIP JAVASCRIPT RESPONSIF & BURGER MENU -->
+    <!-- SKRIP JAVASCRIPT UNTUK BURGER MENU -->
     <script>
         const menuToggle = document.getElementById("menu-toggle");
         const menuIcon = document.getElementById("menu-icon");
         const nav = document.getElementById("nav-menu");
 
-        // Toggle Burger Menu pada Mobile
+        // Toggle buka/tutup menu apabila butang burger ditekan
         menuToggle.addEventListener("click", (e) => {
             e.stopPropagation();
             nav.classList.toggle("active");
@@ -628,7 +651,7 @@
             }
         });
 
-        // Tutup menu mobile apabila pengguna klik di luar header
+        // Tutup menu apabila pengguna klik di luar kawasan menu
         document.addEventListener("click", (e) => {
             if (window.innerWidth <= 768 && !nav.contains(e.target) && !menuToggle.contains(e.target)) {
                 nav.classList.remove("active");
