@@ -73,7 +73,7 @@
             gap: 8px;          
         }
 
-        nav a, .dropdown-btn {
+        nav a {
             padding: 10px 14px;   
             border-radius: 8px;
             color: white;
@@ -84,14 +84,12 @@
             white-space: nowrap;
             background: none;
             border: none;
-            cursor: pointer;
-            font-family: inherit;
             display: inline-flex;
             align-items: center;
             gap: 6px;
         }
 
-        nav a:hover, .dropdown:hover .dropdown-btn {
+        nav a:hover {
             background-color: rgba(255,255,255,0.2);
             transform: translateY(-2px);
         }
@@ -251,6 +249,17 @@
             font-size: 15px; 
         }
 
+        /* BURGER MENU BUTTON */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
         /* KHAS UNTUK CETAK (PRINT) */
         @media print {
             header, .action-bar, footer {
@@ -271,10 +280,45 @@
             }
         }
 
-        @media (max-width: 768px) {
+        /* RESPONSIVE MOBILE */
+        @media (max-width: 900px) {
             .stats-summary { grid-template-columns: repeat(2, 1fr); }
-            header { padding: 12px 20px; flex-wrap: wrap; }
+        }
+
+        @media (max-width: 768px) {
+            header { flex-wrap: wrap; padding: 12px 20px; }
+            .header-left { gap: 12px; }
+            .logo { width: 50px; height: 50px; }
             .header-title h1 { font-size: 18px; }
+            .subtitle { font-size: 11px; }
+
+            .menu-toggle { display: block; }
+
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                margin-top: 12px;
+                gap: 0;
+                background-color: var(--maroon-dark);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+
+            nav.active { display: flex; }
+
+            nav a {
+                width: 100%;
+                text-align: left;
+                padding: 14px 20px;
+                border-radius: 0;
+                box-sizing: border-box;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .page-header { padding: 25px 20px; }
+            .page-header h2 { font-size: 24px; }
+            .stats-summary { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -288,6 +332,11 @@
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
+
+        <!-- Butang Burger Menu -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
+        </button>
 
         <nav id="nav-menu">
             <a href="index.html">HOME</a>
@@ -559,5 +608,34 @@
         <p>© 2026 Portal Bola Jaring MSSM</p>
     </footer>
 
+    <!-- SKRIP JAVASCRIPT RESPONSIF & BURGER MENU -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const menuIcon = document.getElementById("menu-icon");
+        const nav = document.getElementById("nav-menu");
+
+        // Toggle Burger Menu pada Mobile
+        menuToggle.addEventListener("click", (e) => {
+            e.stopPropagation();
+            nav.classList.toggle("active");
+            
+            if (nav.classList.contains("active")) {
+                menuIcon.classList.remove("fa-bars");
+                menuIcon.classList.add("fa-xmark");
+            } else {
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+            }
+        });
+
+        // Tutup menu mobile apabila pengguna klik di luar header
+        document.addEventListener("click", (e) => {
+            if (window.innerWidth <= 768 && !nav.contains(e.target) && !menuToggle.contains(e.target)) {
+                nav.classList.remove("active");
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+            }
+        });
+    </script>
 </body>
 </html>
