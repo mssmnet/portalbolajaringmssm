@@ -37,6 +37,9 @@
         main {
             flex: 1;
             padding: 20px 10px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         /* HEADER & NAVIGATION */
@@ -51,6 +54,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            width: 100%;
         }
 
         .header-left {
@@ -182,8 +186,8 @@
             padding: 30px 20px;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            margin: 20px auto;
-            max-width: 1200px;
+            margin: 20px 0;
+            width: 100%;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
@@ -197,8 +201,8 @@
 
         /* TAB CONTAINER SEBARIS DENGAN BUTANG PRINT */
         .tab-container {
-            max-width: 1200px;
-            margin: 0 auto 20px;
+            width: 100%;
+            margin: 0 0 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -247,8 +251,8 @@
         }
 
         .results-container {
-            max-width: 1200px;
-            margin: 0 auto 40px;
+            width: 100%;
+            margin: 0 0 40px;
             display: none;
         }
 
@@ -273,6 +277,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
         /* REKABENTUK KAD KEPUTUSAN DETAIL */
@@ -283,6 +289,7 @@
             margin-bottom: 20px;
             overflow: hidden;
             border: 1px solid #eee;
+            width: 100%;
         }
 
         .match-header {
@@ -293,6 +300,8 @@
             align-items: center;
             font-size: 13px;
             border-bottom: 1px solid #f1e1e5;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
         .match-info {
@@ -301,6 +310,7 @@
             gap: 12px;
             color: #555;
             font-weight: 600;
+            flex-wrap: wrap;
         }
 
         .badge-kump {
@@ -361,6 +371,7 @@
             font-size: 16px;
             color: #222;
             font-weight: 800;
+            word-break: break-word;
         }
 
         .score-center {
@@ -399,13 +410,11 @@
         .quarter-breakdown {
             background: #fafafa;
             padding: 12px 20px;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
+            width: 100%;
         }
 
         .quarter-table {
             width: 100%;
-            min-width: 450px;
             max-width: 600px;
             margin: 0 auto;
             border-collapse: collapse;
@@ -415,7 +424,7 @@
         .quarter-table th {
             color: #666;
             font-weight: 600;
-            padding: 4px 8px;
+            padding: 6px 8px;
             border-bottom: 1px solid #e0e0e0;
         }
 
@@ -433,6 +442,7 @@
             padding: 25px;
             margin-top: auto;
             font-size: 15px;
+            width: 100%;
         }
 
         /* STYLING KHAS APABILA DICETAK (PRINT CSS) */
@@ -448,6 +458,7 @@
 
             main {
                 padding: 0;
+                max-width: 100%;
             }
 
             .hero {
@@ -467,26 +478,26 @@
             }
         }
 
-        /* MEDIA QUERIES (RESPONSIF MOBILE) */
+        /* MEDIA QUERIES (RESPONSIF MOBILE / HANDSET) */
         @media (max-width: 768px) {
             header {
-                padding: 15px 20px;
+                padding: 12px 15px;
                 flex-wrap: wrap;
             }
 
             .logo {
-                width: 45px;
-                height: 45px;
-                min-width: 45px;
-                min-height: 45px;
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                min-height: 40px;
             }
 
             .header-title h1 {
-                font-size: 16px;
+                font-size: 15px;
             }
 
             .subtitle {
-                font-size: 11px;
+                font-size: 10px;
             }
 
             .menu-toggle {
@@ -497,7 +508,7 @@
                 display: none;
                 flex-direction: column;
                 width: 100%;
-                margin-top: 15px;
+                margin-top: 12px;
                 background: var(--maroon-dark);
                 padding: 10px;
                 border-radius: 8px;
@@ -534,9 +545,50 @@
                 color: var(--gold);
             }
 
+            main {
+                padding: 10px 6px;
+            }
+
+            .hero {
+                padding: 20px 10px;
+                margin: 10px 0;
+                border-radius: 10px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .tab-container {
+                gap: 8px;
+                margin-bottom: 15px;
+            }
+
+            .tab-btn, .print-btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .day-header {
+                font-size: 13px;
+                padding: 10px 12px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .match-header {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
             .match-body {
                 flex-direction: column;
-                gap: 15px;
+                gap: 12px;
+                padding: 15px 10px;
             }
 
             .team-box.left, .team-box.right {
@@ -552,10 +604,10 @@
             }
 
             .team-logo {
-                width: 35px;
-                height: 35px;
-                min-width: 35px;
-                min-height: 35px;
+                width: 38px;
+                height: 38px;
+                min-width: 38px;
+                min-height: 38px;
                 display: inline-block !important;
             }
 
@@ -563,14 +615,27 @@
                 font-size: 14px;
             }
 
-            .main-score {
-                font-size: 26px;
+            .score-center {
+                min-width: auto;
+                width: 100%;
+                padding: 5px 0;
             }
 
-            .tab-btn, .print-btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
+            .main-score {
+                font-size: 24px;
+            }
+
+            .quarter-breakdown {
+                padding: 8px 10px;
+            }
+
+            .quarter-table {
+                font-size: 11px;
+                min-width: 100% !important;
+            }
+
+            .quarter-table th, .quarter-table td {
+                padding: 5px 4px;
             }
         }
     </style>
