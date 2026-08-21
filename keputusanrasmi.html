@@ -98,7 +98,7 @@
             align-items: center;
         }
 
-        nav a {
+        nav > a, .dropdown-btn {
             color: white;
             text-decoration: none;
             padding: 10px 14px;
@@ -110,11 +110,70 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
         }
 
-        nav a:hover, nav a.active {
+        nav > a:hover, nav > a.active, .dropdown-btn:hover, .dropdown-btn.active {
             background: rgba(255,255,255,.2);
             color: var(--gold);
+        }
+
+        /* DROPDOWN STYLES */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 260px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            z-index: 1001;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: left;
+            transition: 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--pink);
+            color: var(--maroon);
+        }
+
+        .dropdown-content hr {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 6px 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .live-link {
+            color: #ff4d4d !important;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .live-link:hover {
+            background: white !important;
+            color: #e60000 !important;
         }
 
         /* HERO & CONTENT SECTION */
@@ -325,7 +384,6 @@
             font-weight: bold;
         }
 
-        /* RUANG PEMENANG */
         .winner-box {
             margin-top: 6px;
             font-size: 12px;
@@ -449,9 +507,31 @@
                 display: flex;
             }
 
-            nav a {
+            nav > a, .dropdown-btn {
                 width: 100%;
-                justify-content: center;
+                justify-content: space-between;
+            }
+
+            .dropdown {
+                width: 100%;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background: rgba(0,0,0,0.15);
+                width: 100%;
+                border-radius: 0;
+                padding-left: 10px;
+            }
+
+            .dropdown-content a {
+                color: white;
+            }
+
+            .dropdown-content a:hover {
+                background: rgba(255,255,255,0.2);
+                color: var(--gold);
             }
 
             .match-body {
@@ -506,15 +586,82 @@
             </div>
         </div>
 
-        <button class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
         </button>
 
-        <nav id="navMenu">
-            <a href="../../index.html"><i class="fas fa-home"></i> HOME</a>
-            <a href="fixtures.html"><i class="far fa-calendar-alt"></i> Fixtures</a>
-            <a href="results.html" class="active"><i class="fas fa-trophy"></i> Results</a>
-            <a href="standings.html"><i class="fas fa-chart-bar"></i> Standings</a>
+        <nav id="nav-menu">
+            <a href="index.html">HOME</a>
+            
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span>BOLA JARING MSSM</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content"> 
+                    <a href="organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="pengadil.html">PENGADIL</a>
+                    <hr>
+                    <a href="about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="rules.html">PERATURAN</a>
+                    <a href="calendar.html">TAKWIM</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <button class="dropdown-btn active">
+                    <span>KEJOHANAN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="index.html">MSSM 2026</a>
+                    <hr>
+                    <a href="jadual.html">JADUAL PERLAWANAN MSSM 2026</a>
+                    <a href="keputusanrasmi.html">KEPUTUSAN RASMI MSSM 2026</a>
+                    <hr
+                    <a href="../u12.html">BAWAH 12</a>
+                    <a href="../u15.html">BAWAH 15</a>
+                    <a href="../u18.html">BAWAH 18</a>  
+                    <hr>
+                    <a href="bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
+                    <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" style="color: #ffeb3b;">
+                    <span>MENU B12</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="teams.html">👥 Teams</a>
+                    <a href="groups.html">🏆 Groups</a>
+                    <a href="fixtures.html">📅 Fixtures</a>
+                    <a href="results.html" class="active">🏆 Results</a>
+                    <a href="standings.html">📊 Standings</a>
+                    <hr>
+                    <a href="undianp2.html">🎲 Second Round Draw</a>
+                    <a href="chart.html">🏆 Tournament Bracket</a>
+                    <a href="ranking.html">🥇 Ranking</a>
+                    <a href="statistic.html">📈 Statistics Scorer</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span>GALERI & MEDIA</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="halloffame.html">HALL OF FAME</a>
+                    <a href="gallery.html">GALLERY</a>
+                </div>
+            </div>
+
+            <a href="live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
 
@@ -771,7 +918,7 @@
             }
         };
 
-        // FUNGSI LOGO PASUKAN (DIBETULKAN LALUAN KEPADA images/logo/)
+        // FUNGSI LOGO PASUKAN
         function getTeamLogo(teamName) {
             const name = teamName.toUpperCase();
             const logoMap = {
@@ -888,12 +1035,20 @@
             }
         }
 
-        // MENU HAMBURGER MOBILE
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
+        // MENU HAMBURGER MOBILE & DROPDOWN TOGGLE
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const menuIcon = document.getElementById('menu-icon');
 
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('show');
+            if (navMenu.classList.contains('show')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
         });
 
         // JANA JADUAL APABILA HALAMAN DIMUATKAN
