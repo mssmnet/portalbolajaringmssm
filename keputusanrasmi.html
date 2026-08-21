@@ -499,7 +499,7 @@
 
     <header>
         <div class="header-left">
-            <img src="../../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
+            <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo">
             <div class="header-title">
                 <h1>PORTAL BOLA JARING MSSM</h1>
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
@@ -771,7 +771,7 @@
             }
         };
 
-        // FUNGSI LOGO PASUKAN
+        // FUNGSI LOGO PASUKAN (DIBETULKAN LALUAN KEPADA images/logo/)
         function getTeamLogo(teamName) {
             const name = teamName.toUpperCase();
             const logoMap = {
@@ -796,10 +796,10 @@
 
             for (let key in logoMap) {
                 if (name.includes(key)) {
-                    return `../../../../images/logo/${logoMap[key]}`;
+                    return `images/logo/${logoMap[key]}`;
                 }
             }
-            return `../../../../images/mssmlogo.png`;
+            return `images/mssmlogo.png`;
         }
 
         // FUNGSI JANA KAD KEPUTUSAN DARI DATA
