@@ -13,7 +13,6 @@
             --accent-gold: #ffeb3b;
         }
         
-        /* BACKGROUND TEMA PREMIUM */
         body { 
             margin: 0; 
             padding: 0; 
@@ -25,7 +24,6 @@
             background-attachment: fixed;
         }
 
-        /* HEADER */
         header {
             background-color: var(--maroon-mssm);
             color: white;
@@ -69,7 +67,6 @@
             letter-spacing: 1px;
         }
 
-        /* NAVIGATION */
         nav {
             display: flex;
             align-items: center;
@@ -101,7 +98,6 @@
             color: var(--accent-gold);
         }
 
-        /* LIVE BUTTON SPECIAL STYLE */
         .live-btn {
             background-color: #d32f2f !important;
             color: white !important;
@@ -114,7 +110,6 @@
             100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
         }
 
-        /* DROPDOWN MENU */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -161,7 +156,6 @@
             display: block;
         }
 
-        /* MAIN CONTENT */
         .container { 
             max-width: 1200px; 
             margin: 30px auto; 
@@ -196,7 +190,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* SECTION CATEGORY TITLE */
         .category-title {
             color: white;
             background-color: var(--maroon-mssm);
@@ -218,7 +211,6 @@
             font-size: 18px;
         }
         
-        /* GRID KAD */
         .officers-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
@@ -304,7 +296,6 @@
             color: var(--maroon-mssm);
         }
 
-        /* FOOTER */
         footer { 
             background-color: var(--maroon-mssm); 
             color: white; 
@@ -315,7 +306,6 @@
             box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
         }
 
-        /* RESPONSIVE MENU HAMBURGER UNTUK TELEFON (HANDSET) */
         .menu-toggle {
             display: none;
             font-size: 24px;
@@ -327,107 +317,22 @@
         }
 
         @media(max-width: 1024px) {
-            header {
-                flex-wrap: wrap;
-                padding: 15px 20px;
-            }
-
-            .header-left {
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .menu-toggle { 
-                display: block; 
-            }
-
-            nav {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                margin-top: 15px;
-                gap: 0;
-            }
-
-            nav.active { 
-                display: flex; 
-            }
-
-            nav a, .dropdown-btn {
-                width: 100%;
-                text-align: left;
-                padding: 12px 15px;
-                box-sizing: border-box;
-                border-radius: 6px;
-            }
-
-            .dropdown { 
-                width: 100%; 
-            }
-
-            .dropdown-content {
-                position: static;
-                display: none;
-                width: 100%;
-                box-shadow: none;
-                border-radius: 6px;
-                margin-top: 2px;
-                background-color: rgba(0, 0, 0, 0.2);
-            }
-
-            .dropdown:hover .dropdown-content { 
-                display: none; 
-            }
-
-            .dropdown.active .dropdown-content { 
-                display: block; 
-            }
-
-            .dropdown-content a { 
-                padding-left: 30px; 
-            }
-        }
-
-        @media(max-width: 600px) {
-            .header-title h1 {
-                font-size: 18px;
-            }
-            .subtitle {
-                font-size: 11px;
-            }
-            .logo {
-                width: 55px;
-                height: 55px;
-            }
-            .hero h2 {
-                font-size: 22px;
-            }
-            .hero p {
-                font-size: 13px;
-            }
-            .officers-grid {
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-                gap: 12px;
-            }
-            .officer-img-container {
-                width: 85px;
-                height: 85px;
-            }
-            .officer-info h3 {
-                font-size: 13px;
-            }
-            .officer-role {
-                font-size: 10px;
-            }
-            .officer-school {
-                font-size: 10.5px;
-            }
+            header { flex-wrap: wrap; padding: 15px 20px; }
+            .header-left { width: 100%; justify-content: space-between; }
+            .menu-toggle { display: block; }
+            nav { display: none; flex-direction: column; width: 100%; margin-top: 15px; gap: 0; }
+            nav.active { display: flex; }
+            nav a, .dropdown-btn { width: 100%; text-align: left; padding: 12px 15px; box-sizing: border-box; border-radius: 6px; }
+            .dropdown { width: 100%; }
+            .dropdown-content { position: static; display: none; width: 100%; box-shadow: none; border-radius: 6px; margin-top: 2px; background-color: rgba(0, 0, 0, 0.2); }
+            .dropdown:hover .dropdown-content { display: none; }
+            .dropdown.active .dropdown-content { display: block; }
+            .dropdown-content a { padding-left: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER & NAV -->
     <header>
         <div class="header-left">
             <div style="display: flex; align-items: center; gap: 15px;">
@@ -437,18 +342,13 @@
                     <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
                 </div>
             </div>
-
-            <!-- Butang Burger -->
             <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
 
-        <!-- Navigasi Utama -->
         <nav id="nav-menu">
             <a href="index.html">HOME</a>
-            
-            <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
                 <button class="dropdown-btn">BOLA JARING MSSM ▼</button>
                 <div class="dropdown-content"> 
@@ -462,8 +362,6 @@
                     <a href="calendar.html">TAKWIM</a>
                 </div>
             </div>
-            
-            <!-- DROPDOWN KEJOHANAN -->
             <div class="dropdown">
                 <button class="dropdown-btn">KEJOHANAN ▼</button>
                 <div class="dropdown-content">
@@ -474,8 +372,6 @@
                     <a href="borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>                  
                 </div>
             </div>
-
-            <!-- DROPDOWN GALERI & MEDIA -->
             <div class="dropdown">
                 <button class="dropdown-btn">GALERI & MEDIA ▼</button>
                 <div class="dropdown-content">
@@ -483,97 +379,118 @@
                     <a href="gallery.html">GALLERY</a>
                 </div>
             </div>
-
-            <!-- 🔴 LIVE -->
             <a href="live.html" class="live-btn">🔴 LIVE</a>
         </nav>
     </header>
 
-    <!-- KANDUNGAN UTAMA: TEKNIKAL BOLA JARING MSSM-MELAKA -->
     <main class="container">
         <section class="hero">
             <h2>⚙️ TEKNIKAL BOLA JARING MSSM - MELAKA</h2>
             <p>Barisan Jawatankuasa Pengurusan Teknikal Kejohanan</p>
         </section>
 
-        <!-- KUMPULAN 1: TEKNIKAL BAWAH 12 TAHUN (15 ORANG) -->
-        <div class="category-title"><i class="fa-solid fa-users"></i> Jawatankuasa Teknikal Bawah 12 Tahun (15 Orang)</div>
-        <section class="officers-grid">
-            <script>
-                for (let i = 1; i <= 15; i++) {
-                    document.write(`
-                        <div class="officer-card">
-                            <div class="officer-img-container">
-                                <img src="images/teknikal/b12_${i}.jpg" alt="Pegawai B12 ${i}" class="officer-img">
-                            </div>
-                            <div class="officer-info">
-                                <div>
-                                    <h3>NAMA PEGAWAI B12 - ${i}</h3>
-                                    <div class="officer-role">Pegawai Teknikal B12</div>
-                                </div>
-                                <p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH / DAERAH</p>
-                            </div>
-                        </div>
-                    `);
-                }
-            </script>
-        </section>
+        <!-- PTPS & PENOLONG PTPS MSS MELAKA -->
+        <div class="category-title"><i class="fa-solid fa-user-tie"></i> PTPS & Penolong PTPS MSS Melaka</div>
+        <section class="officers-grid" id="grid-ptps"></section>
 
-        <!-- KUMPULAN 2: TEKNIKAL BAWAH 15 TAHUN (15 ORANG) -->
-        <div class="category-title"><i class="fa-solid fa-users"></i> Jawatankuasa Teknikal Bawah 15 Tahun (15 Orang)</div>
-        <section class="officers-grid">
-            <script>
-                for (let i = 1; i <= 15; i++) {
-                    document.write(`
-                        <div class="officer-card">
-                            <div class="officer-img-container">
-                                <img src="images/teknikal/b15_${i}.jpg" alt="Pegawai B15 ${i}" class="officer-img">
-                            </div>
-                            <div class="officer-info">
-                                <div>
-                                    <h3>NAMA PEGAWAI B15 - ${i}</h3>
-                                    <div class="officer-role">Pegawai Teknikal B15</div>
-                                </div>
-                                <p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH / DAERAH</p>
-                            </div>
-                        </div>
-                    `);
-                }
-            </script>
-        </section>
+        <!-- KUMPULAN 1: BAVAH 12 TAHUN -->
+        <div class="category-title"><i class="fa-solid fa-users"></i> Jawatankuasa Teknikal Bawah 12 Tahun</div>
+        <section class="officers-grid" id="grid-b12"></section>
 
-        <!-- KUMPULAN 3: TEKNIKAL BAWAH 18 TAHUN (15 ORANG) -->
-        <div class="category-title"><i class="fa-solid fa-users"></i> Jawatankuasa Teknikal Bawah 18 Tahun (15 Orang)</div>
-        <section class="officers-grid">
-            <script>
-                for (let i = 1; i <= 15; i++) {
-                    document.write(`
-                        <div class="officer-card">
-                            <div class="officer-img-container">
-                                <img src="images/teknikal/b18_${i}.jpg" alt="Pegawai B18 ${i}" class="officer-img">
-                            </div>
-                            <div class="officer-info">
-                                <div>
-                                    <h3>NAMA PEGAWAI B18 - ${i}</h3>
-                                    <div class="officer-role">Pegawai Teknikal B18</div>
-                                </div>
-                                <p class="officer-school"><i class="fa-solid fa-school"></i> SEKOLAH / DAERAH</p>
-                            </div>
-                        </div>
-                    `);
-                }
-            </script>
-        </section>
+        <!-- KUMPULAN 2: BAWAH 15 TAHUN -->
+        <div class="category-title"><i class="fa-solid fa-users"></i> Jawatankuasa Teknikal Bawah 15 Tahun</div>
+        <section class="officers-grid" id="grid-b15"></section>
 
+        <!-- KUMPULAN 3: BAWAH 18 TAHUN -->
+        <div class="category-title"><i class="fa-solid fa-users"></i> Jawatankuasa Teknikal Bawah 18 Tahun</div>
+        <section class="officers-grid" id="grid-b18"></section>
     </main>
 
-    <!-- FOOTER -->
     <footer>
         <p>© 2026 Portal Bola Jaring MSSM</p>
     </footer>
 
-    <!-- SKRIP JAVASCRIPT UNTUK MENU RESPONSIF -->
     <script>
+        // Data PTPS & Penolong PTPS
+        const dataPtps = [
+            { nama: "NADIAH BINTI MOHD ESA", sekolah: "SK GANGSA", jawatan: "PTPS", gambar: "ptps_1.jpg" },
+            { nama: "NOORRUL ‘AIN BINTI AHMAD JAMALUDIN", sekolah: "SMK SERI DUYONG", jawatan: "PENOLONG PTPS", gambar: "ptps_2.jpg" }
+        ];
+
+        // Data Bawah 12 Tahun
+        const dataB12 = [
+            { nama: "WA’ARINA BINTI MUSA", sekolah: "SK KEM TRENDAK 1", jawatan: "PENYELARAS VENUE B12", gambar: "b12_1.jpg" },
+            { nama: "KAMARIAH BINTI MD TAHIR", sekolah: "SK DATUK HJ BAGINDA", jawatan: "PENJAGA MASA B12", gambar: "b12_2.jpg" },
+            { nama: "KHADIJAH BINTI USIN", sekolah: "SK PULAI", jawatan: "PENJAGA MASA B12", gambar: "b12_3.jpg" },
+            { nama: "NORASHIDAH BINTI DAHALAN", sekolah: "SK MASJID TANAH (INTEG)", jawatan: "STATISTIK B12", gambar: "b12_4.jpg" },
+            { nama: "NORAZREEN BINTI A. AZIZ", sekolah: "SK SERKAM", jawatan: "PENCATAT B12", gambar: "b12_5.jpg" },
+            { nama: "NUR ARFA HANANI BINTI NOR AZLIM", sekolah: "SR ARAB JAIM MERLIMAU PASIR", jawatan: "PENGACARA MAJLIS B12", gambar: "b12_6.jpg" },
+            { nama: "NUR ATIKAH BINTI ZAHARI", sekolah: "SMK DATUK BENDAHARA", jawatan: "PENJAGA MASA B12", gambar: "b12_7.jpg" },
+            { nama: "NURULFADZILAH BINTI ZAINUDIN", sekolah: "SMK HANG KASTURI", jawatan: "PENJAGA MASA B12", gambar: "b12_8.jpg" },
+            { nama: "SITI ADLIN DIANA BINTI OMAR", sekolah: "SMKA TUN PERAK", jawatan: "PENCATAT B12", gambar: "b12_9.jpg" },
+            { nama: "SITI NOR HAFEEZA BINTI KHOSNI", sekolah: "KV JASIN", jawatan: "PENCATAT B12", gambar: "b12_10.jpg" },
+            { nama: "SITI NORBAIZURA BINTI BASIR", sekolah: "SK LESONG BATU", jawatan: "PENCATAT B12", gambar: "b12_11.jpg" },
+            { nama: "WAN NUR AIN BINTI WAN ANUAR", sekolah: "SMK SERI PENGKALAN", jawatan: "STATISTIK B12", gambar: "b12_12.jpg" }
+        ];
+
+        // Data Bawah 15 Tahun
+        const dataB15 = [
+            { nama: "NURUL ASHIKIN BINTI SHAFIE", sekolah: "SSN SMK SERI KOTA", jawatan: "PENYELARAS VENUE B15 / B18", gambar: "b15_1.jpg" },
+            { nama: "AINA NABILA BINTI KHAIROLNIZAM", sekolah: "SK PARIT MELANA", jawatan: "PENJAGA MASA B15", gambar: "b15_2.jpg" },
+            { nama: "ASWINA AKMA BINTI ALIAS", sekolah: "SK BATU BERENDAM 2", jawatan: "PENCATAT B15", gambar: "b15_3.jpg" },
+            { nama: "FATIN NURZULAIKHA BINTI MOHD ZAMZURI", sekolah: "SK MASJID TANAH (INTEG)", jawatan: "PENCATAT B15", gambar: "b15_4.jpg" },
+            { nama: "HAFIZAH BINTI JAAFAR", sekolah: "SK CONVENT INFANT JESUS (1)", jawatan: "PENJAGA MASA B15", gambar: "b15_5.jpg" },
+            { nama: "HIKMATUL MABRUK BINTI HASHIM", sekolah: "SK BELIMBANG DALAM", jawatan: "PENJAGA MASA B15", gambar: "b15_6.jpg" },
+            { nama: "MUFIDAH BINTI SHAMSUDIN", sekolah: "SK FELDA BUKIT SENGGEH", jawatan: "STATISTIK B15", gambar: "b15_7.jpg" },
+            { nama: "NUR AMYRAH ADLYNA BINTI ROSLIM", sekolah: "SK BUKIT BERUANG", jawatan: "PENGACARA MAJLIS B15", gambar: "b15_8.jpg" },
+            { nama: "NUR-AL-AIN AZLIN BINTI MOHD MANSOR", sekolah: "SMA (JAIM) AL-EHYA EL-KARIM", jawatan: "PENCATAT B15", gambar: "b15_9.jpg" },
+            { nama: "NURFAHANI BINTI NOR AZAM", sekolah: "SUK MELAKA", jawatan: "PENCATAT B15", gambar: "b15_10.jpg" },
+            { nama: "SITI FARHANA MIRA BINTI KAMAROL ZAMAN", sekolah: "SK KEM TERENDAK 1", jawatan: "PENJAGA MASA B15", gambar: "b15_11.jpg" }
+        ];
+
+        // Data Bawah 18 Tahun
+        const dataB18 = [
+            { nama: "EMA MALISA BINTI MOHD KAMAL", sekolah: "SK BELIMBING DALAM", jawatan: "PENCATAT B18", gambar: "b18_1.jpg" },
+            { nama: "ERNI BINTI DORAHIM", sekolah: "SK PARIT MELANA", jawatan: "PENJAGA MASA B18", gambar: "b18_2.jpg" },
+            { nama: "MAZURAH BINTI ABU BAKAR", sekolah: "SMK KELEBANG BESAR", jawatan: "PENJAGA MASA B18", gambar: "b18_3.jpg" },
+            { nama: "NOOR AMELINA BINTI ROSDI", sekolah: "SK DATUK TAMBICHIK KARIM", jawatan: "PENJAGA MASA B18", gambar: "b18_4.jpg" },
+            { nama: "NOR AZAH BINTI AHMAD", sekolah: "SMK PULAU SEBANG", jawatan: "PENCATAT B18", gambar: "b18_5.jpg" },
+            { nama: "NORZAHIDAH ABDUL HALIM", sekolah: "PLANETARIUM INTERNATIONAL SCHOOL", jawatan: "PENCATAT B18", gambar: "b18_6.jpg" },
+            { nama: "NURAINA BT AZHAR", sekolah: "SK BUKIT BERUANG", jawatan: "PENCATAT B18", gambar: "b18_7.jpg" },
+            { nama: "SITI KHALIJAH BINTI DOSAH", sekolah: "KOLEJ TINGKATAN 6 TUN FATIMAH", jawatan: "STATISTIK B18", gambar: "b18_8.jpg" },
+            { nama: "SITI MASTURA BINTI TALIP", sekolah: "SMK SERI MAHKOTA", jawatan: "PENGACARA MAJLIS B18", gambar: "b18_9.jpg" },
+            { nama: "TUAN SABARIAH BINTI TUAN MAT", sekolah: "SK GANUN", jawatan: "PENJAGA MASA B18", gambar: "b18_10.jpg" }
+        ];
+
+        // Fungsi pembantu untuk menjana HTML kad
+        function renderCards(data, elementId) {
+            let html = '';
+            data.forEach(item => {
+                html += `
+                    <div class="officer-card">
+                        <div class="officer-img-container">
+                            <img src="images/teknikal/${item.gambar}" alt="${item.nama}" class="officer-img" onerror="this.src='images/default.jpg'">
+                        </div>
+                        <div class="officer-info">
+                            <div>
+                                <h3>${item.nama}</h3>
+                                <div class="officer-role">${item.jawatan}</div>
+                            </div>
+                            <p class="officer-school"><i class="fa-solid fa-school"></i> ${item.sekolah}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById(elementId).innerHTML = html;
+        }
+
+        // Paparkan semua data ke dalam elemen masing-masing
+        renderCards(dataPtps, 'grid-ptps');
+        renderCards(dataB12, 'grid-b12');
+        renderCards(dataB15, 'grid-b15');
+        renderCards(dataB18, 'grid-b18');
+
+        // Skrip Menu Responsif
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
 
