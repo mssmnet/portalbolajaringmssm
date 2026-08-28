@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSS Pahang | MSSM 2026 U12</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <!-- Font Awesome untuk ikon burger -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <style>
+        /* Tetapan Asas & Layout */
+        body {
+            background-image: url('../../../../images/bg-utama.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            background-color: #fce4ec;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* Tetapan Header */
+        header {
+            background: #7B1E3A; /* Maroon */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            box-shadow: 0 4px 15px rgba(0,0,0,.3);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background: transparent;
+        }
+
+        .header-title h1 { color: white; font-size: 22px; margin: 0; }
+        .subtitle { color: #ffeb3b; font-weight: bold; margin: 0; font-size: 14px; }
+
+        /* Navigasi */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto; 
+        }
+
+        nav a, .dropdown-btn {
+            color: white;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: .3s;
+            font-weight: bold;
+            background: none;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+
+        nav a:hover, nav a.active, .dropdown:hover .dropdown-btn {
+            background: rgba(255,255,255,.15);
+            color: #FFD700;
+        }
+
+        /* Susunan Struktur Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #7B1E3A;
+            min-width: 240px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 0;
+        }
+
+        .dropdown-content a:hover {
+            background: #9b2b4d;
+            color: #FFD700;
+        }
+
+        .dropdown-content hr {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            margin: 5px 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Burger Menu (Telefon) */
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Kandungan Utama & Kad Pasukan */
+        .hero { 
+            text-align: center; 
+            padding: 30px 20px; 
+            background: rgba(255, 255, 255, 0.95); 
+            margin: 30px auto 10px auto; 
+            max-width: 1200px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .hero h2 { margin: 0 0 5px 0; color: #7B1E3A; }
+        .hero p { margin: 0; color: #555; font-weight: 600; }
+
+        .team-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .team-section h2 {
+            color: #7B1E3A;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #7B1E3A;
+            padding-bottom: 8px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 15px;
+            border-radius: 8px;
+        }
+
+        /* GRID & KAD PEMAIN (PINK & PUTIH) */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .member-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f9 100%);
+            border: 2px solid #f3b6cc;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 6px 18px rgba(180, 60, 100, 0.12);
+            transition: all 0.3s ease;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .member-card:hover {
+            transform: translateY(-4px); 
+            box-shadow: 0 10px 25px rgba(180, 60, 100, 0.20);
+            border-color: #d94f7c;
+        }
+
+        /* BAHAGIAN GAMBAR & LOGO NEGERI */
+        .player-photo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+            width: 95px;
+        }
+
+        .player-photo img:first-child {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #d94f7c;
+        }
+
+        .team-logo {
+            width: 65px !important;
+            height: 65px !important;
+            object-fit: contain !important;
+            border: none !important;
+            border-radius: 0 !important;
+            margin-top: 6px;
+        }
+
+        /* MAKLUMAT PEMAIN */
+        .member-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .member-info h3 {
+            color: #8b1e3f;
+            margin: 0 0 6px 0;
+            font-size: 16px;
+        }
+
+        .member-info p {
+            margin: 4px 0 8px 0;
+            color: #555;
+            font-size: 13px;
+        }
+
+        .badge {
+            display: inline-block;
+            margin: 6px 0;
+            background: #7B1E3A;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            width: fit-content;
+        }
+
+        .badge-player {
+            background: #f8c4d8;
+            color: #7a1638;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            font-size: 12px;
+            width: fit-content;
+        }
+
+        .player-details {
+            background: #fff;
+            border: 1px solid #f3d2df;
+            border-radius: 12px;
+            padding: 8px 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 12px;
+            color: #333;
+            margin-top: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background: #5a1429;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            font-size: 14px;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1000px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 20px;
+                gap: 0;
+            }
+            .header-left {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header-title h1 { font-size: 18px; }
+            .subtitle { font-size: 12px; }
+            .logo { width: 50px; height: 50px; }
+            .menu-toggle { display: block; }
+            
+            nav {
+                display: none; 
+                width: 100%;
+                flex-direction: column;
+                margin-top: 15px;
+                margin-left: 0;
+                gap: 0;
+            }
+            nav.active { display: flex; }
+            nav a, .dropdown, .dropdown-btn {
+                width: 100%;
+                text-align: left;
+                padding: 14px 18px;
+                border-radius: 0;
+                box-sizing: border-box;
+            }
+            .dropdown { width: 100%; }
+            .dropdown-content {
+                position: static;
+                display: none;
+                box-shadow: none;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                margin-top: 5px;
+            }
+            .dropdown:hover .dropdown-content { display: none; }
+            .dropdown.active .dropdown-content { display: block; }
+            .dropdown-content a { padding-left: 35px; }
+
+            .team-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="../../../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
+            <div class="header-title">
+                <h1>PORTAL BOLA JARING MSSM</h1>
+                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+            </div>
+        </div>
+
+        <!-- Butang Burger -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
+        </button>
+
+        <!-- Navigasi Utama -->
+        <nav id="nav-menu">
+            <a href="../../../../index.html">HOME</a>
+            
+            <!-- DROPDOWN BOLA JARING MSSM -->
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span>BOLA JARING MSSM</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content"> 
+                    <a href="../../../../organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="../../../../panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="../../../../teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="../../../../pengadil.html">PENGADIL</a>
+                    <hr>
+                    <a href="../../../../about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="../../../../rules.html">PERATURAN</a>
+                    <a href="../../../../calendar.html">TAKWIM</a>
+                </div>
+            </div>
+            
+            <!-- DROPDOWN KEJOHANAN -->
+            <div class="dropdown">
+                <button class="dropdown-btn active">
+                    <span>KEJOHANAN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="../../index.html">MSSM 2026</a>  
+                    <hr>
+                    <a href="../../u12.html" class="active">BAWAH 12</a>
+                    <a href="../../u15.html">BAWAH 15</a>
+                    <a href="../../u18.html">BAWAH 18</a>
+                    <hr>
+                    <a href="../../../../bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
+                    <a href="../../../../borang.html" target="_blank">MUAT TURUN BORANG PERTANDINGAN ↗</a>
+                </div>
+            </div>
+
+            <!-- DROPDOWN KHUSUS BAWAH 12 (B12) -->
+            <div class="dropdown">
+                <button class="dropdown-btn" style="color: #ffeb3b;">
+                    <span>MENU B12</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="../teams.html">👥 Teams</a>
+                    <a href="../groups.html">🏆 Groups</a>
+                    <a href="../fixtures.html">📅 Fixtures</a>
+                    <a href="../results.html">🏆 Results</a>
+                    <a href="../standings.html">📊 Standings</a>
+                    <hr>
+                    <a href="../undianp2.html">🎲 Second Round Draw</a>
+                    <a href="../chart.html">🏆 Tournament Bracket</a>
+                    <a href="../ranking.html">🥇 Ranking</a>
+                    <a href="../statistic.html">📈 Statistics Scorer</a>
+                </div>
+            </div>
+
+            <!-- DROPDOWN GALERI & MEDIA -->
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <span>GALERI & MEDIA</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="../../../../halloffame.html">HALL OF FAME</a>
+                    <a href="../../../../gallery.html">GALLERY</a>
+                </div>
+            </div>
+
+            <!-- LIVE LINK -->
+            <a href="../../../../live.html" class="live-link">🔴 LIVE</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>👥 MSS PAHANG</h2>
+            <p>Kategori Perempuan Bawah 12</p>
+        </section>
+
+        <!-- PEGAWAI PASUKAN -->
+        <section class="team-section">
+            <h2>👔 Pegawai Pasukan</h2>
+
+            <div class="team-grid">
+                <!-- Pegawai 1: Pengurus -->
+                <div class="member-card">
+                    <div class="player-photo">
+                        <img src="profile/pahang/pengurus.jpg" alt="Pengurus" onerror="this.src='../../../../images/profile/default.jpg'">
+                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
+                    </div>
+                    <div class="member-info">
+                        <h3 id="pegawai-0-nama">PENGURUS</h3>
+                        <span class="badge">Pengurus</span>
+                        <p id="pegawai-0-sekolah">SEKOLAH</p>
+                    </div>
+                </div>
+
+                <!-- Pegawai 2: Jurulatih -->
+                <div class="member-card">
+                    <div class="player-photo">
+                        <img src="profile/pahang/jurulatih.jpg" alt="Jurulatih" onerror="this.src='../../../../images/profile/default.jpg'">
+                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
+                    </div>
+                    <div class="member-info">
+                        <h3 id="pegawai-1-nama">JURULATIH</h3>
+                        <span class="badge">Jurulatih</span>
+                        <p id="pegawai-1-sekolah">SEKOLAH</p>
+                    </div>
+                </div>
+
+                <!-- Pegawai 3: Fisioterapi -->
+                <div class="member-card">
+                    <div class="player-photo">
+                        <img src="profile/pahang/fisioterapi.jpg" alt="Fisioterapi" onerror="this.src='../../../../images/profile/default.jpg'">
+                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
+                    </div>
+                    <div class="member-info">
+                        <h3 id="pegawai-2-nama">FISIOTERAPI</h3>
+                        <span class="badge">Fisioterapi</span>
+                        <p id="pegawai-2-sekolah">SEKOLAH</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SENARAI ATLET -->
+        <section class="team-section">
+            <h2>🏐 Senarai Atlet</h2>
+
+            <div class="team-grid">
+                <!-- Atlet 1 hingga 12 -->
+                <script>
+                    for (let i = 0; i < 12; i++) {
+                        document.write(`
+                            <div class="member-card">
+                                <div class="player-photo">
+                                    <img src="profile/pahang/player${i+1}.jpg" alt="Player ${i+1}" onerror="this.src='../../../../images/profile/default.jpg'">
+                                    <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
+                                </div>
+                                <div class="member-info">
+                                    <h3 id="atlet-${i}-nama">NAMA ATLET ${i+1}</h3>
+                                    <span class="badge-player" id="atlet-${i}-posisi">POSISI</span>
+                                    <p id="atlet-${i}-sekolah">SEKOLAH</p>
+                                    <div class="player-details">
+                                        <span>🎂 <strong>Umur:</strong> <span id="atlet-${i}-umur">--</span></span>
+                                        <span>📏 <strong>Tinggi:</strong> <span id="atlet-${i}-tinggi">--</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        `);
+                    }
+                </script>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Konsisten -->
+    <footer>
+        <p>&copy; 2026 Portal Rasmi Bola Jaring MSSM | Majlis Sukan Sekolah Malaysia</p>
+    </footer>
+
+    <!-- Skrip Burger Menu & Penarikan Data Automatik dari Google Sheet CSV -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("nav-menu");
+
+        menuToggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            const btn = dropdown.querySelector('.dropdown-btn');
+            btn.addEventListener('click', function(e) {
+                if (window.innerWidth <= 1000) {
+                    e.preventDefault();
+                    dropdowns.forEach(item => {
+                        if (item !== dropdown) item.classList.remove('active');
+                    });
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+
+        async function muatDataPasukan() {
+            // Pautan CSV Google Sheet Pahang B12
+            const csvUrl = "https://docs.google.com/spreadsheets/d/15C1sXdzTs_iPqbsnTQUWdXrXzYnrK4Hgdb7u1eT_a64/export?format=csv&gid=0";
+            try {
+                const response = await fetch(csvUrl);
+                const dataText = await response.text();
+
+                const rows = dataText.split('\n').map(row => {
+                    return row
+                        .split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+                        .map(val => val.replace(/^"|"$/g, '').trim());
+                });
+
+                let rowAtletCount = 0;
+
+                for (let i = 1; i < rows.length; i++) {
+                    const cols = rows[i];
+                    if (!cols || cols.length < 2) continue;
+
+                    // =========================
+                    // PEGAWAI
+                    // =========================
+                    const jawatan = (cols[3] || '').trim().toLowerCase();
+
+                    if (
+                        jawatan === 'pengurus' ||
+                        jawatan === 'jurulatih' ||
+                        jawatan === 'fisioterapi'
+                    ) {
+                        let idx;
+
+                        if (jawatan === 'pengurus') {
+                            idx = 0;
+                        }
+
+                        if (jawatan === 'jurulatih') {
+                            idx = 1;
+                        }
+
+                        if (jawatan === 'fisioterapi') {
+                            idx = 2;
+                        }
+
+                        const elNama =
+                            document.getElementById(`pegawai-${idx}-nama`);
+
+                        const elSekolah =
+                            document.getElementById(`pegawai-${idx}-sekolah`);
+
+                        // C = Nama Pegawai
+                        if (elNama) {
+                            elNama.textContent = cols[2] || '';
+                        }
+
+                        // G = Sekolah
+                        if (elSekolah) {
+                            elSekolah.textContent = cols[6] || '';
+                        }
+                    }
+
+                    // =========================
+                    // ATLET
+                    // =========================
+                    // B = Atlet 1, Atlet 2...
+                    if (cols[1] && cols[1].includes("Atlet")) {
+                        let idx = rowAtletCount;
+                        const elNama = document.getElementById(`atlet-${idx}-nama`);
+                        const elPosisi = document.getElementById(`atlet-${idx}-posisi`);
+                        const elSekolah = document.getElementById(`atlet-${idx}-sekolah`);
+                        const elUmur = document.getElementById(`atlet-${idx}-umur`);
+                        const elTinggi = document.getElementById(`atlet-${idx}-tinggi`);
+
+                        // C = Nama Atlet
+                        if (elNama) {
+                            elNama.textContent = cols[2] || '';
+                        }
+
+                        // D = Posisi
+                        if (elPosisi) {
+                            elPosisi.textContent = cols[3] || '';
+                        }
+
+                        // E = Umur
+                        if (elUmur) {
+                            elUmur.textContent = cols[4] || '';
+                        }
+
+                        // F = Tinggi
+                        if (elTinggi) {
+                            elTinggi.textContent = cols[5] || '';
+                        }
+
+                        // G = Sekolah
+                        if (elSekolah) {
+                            elSekolah.textContent = cols[6] || '';
+                        }
+
+                        rowAtletCount++;
+                    }
+                }
+            } catch (error) {
+                console.error("Gagal memuatkan data dari Google Sheet:", error);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', muatDataPasukan);
+    </script>
+</body>
+</html>

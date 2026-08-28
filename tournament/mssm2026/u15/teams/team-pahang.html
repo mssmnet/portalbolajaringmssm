@@ -85,19 +85,6 @@
             color: #FFD700;
         }
 
-        /* LIVE BUTTON SPECIAL STYLE */
-        .live-btn {
-            background-color: #d32f2f !important;
-            color: white !important;
-            animation: pulse-live 1.5s infinite;
-        }
-
-        @keyframes pulse-live {
-            0% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); }
-            70% { box-shadow: 0 0 0 8px rgba(211, 47, 47, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
-        }
-
         /* Susunan Struktur Dropdown */
         .dropdown {
             position: relative;
@@ -218,7 +205,7 @@
             flex-direction: column;
             align-items: center;
             flex-shrink: 0;
-            width: 95px; /* Ditingkatkan sedikit untuk menampung logo lebih besar */
+            width: 95px;
         }
 
         .player-photo img:first-child {
@@ -229,10 +216,9 @@
             border: 3px solid #d94f7c;
         }
 
-        /* LOGO NEGERI DIBAWAH GAMBAR (DIBESARKAN) */
         .team-logo {
-            width: 65px !important;  /* Disesuaikan daripada 45px kepada 65px */
-            height: 65px !important; /* Disesuaikan daripada 45px kepada 65px */
+            width: 65px !important;
+            height: 65px !important;
             object-fit: contain !important;
             border: none !important;
             border-radius: 0 !important;
@@ -407,32 +393,12 @@
                     <a href="../../index.html">MSSM 2026</a>  
                     <hr>
                     <a href="../../u12.html">BAWAH 12</a>
-                    <a href="../../u15.html"class="active">BAWAH 15</a>
+                    <a href="../../u15.html" class="active">BAWAH 15</a>
                     <a href="../../u18.html">BAWAH 18</a>
                     <hr>
                     <a href="../../../../bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
                     <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
                     <a href="../../../../borang.html" target="_blank">MUAT TURUN BORANG PERTANDINGAN ↗</a>
-                </div>
-            </div>
-
-            <!-- DROPDOWN KHUSUS BAWAH 12 (B12) -->
-            <div class="dropdown">
-                <button class="dropdown-btn" style="color: #ffeb3b;">
-                    <span>MENU B12</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="../teams.html">👥 Teams</a>
-                    <a href="../groups.html">🏆 Groups</a>
-                    <a href="../fixtures.html">📅 Fixtures</a>
-                    <a href="../results.html">🏆 Results</a>
-                    <a href="../standings.html">📊 Standings</a>
-                    <hr>
-                    <a href="../undianp2.html">🎲 Second Round Draw</a>
-                    <a href="../chart.html">🏆 Tournament Bracket</a>
-                    <a href="../ranking.html">🥇 Ranking</a>
-                    <a href="../statistic.html">📈 Statistics Scorer</a>
                 </div>
             </div>
 
@@ -456,7 +422,7 @@
     <main>
         <section class="hero">
             <h2>👥 MSS PAHANG</h2>
-            <p>Kategori Bawah 15</p>
+            <p>Kategori BAWAH 15</p>
         </section>
 
         <!-- PEGAWAI PASUKAN -->
@@ -467,42 +433,42 @@
                 <!-- Pegawai 1: Pengurus -->
                 <div class="member-card">
                     <div class="player-photo">
-                        <img src="../../../../images/profile/pahang/pengurus.jpg" alt="Pengurus">
+                        <img src="pahang/pengurus.jpg" alt="Pengurus" onerror="this.src='../../../../images/profile/default.jpg'">
                         <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
                     </div>
                     <div class="member-info">
-                        <h3>PENGURUS</h3>
-                        <span class="badge">PEGAWAI</span>
-                        <p>SK  PAHANG</p>
+                        <h3 id="pegawai-0-nama">PENGURUS</h3>
+                        <span class="badge">Pengurus</span>
+                        <p id="pegawai-0-sekolah">SEKOLAH</p>
                     </div>
                 </div>
 
                 <!-- Pegawai 2: Jurulatih -->
                 <div class="member-card">
                     <div class="player-photo">
-                        <img src="../../../../images/profile/pahang/jurulatih.jpg" alt="Jurulatih">
+                        <img src="pahang/jurulatih.jpg" alt="Jurulatih" onerror="this.src='../../../../images/profile/default.jpg'">
                         <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
                     </div>
                     <div class="member-info">
-                        <h3>PEGAWAI</h3>
-                        <span class="badge">JURULATIH</span>
-                        <p>SK  PAHANG</p>
+                        <h3 id="pegawai-1-nama">JURULATIH</h3>
+                        <span class="badge">Jurulatih</span>
+                        <p id="pegawai-1-sekolah">SEKOLAH</p>
                     </div>
                 </div>
 
                 <!-- Pegawai 3: Fisioterapi -->
                 <div class="member-card">
                     <div class="player-photo">
-                        <img src="../../../../images/profile/pahang/fisioterapi.jpg" alt="Fisioterapi">
+                        <img src="pahang/fisioterapi.jpg" alt="Fisioterapi" onerror="this.src='../../../../images/profile/default.jpg'">
                         <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
                     </div>
                     <div class="member-info">
-                        <h3>NURUL IZZAH BINTI MOHD FAZI</h3>
-                        <span class="badge">FISIOTERAPI</span>
-                        <p>SK PAHANG, PAHANG</p>
+                        <h3 id="pegawai-2-nama">FISIOTERAPI</h3>
+                        <span class="badge">Fisioterapi</span>
+                        <p id="pegawai-2-sekolah">SEKOLAH</p>
                     </div>
                 </div>
-        
+            </div>
         </section>
 
         <!-- SENARAI ATLET -->
@@ -510,222 +476,29 @@
             <h2>🏐 Senarai Atlet</h2>
 
             <div class="team-grid">
-                <!-- Atlet 1 -->
-                <div class="member-card">
-                    <div class="player-photo">
-                        <img src="profile/pahang/player1.jpg" alt="Nur Adriana Damia">
-                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
-                    </div>
-                    <div class="member-info">
-                        <h3>NUR ADRIANA DAMIA BINTI MOHD AIDIL</h3>
-                        <span class="badge-player">GS / GA</span>
-                        <p>SK TAMAN SCIENTEX, PASIR GUDANG, JOHOR</p>
-                        <div class="player-details">
-                            <span>🎂 <strong>Umur:</strong> 12 Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong> 168 cm</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Atlet 2 -->
-                <div class="member-card">
-                    <div class="player-photo">
-                        <img src="profile/pahang/player2.jpg" alt="NOR ADILAH">
-                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
-                    </div>
-                    <div class="member-info">
-                        <h3>NOR ADILAH BINTI HASAN</h3>
-                        <span class="badge-player">GD / GK</span>
-                        <p>SK TAMAN SCIENTEX, PASIR GUDANG, JOHOR</p>
-                        <div class="player-details">
-                            <span>🎂 <strong>Umur:</strong> 12 Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong> 160 cm</span>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Atlet 3 -->
-                <div class="member-card">
-                    <div class="player-photo">
-                        <img src="../../../../images/profile/pahang/player3.jpg" alt="Player 3">
-                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
-                    </div>
-                    <div class="member-info">
-                        <h3>NAMA ATLET 3</h3>
-                        <span class="badge-player">GK / GD</span>
-                        <p>SEKOLAH</p>
-                        <div class="player-details">
-                            <span>🎂 <strong>Umur:</strong> 12 Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong> -- cm</span>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Atlet 4 -->
-                <div class="member-card">
-                    <div class="player-photo">
-                        <img src="../../../../images/profile/pahang/player4.jpg" alt="Player 4">
-                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
-                    </div>
-                    <div class="member-info">
-                        <h3>NAMA ATLET 4</h3>
-                        <span class="badge-player">POSISI</span>
-                        <p>SEKOLAH</p>
-                        <div class="player-details">
-                            <span>🎂 <strong>Umur:</strong> -- Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong> -- cm</span>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Atlet 5 -->
-                <div class="member-card">
-                    <div class="player-photo">
-                        <img src="../../../../images/profile/pahang/player5.jpg" alt="Player 5">
-                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
-                    </div>
-                    <div class="member-info">
-                        <h3>NAMA ATLET 5</h3>
-                        <span class="badge-player">POSISI</span>
-                        <p>SEKOLAH</p>
-                        <div class="player-details">
-                            <span>🎂 <strong>Umur:</strong> -- Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong> -- cm</span>
-                            
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Atlet 6 -->
-                <div class="member-card">
-                    <div class="player-photo">
-                        <img src="../../../../images/profile/pahang/player6.jpg" alt="Player 6">
-                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
-                    </div>
-                    <div class="member-info">
-                        <h3>NAMA ATLET 6</h3>
-                        <span class="badge-player">POSISI</span>
-                        <p>SEKOLAH</p>
-                        <div class="player-details">
-                            <span>🎂 <strong>Umur:</strong> -- Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong> -- cm</span>
-                            
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Atlet 7 -->
-                <div class="member-card">
-                    <div class="player-photo">
-                        <img src="../../../../images/profile/pahang/player7.jpg" alt="Player 7">
-                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
-                    </div>
-                    <div class="member-info">
-                        <h3>NAMA ATLET 7</h3>
-                        <span class="badge-player">POSISI</span>
-                        <p>SEKOLAH</p>
-                        <div class="player-details">
-                            <span>🎂 <strong>Umur:</strong> -- Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong> -- cm</span>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Atlet 8 -->
-                <div class="member-card">
-                    <div class="player-photo">
-                        <img src="../../../../images/profile/pahang/player8.jpg" alt="Player 8">
-                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
-                    </div>
-                    <div class="member-info">
-                        <h3>NAMA ATLET 8</h3>
-                        <span class="badge-player">POSISI</span>
-                        <p>SEKOLAH</p>
-                        <div class="player-details">
-                            <span>🎂 <strong>Umur:</strong> -- Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong> -- cm</span>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Atlet 9 -->
-                <div class="member-card">
-                    <div class="player-photo">
-                        <img src="../../../../images/profile/pahang/player9.jpg" alt="Player 9">
-                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
-                    </div>
-                    <div class="member-info">
-                        <h3>NAMA ATLET 9</h3>
-                        <span class="badge-player">POSISI</span>
-                        <p>SEKOLAH</p>
-                        <div class="player-details">
-                            <span>🎂 <strong>Umur:</strong> -- Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong> -- cm</span>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Atlet 10 -->
-                <div class="member-card">
-                    <div class="player-photo">
-                        <img src="../../../../images/profile/pahang/player10.jpg" alt="Player 10">
-                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
-                    </div>
-                    <div class="member-info">
-                        <h3>NAMA ATLET 10</h3>
-                        <span class="badge-player">POSISI</span>
-                        <p>SEKOLAH</p>
-                        <div class="player-details">
-                            <span>🎂 <strong>Umur:</strong> -- Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong> -- cm</span>
-                            
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Atlet 11 -->
-                <div class="member-card">
-                    <div class="player-photo">
-                        <img src="../../../../images/profile/pahang/player11.jpg" alt="Player 11">
-                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
-                    </div>
-                    <div class="member-info">
-                        <h3>NAMA ATLET 11</h3>
-                        <span class="badge-player">POSISI</span>
-                        <p>SEKOLAH</p>
-                        <div class="player-details">
-                            <span>🎂 <strong>Umur:</strong> -- Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong> -- cm</span>
-                            
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Atlet 12 -->
-                <div class="member-card">
-                    <div class="player-photo">
-                        <img src="../../../../images/profile/pahang/player12.jpg" alt="Player 12">
-                        <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
-                    </div>
-                    <div class="member-info">
-                        <h3>NAMA ATLET 12</h3>
-                        <span class="badge-player">POSISI</span>
-                        <p>SEKOLAH</p>
-                        <div class="player-details">
-                            <span>🎂 <strong>Umur:</strong> -- Tahun</span>
-                            <span>📏 <strong>Tinggi:</strong> -- cm</span>
-                            
-                        </div>
-                    </div>
-                </div>
-
-            </div> <!-- Penutup team-grid -->
+                <!-- Atlet 1 hingga 12 -->
+                <script>
+                    for (let i = 0; i < 12; i++) {
+                        document.write(`
+                            <div class="member-card">
+                                <div class="player-photo">
+                                    <img src="pahang/player${i+1}.jpg" alt="Player ${i+1}" onerror="this.src='../../../../images/profile/default.jpg'">
+                                    <img src="../../../../images/logo/pahang.png" class="team-logo" alt="Logo Pahang">
+                                </div>
+                                <div class="member-info">
+                                    <h3 id="atlet-${i}-nama">NAMA ATLET ${i+1}</h3>
+                                    <span class="badge-player" id="atlet-${i}-posisi">POSISI</span>
+                                    <p id="atlet-${i}-sekolah">SEKOLAH</p>
+                                    <div class="player-details">
+                                        <span>🎂 <strong>Umur:</strong> <span id="atlet-${i}-umur">--</span></span>
+                                        <span>📏 <strong>Tinggi:</strong> <span id="atlet-${i}-tinggi">--</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        `);
+                    }
+                </script>
+            </div>
         </section>
     </main>
 
@@ -734,7 +507,7 @@
         <p>&copy; 2026 Portal Rasmi Bola Jaring MSSM | Majlis Sukan Sekolah Malaysia</p>
     </footer>
 
-    <!-- Skrip Burger Menu & Dropdown Responsif -->
+    <!-- Skrip Burger Menu & Penarikan Data Automatik dari Google Sheet CSV -->
     <script>
         const menuToggle = document.getElementById("menu-toggle");
         const nav = document.getElementById("nav-menu");
@@ -756,6 +529,113 @@
                 }
             });
         });
+
+        async function muatDataPasukan() {
+            // Pautan CSV Google Sheet Pahang B15
+            const csvUrl = "https://docs.google.com/spreadsheets/d/1YnWkK4r4f45xdTvG3Wy8z9wPRQltSdpZwe5_l5ReGFU/export?format=csv&gid=0";
+            try {
+                const response = await fetch(csvUrl);
+                const dataText = await response.text();
+
+                const rows = dataText.split('\n').map(row => {
+                    return row
+                        .split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+                        .map(val => val.replace(/^"|"$/g, '').trim());
+                });
+
+                let rowAtletCount = 0;
+
+                for (let i = 1; i < rows.length; i++) {
+                    const cols = rows[i];
+                    if (!cols || cols.length < 2) continue;
+
+                    // =========================
+                    // PEGAWAI
+                    // =========================
+                    const jawatan = (cols[3] || '').trim().toLowerCase();
+
+                    if (
+                        jawatan === 'pengurus' ||
+                        jawatan === 'jurulatih' ||
+                        jawatan === 'fisioterapi'
+                    ) {
+                        let idx;
+
+                        if (jawatan === 'pengurus') {
+                            idx = 0;
+                        }
+
+                        if (jawatan === 'jurulatih') {
+                            idx = 1;
+                        }
+
+                        if (jawatan === 'fisioterapi') {
+                            idx = 2;
+                        }
+
+                        const elNama =
+                            document.getElementById(`pegawai-${idx}-nama`);
+
+                        const elSekolah =
+                            document.getElementById(`pegawai-${idx}-sekolah`);
+
+                        // C = Nama Pegawai
+                        if (elNama) {
+                            elNama.textContent = cols[2] || '';
+                        }
+
+                        // G = Sekolah
+                        if (elSekolah) {
+                            elSekolah.textContent = cols[6] || '';
+                        }
+                    }
+
+                    // =========================
+                    // ATLET
+                    // =========================
+                    // B = Atlet 1, Atlet 2...
+                    if (cols[1] && cols[1].includes("Atlet")) {
+                        let idx = rowAtletCount;
+                        const elNama = document.getElementById(`atlet-${idx}-nama`);
+                        const elPosisi = document.getElementById(`atlet-${idx}-posisi`);
+                        const elSekolah = document.getElementById(`atlet-${idx}-sekolah`);
+                        const elUmur = document.getElementById(`atlet-${idx}-umur`);
+                        const elTinggi = document.getElementById(`atlet-${idx}-tinggi`);
+
+                        // C = Nama Atlet
+                        if (elNama) {
+                            elNama.textContent = cols[2] || '';
+                        }
+
+                        // D = Posisi
+                        if (elPosisi) {
+                            elPosisi.textContent = cols[3] || '';
+                        }
+
+                        // E = Umur
+                        if (elUmur) {
+                            elUmur.textContent = cols[4] || '';
+                        }
+
+                        // F = Tinggi
+                        if (elTinggi) {
+                            elTinggi.textContent = cols[5] || '';
+                        }
+
+                        // G = Sekolah
+                        if (elSekolah) {
+                            elSekolah.textContent = cols[6] || '';
+                        }
+
+                        rowAtletCount++;
+                    }
+                }
+            } catch (error) {
+                console.error("Gagal memuatkan data dari Google Sheet:", error);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', muatDataPasukan);
     </script>
 </body>
 </html>
