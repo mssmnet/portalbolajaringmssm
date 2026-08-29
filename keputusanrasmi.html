@@ -757,15 +757,19 @@
     </footer>
 
     <script>
-        // DATA KEPUTUSAN DIKEMASKINI MENGIKUT JADUAL RASMI BAHARU MSSM 2026
+        // DATA KEPUTUSAN DIKEMASKINI DARI GOOGLE SHEET BAHARU (B12, B15, B18)
         const scheduleData = {
             u12: {
                 location: "Dewan KBS, Masjid Tanah Melaka",
+                spreadsheetUrl: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/edit?gid=1045376482#gid=1045376482",
                 days: [
                     {
                         day: "HARI 1 : 29 OGOS 2026 (SABTU)",
                         matches: [
-                            { bil: 1, time: "08.00 AM", kump: "Kumpulan B", teamA: "MSS SELANGOR", teamB: "MSS NEGERI SEMBILAN" },
+                            { 
+                                bil: 1, time: "08.00 AM", kump: "Kumpulan B", teamA: "MSS SELANGOR", teamB: "MSS NEGERI SEMBILAN",
+                                q1a: 8, q1b: 5, q2a: 6, q2b: 3, q3a: 6, q3b: 2, q4a: 5, q4b: 2, scoreA: 25, scoreB: 12, winner: "MSS SELANGOR MENANG"
+                            },
                             { bil: 2, time: "09.00 AM", kump: "Kumpulan B", teamA: "MSS PULAU PINANG", teamB: "MSS PERLIS" },
                             { bil: 3, time: "10.00 AM", kump: "Kumpulan C", teamA: "MSS TERENGGANU", teamB: "MSS PUTRAJAYA" },
                             { bil: 4, time: "11.00 AM", kump: "Kumpulan C", teamA: "MSS KUALA LUMPUR", teamB: "MSS PAHANG" },
@@ -833,6 +837,7 @@
             },
             u15: {
                 location: "Dewan Taming Sari, UiTM Lendu",
+                spreadsheetUrl: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/edit?gid=624168085#gid=624168085",
                 days: [
                     {
                         day: "HARI 1 : 29 OGOS 2026 (SABTU)",
@@ -911,6 +916,7 @@
             },
             u18: {
                 location: "Dewan Taming Sari, UiTM Lendu",
+                spreadsheetUrl: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/edit?gid=755929729#gid=755929729",
                 days: [
                     {
                         day: "HARI 1 : 29 OGOS 2026 (SABTU)",
@@ -1031,6 +1037,12 @@
                     dayGroup.matches.forEach(m => {
                         const logoA = getTeamLogo(m.teamA);
                         const logoB = getTeamLogo(m.teamB);
+                        
+                        const hasScore = m.q1a !== undefined && m.q1a !== '';
+                        const statusText = hasScore ? 'SELESAI' : 'Belum Bermula';
+                        const statusBg = hasScore ? 'background: #27ae60;' : 'background: #e67e22;';
+                        const scoreDisplay = hasScore ? `${m.scoreA} - ${m.scoreB}` : '- vs -';
+                        const winnerDisplay = hasScore ? `🏆 PEMENANG: ${m.winner}` : '🏆 PEMENANG: -';
 
                         htmlContent += `
                             <div class="match-card">
@@ -1039,7 +1051,7 @@
                                         <strong>Perlawanan #${m.bil}</strong> • ${m.time} 
                                         <span class="badge-kump">${m.kump}</span>
                                     </div>
-                                    <span class="status-badge">Belum Bermula</span>
+                                    <span class="status-badge" style="${statusBg}">${statusText}</span>
                                 </div>
                                 <div class="match-body">
                                     <div class="team-box left">
@@ -1047,9 +1059,9 @@
                                         <img src="${logoA}" alt="${m.teamA}" class="team-logo">
                                     </div>
                                     <div class="score-center">
-                                        <div class="main-score">- vs -</div>
+                                        <div class="main-score">${scoreDisplay}</div>
                                         <div class="vs-text">SKOR AKHIR</div>
-                                        <div class="winner-box">🏆 PEMENANG: -</div>
+                                        <div class="winner-box">${winnerDisplay}</div>
                                     </div>
                                     <div class="team-box right">
                                         <img src="${logoB}" alt="${m.teamB}" class="team-logo">
@@ -1067,11 +1079,19 @@
                                         <tbody>
                                             <tr>
                                                 <td style="text-align: left;">${m.teamA}</td>
-                                                <td>-</td><td>-</td><td>-</td><td>-</td><td><strong>-</strong></td>
+                                                <td>${hasScore ? m.q1a : '-'}</td>
+                                                <td>${hasScore ? m.q2a : '-'}</td>
+                                                <td>${hasScore ? m.q3a : '-'}</td>
+                                                <td>${hasScore ? m.q4a : '-'}</td>
+                                                <td><strong>${hasScore ? m.scoreA : '-'}</strong></td>
                                             </tr>
                                             <tr>
                                                 <td style="text-align: left;">${m.teamB}</td>
-                                                <td>-</td><td>-</td><td>-</td><td>-</td><td><strong>-</strong></td>
+                                                <td>${hasScore ? m.q1b : '-'}</td>
+                                                <td>${hasScore ? m.q2b : '-'}</td>
+                                                <td>${hasScore ? m.q3b : '-'}</td>
+                                                <td>${hasScore ? m.q4b : '-'}</td>
+                                                <td><strong>${hasScore ? m.scoreB : '-'}</strong></td>
                                             </tr>
                                         </tbody>
                                     </table>
