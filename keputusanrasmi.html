@@ -86,7 +86,6 @@
             letter-spacing: 1px;
         }
 
-        /* HAMBURGER BUTTON (MOBILE) */
         .menu-toggle {
             display: none;
             background: none;
@@ -125,7 +124,6 @@
             color: var(--gold);
         }
 
-        /* DROPDOWN STYLES */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -199,7 +197,19 @@
             text-transform: uppercase;
         }
 
-        /* TAB CONTAINER SEBARIS DENGAN BUTANG PRINT */
+        #sync-status {
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            display: inline-block;
+            width: 100%;
+            background: #e8f8f5;
+            color: #27ae60;
+        }
+
         .tab-container {
             width: 100%;
             margin: 0 0 20px;
@@ -227,7 +237,6 @@
             color: var(--gold);
         }
 
-        /* BUTANG PRINT */
         .print-btn {
             background: #27ae60;
             color: white;
@@ -281,7 +290,6 @@
             gap: 8px;
         }
 
-        /* REKABENTUK KAD KEPUTUSAN DETAIL */
         .match-card {
             background: white;
             border-radius: 12px;
@@ -445,32 +453,26 @@
             width: 100%;
         }
 
-        /* STYLING KHAS APABILA DICETAK (PRINT CSS) */
         @media print {
-            header, footer, .tab-container, .print-btn, .menu-toggle {
+            header, footer, .tab-container, .print-btn, .menu-toggle, #sync-status {
                 display: none !important;
             }
-
             body {
                 background: none !important;
                 background-color: white !important;
             }
-
             main {
                 padding: 0;
                 max-width: 100%;
             }
-
             .hero {
                 box-shadow: none !important;
                 border: 1px solid #ccc;
                 margin-bottom: 10px;
             }
-
             .results-container {
                 display: block !important;
             }
-
             .match-card {
                 page-break-inside: avoid;
                 box-shadow: none !important;
@@ -478,32 +480,24 @@
             }
         }
 
-        /* MEDIA QUERIES (RESPONSIF MOBILE / HANDSET) */
         @media (max-width: 768px) {
             header {
                 padding: 12px 15px;
                 flex-wrap: wrap;
             }
-
             .logo {
                 width: 40px;
                 height: 40px;
-                min-width: 40px;
-                min-height: 40px;
             }
-
             .header-title h1 {
                 font-size: 15px;
             }
-
             .subtitle {
                 font-size: 10px;
             }
-
             .menu-toggle {
                 display: block;
             }
-
             nav {
                 display: none;
                 flex-direction: column;
@@ -513,20 +507,16 @@
                 padding: 10px;
                 border-radius: 8px;
             }
-
             nav.show {
                 display: flex;
             }
-
             nav > a, .dropdown-btn {
                 width: 100%;
                 justify-content: space-between;
             }
-
             .dropdown {
                 width: 100%;
             }
-
             .dropdown-content {
                 position: static;
                 box-shadow: none;
@@ -535,62 +525,19 @@
                 border-radius: 0;
                 padding-left: 10px;
             }
-
             .dropdown-content a {
                 color: white;
             }
-
-            .dropdown-content a:hover {
-                background: rgba(255,255,255,0.2);
-                color: var(--gold);
-            }
-
-            main {
-                padding: 10px 6px;
-            }
-
-            .hero {
-                padding: 20px 10px;
-                margin: 10px 0;
-                border-radius: 10px;
-            }
-
-            .hero h2 {
-                font-size: 20px;
-            }
-
-            .tab-container {
-                gap: 8px;
-                margin-bottom: 15px;
-            }
-
             .tab-btn, .print-btn {
                 width: 100%;
                 text-align: center;
                 justify-content: center;
-                padding: 10px 15px;
-                font-size: 14px;
             }
-
-            .day-header {
-                font-size: 13px;
-                padding: 10px 12px;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
-            }
-
-            .match-header {
-                padding: 8px 12px;
-                font-size: 12px;
-            }
-
             .match-body {
                 flex-direction: column;
                 gap: 12px;
                 padding: 15px 10px;
             }
-
             .team-box.left, .team-box.right {
                 justify-content: center;
                 text-align: center;
@@ -598,44 +545,16 @@
                 gap: 6px;
                 width: 100%;
             }
-
             .team-box.left {
                 flex-direction: column-reverse;
             }
-
-            .team-logo {
-                width: 38px;
-                height: 38px;
-                min-width: 38px;
-                min-height: 38px;
-                display: inline-block !important;
-            }
-
-            .team-details h4 {
-                font-size: 14px;
-            }
-
             .score-center {
                 min-width: auto;
                 width: 100%;
                 padding: 5px 0;
             }
-
             .main-score {
                 font-size: 24px;
-            }
-
-            .quarter-breakdown {
-                padding: 8px 10px;
-            }
-
-            .quarter-table {
-                font-size: 11px;
-                min-width: 100% !important;
-            }
-
-            .quarter-table th, .quarter-table td {
-                padding: 5px 4px;
             }
         }
     </style>
@@ -736,7 +655,8 @@
             <p>Kejohanan Bola Jaring Majlis Sukan Sekolah Malaysia 2026</p>
         </section>
 
-        <!-- KATEGORI TAB & BUTANG PRINT SEBARIS -->
+        <div id="sync-status">Memuatkan data jadual...</div>
+
         <div class="tab-container">
             <button class="tab-btn active" onclick="switchCategory('u12', event)">👶 Bawah 12 Tahun</button>
             <button class="tab-btn" onclick="switchCategory('u15', event)">🧒 Bawah 15 Tahun</button>
@@ -746,7 +666,6 @@
             </button>
         </div>
 
-        <!-- CONTAINERS UNTUK JANAAN AUTOMATIK -->
         <div id="u12" class="results-container active"></div>
         <div id="u15" class="results-container"></div>
         <div id="u18" class="results-container"></div>
@@ -757,19 +676,20 @@
     </footer>
 
     <script>
-        // DATA KEPUTUSAN DIKEMASKINI DARI GOOGLE SHEET (B12, B15, B18)
-        const scheduleData = {
+        const sheetUrls = {
+            u12: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/export?format=csv&gid=1045376482",
+            u15: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/export?format=csv&gid=624168085",
+            u18: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/export?format=csv&gid=755929729"
+        };
+
+        let scheduleData = {
             u12: {
                 location: "Dewan KBS, Masjid Tanah Melaka",
-                spreadsheetUrl: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/edit?gid=1045376482#gid=1045376482",
                 days: [
                     {
                         day: "HARI 1 : 29 OGOS 2026 (SABTU)",
                         matches: [
-                            { 
-                                bil: 1, time: "08.00 AM", kump: "Kumpulan B", teamA: "MSS SELANGOR", teamB: "MSS NEGERI SEMBILAN",
-                                q1a: 8, q1b: 5, q2a: 6, q2b: 3, q3a: 6, q3b: 2, q4a: 5, q4b: 2, scoreA: 25, scoreB: 12, winner: "MSS SELANGOR MENANG"
-                            },
+                            { bil: 1, time: "08.00 AM", kump: "Kumpulan B", teamA: "MSS SELANGOR", teamB: "MSS NEGERI SEMBILAN" },
                             { bil: 2, time: "09.00 AM", kump: "Kumpulan B", teamA: "MSS PULAU PINANG", teamB: "MSS PERLIS" },
                             { bil: 3, time: "10.00 AM", kump: "Kumpulan C", teamA: "MSS TERENGGANU", teamB: "MSS PUTRAJAYA" },
                             { bil: 4, time: "11.00 AM", kump: "Kumpulan C", teamA: "MSS KUALA LUMPUR", teamB: "MSS PAHANG" },
@@ -837,15 +757,11 @@
             },
             u15: {
                 location: "Dewan Taming Sari, UiTM Lendu",
-                spreadsheetUrl: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/edit?gid=624168085#gid=624168085",
                 days: [
                     {
                         day: "HARI 1 : 29 OGOS 2026 (SABTU)",
                         matches: [
-                            { 
-                                bil: 1, time: "08.00 AM", kump: "Kumpulan A", teamA: "MSS SELANGOR", teamB: "MSS PAHANG",
-                                q1a: 8, q1b: 3, q2a: 12, q2b: 5, q3a: 14, q3b: 4, q4a: 7, q4b: 7, scoreA: 41, scoreB: 19, winner: "MSS SELANGOR MENANG"
-                            },
+                            { bil: 1, time: "08.00 AM", kump: "Kumpulan A", teamA: "MSS SELANGOR", teamB: "MSS PAHANG" },
                             { bil: 2, time: "09.00 AM", kump: "Kumpulan A", teamA: "MSS PUTRAJAYA", teamB: "MSS PULAU PINANG" },
                             { bil: 3, time: "10.00 AM", kump: "Kumpulan B", teamA: "MSS SARAWAK", teamB: "MSS LABUAN" },
                             { bil: 4, time: "11.00 AM", kump: "Kumpulan B", teamA: "MSS TERENGGANU", teamB: "MSS MELAKA" },
@@ -919,15 +835,11 @@
             },
             u18: {
                 location: "Dewan Taming Sari, UiTM Lendu",
-                spreadsheetUrl: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/edit?gid=755929729#gid=755929729",
                 days: [
                     {
                         day: "HARI 1 : 29 OGOS 2026 (SABTU)",
                         matches: [
-                            { 
-                                bil: 1, time: "08.00 AM", kump: "Kumpulan B", teamA: "MSS JOHOR", teamB: "MSS SABAH",
-                                q1a: 14, q1b: 8, q2a: 11, q2b: 3, q3a: 14, q3b: 0, q4a: 10, q4b: 4, scoreA: 49, scoreB: 15, winner: "MSS JOHOR MENANG"
-                            },
+                            { bil: 1, time: "08.00 AM", kump: "Kumpulan B", teamA: "MSS JOHOR", teamB: "MSS SABAH" },
                             { bil: 2, time: "09.00 AM", kump: "Kumpulan B", teamA: "MSS NEGERI SEMBILAN", teamB: "MSS PERLIS" },
                             { bil: 3, time: "10.00 AM", kump: "Kumpulan C", teamA: "MSS KUALA LUMPUR", teamB: "MSS TERENGGANU" },
                             { bil: 4, time: "11.00 AM", kump: "Kumpulan C", teamA: "MSS KELANTAN", teamB: "MSS KEDAH" },
@@ -995,8 +907,58 @@
             }
         };
 
-        // FUNGSI LOGO PASUKAN
+        function parseCSV(text) {
+            const lines = text.split(/\r\n|\n/);
+            return lines.map(line => {
+                const row = [];
+                let inQuotes = false;
+                let entry = '';
+                for (let i = 0; i < line.length; i++) {
+                    const char = line[i];
+                    if (char === '"' || char === "'") {
+                        inQuotes = !inQuotes;
+                    } else if (char === ',' && !inQuotes) {
+                        row.push(entry.trim());
+                        entry = '';
+                    } else {
+                        entry += char;
+                    }
+                }
+                row.push(entry.trim());
+                return row.map(val => val.replace(/^["']|["']$/g, ''));
+            });
+        }
+
+        function updateScheduleFromCSV(catKey, rows) {
+            if (!scheduleData[catKey]) return;
+            
+            scheduleData[catKey].days.forEach(dayGroup => {
+                dayGroup.matches.forEach(m => {
+                    const row = rows.find((r, index) => index > 0 && (r[0] == m.bil || r[1] == m.bil));
+                    if (row && row.length >= 13) {
+                        m.q1a = row[5] !== '' && !isNaN(row[5]) ? Number(row[5]) : m.q1a;
+                        m.q1b = row[6] !== '' && !isNaN(row[6]) ? Number(row[6]) : m.q1b;
+                        m.q2a = row[7] !== '' && !isNaN(row[7]) ? Number(row[7]) : m.q2a;
+                        m.q2b = row[8] !== '' && !isNaN(row[8]) ? Number(row[8]) : m.q2b;
+                        m.q3a = row[9] !== '' && !isNaN(row[9]) ? Number(row[9]) : m.q3a;
+                        m.q3b = row[10] !== '' && !isNaN(row[10]) ? Number(row[10]) : m.q3b;
+                        m.q4a = row[11] !== '' && !isNaN(row[11]) ? Number(row[11]) : m.q4a;
+                        m.q4b = row[12] !== '' && !isNaN(row[12]) ? Number(row[12]) : m.q4b;
+                        
+                        if (row[13] !== '' && !isNaN(row[13])) m.scoreA = Number(row[13]);
+                        else if (m.q1a !== undefined) m.scoreA = (Number(m.q1a)||0) + (Number(m.q2a)||0) + (Number(m.q3a)||0) + (Number(m.q4a)||0);
+
+                        if (row[14] !== '' && !isNaN(row[14])) m.scoreB = Number(row[14]);
+                        else if (m.q1b !== undefined) m.scoreB = (Number(m.q1b)||0) + (Number(m.q2b)||0) + (Number(m.q3b)||0) + (Number(m.q4b)||0);
+
+                        if (row[15]) m.winner = row[15];
+                    }
+                });
+            });
+        }
+
         function getTeamLogo(teamName) {
+            if (!teamName) return 'images/mssmlogo.png';
             const name = teamName.toUpperCase();
             const logoMap = {
                 'SELANGOR': 'selangor.png',
@@ -1016,22 +978,19 @@
                 'KELANTAN': 'kelantan.png',
                 'LABUAN': 'labuan.png'
             };
-
             for (let key in logoMap) {
-                if (name.includes(key)) {
-                    return `images/logo/${logoMap[key]}`;
-                }
+                if (name.includes(key)) return `images/logo/${logoMap[key]}`;
             }
             return `images/mssmlogo.png`;
         }
 
-        // FUNGSI JANA KAD KEPUTUSAN DARI DATA
-        function renderSchedule() {
-            Object.keys(scheduleData).forEach(catKey => {
+        function renderSchedule(dataToRender) {
+            Object.keys(dataToRender).forEach(catKey => {
                 const container = document.getElementById(catKey);
-                const category = scheduleData[catKey];
+                const category = dataToRender[catKey];
+                if (!container || !category) return;
+                
                 let htmlContent = '';
-
                 category.days.forEach(dayGroup => {
                     htmlContent += `
                         <div class="day-header">
@@ -1043,12 +1002,11 @@
                     dayGroup.matches.forEach(m => {
                         const logoA = getTeamLogo(m.teamA);
                         const logoB = getTeamLogo(m.teamB);
-                        
-                        const hasScore = m.q1a !== undefined && m.q1a !== '';
+                        const hasScore = m.scoreA !== undefined && m.scoreA !== '' && m.scoreA !== '-' && !isNaN(m.scoreA);
                         const statusText = hasScore ? 'SELESAI' : 'Belum Bermula';
                         const statusBg = hasScore ? 'background: #27ae60;' : 'background: #e67e22;';
                         const scoreDisplay = hasScore ? `${m.scoreA} - ${m.scoreB}` : '- vs -';
-                        const winnerDisplay = hasScore ? `🏆 PEMENANG: ${m.winner}` : '🏆 PEMENANG: -';
+                        const winnerDisplay = hasScore ? `🏆 PEMENANG: ${m.winner || (m.scoreA > m.scoreB ? m.teamA + ' MENANG' : m.teamB + ' MENANG')}` : '🏆 PEMENANG: -';
 
                         htmlContent += `
                             <div class="match-card">
@@ -1085,18 +1043,18 @@
                                         <tbody>
                                             <tr>
                                                 <td style="text-align: left;">${m.teamA}</td>
-                                                <td>${hasScore ? m.q1a : '-'}</td>
-                                                <td>${hasScore ? m.q2a : '-'}</td>
-                                                <td>${hasScore ? m.q3a : '-'}</td>
-                                                <td>${hasScore ? m.q4a : '-'}</td>
+                                                <td>${hasScore ? (m.q1a ?? '-') : '-'}</td>
+                                                <td>${hasScore ? (m.q2a ?? '-') : '-'}</td>
+                                                <td>${hasScore ? (m.q3a ?? '-') : '-'}</td>
+                                                <td>${hasScore ? (m.q4a ?? '-') : '-'}</td>
                                                 <td><strong>${hasScore ? m.scoreA : '-'}</strong></td>
                                             </tr>
                                             <tr>
                                                 <td style="text-align: left;">${m.teamB}</td>
-                                                <td>${hasScore ? m.q1b : '-'}</td>
-                                                <td>${hasScore ? m.q2b : '-'}</td>
-                                                <td>${hasScore ? m.q3b : '-'}</td>
-                                                <td>${hasScore ? m.q4b : '-'}</td>
+                                                <td>${hasScore ? (m.q1b ?? '-') : '-'}</td>
+                                                <td>${hasScore ? (m.q2b ?? '-') : '-'}</td>
+                                                <td>${hasScore ? (m.q3b ?? '-') : '-'}</td>
+                                                <td>${hasScore ? (m.q4b ?? '-') : '-'}</td>
                                                 <td><strong>${hasScore ? m.scoreB : '-'}</strong></td>
                                             </tr>
                                         </tbody>
@@ -1106,43 +1064,85 @@
                         `;
                     });
                 });
-
                 container.innerHTML = htmlContent;
             });
         }
 
-        // TUKAR TAB KATEGORI
-        function switchCategory(catId, evt) {
-            const cards = document.querySelectorAll('.results-container');
-            cards.forEach(card => card.classList.remove('active'));
+        async function loadSheetData() {
+            const statusEl = document.getElementById('sync-status');
+            let successCount = 0;
 
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
+            for (const [catKey, url] of Object.entries(sheetUrls)) {
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error('Rangkaian Gagal');
+                    const csvText = await response.text();
+                    
+                    const rows = parseCSV(csvText);
+                    if (rows.length > 1) {
+                        updateScheduleFromCSV(catKey, rows);
+                        successCount++;
+                    }
+                    
+                    localStorage.setItem('mssm_cache_' + catKey, JSON.stringify({ time: new Date().toLocaleTimeString(), text: csvText }));
+                } catch (err) {
+                    console.warn(`Gagal sambung ke Google Sheet ${catKey}. Menggunakan cache.`);
+                    const cached = localStorage.getItem('mssm_cache_' + catKey);
+                    if (cached) {
+                        try {
+                            const cacheData = JSON.parse(cached);
+                            const rows = parseCSV(cacheData.text);
+                            updateScheduleFromCSV(catKey, rows);
+                        } catch(e) {}
+                    }
+                }
+            }
 
-            document.getElementById(catId).classList.add('active');
-            if (evt && evt.currentTarget) {
-                evt.currentTarget.classList.add('active');
+            renderSchedule(scheduleData);
+
+            if (statusEl) {
+                const timeNow = new Date().toLocaleTimeString();
+                if (successCount > 0) {
+                    statusEl.style.background = "#e8f8f5";
+                    statusEl.style.color = "#27ae60";
+                    statusEl.innerHTML = `✅ Berjaya diselaraskan dengan Google Sheet • ${timeNow}`;
+                } else {
+                    statusEl.style.background = "#fef9e7";
+                    statusEl.style.color = "#d68910";
+                    statusEl.innerHTML = `⚠️ Mod Luar Talian (Menggunakan Data Simpanan) • ${timeNow}`;
+                }
             }
         }
 
-        // MENU HAMBURGER MOBILE & DROPDOWN TOGGLE
+        function switchCategory(catId, evt) {
+            document.querySelectorAll('.results-container').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(catId).classList.add('active');
+            if (evt && evt.currentTarget) evt.currentTarget.classList.add('active');
+        }
+
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
         const menuIcon = document.getElementById('menu-icon');
+        if (menuToggle) {
+            menuToggle.append('click', () => {}); // handled below properly
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('show');
+                if (navMenu.classList.contains('show')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                } else {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+        }
 
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-            if (navMenu.classList.contains('show')) {
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-times');
-            } else {
-                menuIcon.classList.remove('fa-times');
-                menuIcon.classList.add('fa-bars');
-            }
-        });
-
-        // JANA JADUAL APABILA HALAMAN DIMUATKAN
-        window.onload = renderSchedule;
+        window.onload = () => {
+            renderSchedule(scheduleData);
+            loadSheetData();
+            setInterval(loadSheetData, 60000);
+        };
     </script>
 </body>
 </html>
