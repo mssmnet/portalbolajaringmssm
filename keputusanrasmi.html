@@ -407,8 +407,6 @@
             margin-top: 6px;
             font-size: 12px;
             font-weight: bold;
-            color: #27ae60;
-            background: #e8f8f5;
             padding: 3px 8px;
             border-radius: 12px;
             display: inline-block;
@@ -1006,7 +1004,20 @@
                         const statusText = hasScore ? 'SELESAI' : 'Belum Bermula';
                         const statusBg = hasScore ? 'background: #27ae60;' : 'background: #e67e22;';
                         const scoreDisplay = hasScore ? `${m.scoreA} - ${m.scoreB}` : '- vs -';
-                        const winnerDisplay = hasScore ? `🏆 PEMENANG: ${m.winner || (m.scoreA > m.scoreB ? m.teamA + ' MENANG' : m.teamB + ' MENANG')}` : '🏆 PEMENANG: -';
+
+                        let winnerDisplay = '🏆 PEMENANG: -';
+                        let winnerBg = 'background: #e8f8f5; color: #27ae60;';
+
+                        if (hasScore) {
+                            if (Number(m.scoreA) === Number(m.scoreB)) {
+                                winnerDisplay = '🤝 KEPUTUSAN: SERI (DRAW)';
+                                winnerBg = 'background: #f39c12; color: white;';
+                            } else {
+                                const defaultWinner = m.scoreA > m.scoreB ? m.teamA + ' MENANG' : m.teamB + ' MENANG';
+                                winnerDisplay = `🏆 PEMENANG: ${m.winner || defaultWinner}`;
+                                winnerBg = 'background: #e8f8f5; color: #27ae60;';
+                            }
+                        }
 
                         htmlContent += `
                             <div class="match-card">
@@ -1025,7 +1036,7 @@
                                     <div class="score-center">
                                         <div class="main-score">${scoreDisplay}</div>
                                         <div class="vs-text">SKOR AKHIR</div>
-                                        <div class="winner-box">${winnerDisplay}</div>
+                                        <div class="winner-box" style="${winnerBg}">${winnerDisplay}</div>
                                     </div>
                                     <div class="team-box right">
                                         <img src="${logoB}" alt="${m.teamB}" class="team-logo">
@@ -1125,7 +1136,6 @@
         const navMenu = document.getElementById('nav-menu');
         const menuIcon = document.getElementById('menu-icon');
         if (menuToggle) {
-            menuToggle.append('click', () => {}); // handled below properly
             menuToggle.addEventListener('click', () => {
                 navMenu.classList.toggle('show');
                 if (navMenu.classList.contains('show')) {
