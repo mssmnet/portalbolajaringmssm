@@ -3,111 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="category-type" content="B15">
     <title>Undian Pusingan Kedua | MSSM 2026 (B15)</title>
-
+    
     <link rel="stylesheet" href="../../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
-        :root {
-            --maroon-utama: #7B1E3A; 
-            --maroon-dark: #581328;
-            --gold: #FFD700;
-            --pink: #FCE4EC;
-            --white: #ffffff;
+        :root{
+            --maroon:#7B1E3A;
+            --maroon-dark:#581328;
+            --gold:#FFD700;
+            --pink:#FCE4EC;
+            --white:#ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            color: #2d3748;
-            background: url('../../../images/bg-utama.jpg') center/cover fixed;
+        body{
+            font-family:'Segoe UI',Tahoma,sans-serif;
+            background:url('../../../images/bg-utama.jpg') center/cover fixed;
             background-color: var(--pink);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* HEADER & NAVIGASI */
-        header {
-            background-color: var(--maroon-utama);
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        main {
+            flex: 1;
         }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 18px;
+        /* HEADER & NAVIGATION */
+        header{
+            background:var(--maroon);
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 5%;
+            box-shadow:0 4px 15px rgba(0,0,0,.3);
+            position:sticky;
+            top:0;
+            z-index:1000;
         }
 
-        .header-left .logo {
-            width: 70px;
-            height: 70px;
-            min-width: 70px;
-            object-fit: contain;
-            background: transparent;
+        .header-left{
+            display:flex;
+            align-items:center;
+            gap:18px;
         }
 
-        .header-title h1 {
-            margin: 0;
-            font-size: 24px;
+        .logo{
+            width:70px;
+            height:70px;
+            min-width:70px;
+            object-fit:contain;
+            background:transparent;
+        }
+
+        .header-title h1{
+            color:white;
+            font-size:24px;
+            margin:0;
+            line-height:1.2;
             font-weight: 800;
-            color: white;
-            line-height: 1.2;
         }
 
-        .header-title .subtitle {
-            margin: 0;
-            font-size: 14px;
-            color: #ffeb3b;
-            font-weight: bold;
-            margin-top: 2px;
+        .subtitle{
+            color:#ffeb3b;
+            font-weight:bold;
+            margin-top:2px;
+            font-size:14px;
         }
 
-        nav {
-            display: flex;
-            gap: 10px;
-            align-items: center;
+        nav{
+            display:flex;
+            gap:10px;
+            align-items:center;
         }
 
         nav a, .dropdown-btn {
-            color: white;
-            text-decoration: none;
-            padding: 10px 14px;
-            border-radius: 8px;
-            transition: .3s;
-            font-weight: bold;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 15px;
-            white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+            color:white;
+            text-decoration:none;
+            padding:10px 14px;
+            border-radius:8px;
+            transition:.3s;
+            font-weight:bold;
+            background:none;
+            border:none;
+            cursor:pointer;
+            font-family:inherit;
+            font-size:15px;
+            white-space:nowrap;
+            display:inline-flex;
+            align-items:center;
+            gap:6px;
         }
 
         nav a:hover,
         nav a.active,
         .dropdown-btn.active,
         .dropdown:hover .dropdown-btn {
-            background: rgba(255,255,255,.15);
-            color: var(--gold);
+            background:rgba(255,255,255,.15);
+            color:var(--gold);
         }
 
         .dropdown-btn i {
@@ -127,49 +128,49 @@
 
         /* STRUCTURAL DROPDOWN */
         .dropdown {
-            position: relative;
-            display: inline-block;
+            position:relative;
+            display:inline-block;
         }
 
         .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--maroon-utama);
-            min-width: 220px;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            padding: 8px 0;
-            z-index: 1100;
+            display:none;
+            position:absolute;
+            top:100%;
+            left:0;
+            background-color:var(--maroon);
+            min-width:220px;
+            border-radius:10px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.3);
+            padding:8px 0;
+            z-index:1100;
         }
 
         .dropdown-content a {
-            color: white;
-            padding: 12px 18px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            font-size: 14px;
-            font-weight: bold;
-            border-radius: 0;
-            transition: background 0.2s;
+            color:white;
+            padding:12px 18px;
+            text-decoration:none;
+            display:block;
+            text-align:left;
+            font-size:14px;
+            font-weight:bold;
+            border-radius:0;
+            transition:background 0.2s;
         }
 
         .dropdown-content a:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-            color: #ffeb3b;
+            background-color:rgba(255, 255, 255, 0.15);
+            color:#ffeb3b;
         }
 
         .dropdown-content hr {
-            border: none;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            margin: 6px 0;
+            border:none;
+            border-top:1px solid rgba(255, 255, 255, 0.2);
+            margin:6px 0;
         }
 
-        @media(min-width: 901px){
+        @media(min-width:901px){
             .dropdown:hover .dropdown-content {
-                display: block;
+                display:block;
             }
         }
 
@@ -181,228 +182,240 @@
             transform: rotate(180deg);
         }
 
-        /* BUTANG BURGER (DESKTOP HIDDEN) */
         .menu-toggle {
-            display: none;
-            font-size: 24px;
-            color: white;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 6px;
-            transition: background 0.2s ease;
+            display:none;
+            font-size:24px;
+            color:white;
+            background:none;
+            border:none;
+            cursor:pointer;
+            padding:8px;
+            border-radius:6px;
+            transition:background 0.2s ease;
         }
 
         .menu-toggle:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background:rgba(255, 255, 255, 0.15);
         }
 
-        /* KANDUNGAN UTAMA */
-        .main-container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-            flex: 1;
-            width: 100%;
-        }
-
-        .page-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .page-title {
-            flex: 1;
-            text-align: center;
-        }
-
-        .page-title h2 {
-            color: var(--maroon-utama);
-            font-size: 32px;
-            font-weight: 800;
-            margin: 0;
-        }
-
-        .page-title p {
-            color: #4a5568;
-            margin-top: 6px;
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .print-btn {
-            background: var(--maroon-utama);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 22px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .print-btn:hover {
-            background-color: var(--maroon-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(123, 30, 58, 0.3);
-        }
-
-        /* GRID UNDIAN */
-        .draw-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 25px;
-        }
-
-        .draw-card {
-            background: #fff;
+        .page-header{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:30px;
+            background: white;
+            padding: 20px 25px;
             border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 15px rgba(0,0,0,.05);
+            border: 1px solid #e2e8f0;
+            gap: 20px;
+        }
+
+        .page-title{
+            flex:1;
+            text-align:center;
+        }
+
+        .page-title h2{
+            color:var(--maroon);
+            font-size:28px;
+            margin:0;
+            font-weight: 800;
+        }
+
+        .page-title p{
+            color:#4a5568;
+            margin-top:4px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .print-btn{
+            background:var(--maroon);
+            color:#fff;
+            border:none;
+            border-radius:40px;
+            height:42px;
+            padding:0 24px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:8px;
+            font-size:14px;
+            font-weight:700;
+            cursor:pointer;
+            box-shadow:0 4px 12px rgba(0,0,0,.15);
+            transition:all .3s ease;
+            white-space: nowrap;
+        }
+
+        .print-btn:hover{
+            background:var(--maroon-dark);
+            transform:translateY(-2px);
+            box-shadow:0 8px 18px rgba(0,0,0,.20);
+        }
+
+        .print-btn:active{
+            transform:translateY(0);
+        }
+
+        .draw-grid{
+            display:grid;
+            grid-template-columns:2fr 1fr;
+            gap:25px;
+        }
+
+        .draw-card{
+            background:#fff;
+            border-radius:16px;
+            overflow:hidden;
+            box-shadow:0 8px 20px rgba(0,0,0,.08);
             border: 1px solid #edf2f7;
-            margin-bottom: 25px;
         }
 
-        .card-header {
-            color: #fff;
-            font-weight: bold;
-            padding: 15px 20px;
-            text-align: center;
-            font-size: 16px;
-            letter-spacing: 0.5px;
+        .card-header{
+            color:#fff;
+            font-weight:bold;
+            padding:14px;
+            text-align:center;
+            font-size:16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
         }
 
-        .blue { background: #169BD5; }
-        .gold { background: #f4b400; }
-        .yellow { background: #FFD600; color: #333; }
-        .green { background: #17c617; }
+        .blue{ background:#169BD5; }
+        .gold{ background:#f4b400; }
+        .yellow{ background:#FFD600; color:#333; }
+        .green{ background:#17c617; }
 
-        .draw-table {
+        .table-responsive {
             width: 100%;
-            border-collapse: collapse;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
-        .draw-table td, .draw-table th {
-            padding: 12px 16px;
-            border: 1px solid #edf2f7;
-            text-align: center;
+        .draw-table{
+            width:100%;
+            border-collapse:collapse;
+            min-width: 280px;
+        }
+
+        .draw-table td,
+        .draw-table th{
+            padding:12px 14px;
+            border:1px solid #eee;
+            text-align:center;
             font-size: 14px;
-            color: #2d3748;
         }
 
-        .draw-table th {
-            background: #f8fafc;
-            font-weight: bold;
+        .draw-table th{
+            background: #f8f9fa;
+            font-weight: 700;
         }
 
-        .draw-table tbody tr:nth-child(even) {
-            background: #f8fafc;
+        .draw-table tbody tr:nth-child(even){
+            background:#fafafa;
         }
 
-        .draw-table tbody tr:hover {
-            background: #fff4f7;
+        .draw-table tbody tr:hover{
+            background:#fff4f7;
         }
 
         footer {
-            background: var(--maroon-utama);
-            color: white;
+            background: var(--maroon);
+            color: #ffffff;
             text-align: center;
             padding: 20px;
             margin-top: auto;
             font-size: 14px;
+            font-weight: 500;
         }
 
-        /* MOBILE RESPONSIVE */
-        @media (max-width: 900px) {
-            header {
-                flex-wrap: wrap;
-                padding: 12px 20px;
+        @media(max-width:900px){
+            header{
+                flex-wrap:wrap;
+                padding:12px 20px;
             }
 
             .header-left {
-                flex: 1;
-                justify-content: flex-start;
-                gap: 12px;
+                flex:1;
+                justify-content:flex-start;
+                gap:12px;
             }
 
-            .header-left .logo {
-                width: 50px;
-                height: 50px;
-                min-width: 50px;
+            .logo {
+                width:50px;
+                height:50px;
+                min-width:50px;
             }
 
             .header-title h1 {
-                font-size: 16px;
+                font-size:16px;
             }
 
-            .header-title .subtitle {
-                font-size: 11px;
+            .subtitle {
+                font-size:11px;
             }
 
             .menu-toggle {
-                display: block;
+                display:block;
             }
 
-            nav {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                margin-top: 12px;
-                gap: 0;
-                background-color: var(--maroon-dark);
-                border-radius: 10px;
-                overflow: hidden;
-                box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
+            nav{
+                display:none;
+                flex-direction:column;
+                width:100%;
+                margin-top:12px;
+                gap:0;
+                background-color:var(--maroon-dark);
+                border-radius:10px;
+                overflow:hidden;
+                box-shadow:inset 0 2px 8px rgba(0,0,0,0.2);
             }
 
             nav.active {
-                display: flex;
+                display:flex;
             }
 
             nav a, .dropdown-btn {
-                width: 100%;
-                text-align: left;
-                padding: 14px 20px;
-                box-sizing: border-box;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                border-bottom: 1px solid rgba(255,255,255,0.08);
-                border-radius: 0;
+                width:100%;
+                text-align:left;
+                padding:14px 20px;
+                box-sizing:border-box;
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                border-bottom:1px solid rgba(255,255,255,0.08);
+                border-radius:0;
             }
 
             .dropdown {
-                width: 100%;
+                width:100%;
             }
 
             .dropdown-content {
-                position: static;
-                display: none;
-                width: 100%;
-                box-shadow: none;
-                border-radius: 0;
-                background-color: rgba(0, 0, 0, 0.25);
-                padding: 0;
+                position:static;
+                display:none;
+                width:100%;
+                box-shadow:none;
+                border-radius:0;
+                background-color:rgba(0, 0, 0, 0.25);
+                padding:0;
             }
 
             .dropdown-content a {
-                padding: 12px 30px;
-                font-size: 13px;
-                border-bottom: 1px solid rgba(255,255,255,0.05);
+                padding:12px 30px;
+                font-size:13px;
+                border-bottom:1px solid rgba(255,255,255,0.05);
             }
 
             .page-header {
                 flex-direction: column;
-                text-align: center;
+                padding: 15px;
+                gap: 12px;
             }
 
             .page-title h2 {
@@ -411,11 +424,11 @@
 
             .print-btn {
                 width: 100%;
-                justify-content: center;
             }
 
-            .draw-grid {
-                grid-template-columns: 1fr;
+            .draw-grid{
+                grid-template-columns:1fr;
+                gap: 20px;
             }
         }
 
@@ -424,11 +437,13 @@
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
-            header, nav, footer, .menu-toggle, .print-btn { 
+
+            header, nav, footer, .print-btn, .menu-toggle { 
                 display: none !important; 
             }
+
             body { background: white; }
-            .draw-card { box-shadow: none; border: 1px solid #ccc; }
+            .draw-card, .page-header { box-shadow: none; border: 1px solid #ddd; }
         }
     </style>
 </head>
@@ -436,23 +451,20 @@
 
     <header>
         <div class="header-left">
-            <img src="../../../images/mssmlogo.png" alt="Logo MSSM" class="logo">
+            <img src="../../../images/mssmlogo.png" class="logo" alt="Logo MSSM">
             <div class="header-title">
                 <h1>PORTAL BOLA JARING MSSM</h1>
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
 
-        <!-- Butang Burger -->
         <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
             <i class="fas fa-bars" id="menu-icon"></i>
         </button>
 
-        <!-- Navigasi Utama -->
         <nav id="nav-menu">
             <a href="../../../index.html">HOME</a>
             
-            <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn">
                     <span>BOLA JARING MSSM</span>
@@ -470,7 +482,6 @@
                 </div>
             </div>
             
-            <!-- DROPDOWN KEJOHANAN -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn active">
                     <span>KEJOHANAN</span>
@@ -489,7 +500,6 @@
                 </div>
             </div>
 
-            <!-- DROPDOWN KHUSUS BAWAH 15 (B15) -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn" style="color: #ffeb3b;">
                     <span>MENU B15</span>
@@ -509,7 +519,6 @@
                 </div>
             </div>
 
-            <!-- DROPDOWN GALERI & MEDIA -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn">
                     <span>GALERI & MEDIA</span>
@@ -521,12 +530,11 @@
                 </div>
             </div>
 
-            <!-- LIVE LINK -->
             <a href="../../../live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
 
-    <main class="main-container">
+    <main class="main-container" style="padding:30px 20px;max-width:1200px;margin:auto;">
 
         <div class="page-header">
             <div class="page-title">
@@ -535,118 +543,134 @@
             </div>
             <div class="page-actions">
                 <button class="print-btn" onclick="window.print()">
-                    <i class="fa-solid fa-print"></i> Cetak
+                    <i class="fa-solid fa-print"></i>
+                    Cetak
                 </button>
             </div>
         </div>
 
         <div class="draw-grid">
 
-            <!-- JOHAN & NAIB JOHAN -->
             <div class="draw-card">
                 <div class="card-header blue">
-                    <i class="fa-solid fa-trophy"></i> JOHAN DAN NAIB JOHAN KUMPULAN
+                    <i class="fa-solid fa-trophy"></i>
+                    JOHAN DAN NAIB JOHAN KUMPULAN
                 </div>
 
-                <table class="draw-table">
-                    <tbody id="johanNaib">
-                        <tr><td>JOHAN A</td><td>...</td></tr>
-                        <tr><td>NAIB JOHAN A</td><td>...</td></tr>
-                        <tr><td>JOHAN B</td><td>...</td></tr>
-                        <tr><td>NAIB JOHAN B</td><td>...</td></tr>
-                        <tr><td>JOHAN C</td><td>...</td></tr>
-                        <tr><td>NAIB JOHAN C</td><td>...</td></tr>
-                        <tr><td>JOHAN D</td><td>...</td></tr>
-                        <tr><td>NAIB JOHAN D</td><td>...</td></tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="draw-table">
+                        <tbody id="johanNaib">
+                            <tr><td>JOHAN A</td><td>A2</td></tr>
+                            <tr><td>NAIB JOHAN A</td><td>A3</td></tr>
+                            <tr><td>JOHAN B</td><td>B2</td></tr>
+                            <tr><td>NAIB JOHAN B</td><td>B3</td></tr>
+                            <tr><td>JOHAN C</td><td>C1</td></tr>
+                            <tr><td>NAIB JOHAN C</td><td>C4</td></tr>
+                            <tr><td>JOHAN D</td><td>D2</td></tr>
+                            <tr><td>NAIB JOHAN D</td><td>D1</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <!-- SEBELAH KANAN -->
             <div>
                 <div class="draw-card">
                     <div class="card-header gold">
-                        🎲 UNDIAN JOHAN
+                        <i class="fa-solid fa-dice"></i> UNDIAN JOHAN
                     </div>
-                    <table class="draw-table">
-                        <tbody id="undianJohan">
-                            <tr><td>1</td><td>JOHAN 1</td></tr>
-                            <tr><td>2</td><td>JOHAN 3</td></tr>
-                            <tr><td>3</td><td>JOHAN 5</td></tr>
-                            <tr><td>4</td><td>JOHAN 7</td></tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="draw-table">
+                            <tbody id="undianJohan">
+                                <tr><td>1</td><td>JOHAN 1</td></tr>
+                                <tr><td>2</td><td>JOHAN 3</td></tr>
+                                <tr><td>3</td><td>JOHAN 5</td></tr>
+                                <tr><td>4</td><td>JOHAN 7</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+
+                <br>
 
                 <div class="draw-card">
                     <div class="card-header yellow">
-                        🥈 UNDIAN NAIB JOHAN
+                        <i class="fa-solid fa-medal"></i> UNDIAN NAIB JOHAN
                     </div>
-                    <table class="draw-table">
-                        <tbody id="undianNaib">
-                            <tr><td>1</td><td>NAIB JOHAN 2</td></tr>
-                            <tr><td>2</td><td>NAIB JOHAN 4</td></tr>
-                            <tr><td>3</td><td>NAIB JOHAN 6</td></tr>
-                            <tr><td>4</td><td>NAIB JOHAN 8</td></tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="draw-table">
+                            <tbody id="undianNaib">
+                                <tr><td>1</td><td>NAIB JOHAN 2</td></tr>
+                                <tr><td>2</td><td>NAIB JOHAN 4</td></tr>
+                                <tr><td>3</td><td>NAIB JOHAN 6</td></tr>
+                                <tr><td>4</td><td>NAIB JOHAN 8</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
         </div>
 
-        <!-- KLASIFIKASI -->
+        <br><br>
+
         <div class="draw-card">
             <div class="card-header green">
-                <i class="fa-solid fa-ranking-star"></i> UNDIAN PUSINGAN KLASIFIKASI
+                <i class="fa-solid fa-ranking-star"></i>
+                UNDIAN PUSINGAN KLASIFIKASI
             </div>
 
             <div class="draw-grid" style="padding: 15px;">
                 <div>
-                    <table class="draw-table">
-                        <tbody id="klasifikasi">
-                            <tr><td>KE-3 A</td><td>...</td></tr>
-                            <tr><td>KE-4 A</td><td>...</td></tr>
-                            <tr><td>KE-3 B</td><td>...</td></tr>
-                            <tr><td>KE-4 B</td><td>...</td></tr>
-                            <tr><td>KE-3 C</td><td>...</td></tr>
-                            <tr><td>KE-4 C</td><td>...</td></tr>
-                            <tr><td>KE-3 D</td><td>...</td></tr>
-                            <tr><td>KE-4 D</td><td>...</td></tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="draw-table">
+                            <tbody id="klasifikasi">
+                                <tr><td>KE-3 A</td><td>A4</td></tr>
+                                <tr><td>KE-4 A</td><td>A1</td></tr>
+                                <tr><td>KE-3 B</td><td>B1</td></tr>
+                                <tr><td>KE-4 B</td><td>B4</td></tr>
+                                <tr><td>KE-3 C</td><td>C2</td></tr>
+                                <tr><td>KE-4 C</td><td>C3</td></tr>
+                                <tr><td>KE-3 D</td><td>D3</td></tr>
+                                <tr><td>KE-4 D</td><td>D4</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <div>
-                    <table class="draw-table">
-                        <thead>
-                            <tr>
-                                <th colspan="2">UNDIAN KE-3</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>9</td><td>KE 3 (9)</td></tr>
-                            <tr><td>11</td><td>KE 3 (11)</td></tr>
-                            <tr><td>13</td><td>KE 3 (13)</td></tr>
-                            <tr><td>15</td><td>KE 3 (15)</td></tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="draw-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">UNDIAN KE-3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>9</td><td>KE 3 (9)</td></tr>
+                                <tr><td>11</td><td>KE 3 (11)</td></tr>
+                                <tr><td>13</td><td>KE 3 (13)</td></tr>
+                                <tr><td>15</td><td>KE 3 (15)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <br>
 
-                    <table class="draw-table">
-                        <thead>
-                            <tr>
-                                <th colspan="2">UNDIAN KE-4</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>10</td><td>KE 4 (10)</td></tr>
-                            <tr><td>12</td><td>KE 4 (12)</td></tr>
-                            <tr><td>14</td><td>KE 4 (14)</td></tr>
-                            <tr><td>16</td><td>KE 4 (16)</td></tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="draw-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">UNDIAN KE-4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>10</td><td>KE 4 (10)</td></tr>
+                                <tr><td>12</td><td>KE 4 (12)</td></tr>
+                                <tr><td>14</td><td>KE 4 (14)</td></tr>
+                                <tr><td>16</td><td>KE 4 (16)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -657,15 +681,12 @@
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
 
-    <!-- SKRIP NAVIGASI & BURGER MENU -->
-    <script src="../../../script.js"></script>
     <script>
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
         const menuIcon = document.getElementById('menu-icon');
         const dropdowns = document.querySelectorAll('.dropdown');
 
-        // Toggle Burger Menu
         menuToggle.addEventListener('click', function(e) {
             e.stopPropagation();
             navMenu.classList.toggle('active');
@@ -678,7 +699,6 @@
             }
         });
 
-        // Toggle Dropdown Menu
         dropdowns.forEach(dropdown => {
             const btn = dropdown.querySelector('.dropdown-btn');
             btn.addEventListener('click', function(e) {
@@ -692,7 +712,6 @@
             });
         });
 
-        // Tutup menu secara automatik jika klik di luar
         document.addEventListener('click', function(e) {
             if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                 if (window.innerWidth <= 900) {
@@ -703,7 +722,6 @@
             }
         });
 
-        // Reset menu apabila window diubah saiz
         window.addEventListener('resize', function() {
             if (window.innerWidth > 900) {
                 navMenu.classList.remove('active');
@@ -711,5 +729,6 @@
             }
         });
     </script>
+    <script src="../../../script.js"></script>
 </body>
 </html>
