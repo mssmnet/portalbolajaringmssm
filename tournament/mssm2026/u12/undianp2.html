@@ -173,10 +173,10 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
-        /* LAYOUT & CARDS */
+        /* LAYOUT & EMBED SHEET CONTAINER */
         .main-container {
-            padding: 40px 20px;
-            max-width: 1200px;
+            padding: 30px 20px;
+            max-width: 1300px;
             margin: 0 auto;
             flex: 1;
             width: 100%;
@@ -186,7 +186,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             gap: 20px;
             flex-wrap: wrap;
         }
@@ -198,54 +198,14 @@
 
         .page-title h2 {
             color: var(--maroon);
-            font-size: 34px;
+            font-size: 30px;
             margin: 0;
         }
 
         .page-title p {
             color: #666;
-            margin-top: 8px;
+            margin-top: 6px;
         }
-
-        .draw-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 25px;
-        }
-
-        .draw-card {
-            background: #fff;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,.08);
-        }
-
-        .card-header {
-            color: #fff;
-            font-weight: bold;
-            padding: 15px;
-            text-align: center;
-            font-size: 18px;
-        }
-
-        .blue { background: #169BD5; }
-        .gold { background: #f4b400; }
-        .yellow { background: #FFD600; color: #333; }
-        .green { background: #17c617; }
-
-        .draw-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .draw-table td, .draw-table th {
-            padding: 14px;
-            border: 1px solid #eee;
-            text-align: center;
-        }
-
-        .draw-table tbody tr:nth-child(even) { background: #fafafa; }
-        .draw-table tbody tr:hover { background: #fff4f7; }
 
         .print-btn {
             background: var(--maroon);
@@ -270,6 +230,21 @@
             background: #9A2348;
             transform: translateY(-2px);
             box-shadow: 0 8px 18px rgba(0,0,0,.20);
+        }
+
+        .sheet-embed-container {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border: 1px solid #ddd;
+        }
+
+        .sheet-iframe {
+            width: 100%;
+            height: 75vh;
+            border: none;
+            display: block;
         }
 
         footer {
@@ -370,17 +345,13 @@
                 border-bottom: 1px solid rgba(255,255,255,0.05);
             }
 
-            .draw-grid {
-                grid-template-columns: 1fr;
-            }
-
             .page-header {
                 flex-direction: column;
                 text-align: center;
             }
 
             .page-title h2 {
-                font-size: 24px;
+                font-size: 22px;
             }
 
             .print-btn {
@@ -390,8 +361,9 @@
 
         @media print {
             header, nav, footer, .print-btn, .menu-toggle { display: none !important; }
-            .main-container { padding: 0; width: 100%; }
-            .draw-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+            .main-container { padding: 0; width: 100%; max-width: 100%; }
+            .sheet-embed-container { box-shadow: none; border: none; }
+            .sheet-iframe { height: 1000px; }
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
         }
     </style>
@@ -496,7 +468,7 @@
         <div class="page-header">
             <div class="page-title">
                 <h2><i class="fa-solid fa-shuffle"></i> UNDIAN PUSINGAN KEDUA</h2>
-                <p>Kategori Bawah 12 MSSM 2026</p>
+                <p>Kategori Bawah 12 MSSM 2026 (Paparan Rasmi Google Sheet)</p>
             </div>
             <div class="page-actions">
                 <button class="print-btn" onclick="window.print()">
@@ -506,121 +478,12 @@
             </div>
         </div>
 
-        <div class="draw-grid">
-
-            <!-- JOHAN & NAIB JOHAN -->
-            <div class="draw-card">
-                <div class="card-header blue">
-                    <i class="fa-solid fa-trophy"></i>
-                    JOHAN DAN NAIB JOHAN KUMPULAN
-                </div>
-
-                <table class="draw-table">
-                    <tbody id="johanNaib">
-                        <tr><td>JOHAN A</td><td>...</td></tr>
-                        <tr><td>NAIB JOHAN A</td><td>...</td></tr>
-                        <tr><td>JOHAN B</td><td>...</td></tr>
-                        <tr><td>NAIB JOHAN B</td><td>...</td></tr>
-                        <tr><td>JOHAN C</td><td>...</td></tr>
-                        <tr><td>NAIB JOHAN C</td><td>...</td></tr>
-                        <tr><td>JOHAN D</td><td>...</td></tr>
-                        <tr><td>NAIB JOHAN D</td><td>...</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- SEBELAH KANAN -->
-            <div>
-                <div class="draw-card">
-                    <div class="card-header gold">
-                        🎲 UNDIAN JOHAN
-                    </div>
-                    <table class="draw-table">
-                        <tbody id="undianJohan">
-                            <tr><td>1</td><td>JOHAN 1</td></tr>
-                            <tr><td>2</td><td>JOHAN 3</td></tr>
-                            <tr><td>3</td><td>JOHAN 5</td></tr>
-                            <tr><td>4</td><td>JOHAN 7</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <br>
-
-                <div class="draw-card">
-                    <div class="card-header yellow">
-                        🥈 UNDIAN NAIB JOHAN
-                    </div>
-                    <table class="draw-table">
-                        <tbody id="undianNaib">
-                            <tr><td>1</td><td>NAIB JOHAN 2</td></tr>
-                            <tr><td>2</td><td>NAIB JOHAN 4</td></tr>
-                            <tr><td>3</td><td>NAIB JOHAN 6</td></tr>
-                            <tr><td>4</td><td>NAIB JOHAN 8</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-
-        <br><br>
-
-        <!-- KLASIFIKASI -->
-        <div class="draw-card">
-            <div class="card-header green">
-                <i class="fa-solid fa-ranking-star"></i>
-                UNDIAN PUSINGAN KLASIFIKASI
-            </div>
-
-            <div class="draw-grid" style="padding: 15px;">
-                <div>
-                    <table class="draw-table">
-                        <tbody id="klasifikasi">
-                            <tr><td>KE-3 A</td><td>...</td></tr>
-                            <tr><td>KE-4 A</td><td>...</td></tr>
-                            <tr><td>KE-3 B</td><td>...</td></tr>
-                            <tr><td>KE-4 B</td><td>...</td></tr>
-                            <tr><td>KE-3 C</td><td>...</td></tr>
-                            <tr><td>KE-4 C</td><td>...</td></tr>
-                            <tr><td>KE-3 D</td><td>...</td></tr>
-                            <tr><td>KE-4 D</td><td>...</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div>
-                    <table class="draw-table">
-                        <thead>
-                            <tr>
-                                <th colspan="2">UNDIAN KE-3</th>
-                            </tr>
-                        </thead>
-                        <tbody id="undianKe3">
-                            <tr><td>9</td><td>KE 3 (9)</td></tr>
-                            <tr><td>11</td><td>KE 3 (11)</td></tr>
-                            <tr><td>13</td><td>KE 3 (13)</td></tr>
-                            <tr><td>15</td><td>KE 3 (15)</td></tr>
-                        </tbody>
-                    </table>
-
-                    <br>
-
-                    <table class="draw-table">
-                        <thead>
-                            <tr>
-                                <th colspan="2">UNDIAN KE-4</th>
-                            </tr>
-                        </thead>
-                        <tbody id="undianKe4">
-                            <tr><td>10</td><td>KE 4 (10)</td></tr>
-                            <tr><td>12</td><td>KE 4 (12)</td></tr>
-                            <tr><td>14</td><td>KE 4 (14)</td></tr>
-                            <tr><td>16</td><td>KE 4 (16)</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div class="sheet-embed-container">
+            <iframe 
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRaQAo5tHzCfLQbXZzxo68RXBcSwZvU5tMaKigF1FaL48xP3dPdxbmJpQs7tgy2QeDNg0PVYncbUCLu/pubhtml?gid=1119239277&single=true" 
+                class="sheet-iframe" 
+                title="Google Sheet Undian P2">
+            </iframe>
         </div>
 
     </main>
@@ -629,7 +492,7 @@
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
 
-    <!-- SKRIP BURGER MENU & PENGAMBILAN DATA GOOGLE SHEET -->
+    <!-- SKRIP BURGER MENU -->
     <script>
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
@@ -681,80 +544,7 @@
                 dropdowns.forEach(d => d.classList.remove('active'));
             }
         });
-
-        // Fetch Data from Google Sheet CSV menggunakan CORS Proxy
-        async function loadSheetData() {
-            const targetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRaQAo5tHzCfLQbXZzxo68RXBcSwZvU5tMaKigF1FaL48xP3dPdxbmJpQs7tgy2QeDNg0PVYncbUCLu/pub?output=csv&gid=1119239277';
-            const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`;
-
-            try {
-                const response = await fetch(proxyUrl);
-                if (!response.ok) throw new Error('Gagal memuat turun data Google Sheet');
-                
-                const text = await response.text();
-                const rows = text.split('\n').map(row => {
-                    let cells = [];
-                    let inQuotes = false;
-                    let currentCell = '';
-                    for (let i = 0; i < row.length; i++) {
-                        let char = row[i];
-                        if (char === '"') {
-                            inQuotes = !inQuotes;
-                        } else if (char === ',' && !inQuotes) {
-                            cells.push(currentCell.trim().replace(/^"(.*)"$/, '$1'));
-                            currentCell = '';
-                        } else {
-                            currentCell += char;
-                        }
-                    }
-                    cells.push(currentCell.trim().replace(/^"(.*)"$/, '$1'));
-                    return cells;
-                });
-
-                let johanNaibHTML = '';
-                let undianJohanHTML = '';
-                let undianNaibHTML = '';
-                let klasifikasiHTML = '';
-
-                rows.forEach((r, i) => {
-                    if (!r || r.length === 0) return;
-
-                    // 1. Kolum A & B (Indeks 0 & 1): Johan & Naib Johan Kumpulan
-                    if (i >= 1 && i <= 8 && r[0] && r[1]) {
-                        johanNaibHTML += `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`;
-                    }
-
-                    // 2. Kolum C & D (Indeks 2 & 3): Undian Johan / Naib Johan
-                    if (r[2] && r[3] && (r[2] === '1' || r[2] === '2' || r[2] === '3' || r[2] === '4')) {
-                        if (i < 10) {
-                            undianJohanHTML += `<tr><td>${r[2]}</td><td>${r[3]}</td></tr>`;
-                        } else {
-                            undianNaibHTML += `<tr><td>${r[2]}</td><td>${r[3]}</td></tr>`;
-                        }
-                    }
-
-                    // 3. Kolum F & G (Indeks 5 & 6): Klasifikasi
-                    if (r[5] && r[6] && (r[5].toUpperCase().includes('KE-3') || r[5].toUpperCase().includes('KE-4') || r[5].toUpperCase().includes('A') || r[5].toUpperCase().includes('B') || r[5].toUpperCase().includes('C') || r[5].toUpperCase().includes('D'))) {
-                        klasifikasiHTML += `<tr><td>${r[5]}</td><td>${r[6]}</td></tr>`;
-                    }
-                });
-
-                if (johanNaibHTML) document.getElementById('johanNaib').innerHTML = johanNaibHTML;
-                if (undianJohanHTML) document.getElementById('undianJohan').innerHTML = undianJohanHTML;
-                if (undianNaibHTML) document.getElementById('undianNaib').innerHTML = undianNaibHTML;
-                if (klasifikasiHTML) document.getElementById('klasifikasi').innerHTML = klasifikasiHTML;
-
-                console.log("Data Google Sheet berjaya ditarik dan dipaparkan.");
-
-            } catch (error) {
-                console.error("Ralat memuat data Google Sheet:", error);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', loadSheetData);
     </script>
-
-    <script src="../../../script.py" onerror="/* fallback */"></script>
 
 </body>
 </html>
