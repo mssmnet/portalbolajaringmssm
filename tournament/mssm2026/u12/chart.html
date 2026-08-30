@@ -110,7 +110,6 @@
             transition: transform 0.3s ease;
         }
 
-        /* STRUCTURAL DROPDOWN */
         .dropdown {
             position:relative;
             display:inline-block;
@@ -152,7 +151,6 @@
             margin:6px 0;
         }
 
-        /* Desktop Dropdown Hover & Open States */
         @media(min-width:901px){
             .dropdown:hover .dropdown-content {
                 display:block;
@@ -167,7 +165,6 @@
             transform: rotate(180deg);
         }
 
-        /* BURGER MENU TOGGLE FOR MOBILE */
         .menu-toggle {
             display:none;
             font-size:24px;
@@ -184,7 +181,6 @@
             background:rgba(255, 255, 255, 0.15);
         }
 
-        /* PAGE HEADER & CARTA BRACKET */
         .page-header {
             max-width: 1400px;
             margin: 30px auto;
@@ -224,117 +220,13 @@
 
         .chart-wrapper {
             width: 100%;
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 20px auto 40px auto;
             padding: 30px 20px;
             background: #fff;
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            overflow-x: auto;
-        }
-
-        .bracket-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            min-width: 1300px;
-        }
-
-        .round {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 240px;
-            position: relative;
-        }
-
-        .column-header {
             text-align: center;
-            font-weight: 800;
-            color: #7B1E3A;
-            font-size: 15px;
-            text-transform: uppercase;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #7B1E3A;
-            margin-bottom: 25px;
-            height: 30px;
-        }
-
-        .header-kalah {
-            color: #555;
-            border-color: #555;
-        }
-
-        .match-box {
-            background: #fff;
-            border: 2px solid #7B1E3A;
-            border-radius: 8px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-            margin: 15px 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .match-box.kalah-box {
-            border-color: #555;
-        }
-
-        .match-header {
-            background: #7B1E3A;
-            color: #fff;
-            text-align: center;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 3px 0;
-            border-radius: 5px 5px 0 0;
-        }
-
-        .match-box.kalah-box .match-header {
-            background: #555;
-        }
-
-        .team-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 10px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .team-row:last-child {
-            border-bottom: none;
-        }
-
-        .team-name {
-            font-size: 13px;
-            font-weight: 700;
-            color: #333;
-        }
-
-        .team-score {
-            font-size: 14px;
-            font-weight: bold;
-            color: #7B1E3A;
-            background: #f4f4f4;
-            padding: 2px 6px;
-            border-radius: 4px;
-            min-width: 20px;
-            text-align: center;
-        }
-
-        .placement-label {
-            text-align: center;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        .section-divider {
-            border: 0;
-            height: 2px;
-            background-image: linear-gradient(to right, transparent, #ccc, transparent);
-            margin: 40px 0;
         }
 
         footer{
@@ -345,7 +237,6 @@
             margin-top:auto;
         }
 
-        /* MOBILE RESPONSIVE (HANDSET) */
         @media(max-width:900px){
             header{
                 flex-wrap:wrap;
@@ -446,16 +337,13 @@
             </div>
         </div>
 
-        <!-- Butang Burger -->
         <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
             <i class="fas fa-bars" id="menu-icon"></i>
         </button>
 
-        <!-- Navigasi Utama -->
         <nav id="nav-menu">
             <a href="../../index.html">HOME</a>
             
-            <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn">
                     <span>BOLA JARING MSSM</span>
@@ -473,7 +361,6 @@
                 </div>
             </div>
             
-            <!-- DROPDOWN KEJOHANAN -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn active">
                     <span>KEJOHANAN</span>
@@ -492,7 +379,6 @@
                 </div>
             </div>
 
-            <!-- DROPDOWN KHUSUS BAWAH 12 (B12) -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn" style="color: #ffeb3b;">
                     <span>MENU B12</span>
@@ -512,7 +398,6 @@
                 </div>
             </div>
 
-            <!-- DROPDOWN GALERI & MEDIA -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn">
                     <span>GALERI & MEDIA</span>
@@ -524,13 +409,11 @@
                 </div>
             </div>
 
-            <!-- LIVE LINK -->
             <a href="../../../live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
 
     <main class="main-container">
-        
         <section class="page-header">
             <div class="page-title">
                 <h2>CARTA KEPUTUSAN</h2>
@@ -544,219 +427,15 @@
         </section>
 
         <section class="chart-wrapper">
-            <h3 style="text-align: center; color: #7B1E3A; margin-bottom: 40px; font-size: 24px;">CARTA KEPUTUSAN (TEMPAT 1 - 8)</h3>
+            <h3 style="color: #7B1E3A; margin-bottom: 20px; font-size: 24px;">PAPARAN CARTA GOOGLE SHEETS</h3>
             
-            <div class="bracket-container">
-                <div class="round">
-                    <div class="column-header header-kalah">PENENTUAN (5-8)</div>
-                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
-                        <div>
-                            <div class="placement-label" style="color:#4a90e2;">Tempat Ke-5 & Ke-6</div>
-                            <div class="match-box kalah-box kalah-receive" style="border-color:#4a90e2;">
-                                <div class="match-header" style="background:#4a90e2;">M46</div>
-                                <div class="team-row"><span class="team-name" id="m46-t1">MENANG 39</span><span class="team-score" id="m46-s1">-</span></div>
-                                <div class="team-row"><span class="team-name" id="m46-t2">MENANG 40</span><span class="team-score" id="m46-s2">-</span></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="placement-label" style="color:#888;">Tempat Ke-7 & Ke-8</div>
-                            <div class="match-box kalah-box">
-                                <div class="match-header" style="background:#888;">M45</div>
-                                <div class="team-row"><span class="team-name" id="m45-t1">KALAH 39</span><span class="team-score" id="m45-s1">-</span></div>
-                                <div class="team-row"><span class="team-name" id="m45-t2">KALAH 40</span><span class="team-score" id="m45-s2">-</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="round round-kalah-join">
-                    <div class="column-header header-kalah">SEPARUH KIRI (KALAH)</div>
-                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
-                        <div class="match-box kalah-box kalah-receive kalah-left">
-                            <div class="match-header">M39</div>
-                            <div class="team-row"><span class="team-name" id="m39-t1">KALAH 29</span><span class="team-score" id="m39-s1">-</span></div>
-                            <div class="team-row"><span class="team-name" id="m39-t2">KALAH 30</span><span class="team-score" id="m39-s2">-</span></div>
-                        </div>
-                        <div class="match-box kalah-box kalah-receive kalah-left">
-                            <div class="match-header">M40</div>
-                            <div class="team-row"><span class="team-name" id="m40-t1">KALAH 31</span><span class="team-score" id="m40-s1">-</span></div>
-                            <div class="team-row"><span class="team-name" id="m40-t2">KALAH 32</span><span class="team-score" id="m40-s2">-</span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="round">
-                    <div class="column-header">SUKU AKHIR (UTAMA)</div>
-                    <div class="match-box menang-right kalah-left">
-                        <div class="match-header">M29</div>
-                        <div class="team-row"><span class="team-name" id="m29-t1">JOHAN 1</span><span class="team-score" id="m29-s1">-</span></div>
-                        <div class="team-row"><span class="team-name" id="m29-t2">NAIB JOHAN 2</span><span class="team-score" id="m29-s2">-</span></div>
-                    </div>
-                    <div class="match-box menang-right kalah-left">
-                        <div class="match-header">M30</div>
-                        <div class="team-row"><span class="team-name" id="m30-t1">JOHAN 3</span><span class="team-score" id="m30-s1">-</span></div>
-                        <div class="team-row"><span class="team-name" id="m30-t2">NAIB JOHAN 4</span><span class="team-score" id="m30-s2">-</span></div>
-                    </div>
-                    <div class="match-box menang-right kalah-left">
-                        <div class="match-header">M31</div>
-                        <div class="team-row"><span class="team-name" id="m31-t1">JOHAN 5</span><span class="team-score" id="m31-s1">-</span></div>
-                        <div class="team-row"><span class="team-name" id="m31-t2">NAIB JOHAN 6</span><span class="team-score" id="m31-s2">-</span></div>
-                    </div>
-                    <div class="match-box menang-right kalah-left">
-                        <div class="match-header">M32</div>
-                        <div class="team-row"><span class="team-name" id="m32-t1">JOHAN 7</span><span class="team-score" id="m32-s1">-</span></div>
-                        <div class="team-row"><span class="team-name" id="m32-t2">NAIB JOHAN 8</span><span class="team-score" id="m32-s2">-</span></div>
-                    </div>
-                </div>
-
-                <div class="round round-menang-join">
-                    <div class="column-header">SEPARUH KANAN (MENANG)</div>
-                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
-                        <div class="match-box menang-receive menang-right">
-                            <div class="match-header">M37</div>
-                            <div class="team-row"><span class="team-name" id="m37-t1">MENANG 29</span><span class="team-score" id="m37-s1">-</span></div>
-                            <div class="team-row"><span class="team-name" id="m37-t2">MENANG 30</span><span class="team-score" id="m37-s2">-</span></div>
-                        </div>
-                        <div class="match-box menang-receive menang-right">
-                            <div class="match-header">M38</div>
-                            <div class="team-row"><span class="team-name" id="m38-t1">MENANG 31</span><span class="team-score" id="m38-s1">-</span></div>
-                            <div class="team-row"><span class="team-name" id="m38-t2">MENANG 32</span><span class="team-score" id="m38-s2">-</span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="round">
-                    <div class="column-header">AKHIR & KETIGA</div>
-                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
-                        <div>
-                            <div class="placement-label" style="color: #B8860B;">AKHIR (JOHAN & NAIB)</div>
-                            <div class="match-box menang-receive" style="border-color: gold; background: #FFFBF0;">
-                                <div class="match-header" style="background: gold; color: #7B1E3A;">M48</div>
-                                <div class="team-row"><span class="team-name" id="m48-t1">MENANG 37</span><span class="team-score" id="m48-s1">-</span></div>
-                                <div class="team-row"><span class="team-name" id="m48-t2">MENANG 38</span><span class="team-score" id="m48-s2">-</span></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="placement-label" style="color: #CD7F32;">PENENTUAN KETIGA / KE-4</div>
-                            <div class="match-box" style="border-color: #CD7F32;">
-                                <div class="match-header" style="background: #CD7F32;">M47</div>
-                                <div class="team-row"><span class="team-name" id="m47-t1">KALAH 37</span><span class="team-score" id="m47-s1">-</span></div>
-                                <div class="team-row"><span class="team-name" id="m47-t2">KALAH 38</span><span class="team-score" id="m47-s2">-</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Paparan iframe menggunakan pautan terbitan pubhtml dengan parameter single=true -->
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRaQAo5tHzCfLQbXZzxo68RXBcSwZvU5tMaKigF1FaL48xP3dPdxbmJpQs7tgy2QeDNg0PVYncbUCLu/pubhtml?gid=481009488&single=true" 
+                    width="100%" 
+                    height="750px" 
+                    style="border:none; border-radius: 8px;">
+            </iframe>
         </section>
-
-        <hr class="section-divider">
-
-        <section class="chart-wrapper">
-            <h3 style="text-align: center; color: #7B1E3A; margin-bottom: 40px; font-size: 24px;">CARTA KEPUTUSAN (TEMPAT 9 - 16)</h3>
-            
-            <div class="bracket-container">
-                <div class="round">
-                    <div class="column-header header-kalah">PENENTUAN (13-16)</div>
-                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
-                        <div>
-                            <div class="placement-label" style="color:#4a90e2;">Tempat Ke-13 & Ke-14</div>
-                            <div class="match-box kalah-box kalah-receive" style="border-color:#4a90e2;">
-                                <div class="match-header" style="background:#4a90e2;">M42</div>
-                                <div class="team-row"><span class="team-name" id="m42-t1">MENANG 33</span><span class="team-score" id="m42-s1">-</span></div>
-                                <div class="team-row"><span class="team-name" id="m42-t2">MENANG 34</span><span class="team-score" id="m42-s2">-</span></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="placement-label" style="color:#888;">Tempat Ke-15 & Ke-16</div>
-                            <div class="match-box kalah-box">
-                                <div class="match-header" style="background:#888;">M41</div>
-                                <div class="team-row"><span class="team-name" id="m41-t1">KALAH 33</span><span class="team-score" id="m41-s1">-</span></div>
-                                <div class="team-row"><span class="team-name" id="m41-t2">KALAH 34</span><span class="team-score" id="m41-s2">-</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="round round-kalah-join">
-                    <div class="column-header header-kalah">SEPARUH KIRI (KALAH)</div>
-                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
-                        <div class="match-box kalah-box kalah-receive kalah-left">
-                            <div class="match-header">M33</div>
-                            <div class="team-row"><span class="team-name" id="m33-t1">KALAH 25</span><span class="team-score" id="m33-s1">-</span></div>
-                            <div class="team-row"><span class="team-name" id="m33-t2">KALAH 26</span><span class="team-score" id="m33-s2">-</span></div>
-                        </div>
-                        <div class="match-box kalah-box kalah-receive kalah-left">
-                            <div class="match-header">M34</div>
-                            <div class="team-row"><span class="team-name" id="m34-t1">KALAH 27</span><span class="team-score" id="m34-s1">-</span></div>
-                            <div class="team-row"><span class="team-name" id="m34-t2">KALAH 28</span><span class="team-score" id="m34-s2">-</span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="round">
-                    <div class="column-header">SUKU AKHIR (9-16)</div>
-                    <div class="match-box menang-right kalah-left">
-                        <div class="match-header">M25</div>
-                        <div class="team-row"><span class="team-name" id="m25-t1">KE-3 (9)</span><span class="team-score" id="m25-s1">-</span></div>
-                        <div class="team-row"><span class="team-name" id="m25-t2">KE-4 (10)</span><span class="team-score" id="m25-s2">-</span></div>
-                    </div>
-                    <div class="match-box menang-right kalah-left">
-                        <div class="match-header">M26</div>
-                        <div class="team-row"><span class="team-name" id="m26-t1">KE-3 (11)</span><span class="team-score" id="m26-s1">-</span></div>
-                        <div class="team-row"><span class="team-name" id="m26-t2">KE-4 (12)</span><span class="team-score" id="m26-s2">-</span></div>
-                    </div>
-                    <div class="match-box menang-right kalah-left">
-                        <div class="match-header">M27</div>
-                        <div class="team-row"><span class="team-name" id="m27-t1">KE-3 (13)</span><span class="team-score" id="m27-s1">-</span></div>
-                        <div class="team-row"><span class="team-name" id="m27-t2">KE-4 (14)</span><span class="team-score" id="m27-s2">-</span></div>
-                    </div>
-                    <div class="match-box menang-right kalah-left">
-                        <div class="match-header">M28</div>
-                        <div class="team-row"><span class="team-name" id="m28-t1">KE-3 (15)</span><span class="team-score" id="m28-s1">-</span></div>
-                        <div class="team-row"><span class="team-name" id="m28-t2">KE-4 (16)</span><span class="team-score" id="m28-s2">-</span></div>
-                    </div>
-                </div>
-
-                <div class="round round-menang-join">
-                    <div class="column-header">SEPARUH KANAN (MENANG)</div>
-                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
-                        <div class="match-box menang-receive menang-right">
-                            <div class="match-header">M35</div>
-                            <div class="team-row"><span class="team-name" id="m35-t1">MENANG 25</span><span class="team-score" id="m35-s1">-</span></div>
-                            <div class="team-row"><span class="team-name" id="m35-t2">MENANG 26</span><span class="team-score" id="m35-s2">-</span></div>
-                        </div>
-                        <div class="match-box menang-receive menang-right">
-                            <div class="match-header">M36</div>
-                            <div class="team-row"><span class="team-name" id="m36-t1">MENANG 27</span><span class="team-score" id="m36-s1">-</span></div>
-                            <div class="team-row"><span class="team-name" id="m36-t2">MENANG 28</span><span class="team-score" id="m36-s2">-</span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="round">
-                    <div class="column-header">PENENTUAN (9-12)</div>
-                    <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%; padding: 40px 0;">
-                        <div>
-                            <div class="placement-label" style="color: #4a90e2;">TEMPAT KE-9 & KE-10</div>
-                            <div class="match-box menang-receive" style="border-color: #4a90e2;">
-                                <div class="match-header" style="background: #4a90e2;">M44</div>
-                                <div class="team-row"><span class="team-name" id="m44-t1">MENANG 35</span><span class="team-score" id="m44-s1">-</span></div>
-                                <div class="team-row"><span class="team-name" id="m44-t2">MENANG 36</span><span class="team-score" id="m44-s2">-</span></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="placement-label" style="color: #888;">TEMPAT KE-11 & KE-12</div>
-                            <div class="match-box" style="border-color: #888;">
-                                <div class="match-header" style="background: #888;">M43</div>
-                                <div class="team-row"><span class="team-name" id="m43-t1">KALAH 35</span><span class="team-score" id="m43-s1">-</span></div>
-                                <div class="team-row"><span class="team-name" id="m43-t2">KALAH 36</span><span class="team-score" id="m43-s2">-</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
     <footer>
@@ -764,13 +443,11 @@
     </footer>
 
     <script>
-        // FUNGSI UTAMA NAVIGATION RESPONSIVE & BURGER MENU
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
         const menuIcon = document.getElementById('menu-icon');
         const dropdowns = document.querySelectorAll('.dropdown');
 
-        // Toggle Burger Menu
         menuToggle.addEventListener('click', function(e) {
             e.stopPropagation();
             navMenu.classList.toggle('active');
@@ -783,21 +460,17 @@
             }
         });
 
-        // Toggle Dropdown Menu (Universal untuk Klik Desktop & Mobile)
         dropdowns.forEach(dropdown => {
             const btn = dropdown.querySelector('.dropdown-btn');
             btn.addEventListener('click', function(e) {
                 e.stopPropagation();
-                
                 dropdowns.forEach(other => {
                     if (other !== dropdown) other.classList.remove('open');
                 });
-
                 dropdown.classList.toggle('open');
             });
         });
 
-        // Tutup menu secara automatik jika klik di luar kawasan header/nav
         document.addEventListener('click', function(e) {
             if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                 if (window.innerWidth <= 900) {
@@ -808,53 +481,12 @@
             }
         });
 
-        // Reset menu apabila window diubah saiz
         window.addEventListener('resize', function() {
             if (window.innerWidth > 900) {
                 navMenu.classList.remove('active');
                 menuIcon.className = 'fas fa-bars';
             }
         });
-
-        // TARIK DATA DARI GOOGLE SHEETS
-        const SHEET_ID = "1ItWWq1j0D2nO6zxQzgv24nQuzhKqyXEe3_Eu4wIHAg0"; 
-        const GID = "481009488"; 
-
-        const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?gid=${GID}&tqx=out:json`;
-
-        fetch(url)
-            .then(res => res.text())
-            .then(text => {
-                const jsonString = text.substring(47).slice(0, -2);
-                const json = JSON.parse(jsonString);
-                const rows = json.table.rows;
-
-                rows.forEach(r => {
-                    if (!r.c[0] || r.c[0].v === null) return; 
-                    
-                    const matchNo = r.c[0].v.toString().trim();
-
-                    const team1 = r.c[2] && r.c[2].v ? r.c[2].v : "";
-                    const score1 = r.c[3] && r.c[3].v !== null ? r.c[3].v : "";
-                    
-                    const team2 = r.c[4] && r.c[4].v ? r.c[4].v : "";
-                    const score2 = r.c[5] && r.c[5].v !== null ? r.c[5].v : "";
-
-                    const elTeam1 = document.getElementById("m" + matchNo + "-t1");
-                    const elScore1 = document.getElementById("m" + matchNo + "-s1");
-                    const elTeam2 = document.getElementById("m" + matchNo + "-t2");
-                    const elScore2 = document.getElementById("m" + matchNo + "-s2");
-
-                    if (elTeam1 && team1 !== "") elTeam1.innerText = team1;
-                    if (elScore1 && score1 !== "") elScore1.innerText = score1;
-                    if (elTeam2 && team2 !== "") elTeam2.innerText = team2;
-                    if (elScore2 && score2 !== "") elScore2.innerText = score2;
-                });
-            })
-            .catch(error => {
-                console.error("Gagal menarik data Carta Google Sheets:", error);
-            });
     </script>
-
 </body>
 </html>
