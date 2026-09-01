@@ -728,7 +728,7 @@
                         day: "HARI 4 : 01 SEPTEMBER 2026 (SELASA)",
                         matches: [
                             { bil: 26, time: "08.00 AM", kump: "Klasifikasi CS1", teamA: "MSS KEDAH", teamB: "MSS PERLIS" },
-                            { bil: 27, time: "08.30 AM", kump: "Klasifikasi CS2", teamA: "MSS KELANTAN", teamB: "MSS PAH" },
+                            { bil: 27, time: "08.30 AM", kump: "Klasifikasi CS2", teamA: "MSS KELANTAN", teamB: "MSS PAHANG" },
                             { bil: 28, time: "09.00 AM", kump: "Klasifikasi CS3", teamA: "MSS PULAU PINANG", teamB: "MSS MELAKA" },
                             { bil: 29, time: "09.30 AM", kump: "Klasifikasi CS4", teamA: "MSS PUTRAJAYA", teamB: "MSS KEDAH" },
                             { bil: 30, time: "10.00 AM", kump: "Klasifikasi CS5", teamA: "MENANG 27", teamB: "MENANG 28" },
@@ -807,13 +807,13 @@
                             { bil: 31, time: "09.00 AM", kump: "Klasifikasi CS3", teamA: "MSS KELANTAN", teamB: "MSS LABUAN" },
                             { bil: 32, time: "09.30 AM", kump: "Klasifikasi CS4", teamA: "MSS SABAH", teamB: "MSS PUTRAJAYA" },
                             { bil: 33, time: "10.30 AM", kump: "Klasifikasi CS5", teamA: "MSS PERLIS", teamB: "MSS SARAWAK" },
-                            { bil: 34, time: "11.00 AM", kump: "Klasifikasi CS6", teamA: "MSS LABUAN", teamB: "MSS PUTRAJAYA",} 
+                            { bil: 34, time: "11.00 AM", kump: "Klasifikasi CS6", teamA: "MSS LABUAN", teamB: "MSS PUTRAJAYA" },
                             { bil: 35, time: "11.30 AM", kump: "Klasifikasi CS7", teamA: "MSS PAHANG", teamB: "MSS NEGERI SEMBILAN" },
                             { bil: 36, time: "12.00 PM", kump: "Klasifikasi CS8", teamA: "MSS KELANTAN", teamB: "MSS SABAH" },
                             { bil: 37, time: "12.30 PM", kump: "Klasifikasi CS9", teamA: "MSS MELAKA", teamB: "MSS PERAK" },
                             { bil: 38, time: "01.00 PM", kump: "Klasifikasi CS10", teamA: "MSS PULAU PINANG", teamB: "MSS TERENGGANU" },
                             { bil: 39, time: "02.00 PM", kump: "Separuh Akhir SF1", teamA: "MSS SELANGOR", teamB: "MSS KUALA LUMPUR" },
-                            { bil: 40, time: "03.00 PM", kump: "Separuh Akhir SF2", teamA: "MSS JOHOR", teamB: "MSS KEDAHS" },
+                            { bil: 40, time: "03.00 PM", kump: "Separuh Akhir SF2", teamA: "MSS JOHOR", teamB: "MSS KEDAH" },
                             { bil: 41, time: "04.00 PM", kump: "Ke 15/16", teamA: "KALAH 33", teamB: "KALAH 34" },
                             { bil: 42, time: "04.30 PM", kump: "Ke 13/14", teamA: "MENANG 33", teamB: "MENANG 34" },
                             { bil: 43, time: "05.00 PM", kump: "Ke 11/12", teamA: "KALAH 35", teamB: "KALAH 36" },
@@ -886,7 +886,7 @@
                             { bil: 32, time: "11.00 AM", kump: "Klasifikasi CS7", teamA: "MSS MELAKA", teamB: "MSS KUALA LUMPUR" },
                             { bil: 33, time: "11.30 AM", kump: "Klasifikasi CS8", teamA: "MSS SARAWAK", teamB: "MSS NEGERI SEMBILAN" },
                             { bil: 34, time: "02.00 PM", kump: "Separuh Akhir SF1", teamA: "MSS SELANGOR", teamB: "MSS JOHOR" },
-                            { bil: 35, time: "03.00 PM", kump: "Separuh Akhir SF2", teamA: "MSS PAHANG ", teamB: "MSS KEDAH" },
+                            { bil: 35, time: "03.00 PM", kump: "Separuh Akhir SF2", teamA: "MSS PAHANG", teamB: "MSS KEDAH" },
                             { bil: 36, time: "04.00 PM", kump: "Ke 13/14", teamA: "KALAH 26", teamB: "MENANG 31" },
                             { bil: 37, time: "04.30 PM", kump: "Ke 11/12", teamA: "KALAH 29", teamB: "KALAH 30" },
                             { bil: 38, time: "05.00 PM", kump: "Ke 9/10", teamA: "MENANG 29", teamB: "MENANG 30" },
@@ -933,7 +933,7 @@
             scheduleData[catKey].days.forEach(dayGroup => {
                 dayGroup.matches.forEach(m => {
                     const row = rows.find((r, index) => index > 0 && (r[0] == m.bil || r[1] == m.bil));
-                    if (row && row.length >= 13) {
+                    if (row && row.length >= 16) {
                         m.q1a = row[5] !== '' && !isNaN(row[5]) ? Number(row[5]) : m.q1a;
                         m.q1b = row[6] !== '' && !isNaN(row[6]) ? Number(row[6]) : m.q1b;
                         m.q2a = row[7] !== '' && !isNaN(row[7]) ? Number(row[7]) : m.q2a;
