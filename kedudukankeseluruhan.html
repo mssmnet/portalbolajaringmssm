@@ -433,9 +433,31 @@
                 justify-content: center;
             }
 
+            /* Pelarasan saiz fon & sel jadual mudah alih agar tidak bertindih */
+            th, td {
+                padding: 8px 4px !important;
+                font-size: 12px !important;
+                line-height: 1.2;
+            }
+
+            .bil { width: 40px !important; }
+            .kategori { width: 72px !important; }
+            .jumlah { width: 80px !important; }
+            .kedudukan { width: 85px !important; }
+
             .nama-negeri {
-                font-size: 14px;
-                padding-left: 10px;
+                font-size: 13px !important;
+                padding-left: 6px !important;
+                gap: 6px !important;
+            }
+
+            .nama-negeri img {
+                width: 20px !important;
+                height: 20px !important;
+            }
+
+            .mata-terkumpul {
+                font-size: 12px !important;
             }
         }
 
@@ -528,9 +550,9 @@
 
             <!-- TAB & PRINT BUTTONS -->
             <div class="tab-container">
-                <a href="tournament/mssm2026/u12/ranking.html" class="tab-btn">👶 Bawah 12 Tahun</a>
-                <a href="tournament/mssm2026/u15/ranking.html" class="tab-btn">🧒 Bawah 15 Tahun</a>
-                <a href="tournament/mssm2026/u18/ranking.html" class="tab-btn">🧑 Bawah 18 Tahun</a>
+                <a href="tournament/mssm2026/u12/ranking.html" class="tab-btn">Bawah 12 Tahun</a>
+                <a href="tournament/mssm2026/u15/ranking.html" class="tab-btn">Bawah 15 Tahun</a>
+                <a href="tournament/mssm2026/u18/ranking.html" class="tab-btn">Bawah 18 Tahun</a>
                 <button class="print-btn" onclick="window.print()"><i class="fas fa-print"></i> Cetak Jadual</button>
             </div>
 
