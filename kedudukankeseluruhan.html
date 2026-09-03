@@ -433,7 +433,6 @@
                 justify-content: center;
             }
 
-            /* Pelarasan saiz fon & sel jadual mudah alih agar tidak bertindih */
             th, td {
                 padding: 8px 4px !important;
                 font-size: 12px !important;
@@ -479,34 +478,30 @@
             </div>
         </div>
 
-        <!-- Butang Burger -->
         <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
             <i class="fas fa-bars" id="menu-icon"></i>
         </button>
 
-        <!-- Navigasi Utama -->
         <nav id="nav-menu">
             <a href="index.html">HOME</a>
             
-            <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn">
                     <span>BOLA JARING MSSM</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-content"> 
-                    <a href="../../organisasi.html">ORGANISASI BOLA JARING MSSM</a>
-                    <a href="../../panel.html">PANEL ANUGERAH MSSM</a>
-                    <a href="../../teknikal.html">TEKNIKAL KEJOHANAN</a>
-                    <a href="../../pengadil.html">PENGADIL</a>
+                    <a href="organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="pengadil.html">PENGADIL</a>
                     <hr>
-                    <a href="../../about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
-                    <a href="../../rules.html">PERATURAN</a>
-                    <a href="../../calendar.html">TAKWIM</a>
+                    <a href="about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="rules.html">PERATURAN</a>
+                    <a href="calendar.html">TAKWIM</a>
                 </div>
             </div>
             
-            <!-- DROPDOWN KEJOHANAN -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn active">
                     <span>KEJOHANAN</span>
@@ -525,20 +520,18 @@
                 </div>
             </div>
 
-            <!-- DROPDOWN GALERI & MEDIA -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn">
                     <span>GALERI & MEDIA</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="../../halloffame.html">HALL OF FAME</a>
-                    <a href="../../gallery.html">GALLERY</a>
+                    <a href="halloffame.html">HALL OF FAME</a>
+                    <a href="gallery.html">GALLERY</a>
                 </div>
             </div>
 
-            <!-- LIVE LINK -->
-            <a href="../../live.html" class="live-link" style="color: #ffeb3b;">🔴 LIVE</a>
+            <a href="live.html" class="live-link" style="color: #ffeb3b;">🔴 LIVE</a>
         </nav>
     </header>
 
@@ -548,7 +541,6 @@
                 <h2>KEDUDUKAN KESELURUHAN BOLA JARING MSSM 2026</h2>
             </div>
 
-            <!-- TAB & PRINT BUTTONS -->
             <div class="tab-container">
                 <a href="tournament/mssm2026/u12/ranking.html" class="tab-btn">Bawah 12 Tahun</a>
                 <a href="tournament/mssm2026/u15/ranking.html" class="tab-btn">Bawah 15 Tahun</a>
@@ -584,7 +576,6 @@
     </footer>
 
 <script>
-    /* KAMUS PEMETAAN LOGO PASUKAN */
     const teamLogos = {
         "MSS SELANGOR": "images/logo/selangor.png",
         "MSS JOHOR": "images/logo/johor.png",
@@ -605,9 +596,9 @@
     };
 
     const dataNegeri = [
-        { negeri: "MSS SELANGOR", u12: 30, u15: 30, u18: 18 },
-        { negeri: "MSS JOHOR", u12: 12, u15: 23, u18: 30 },
-        { negeri: "MSS KUALA LUMPUR", u12: 15, u15: 18, u18: 12 },
+        { negeri: "MSS SELANGOR", u12: 30, u15: 30, u18: 18 },       // Johan Keseluruhan
+        { negeri: "MSS JOHOR", u12: 12, u15: 23, u18: 30 },          // Naib Johan Keseluruhan
+        { negeri: "MSS KUALA LUMPUR", u12: 15, u15: 18, u18: 12 },   // Ketiga Keseluruhan
         { negeri: "MSS PERAK", u12: 23, u15: 11, u18: 4 },
         { negeri: "MSS KEDAH", u12: 8, u15: 15, u18: 15 },
         { negeri: "MSS TERENGGANU", u12: 18, u15: 12, u18: 6 },
@@ -623,11 +614,12 @@
         { negeri: "LABUAN", u12: 0, u15: 1, u18: 0 }
     ];
 
-    // Kira Jumlah & Susun Kedudukan
+    // Kira Jumlah Mata Keseluruhan
     dataNegeri.forEach(item => {
         item.jumlah = Number(item.u12 || 0) + Number(item.u15 || 0) + Number(item.u18 || 0);
     });
 
+    // Susun secara menurun berdasarkan jumlah mata keseluruhan terbesar ke terkecil
     dataNegeri.sort((a, b) => b.jumlah - a.jumlah);
 
     let previousJumlah = null;
@@ -641,7 +633,6 @@
         previousJumlah = item.jumlah;
     });
 
-    // Paparkan Data ke Jadual
     const rankingBody = document.getElementById("rankingBody");
 
     dataNegeri.forEach((item, index) => {
@@ -666,7 +657,6 @@
         rankingBody.appendChild(row);
     });
 
-    // Skrip Navigasi Burger & Dropdown untuk Mobile
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     const menuIcon = document.getElementById('menu-icon');

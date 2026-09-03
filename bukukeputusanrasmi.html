@@ -32,7 +32,6 @@
 
     body {
         font-family: 'Segoe UI', Arial, sans-serif;
-        background: url('../../images/bg-utama.jpg') center/cover fixed;
         background-color: var(--pink);
         color: var(--text);
         line-height: 1.5;
@@ -66,7 +65,6 @@
         height: 70px;
         min-width: 70px;
         object-fit: contain;
-        background: transparent;
     }
     
     .header-title h1 { 
@@ -78,11 +76,10 @@
     }
 
     .header-title .subtitle { 
-        color: #FFD700; 
+        color: var(--gold); 
         font-size: 14px; 
         margin: 2px 0 0 0; 
         font-weight: bold; 
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.3); 
     }
 
     nav {
@@ -118,7 +115,6 @@
         transition: transform 0.3s ease;
     }
 
-    /* STRUCTURAL DROPDOWN */
     .dropdown {
         position: relative;
         display: inline-block;
@@ -147,7 +143,6 @@
         font-weight: bold;
         border-radius: 0;
         margin: 0;
-        transition: background 0.2s;
     }
 
     .dropdown-content a:hover {
@@ -175,7 +170,6 @@
         transform: rotate(180deg);
     }
 
-    /* BURGER MENU TOGGLE FOR MOBILE */
     .menu-toggle {
         display: none;
         font-size: 24px;
@@ -185,11 +179,6 @@
         cursor: pointer;
         padding: 8px;
         border-radius: 6px;
-        transition: background 0.2s ease;
-    }
-
-    .menu-toggle:hover {
-        background: rgba(255, 255, 255, 0.15);
     }
 
     /* CONTROL BAR */
@@ -261,7 +250,6 @@
         border-radius: 6px;
     }
 
-    /* COVER */
     .cover {
         display: flex;
         align-items: center;
@@ -313,7 +301,6 @@
         border-radius: 2px;
     }
 
-    /* SECTION STYLING */
     .section-title {
         text-align: center;
         color: var(--maroon);
@@ -342,7 +329,6 @@
         font-size: 14px;
     }
 
-    /* TABLES INSIDE BOOK */
     .book-page table {
         width: 100% !important;
         border-collapse: collapse !important;
@@ -368,7 +354,6 @@
         background: #fafafa !important;
     }
 
-    /* LOADING SCREEN */
     #loading {
         position: fixed;
         inset: 0;
@@ -423,7 +408,6 @@
         font-size: 12px;
     }
 
-    /* PRINT STYLES */
     @media print {
         header.main-header, .control-bar, footer, nav, .menu-toggle, #loading {
             display: none !important;
@@ -444,39 +428,12 @@
             page-break-after: always;
             border-radius: 0;
         }
-        table {
-            page-break-inside: auto;
-        }
-        tr {
-            page-break-inside: avoid;
-            page-break-after: auto;
-        }
-        thead {
-            display: table-header-group;
-        }
     }
 
-    /* MOBILE RESPONSIVE */
     @media (max-width: 900px) {
         header.main-header {
             flex-wrap: wrap;
             padding: 12px 20px;
-        }
-        .header-left {
-            flex: 1;
-            justify-content: flex-start;
-            gap: 12px;
-        }
-        .logo-header {
-            width: 50px;
-            height: 50px;
-            min-width: 50px;
-        }
-        .header-title h1 {
-            font-size: 16px;
-        }
-        .header-title .subtitle {
-            font-size: 11px;
         }
         .menu-toggle {
             display: block;
@@ -486,11 +443,8 @@
             flex-direction: column;
             width: 100%;
             margin-top: 12px;
-            gap: 0;
             background-color: var(--maroon-dark);
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
         }
         nav.active {
             display: flex;
@@ -499,42 +453,17 @@
             width: 100%;
             text-align: left;
             padding: 14px 20px;
-            box-sizing: border-box;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            border-radius: 0;
-            margin: 0;
-        }
-        .dropdown {
-            width: 100%;
         }
         .dropdown-content {
             position: static;
             display: none;
             width: 100%;
-            box-shadow: none;
-            border-radius: 0;
             background-color: rgba(0, 0, 0, 0.25);
-            padding: 0;
         }
         .dropdown.active .dropdown-content {
             display: block;
-        }
-        .dropdown-content a {
-            padding: 12px 30px;
-            font-size: 13px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .book-page {
-            width: 100%;
-            min-height: auto;
-            padding: 20px;
-            margin: 10px 0;
-        }
-        #book {
-            width: 100%;
         }
     }
 </style>
@@ -542,22 +471,19 @@
 
 <body>
 
-    <!-- HEADER UTAMA -->
     <header class="main-header">
         <div class="header-left">
-            <img src="../../images/mssmlogo.png" alt="Logo MSSM" class="logo-header">
+            <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo-header">
             <div class="header-title">
                 <h1>PORTAL BOLA JARING MSSM</h1>
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
             </div>
         </div>
 
-        <!-- Butang Burger -->
         <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
             <i class="fas fa-bars" id="menu-icon"></i>
         </button>
 
-        <!-- Navigasi Utama -->
         <nav id="nav-menu">
             <a href="../../index.html">HOME</a>
             
@@ -567,14 +493,14 @@
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-content"> 
-                    <a href="../../organisasi.html">ORGANISASI BOLA JARING MSSM</a>
-                    <a href="../../panel.html">PANEL ANUGERAH MSSM</a>
-                    <a href="../../teknikal.html">TEKNIKAL KEJOHANAN</a>
-                    <a href="../../pengadil.html">PENGADIL</a>
+                    <a href="organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="pengadil.html">PENGADIL</a>
                     <hr>
-                    <a href="../../about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
-                    <a href="../../rules.html">PERATURAN</a>
-                    <a href="../../calendar.html">TAKWIM</a>
+                    <a href="about.html">MANUAL PENGURUSAN</a>
+                    <a href="rules.html">PERATURAN</a>
+                    <a href="calendar.html">TAKWIM</a>
                 </div>
             </div>
             
@@ -584,41 +510,24 @@
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="../index.html">MSSM 2026</a>  
+                    <a href="index.html">MSSM 2026</a>  
                     <hr>
                     <a href="../u12/ranking.html">BAWAH 12</a>
                     <a href="../u15/ranking.html">BAWAH 15</a>
                     <a href="../u18/ranking.html">BAWAH 18</a>
-                    <hr>
-                    <a href="../../bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
-                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
-                    <a href="../../borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>
                 </div>
             </div>
 
-            <div class="dropdown">
-                <button type="button" class="dropdown-btn">
-                    <span>GALERI & MEDIA</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="../../halloffame.html">HALL OF FAME</a>
-                    <a href="../../gallery.html">GALLERY</a>
-                </div>
-            </div>
-
-            <a href="../../live.html" class="live-link" style="color: #ffeb3b;">🔴 LIVE</a>
+            <a href="live.html" style="color: #ffeb3b;">🔴 LIVE</a>
         </nav>
     </header>
 
-    <!-- LOADING SCREEN -->
     <div id="loading">
         <div class="spinner"></div>
         <h2>Sedang menjana Buku Keputusan</h2>
         <p id="loadingText">Sedang mengambil data kejohanan...</p>
     </div>
 
-    <!-- CONTROL BAR -->
     <div class="control-bar">
         <button class="btn-print" onclick="window.print()">
             <i class="fas fa-print"></i> CETAK / SIMPAN PDF
@@ -629,7 +538,6 @@
         <span class="status" id="status">Menunggu...</span>
     </div>
 
-    <!-- MAIN BOOK CONTAINER -->
     <main id="book" class="container"></main>
 
     <footer>
@@ -637,7 +545,6 @@
     </footer>
 
 <script>
-    // Fungsi Navigasi Responsive & Burger Menu
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     const menuIcon = document.getElementById('menu-icon');
@@ -646,53 +553,32 @@
     menuToggle.addEventListener('click', function(e) {
         e.stopPropagation();
         navMenu.classList.toggle('active');
-        if (navMenu.classList.contains('active')) {
-            menuIcon.className = 'fas fa-xmark';
-        } else {
-            menuIcon.className = 'fas fa-bars';
-            dropdowns.forEach(d => d.classList.remove('open'));
-        }
+        menuIcon.className = navMenu.classList.contains('active') ? 'fas fa-xmark' : 'fas fa-bars';
     });
 
     dropdowns.forEach(dropdown => {
         const btn = dropdown.querySelector('.dropdown-btn');
         btn.addEventListener('click', function(e) {
             e.stopPropagation();
-            dropdowns.forEach(other => {
-                if (other !== dropdown) other.classList.remove('open');
-            });
+            dropdowns.forEach(other => { if (other !== dropdown) other.classList.remove('open'); });
             dropdown.classList.toggle('open');
         });
     });
 
-    document.addEventListener('click', function(e) {
-        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-            if (window.innerWidth <= 900) {
-                navMenu.classList.remove('active');
-                menuIcon.className = 'fas fa-bars';
-            }
-            dropdowns.forEach(d => d.classList.remove('open'));
-        }
-    });
-
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 900) {
-            navMenu.classList.remove('active');
-            menuIcon.className = 'fas fa-bars';
-        }
-    });
-
-    // Senarai Sumber Buku Keputusan
     const sumberBuku = [
         { kategori: "KEPUTUSAN RASMI", url: "keputusanrasmi.html" },
         { kategori: "KEDUDUKAN KESELURUHAN", url: "kedudukankeseluruhan.html" },
+        { kategori: "STATISTIK KESELURUHAN", url: "statistic.html" },
         { kategori: "ANUGERAH KHAS", url: "anugerahkhas.html" },
         { kategori: "U12 - PASUKAN", url: "tournament/mssm2026/u12/teams.html" },
         { kategori: "U12 - RANKING", url: "tournament/mssm2026/u12/ranking.html" },
+        { kategori: "U12 - STATISTIK", url: "tournament/mssm2026/u12/statistic.html" },
         { kategori: "U15 - PASUKAN", url: "tournament/mssm2026/u15/teams.html" },
         { kategori: "U15 - RANKING", url: "tournament/mssm2026/u15/ranking.html" },
+        { kategori: "U15 - STATISTIK", url: "tournament/mssm2026/u15/statistic.html" },
         { kategori: "U18 - PASUKAN", url: "tournament/mssm2026/u18/teams.html" },
-        { kategori: "U18 - RANKING", url: "tournament/mssm2026/u18/ranking.html" }
+        { kategori: "U18 - RANKING", url: "tournament/mssm2026/u18/ranking.html" },
+        { kategori: "U18 - STATISTIK", url: "tournament/mssm2026/u18/statistic.html" }
     ];
 
     function setLoading(text){
@@ -718,10 +604,10 @@
                     try{ iframe.remove(); }catch(e){}
                     reject(new Error("Masa menunggu halaman tamat: " + url));
                 }
-            }, 30000);
+            }, 15000);
 
             iframe.onload = async function(){
-                await tungguData(iframe, 10000);
+                await tungguData(iframe, 5000);
                 if(selesai) return;
                 selesai = true;
                 clearTimeout(timeout);
@@ -762,7 +648,7 @@
                     clearInterval(check);
                     resolve();
                 }
-            }, 500);
+            }, 300);
         });
     }
 
@@ -793,7 +679,7 @@
         return `
             <section class="book-page cover">
                 <div class="cover-content">
-                    <img src="../../images/mssmlogo.png" class="cover-logo" alt="Logo MSSM" onerror="this.style.display='none'">
+                    <img src="images/mssmlogo.png" class="cover-logo" alt="Logo MSSM" onerror="this.style.display='none'">
                     <h1>BUKU KEPUTUSAN RASMI</h1>
                     <div class="cover-line"></div>
                     <h2>KEJOHANAN BOLA JARING MSSM 2026</h2>
@@ -825,11 +711,7 @@
         } else {
             tables.forEach((table, index)=>{
                 const clean = bersihkanTable(table);
-                html += `
-                    <div class="sub-title">
-                        ${kategori} ${tables.length > 1 ? " - " + (index+1) : ""}
-                    </div>
-                `;
+                html += `<div class="sub-title">${kategori} ${tables.length > 1 ? " - " + (index+1) : ""}</div>`;
                 html += clean.outerHTML;
             });
         }
@@ -854,11 +736,6 @@
         const temp = document.createElement("div");
         temp.innerHTML = html;
         temp.querySelectorAll("script,style,button,input,select,textarea,nav,header,footer").forEach(el=>el.remove());
-        temp.querySelectorAll("*").forEach(el=>{
-            if(el.children.length === 0 && !el.textContent.trim()){
-                el.remove();
-            }
-        });
         return temp.innerHTML;
     }
 
@@ -893,6 +770,7 @@
                                 Laluan: ${escapeHTML(sumber.url)}<br><br>
                                 Sila pastikan fail tersebut wujud pada lokasi yang betul.
                             </div>
+                            <div class="page-number">MSSM 2026</div>
                         </section>
                     `;
                 }

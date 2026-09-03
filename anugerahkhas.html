@@ -216,7 +216,7 @@
         background: rgba(255, 255, 255, 0.15);
     }
 
-    /* HERO SECTION - DIKECILKAN */
+    /* HERO SECTION */
     .hero {
         min-height: 190px;
         display: flex;
@@ -347,81 +347,80 @@
     .winner { font-size: 14px; font-weight: 850; margin: 6px 0; color: var(--maroon); }
     .state { display: inline-block; padding: 3px 8px; border-radius: 999px; background: var(--pink); color: var(--maroon); font-size: 10px; font-weight: 750; }
 
-    /* KEDUDUKAN KESELURUHAN / PODIUM */
+    /* KEDUDUKAN KESELURUHAN / PODIUM TERSUSUN MENEGAK */
     .overall-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        display: flex;
+        flex-direction: column;
         gap: 16px;
-        margin-top: 20px;
-        align-items: stretch;
+        max-width: 650px;
+        margin: 20px auto 0 auto;
     }
     .overall-card {
         background: #fff;
         border: 1px solid var(--line);
         border-radius: 18px;
-        padding: 24px 20px;
-        text-align: center;
+        padding: 22px 25px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
         box-shadow: 0 4px 15px rgba(7,26,61,.04);
         position: relative;
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         transition: .2s;
     }
     .overall-card:hover {
-        transform: translateY(-3px);
+        transform: translateY(-2px);
         box-shadow: 0 8px 22px rgba(7,26,61,.08);
     }
+    /* Kad Johan (Selangor) Ditonjolkan Khas di Atas */
     .overall-card.champion {
         background: linear-gradient(135deg, var(--maroon), var(--maroon-dark));
         color: #fff;
         border: none;
-        box-shadow: 0 16px 45px rgba(123,30,58,.3);
-        transform: scale(1.05);
-        z-index: 2;
+        box-shadow: 0 12px 35px rgba(123,30,58,.25);
+        padding: 26px 28px;
     }
     .overall-card.champion .champ-title,
-    .overall-card.champion .champ-name {
+    .overall-card.champion .champ-badge {
         color: #fff;
-    }
-    .champ-logo {
-        width: 75px;
-        height: 75px;
-        object-fit: contain;
-        margin-bottom: 12px;
-        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
-    }
-    .overall-card.champion .champ-logo {
-        width: 95px;
-        height: 95px;
-        filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
-    }
-    .champ-badge {
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 1px;
-        color: var(--maroon);
-        margin-bottom: 6px;
-        text-transform: uppercase;
     }
     .overall-card.champion .champ-badge {
         color: var(--gold);
-        font-size: 14px;
-        letter-spacing: 1.5px;
+    }
+    .champ-logo {
+        width: 65px;
+        height: 65px;
+        object-fit: contain;
+        flex-shrink: 0;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+    }
+    .overall-card.champion .champ-logo {
+        width: 80px;
+        height: 80px;
+    }
+    .champ-info {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        flex: 1;
+    }
+    .champ-badge {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        color: var(--maroon);
+        text-transform: uppercase;
     }
     .champ-title {
-        font-size: 20px;
+        font-size: 22px;
         font-weight: 850;
-        margin: 4px 0 0;
         color: var(--maroon);
+        margin: 0;
     }
     .overall-card.champion .champ-title {
-        font-size: 28px;
+        font-size: 26px;
         font-weight: 900;
         color: #fff;
-        margin-top: 6px;
     }
 
     footer {
@@ -537,7 +536,11 @@
         .team-card, .award-card { padding: 14px; }
         .player { grid-template-columns: 58px 1fr; }
         .winner { font-size: 14px; }
-        .overall-card.champion { transform: none !important; }
+        .overall-card { padding: 16px; gap: 15px; }
+        .champ-logo { width: 55px; height: 55px; }
+        .overall-card.champion .champ-logo { width: 65px; height: 65px; }
+        .champ-title { font-size: 18px; }
+        .overall-card.champion .champ-title { font-size: 20px; }
     }
 </style>
 </head>
@@ -552,16 +555,13 @@
             </div>
         </div>
 
-        <!-- Butang Burger -->
         <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
             <i class="fas fa-bars" id="menu-icon"></i>
         </button>
 
-        <!-- Navigasi Utama -->
         <nav id="nav-menu">
             <a href="index.html">HOME</a>
             
-            <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn">
                     <span>BOLA JARING MSSM</span>
@@ -579,7 +579,6 @@
                 </div>
             </div>
             
-            <!-- DROPDOWN KEJOHANAN -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn active">
                     <span>KEJOHANAN</span>
@@ -598,7 +597,6 @@
                 </div>
             </div>
 
-            <!-- DROPDOWN GALERI & MEDIA -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn">
                     <span>GALERI & MEDIA</span>
@@ -610,7 +608,6 @@
                 </div>
             </div>
 
-            <!-- LIVE LINK -->
             <a href="live.html" class="live-link" style="color: #ffeb3b;">🔴 LIVE</a>
         </nav>
     </header>
@@ -800,25 +797,31 @@
   </div>
 
   <div class="overall-grid">
-    <!-- Tempat Kedua (Johor) -->
-    <article class="overall-card">
-      <img src="images/logo/johor.png" alt="Logo MSS Johor" class="champ-logo" onerror="this.style.display='none'">
-      <div class="champ-badge">🥈 TEMPAT KEDUA KESELURUHAN</div>
-      <h3 class="champ-title">MSS JOHOR</h3>
-    </article>
-
-    <!-- Johan Keseluruhan (Selangor) -->
+    <!-- Johan Keseluruhan (Selangor) - Di Atas -->
     <article class="overall-card champion">
       <img src="images/logo/selangor.png" alt="Logo MSS Selangor" class="champ-logo" onerror="this.style.display='none'">
-      <div class="champ-badge">🏆 JOHAN KESELURUHAN</div>
-      <h3 class="champ-title">MSS SELANGOR</h3>
+      <div class="champ-info">
+        <div class="champ-badge">🏆 JOHAN KESELURUHAN</div>
+        <h3 class="champ-title">MSS SELANGOR</h3>
+      </div>
     </article>
 
-    <!-- Tempat Ketiga (Kuala Lumpur) -->
+    <!-- Tempat Kedua (Johor) - Di Tengah -->
+    <article class="overall-card">
+      <img src="images/logo/johor.png" alt="Logo MSS Johor" class="champ-logo" onerror="this.style.display='none'">
+      <div class="champ-info">
+        <div class="champ-badge">🥈 TEMPAT KEDUA KESELURUHAN</div>
+        <h3 class="champ-title">MSS JOHOR</h3>
+      </div>
+    </article>
+
+    <!-- Tempat Ketiga (Kuala Lumpur) - Di Bawah -->
     <article class="overall-card">
       <img src="images/logo/kualalumpur.png" alt="Logo MSS WP Kuala Lumpur" class="champ-logo" onerror="this.style.display='none'">
-      <div class="champ-badge">🥉 TEMPAT KETIGA KESELURUHAN</div>
-      <h3 class="champ-title">MSS WP KUALA LUMPUR</h3>
+      <div class="champ-info">
+        <div class="champ-badge">🥉 TEMPAT KETIGA KESELURUHAN</div>
+        <h3 class="champ-title">MSS WP KUALA LUMPUR</h3>
+      </div>
     </article>
   </div>
 </section>
@@ -830,13 +833,11 @@
 </footer>
 
 <script>
-    // FUNGSI UTAMA NAVIGATION RESPONSIVE & BURGER MENU
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     const menuIcon = document.getElementById('menu-icon');
     const dropdowns = document.querySelectorAll('.dropdown');
 
-    // Toggle Burger Menu
     menuToggle.addEventListener('click', function(e) {
         e.stopPropagation();
         navMenu.classList.toggle('active');
@@ -849,7 +850,6 @@
         }
     });
 
-    // Toggle Dropdown Menu
     dropdowns.forEach(dropdown => {
         const btn = dropdown.querySelector('.dropdown-btn');
         btn.addEventListener('click', function(e) {
@@ -863,7 +863,6 @@
         });
     });
 
-    // Tutup menu secara automatik jika klik di luar
     document.addEventListener('click', function(e) {
         if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
             if (window.innerWidth <= 900) {
@@ -874,7 +873,6 @@
         }
     });
 
-    // Reset menu apabila window diubah saiz
     window.addEventListener('resize', function() {
         if (window.innerWidth > 900) {
             navMenu.classList.remove('active');
@@ -882,7 +880,6 @@
         }
     });
 
-    // Carian dan Penapisan Sportsmanship
     const search = document.getElementById('search');
     const age = document.getElementById('ageFilter');
     const cards = [...document.querySelectorAll('.team-card')];
