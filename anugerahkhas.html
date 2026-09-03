@@ -354,7 +354,9 @@
         background: linear-gradient(135deg, var(--maroon), var(--maroon-dark));
         color: #fff;
         border: none;
-        box-shadow: 0 12px 35px rgba(123,30,58,.2);
+        box-shadow: 0 16px 45px rgba(123,30,58,.3);
+        transform: scale(1.05);
+        z-index: 2;
     }
     .overall-card.champion .champ-title,
     .overall-card.champion .champ-name {
@@ -367,6 +369,11 @@
         margin-bottom: 12px;
         filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
     }
+    .overall-card.champion .champ-logo {
+        width: 95px;
+        height: 95px;
+        filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+    }
     .champ-badge {
         font-size: 11px;
         font-weight: 800;
@@ -377,12 +384,20 @@
     }
     .overall-card.champion .champ-badge {
         color: var(--gold);
+        font-size: 14px;
+        letter-spacing: 1.5px;
     }
     .champ-title {
         font-size: 20px;
         font-weight: 850;
         margin: 4px 0 0;
         color: var(--maroon);
+    }
+    .overall-card.champion .champ-title {
+        font-size: 28px;
+        font-weight: 900;
+        color: #fff;
+        margin-top: 6px;
     }
 
     footer {
@@ -413,6 +428,7 @@
             break-inside: avoid;
             box-shadow: none !important;
             border: 1px solid #ccc !important;
+            transform: none !important;
         }
     }
 
@@ -491,6 +507,7 @@
         .team-card, .award-card { padding: 14px; }
         .player { grid-template-columns: 58px 1fr; }
         .winner { font-size: 14px; }
+        .overall-card.champion { transform: none !important; }
     }
 </style>
 </head>
@@ -498,7 +515,7 @@
 
     <header>
         <div class="header-left">
-            <img src="../../images/mssmlogo.png" alt="Logo MSSM" class="logo-header">
+            <img src="../../images/logo/mssmlogo.png" alt="Logo MSSM" class="logo-header">
             <div class="header-title">
                 <h1>PORTAL BOLA JARING MSSM</h1>
                 <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
@@ -763,19 +780,19 @@
     <!-- Johan Keseluruhan (Selangor) -->
     <article class="overall-card champion">
       <img src="../../images/logo/selangor.png" alt="Logo MSS Selangor" class="champ-logo" onerror="this.style.display='none'">
-      <div class="champ-badge" style="color: var(--gold);">🏆 JOHAN KESELURUHAN</div>
-      <h3 class="champ-title" style="color: #fff;">MSS SELANGOR</h3>
+      <div class="champ-badge">🏆 JOHAN KESELURUHAN</div>
+      <h3 class="champ-title">MSS SELANGOR</h3>
     </article>
 
     <!-- Tempat Ketiga (Kuala Lumpur) -->
     <article class="overall-card">
-      <img src="../../images/logo/kualalumpur.png" alt="Logo MSS WP Kuala Lumpur" class="champ-logo" onerror="this.style.display='none'">
+      <img src="../../images/logo/kl.png" alt="Logo MSS WP Kuala Lumpur" class="champ-logo" onerror="this.style.display='none'">
       <div class="champ-badge">🥉 TEMPAT KETIGA KESELURUHAN</div>
       <h3 class="champ-title">MSS WP KUALA LUMPUR</h3>
     </article>
   </div>
 </section>
-s
+
 </main>
 
 <footer>
