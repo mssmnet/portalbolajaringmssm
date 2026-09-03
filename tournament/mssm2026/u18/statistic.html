@@ -445,13 +445,14 @@
                         <th style="width: 32%;">NAMA PEMAIN</th>
                         <th style="width: 20%;">PASUKAN</th>
                         <th style="width: 12%;">POSISI</th>
-                        <th style="width: 10%;">PERCUBAAN</th>
-                        <th style="width: 10%;">JARINGAN</th>
-                        <th style="width: 8%;">%</th>
+                        <th style="width: 10%;">SUKU AKHIR</th>
+                        <th style="width: 10%;">SEPARUH AKHIR</th>
+                        <th style="width: 10%;">AKHIR</th>
+                        <th style="width: 10%;">JUMLAH JARINGAN</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td colspan="7" style="text-align:center; padding: 20px;">Memuatkan data statistik dari Google Sheets...</td></tr>
+                    <tr><td colspan="8" style="text-align:center; padding: 20px;">Memuatkan data statistik dari Google Sheets...</td></tr>
                 </tbody>
             </table>
         </div>
@@ -541,9 +542,10 @@
                     let nama = r.c[1] && r.c[1].v !== null ? r.c[1].v.toString().trim() : "";
                     let pasukan = r.c[2] && r.c[2].v !== null ? r.c[2].v.toString().trim() : "";
                     let posisi = r.c[3] && r.c[3].v !== null ? r.c[3].v.toString().trim() : ""; 
-                    let percubaan = r.c[4] && r.c[4].v !== null ? r.c[4].v.toString().trim() : "-"; 
-                    let jaringan = r.c[5] && r.c[5].v !== null ? r.c[5].v.toString().trim() : "0"; 
-                    let peratus = r.c[6] && r.c[6].v !== null ? r.c[6].v.toString().trim() : "0%"; 
+                    let sukuAkhir = r.c[4] && r.c[4].v !== null ? r.c[4].v.toString().trim() : "0"; 
+                    let separuhAkhir = r.c[5] && r.c[5].v !== null ? r.c[5].v.toString().trim() : "0"; 
+                    let akhir = r.c[6] && r.c[6].v !== null ? r.c[6].v.toString().trim() : "0"; 
+                    let jumlahJaringan = r.c[7] && r.c[7].v !== null ? r.c[7].v.toString().trim() : "0"; 
 
                     if (!nama || nama.toLowerCase() === "nama pemain" || nama.toLowerCase() === "no" || nama.toLowerCase() === "statistik jaringan") continue;
 
@@ -559,9 +561,10 @@
                         <td style="font-weight:bold; text-align:left;">${nama}</td>
                         <td>${pasukan || '-'}</td>
                         <td>${posisi || '-'}</td>
-                        <td>${percubaan}</td>
-                        <td style="font-weight:bold; color:#7B1E3A;">${jaringan}</td>
-                        <td style="font-weight:bold;">${peratus}</td>
+                        <td>${sukuAkhir}</td>
+                        <td>${separuhAkhir}</td>
+                        <td>${akhir}</td>
+                        <td style="font-weight:bold; color:#7B1E3A; font-size:16px;">${jumlahJaringan}</td>
                     </tr>`;
     
                     kedudukan++;
@@ -570,12 +573,12 @@
                 if (validLiveRows > 0) {
                     document.querySelector('#statsTable tbody').innerHTML = newContent;
                 } else {
-                    document.querySelector('#statsTable tbody').innerHTML = `<tr><td colspan="7" style="text-align:center; color:red;">Tiada data pemain dijumpai di dalam Google Sheets.</td></tr>`;
+                    document.querySelector('#statsTable tbody').innerHTML = `<tr><td colspan="8" style="text-align:center; color:red;">Tiada data pemain dijumpai di dalam Google Sheets.</td></tr>`;
                 }
             })
             .catch(error => {
                 console.error("Ralat menarik data Google Sheets:", error);
-                document.querySelector('#statsTable tbody').innerHTML = `<tr><td colspan="7" style="text-align:center; color:red;">Gagal menarik data. Sila pastikan fail Google Sheet telah disetkan kepada kebenaran awam (Anyone with the link can view).</td></tr>`;
+                document.querySelector('#statsTable tbody').innerHTML = `<tr><td colspan="8" style="text-align:center; color:red;">Gagal menarik data. Sila pastikan fail Google Sheet telah disetkan kepada kebenaran awam (Anyone with the link can view).</td></tr>`;
             });
     </script>
 </body>

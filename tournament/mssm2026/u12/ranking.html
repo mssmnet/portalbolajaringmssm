@@ -461,7 +461,7 @@
 
     <div class="container">
         <div class="header-actions">
-            <h2>KEDUDUKAN KESELURUHAN</h2>
+            <h2>KEDUDUKAN KESELURUHAN BAWAH 12</h2>
             <button class="btn-print" onclick="window.print()">
                 <i class="fa-solid fa-print"></i> Cetak PDF
             </button>
@@ -471,28 +471,44 @@
             <table id="rankingTable">
                 <thead>
                     <tr>
-                        <th style="width: 15%;">RANK</th>
-                        <th style="width: 60%;">PASUKAN</th>
+                        <th style="width: 15%;">KEDUDUKAN</th>
+                        <th style="width: 12%;">LOGO</th>
+                        <th style="width: 48%; text-align: left; padding-left: 20px;">PASUKAN</th>
                         <th style="width: 25%;">MATA</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="gold"><td>1</td><td>JOHAN</td><td>30</td></tr>
-                    <tr class="silver"><td>2</td><td>NAIB JOHAN</td><td>23</td></tr>
-                    <tr class="bronze"><td>3</td><td>KE 3</td><td>18</td></tr>
-                    <tr><td>4</td><td>KE 4</td><td>15</td></tr>
-                    <tr><td>5</td><td>KE 5</td><td>12</td></tr>
-                    <tr><td>6</td><td>KE 6</td><td>11</td></tr>
-                    <tr><td>7</td><td>KE 7</td><td>10</td></tr>
-                    <tr><td>8</td><td>KE 8</td><td>9</td></tr>
-                    <tr><td>9</td><td>KE 9</td><td>8</td></tr>
-                    <tr><td>10</td><td>KE 10</td><td>7</td></tr>
-                    <tr><td>11</td><td>KE 11</td><td>6</td></tr>
-                    <tr><td>12</td><td>KE 12</td><td>5</td></tr>
-                    <tr><td>13</td><td>KE 13</td><td>4</td></tr>
-                    <tr><td>14</td><td>KE 14</td><td>3</td></tr>
-                    <tr><td>15</td><td>KE 15</td><td>2</td></tr>
-                    <tr><td>16</td><td>KE 16</td><td>1</td></tr>
+                    <tr class="gold">
+                        <td><i class="fa-solid fa-trophy" style="color: #b8860b; margin-right: 5px;"></i> 1</td>
+                        <td><img src="../../../images/logo/johor.png" alt="Johor" style="width: 28px; height: 28px; object-fit: contain;" onerror="this.style.display='none'"></td>
+                        <td style="text-align: left; padding-left: 20px;"><strong>JOHAN</strong></td>
+                        <td>30</td>
+                    </tr>
+                    <tr class="silver">
+                        <td><i class="fa-solid fa-medal" style="color: #555; margin-right: 5px;"></i> 2</td>
+                        <td><img src="../../../images/logo/selangor.png" alt="Selangor" style="width: 28px; height: 28px; object-fit: contain;" onerror="this.style.display='none'"></td>
+                        <td style="text-align: left; padding-left: 20px;"><strong>NAIB JOHAN</strong></td>
+                        <td>23</td>
+                    </tr>
+                    <tr class="bronze">
+                        <td><i class="fa-solid fa-medal" style="color: #fff; margin-right: 5px;"></i> 3</td>
+                        <td><img src="../../../images/logo/pahang.png" alt="Pahang" style="width: 28px; height: 28px; object-fit: contain;" onerror="this.style.display='none'"></td>
+                        <td style="text-align: left; padding-left: 20px;"><strong>KE 3</strong></td>
+                        <td>18</td>
+                    </tr>
+                    <tr><td>4</td><td>-</td><td style="text-align: left; padding-left: 20px;">KE 4</td><td>15</td></tr>
+                    <tr><td>5</td><td>-</td><td style="text-align: left; padding-left: 20px;">KE 5</td><td>12</td></tr>
+                    <tr><td>6</td><td>-</td><td style="text-align: left; padding-left: 20px;">KE 6</td><td>11</td></tr>
+                    <tr><td>7</td><td>-</td><td style="text-align: left; padding-left: 20px;">KE 7</td><td>10</td></tr>
+                    <tr><td>8</td><td>-</td><td style="text-align: left; padding-left: 20px;">KE 8</td><td>9</td></tr>
+                    <tr><td>9</td><td>-</td><td style="text-align: left; padding-left: 20px;">KE 9</td><td>8</td></tr>
+                    <tr><td>10</td><td>-</td><td style="text-align: left; padding-left: 20px;">KE 10</td><td>7</td></tr>
+                    <tr><td>11</td><td>-</td><td style="text-align: left; padding-left: 20px;">KE 11</td><td>6</td></tr>
+                    <tr><td>12</td><td>-</td><td style="text-align: left; padding-left: 20px;">KE 12</td><td>5</td></tr>
+                    <tr><td>13</td><td>-</td><td style="text-align: left; padding-left: 20px;">KE 13</td><td>4</td></tr>
+                    <tr><td>14</td><td>-</td><td style="text-align: left; padding-left: 20px;">KE 14</td><td>3</td></tr>
+                    <tr><td>15</td><td>-</td><td style="text-align: left; padding-left: 20px;">KE 15</td><td>2</td></tr>
+                    <tr><td>16</td><td>-</td><td style="text-align: left; padding-left: 20px;">KE 16</td><td>1</td></tr>
                 </tbody>
             </table>
         </div>
@@ -502,16 +518,34 @@
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
 
-    <!-- SKRIP BURGER MENU & APARAN DROPDOWN RESPONSIVE -->
+    <!-- SKRIP BURGER MENU & PAPARAN LOGO DINAMIK -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script>
-        // FUNGSI UTAMA NAVIGATION RESPONSIVE & BURGER MENU
+        // PETA LOGO PASUKAN (Laluan: images/logo/)
+        const teamLogos = {
+            "JOHOR": "../../../images/logo/johor.png",
+            "KEDAH": "../../../images/logo/kedah.png",
+            "KELANTAN": "../../../images/logo/kelantan.png",
+            "MELAKA": "../../../images/logo/melaka.png",
+            "NEGERI SEMBILAN": "../../../images/logo/ns.png",
+            "PAHANG": "../../../images/logo/pahang.png",
+            "PERAK": "../../../images/logo/perak.png",
+            "PERLIS": "../../../images/logo/perlis.png",
+            "PULAU PINANG": "../../../images/logo/penang.png",
+            "SABAH": "../../../images/logo/sabah.png",
+            "SARAWAK": "../../../images/logo/sarawak.png",
+            "SELANGOR": "../../../images/logo/selangor.png",
+            "TERENGGANU": "../../../images/logo/terengganu.png",
+            "WILAYAH PERSEKUTUAN KUALA LUMPUR": "../../../images/logo/kl.png",
+            "WILAYAH PERSEKUTUAN PUTRAJAYA": "../../../images/logo/putrajaya.png",
+            "WILAYAH PERSEKUTUAN LABUAN": "../../../images/logo/labuan.png"
+        };
+
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
         const menuIcon = document.getElementById('menu-icon');
         const dropdowns = document.querySelectorAll('.dropdown');
 
-        // Toggle Burger Menu pada Mobile
         menuToggle.addEventListener('click', function(e) {
             e.stopPropagation();
             navMenu.classList.toggle('active');
@@ -524,7 +558,6 @@
             }
         });
 
-        // Toggle Dropdown Sub-menu pada Mobile
         dropdowns.forEach(dropdown => {
             const btn = dropdown.querySelector('.dropdown-btn');
             btn.addEventListener('click', function(e) {
@@ -541,7 +574,6 @@
             });
         });
 
-        // Tutup menu secara automatik jika mengetik di luar
         document.addEventListener('click', function(e) {
             if (window.innerWidth <= 900) {
                 if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
@@ -552,7 +584,6 @@
             }
         });
 
-        // Reset menu jika skrin diubah saiz melebihi breakpoint mobile
         window.addEventListener('resize', function() {
             if (window.innerWidth > 900) {
                 navMenu.classList.remove('active');
@@ -561,7 +592,7 @@
             }
         });
 
-        // PENERIMAAN DATA CSV GOOGLE SHEETS
+        // PENERIMAAN DATA CSV GOOGLE SHEETS & PAPARAN LOGO DINAMIK
         const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRaQAo5tHzCfLQbXZzxo68RXBcSwZvU5tMaKigF1FaL48xP3dPdxbmJpQs7tgy2QeDNg0PVYncbUCLu/pub?gid=43115303&single=true&output=csv'; 
 
         fetch(csvUrl)
@@ -573,9 +604,9 @@
                 const results = Papa.parse(csvData, { header: false, skipEmptyLines: true });
                 const rows = results.data;
                 
-                const rankCol = 1;     // Lajur B
-                const pasukanCol = 2;  // Lajur C
-                const mataCol = 3;     // Lajur D
+                const rankCol = 1;     // Lajur B (Index 1)
+                const pasukanCol = 2;  // Lajur C (Index 2)
+                const mataCol = 3;     // Lajur D (Index 3)
 
                 const startRowIndex = 5; // Baris 6
                 const endRowIndex = 20;  // Baris 21
@@ -595,13 +626,34 @@
                     validLiveRows++;
 
                     let rowClass = '';
-                    if (rank == '1') rowClass = 'gold';
-                    else if (rank == '2') rowClass = 'silver';
-                    else if (rank == '3') rowClass = 'bronze';
+                    let rankDisplay = rank || '-';
+
+                    if (rank === '1') {
+                        rowClass = 'gold';
+                        rankDisplay = `<i class="fa-solid fa-trophy" style="color: #b8860b; margin-right: 5px;"></i> ${rank}`;
+                    } else if (rank === '2') {
+                        rowClass = 'silver';
+                        rankDisplay = `<i class="fa-solid fa-medal" style="color: #555; margin-right: 5px;"></i> ${rank}`;
+                    } else if (rank === '3') {
+                        rowClass = 'bronze';
+                        rankDisplay = `<i class="fa-solid fa-medal" style="color: #fff; margin-right: 5px;"></i> ${rank}`;
+                    }
+
+                    // Padankan nama pasukan dengan kamus teamLogos secara dinamik (folder images/logo/)
+                    let upperTeam = pasukan.toUpperCase().trim();
+                    let logoSrc = teamLogos[upperTeam];
+                    
+                    if (!logoSrc) {
+                        let cleanName = upperTeam.replace(/^MSS\s+/i, '').replace(/\s+/g, '').toLowerCase();
+                        logoSrc = `../../../images/logo/${cleanName}.png`;
+                    }
+
+                    let logoHtml = `<img src="${logoSrc}" alt="${pasukan}" style="width: 28px; height: 28px; object-fit: contain;" onerror="this.style.display='none'">`;
 
                     newContent += `<tr class="${rowClass}">
-                        <td>${rank || '-'}</td>
-                        <td>${pasukan || '-'}</td>
+                        <td>${rankDisplay}</td>
+                        <td>${logoHtml}</td>
+                        <td style="text-align: left; padding-left: 20px;"><strong>${pasukan || '-'}</strong></td>
                         <td>${mata || '0'}</td>
                     </tr>`;
                 }
