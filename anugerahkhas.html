@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anugerah Khas & Sportsmanship | MSSM 2026</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+    :root {
+        --maroon: #7B1E3A;
+        --maroon-dark: #581328;
+        --gold: #FFD700;
+        --pink: #FCE4EC;
+        --light: #f5f7fb;
+        --text: #182033;
+        --muted: #667085;
+        --white: #fff;
+        --line: #e6eaf0;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: url('../../images/bg-utama.jpg') center/cover fixed;
+        background-color: var(--pink);
+        color: var(--text);
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    /* HEADER & NAVIGATION */
+    header { 
+        background-color: var(--maroon); 
+        color: white; 
+        padding: 15px 5%;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .header-left { 
+        display: flex; 
+        align-items: center; 
+        gap: 18px; 
+    }
+
+    .logo-header { 
+        width: 70px;
+        height: 70px;
+        min-width: 70px;
+        object-fit: contain;
+        background: transparent;
+    }
+    
+    .header-title h1 { 
+        margin: 0; 
+        font-size: 24px; 
+        color: white; 
+        font-weight: 800;
+        line-height: 1.2;
+    }
+
+    .header-title .subtitle { 
+        color: #FFD700; 
+        font-size: 14px; 
+        margin: 2px 0 0 0; 
+        font-weight: bold; 
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3); 
+    }
+
+    nav {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    nav a, .dropdown-btn { 
+        color: white; 
+        text-decoration: none; 
+        font-weight: bold; 
+        font-size: 15px; 
+        padding: 10px 14px;
+        border-radius: 8px;
+        transition: .3s;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    nav a:hover, nav a.active, .dropdown-btn.active, .dropdown:hover .dropdown-btn { 
+        background: rgba(255,255,255,.15);
+        color: var(--gold); 
+    }
+
+    .dropdown-btn i {
+        transition: transform 0.3s ease;
+    }
+
+    /* STRUCTURAL DROPDOWN */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--maroon);
+        min-width: 220px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        padding: 8px 0;
+        z-index: 1100;
+    }
+
+    .dropdown-content a {
+        color: white;
+        padding: 12px 18px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 0;
+        margin: 0;
+        transition: background 0.2s;
+    }
+
+    .dropdown-content a:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        color: #ffeb3b;
+    }
+
+    .dropdown-content hr {
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        margin: 6px 0;
+    }
+
+    @media(min-width: 901px){
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    }
+
+    .dropdown.open .dropdown-content {
+        display: block !important;
+    }
+
+    .dropdown.open .dropdown-btn i {
+        transform: rotate(180deg);
+    }
+
+    /* BURGER MENU TOGGLE FOR MOBILE */
+    .menu-toggle {
+        display: none;
+        font-size: 24px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 6px;
+        transition: background 0.2s ease;
+    }
+
+    .menu-toggle:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* HERO SECTION - DIKECILKAN */
+    .hero {
+        min-height: 190px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 22px 20px;
+        background:
+            radial-gradient(circle at 15% 20%, rgba(255,215,0,.2), transparent 30%),
+            radial-gradient(circle at 85% 80%, rgba(123,30,58,.35), transparent 35%),
+            linear-gradient(135deg, #581328, #7B1E3A 55%, #3e0d1d);
+        color: #fff;
+    }
+
+    .hero-inner {
+        max-width: 900px;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border: 1px solid rgba(255,255,255,.3);
+        border-radius: 999px;
+        letter-spacing: 2px;
+        font-size: 10px;
+        text-transform: uppercase;
+        background: rgba(255,255,255,.08);
+    }
+
+    .hero h1 {
+        font-size: clamp(24px, 3.2vw, 34px);
+        margin: 7px 0 4px;
+        letter-spacing: .3px;
+    }
+
+    .hero h2 {
+        margin: 0;
+        color: var(--gold);
+        font-size: clamp(12px, 1.7vw, 17px);
+        font-weight: 600;
+    }
+
+    .hero p {
+        margin: 7px auto 0;
+        max-width: 680px;
+        color: #fce4ec;
+        font-size: 12px;
+    }
+
+    /* PAGE SUB-NAV */
+    .sub-nav {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+        display: flex; justify-content: center; gap: 10px; padding: 8px; flex-wrap: wrap;
+    }
+    .sub-nav a {
+        text-decoration: none; color: var(--maroon); font-weight: 700; padding: 6px 14px; border-radius: 8px; font-size: 13px;
+        transition: 0.2s;
+    }
+    .sub-nav a:hover { background: var(--pink); }
+
+    /* CONTAINER & CONTENT */
+    .container { max-width: 1180px; margin: auto; padding: 30px 18px 60px; flex: 1; width: 100%; }
+    .section { margin-top: 30px; }
+    .section-title { text-align: center; margin-bottom: 20px; }
+    .section-title .eyebrow { color: var(--maroon); font-weight: 800; letter-spacing: 2px; font-size: 11px; text-transform: uppercase; }
+    .section-title h2 { font-size: 24px; margin: 4px 0; color: var(--maroon); }
+    .section-title p { color: var(--muted); margin: 0; font-size: 13px; }
+
+    .toolbar { display: flex; gap: 12px; flex-wrap: wrap; margin: 0 0 20px; align-items: center; }
+    .search {
+        flex: 1; min-width: 240px; border: 1px solid var(--line); background: #fff; border-radius: 10px;
+        padding: 10px 14px; font-size: 14px; outline: none;
+    }
+    .search:focus { border-color: var(--maroon); box-shadow: 0 0 0 3px rgba(123,30,58,.08); }
+    .filter {
+        border: 1px solid var(--line); background: #fff; border-radius: 10px; padding: 10px 14px;
+        font-weight: 700; color: var(--maroon); font-size: 14px;
+    }
+    .print-btn {
+        border: none;
+        background: var(--maroon);
+        color: white;
+        border-radius: 10px;
+        padding: 10px 16px;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        transition: 0.2s;
+    }
+    .print-btn:hover {
+        background: var(--maroon-dark);
+    }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .team-card, .award-card {
+        background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px;
+        box-shadow: 0 4px 15px rgba(7,26,61,.04); transition: .2s;
+    }
+    .team-card:hover, .award-card:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(7,26,61,.08); }
+    
+    .team-head { display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 10px; }
+    .team-logo { width: 36px; height: 36px; object-fit: contain; }
+    .team-head h3 { margin: 0; font-size: 16px; color: var(--maroon); }
+    
+    .player { display: grid; grid-template-columns: 68px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px dashed #e4e7ec; align-items: center; }
+    .player:last-child { border-bottom: 0; }
+    .age { font-size: 10px; font-weight: 800; color: var(--maroon); background: var(--pink); border-radius: 6px; padding: 4px 6px; height: max-content; text-align: center; }
+    .name { font-weight: 700; font-size: 13px; }
+    .empty { color: #98a2b3; font-style: italic; font-size: 12px; }
+
+    .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+    .award-card { position: relative; overflow: hidden; padding: 14px 16px; }
+    .award-card:before {
+        content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), #f5df91, var(--gold));
+    }
+    .award-top { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .award-icon {
+        width: 36px; height: 36px; display: grid; place-items: center; border-radius: 10px;
+        background: linear-gradient(135deg, var(--maroon), var(--maroon-dark)); color: #fff; font-size: 16px;
+    }
+    .award-title { margin: 0; font-size: 14px; color: var(--text); }
+    .award-sub { font-size: 10px; color: var(--maroon); font-weight: 800; letter-spacing: 0.5px; }
+    .winner { font-size: 14px; font-weight: 850; margin: 6px 0; color: var(--maroon); }
+    .state { display: inline-block; padding: 3px 8px; border-radius: 999px; background: var(--pink); color: var(--maroon); font-size: 10px; font-weight: 750; }
+
+    /* KEDUDUKAN KESELURUHAN / PODIUM */
+    .overall-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+        margin-top: 20px;
+        align-items: stretch;
+    }
+    .overall-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 24px 20px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(7,26,61,.04);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: .2s;
+    }
+    .overall-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 22px rgba(7,26,61,.08);
+    }
+    .overall-card.champion {
+        background: linear-gradient(135deg, var(--maroon), var(--maroon-dark));
+        color: #fff;
+        border: none;
+        box-shadow: 0 12px 35px rgba(123,30,58,.2);
+    }
+    .overall-card.champion .champ-title,
+    .overall-card.champion .champ-name {
+        color: #fff;
+    }
+    .champ-logo {
+        width: 75px;
+        height: 75px;
+        object-fit: contain;
+        margin-bottom: 12px;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+    }
+    .champ-badge {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        color: var(--maroon);
+        margin-bottom: 6px;
+        text-transform: uppercase;
+    }
+    .overall-card.champion .champ-badge {
+        color: var(--gold);
+    }
+    .champ-title {
+        font-size: 20px;
+        font-weight: 850;
+        margin: 4px 0 0;
+        color: var(--maroon);
+    }
+
+    footer {
+        background: var(--maroon);
+        color: white;
+        text-align: center;
+        padding: 20px 15px;
+        margin-top: auto;
+        font-size: 12px;
+    }
+
+    .hidden { display: none !important; }
+
+    /* PRINT STYLES */
+    @media print {
+        header, .sub-nav, .toolbar, footer, nav, .menu-toggle, .print-btn {
+            display: none !important;
+        }
+        body {
+            background: white !important;
+            color: #000 !important;
+        }
+        .container {
+            padding: 0 !important;
+            max-width: 100% !important;
+        }
+        .team-card, .award-card, .overall-card {
+            break-inside: avoid;
+            box-shadow: none !important;
+            border: 1px solid #ccc !important;
+        }
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 900px) {
+        header {
+            flex-wrap: wrap;
+            padding: 12px 20px;
+        }
+        .header-left {
+            flex: 1;
+            justify-content: flex-start;
+            gap: 12px;
+        }
+        .logo-header {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+        }
+        .header-title h1 {
+            font-size: 16px;
+        }
+        .header-title .subtitle {
+            font-size: 11px;
+        }
+        .menu-toggle {
+            display: block;
+        }
+        nav {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 12px;
+            gap: 0;
+            background-color: var(--maroon-dark);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
+        }
+        nav.active {
+            display: flex;
+        }
+        nav a, .dropdown-btn {
+            width: 100%;
+            text-align: left;
+            padding: 14px 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-radius: 0;
+            margin: 0;
+        }
+        .dropdown {
+            width: 100%;
+        }
+        .dropdown-content {
+            position: static;
+            display: none;
+            width: 100%;
+            box-shadow: none;
+            border-radius: 0;
+            background-color: rgba(0, 0, 0, 0.25);
+            padding: 0;
+        }
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            padding: 12px 30px;
+            font-size: 13px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .container { padding: 20px 12px 45px; }
+        .team-card, .award-card { padding: 14px; }
+        .player { grid-template-columns: 58px 1fr; }
+        .winner { font-size: 14px; }
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="../../images/mssmlogo.png" alt="Logo MSSM" class="logo-header">
+            <div class="header-title">
+                <h1>PORTAL BOLA JARING MSSM</h1>
+                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+            </div>
+        </div>
+
+        <!-- Butang Burger -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
+        </button>
+
+        <!-- Navigasi Utama -->
+        <nav id="nav-menu">
+            <a href="../../index.html">HOME</a>
+            
+            <!-- DROPDOWN BOLA JARING MSSM -->
+            <div class="dropdown">
+                <button type="button" class="dropdown-btn">
+                    <span>BOLA JARING MSSM</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content"> 
+                    <a href="../../organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                    <a href="../../panel.html">PANEL ANUGERAH MSSM</a>
+                    <a href="../../teknikal.html">TEKNIKAL KEJOHANAN</a>
+                    <a href="../../pengadil.html">PENGADIL</a>
+                    <hr>
+                    <a href="../../about.html">MANUAL PENGURUSAN BOLA JARING MSSM</a>
+                    <a href="../../rules.html">PERATURAN</a>
+                    <a href="../../calendar.html">TAKWIM</a>
+                </div>
+            </div>
+            
+            <!-- DROPDOWN KEJOHANAN -->
+            <div class="dropdown">
+                <button type="button" class="dropdown-btn active">
+                    <span>KEJOHANAN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="../index.html">MSSM 2026</a>  
+                    <hr>
+                    <a href="../u12/ranking.html">BAWAH 12</a>
+                    <a href="../u15/ranking.html">BAWAH 15</a>
+                    <a href="../u18/ranking.html">BAWAH 18</a>
+                    <hr>
+                    <a href="../../bukuprogram.html" target="_blank">BUKU PROGRAM KEJOHANAN ↗</a>
+                    <a href="https://www.bsukanspmoe.com/ekejohanan/" target="_blank">PENDAFTARAN E-KEJOHANAN ↗</a>
+                    <a href="../../borang.html" target="_blank">MUAT TURUN BORANG PENDAFTARAN ↗</a>
+                </div>
+            </div>
+
+            <!-- DROPDOWN GALERI & MEDIA -->
+            <div class="dropdown">
+                <button type="button" class="dropdown-btn">
+                    <span>GALERI & MEDIA</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="../../halloffame.html">HALL OF FAME</a>
+                    <a href="../../gallery.html">GALLERY</a>
+                </div>
+            </div>
+
+            <!-- LIVE LINK -->
+            <a href="../../live.html" class="live-link" style="color: #ffeb3b;">🔴 LIVE</a>
+        </nav>
+    </header>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="badge">MSSM 2026</span>
+    <h1>Anugerah & Penghargaan</h1>
+    <h2>Anugerah Sportsmanship • Anugerah Khas • Juara Keseluruhan</h2>
+    <p>Senarai penerima anugerah rasmi kejohanan bola jaring MSSM 2026.</p>
+  </div>
+</header>
+
+<div class="sub-nav">
+  <a href="#sportsmanship">Sportsmanship</a>
+  <a href="#anugerah-khas">Anugerah Khas</a>
+  <a href="#juara">Juara Keseluruhan</a>
+</div>
+
+<main class="container">
+
+<section id="sportsmanship" class="section">
+  <div class="section-title">
+    <div class="eyebrow">Penghargaan Pasukan</div>
+    <h2>Anugerah Sportsmanship</h2>
+    <p>Penerima mengikut negeri dan kategori umur.</p>
+  </div>
+
+  <div class="toolbar">
+    <input id="search" class="search" type="search" placeholder="Cari nama pemain atau negeri...">
+    <select id="ageFilter" class="filter">
+      <option value="all">Semua kategori</option>
+      <option value="BAWAH 12">Bawah 12</option>
+      <option value="BAWAH 15">Bawah 15</option>
+      <option value="BAWAH 18">Bawah 18</option>
+    </select>
+    <button type="button" class="print-btn" onclick="window.print()">
+      <i class="fas fa-print"></i> Cetak Halaman
+    </button>
+  </div>
+
+  <div id="teamGrid" class="grid">
+    <article class="team-card" data-state="MSS JOHOR">
+      <div class="team-head"><img src="../../images/logo/johor.png" alt="MSS JOHOR" class="team-logo" onerror="this.style.display='none'"><h3>MSS JOHOR</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">NUR DAMIA BATRISYIA BINTI SHUFAAT</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">NURIN NAJWA BINTI ADI FAIRUZ</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">NURUL NAWWARAH FATIN BINTI JAILANI</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS MELAKA">
+      <div class="team-head"><img src="../../images/logo/melaka.png" alt="MSS MELAKA" class="team-logo" onerror="this.style.display='none'"><h3>MSS MELAKA</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">NUR AMIERA SOFIA BINTI HANIPAH</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">NUR AMNI KIRANA BINTI MOHAMAD AMIN</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">NURIN AZRAA YUSRA BINTI ZAHRIN</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS NEGERI SEMBILAN">
+      <div class="team-head"><img src="../../images/logo/negeri9.png" alt="MSS NEGERI SEMBILAN" class="team-logo" onerror="this.style.display='none'"><h3>MSS NEGERI SEMBILAN</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">NUR ADIRA SYAQIRA BT ED ZUANDY NOR</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">NUR AMNI SAFIYYAH BINTI AIRUL ANWAR</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">ALVINA ALYSHA BINTI MOHAMAD AZROY</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS SELANGOR">
+      <div class="team-head"><img src="../../images/logo/selangor.png" alt="MSS SELANGOR" class="team-logo" onerror="this.style.display='none'"><h3>MSS SELANGOR</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">WAN QAIRA AFRINA BINTI WAN RAIMI ASLAM</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">NUR RAIHANA QALESYA SHAHNDAN</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">DANYASHREE A/P PRABAGARAN</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS PERAK">
+      <div class="team-head"><img src="../../images/logo/perak.png" alt="MSS PERAK" class="team-logo" onerror="this.style.display='none'"><h3>MSS PERAK</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">NUR AIYRA ARIYANIE BINTI MOHD AZRILAZWAN</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">AULIA DAMIA BINTI RUSAIDI</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">NURUL HUDA BALQIS BINTI MOHAMED FAIZAL</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS PULAU PINANG">
+      <div class="team-head"><img src="../../images/logo/pp.png" alt="MSS PULAU PINANG" class="team-logo" onerror="this.style.display='none'"><h3>MSS PULAU PINANG</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">NUR SUCI DELISHA BINTI KHAIROLL NIZAM</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">NIVASHINI A/P DIVIO</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">NADIA QAISARA BINTI MOHAMAD FADZIL</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS KEDAH">
+      <div class="team-head"><img src="../../images/logo/kedah.png" alt="MSS KEDAH" class="team-logo" onerror="this.style.display='none'"><h3>MSS KEDAH</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">NURIN JASMIN BINTI ZAHARI</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">PUTERI AFRINA BINTI APISZAM</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">A’LISHA A’FRINA BINTI ROSDI</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS PERLIS">
+      <div class="team-head"><img src="../../images/logo/perlis.png" alt="MSS PERLIS" class="team-logo" onerror="this.style.display='none'"><h3>MSS PERLIS</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">AUNI AWLEEYA ZAHRA BINTI MUHAMMAD NIZAM</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">NUR AIMY SHAFIQA BINTI ZULKIFLI</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">ATIQAH DARWISHA BINTI ABDUL AZIZ</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS PAHANG">
+      <div class="team-head"><img src="../../images/logo/pahang.png" alt="MSS PAHANG" class="team-logo" onerror="this.style.display='none'"><h3>MSS PAHANG</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">NUR IRDINA IWANA BINTI MOHD NOR AZANIZAM</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">ALIYA KHALIESAH BINTI SHAMSUDDIN</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">NUR AMREENA ROSHADHA BINTI KAMARUDDIN</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS TERENGGANU">
+      <div class="team-head"><img src="../../images/logo/terengganu.png" alt="MSS TERENGGANU" class="team-logo" onerror="this.style.display='none'"><h3>MSS TERENGGANU</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">WAN NURQASEH AISYAHUMAIRA BINTI WAN MOHD ASLAM</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">SITI NURDAMIA KHADEEJA BINTI AZIZOL</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">NUR AINUL MARDHIAH BINTI HAZEMI</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS KELANTAN">
+      <div class="team-head"><img src="../../images/logo/kelantan.png" alt="MSS KELANTAN" class="team-logo" onerror="this.style.display='none'"><h3>MSS KELANTAN</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">NUR SAFAA’ DAMIA</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">ALIYA SUFINA BINTI AYOB</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">NUR ANIS BATRISYIA</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS SABAH">
+      <div class="team-head"><img src="../../images/logo/sabah.png" alt="MSS SABAH" class="team-logo" onerror="this.style.display='none'"><h3>MSS SABAH</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">ALEYCIA LALA BINTI ELIGHS</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">AMELLYENDA SARVISTOL</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">VEROLLYN RUBIN</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS SARAWAK">
+      <div class="team-head"><img src="../../images/logo/sarawak.png" alt="MSS SARAWAK" class="team-logo" onerror="this.style.display='none'"><h3>MSS SARAWAK</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">NUR HANA AISH FAIHA BINTI TERAWA</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">EMILIA LING PEI YI</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">NUR HAFIZA BINTI ABDULLAH</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS WP KUALA LUMPUR">
+      <div class="team-head"><img src="../../images/logo/kl.png" alt="MSS WP KUALA LUMPUR" class="team-logo" onerror="this.style.display='none'"><h3>MSS WP KUALA LUMPUR</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">PUTERI DHUHA BINTI BADROL HISHAM</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">AISHUVHARYAA KARUNAKARAN</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">AVINITA A/P MANI ARASU</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS WP LABUAN">
+      <div class="team-head"><img src="../../images/logo/labuan.png" alt="MSS WP LABUAN" class="team-logo" onerror="this.style.display='none'"><h3>MSS WP LABUAN</h3></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">QAIRINA DARWISYAH BINTI MOHD YUSOF</span></div>
+      <div class="player"><span class="age">—</span><span class="empty">Tiada penerima Bawah 12 dan Bawah 18 dinyatakan dalam bahan.</span></div>
+    </article>
+
+    <article class="team-card" data-state="MSS WP PUTRAJAYA">
+      <div class="team-head"><img src="../../images/logo/putrajaya.png" alt="MSS WP PUTRAJAYA" class="team-logo" onerror="this.style.display='none'"><h3>MSS WP PUTRAJAYA</h3></div>
+      <div class="player" data-age="BAWAH 12"><span class="age">BAWAH 12</span><span class="name">NORFALISHA AMNI BINTI MOHD TARMIZI</span></div>
+      <div class="player" data-age="BAWAH 15"><span class="age">BAWAH 15</span><span class="name">NOR AINNUR MARDHIA BINTI NOR KAMAL ARIFFIN</span></div>
+      <div class="player" data-age="BAWAH 18"><span class="age">BAWAH 18</span><span class="name">NUR AISYA HUMAIRA BINTI NORHAIZAN</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="anugerah-khas" class="section">
+  <div class="section-title">
+    <div class="eyebrow">Penyampaian Anugerah Khas</div>
+    <h2>Anugerah Khas</h2>
+    <p>Senarai penerima mengikut kategori umur dan pengiktirafan.</p>
+  </div>
+
+  <div class="awards-grid">
+    <article class="award-card"><div class="award-top"><div class="award-icon">🏆</div><div><div class="award-sub">BAWAH 12</div><h3 class="award-title">Penjaring Terbanyak</h3></div></div><div class="winner">NUR AYRA ARYANE BINTI MOHD AZRIL AZWAN</div><span class="state">MSS PERAK</span></article>
+    <article class="award-card"><div class="award-top"><div class="award-icon">🏆</div><div><div class="award-sub">BAWAH 15</div><h3 class="award-title">Penjaring Terbanyak</h3></div></div><div class="winner">NURIN NAJWA BINTI ADI FAIRUZ</div><span class="state">MSS JOHOR</span></article>
+    <article class="award-card"><div class="award-top"><div class="award-icon">🏆</div><div><div class="award-sub">BAWAH 18</div><h3 class="award-title">Penjaring Terbanyak</h3></div></div><div class="winner">UMMI NAJIHA BINTI MUHAMMAD HARISS AZAM</div><span class="state">MSS JOHOR</span></article>
+
+    <article class="award-card"><div class="award-top"><div class="award-icon">⭐</div><div><div class="award-sub">BAWAH 12</div><h3 class="award-title">Penyerang Terbaik</h3></div></div><div class="winner">NUR FATIN NADHIRAH BINTI MOHD ZAID</div><span class="state">MSS SELANGOR</span></article>
+    <article class="award-card"><div class="award-top"><div class="award-icon">⭐</div><div><div class="award-sub">BAWAH 15</div><h3 class="award-title">Penyerang Terbaik</h3></div></div><div class="winner">SYIFA AUNI BINTI AZAHARI</div><span class="state">MSS SELANGOR</span></article>
+    <article class="award-card"><div class="award-top"><div class="award-icon">⭐</div><div><div class="award-sub">BAWAH 18</div><h3 class="award-title">Penyerang Terbaik</h3></div></div><div class="winner">DANYASHREE A/P PRABAGARAN</div><span class="state">MSS SELANGOR</span></article>
+
+    <article class="award-card"><div class="award-top"><div class="award-icon">🛡️</div><div><div class="award-sub">BAWAH 12</div><h3 class="award-title">Penghadang Terbaik</h3></div></div><div class="winner">WAN QAIRA AFRINA BINTI WAN RAIMI ASLAM</div><span class="state">MSS SELANGOR</span></article>
+    <article class="award-card"><div class="award-top"><div class="award-icon">🛡️</div><div><div class="award-sub">BAWAH 15</div><h3 class="award-title">Penghadang Terbaik</h3></div></div><div class="winner">HANNAH DAMIA BINTI HILMI</div><span class="state">MSS JOHOR</span></article>
+    <article class="award-card"><div class="award-top"><div class="award-icon">🛡️</div><div><div class="award-sub">BAWAH 18</div><h3 class="award-title">Penghadang Terbaik</h3></div></div><div class="winner">NURUL NAWWARAH FATIN BINTI JAILANI</div><span class="state">MSS JOHOR</span></article>
+
+    <article class="award-card"><div class="award-top"><div class="award-icon">👑</div><div><div class="award-sub">BAWAH 12</div><h3 class="award-title">Pemain Terbaik</h3></div></div><div class="winner">PERMATA BATRISYIA BINTI SYAMIR SYARAFIE</div><span class="state">MSS SELANGOR</span></article>
+    <article class="award-card"><div class="award-top"><div class="award-icon">👑</div><div><div class="award-sub">BAWAH 15</div><h3 class="award-title">Pemain Terbaik</h3></div></div><div class="winner">FATIN AMNI ZULAIKHA BINTI ISMAIL</div><span class="state">MSS SELANGOR</span></article>
+    <article class="award-card"><div class="award-top"><div class="award-icon">👑</div><div><div class="award-sub">BAWAH 18</div><h3 class="award-title">Pemain Terbaik</h3></div></div><div class="winner">NUR RASYIQAH HUMAIRA BINTI JUFRI</div><span class="state">MSS JOHOR</span></article>
+  </div>
+</section>
+
+<section id="juara" class="section">
+  <div class="section-title">
+    <div class="eyebrow">Pengiktirafan Utama</div>
+    <h2>Kedudukan Keseluruhan Kejohanan</h2>
+    <p>Keputusan rasmi keseluruhan kejohanan bola jaring MSSM 2026.</p>
+  </div>
+
+  <div class="overall-grid">
+    <!-- Tempat Kedua (Johor) -->
+    <article class="overall-card">
+      <img src="../../images/logo/johor.png" alt="Logo MSS Johor" class="champ-logo" onerror="this.style.display='none'">
+      <div class="champ-badge">🥈 TEMPAT KEDUA KESELURUHAN</div>
+      <h3 class="champ-title">MSS JOHOR</h3>
+    </article>
+
+    <!-- Johan Keseluruhan (Selangor) -->
+    <article class="overall-card champion">
+      <img src="../../images/logo/selangor.png" alt="Logo MSS Selangor" class="champ-logo" onerror="this.style.display='none'">
+      <div class="champ-badge" style="color: var(--gold);">🏆 JOHAN KESELURUHAN</div>
+      <h3 class="champ-title" style="color: #fff;">MSS SELANGOR</h3>
+    </article>
+
+    <!-- Tempat Ketiga (Kuala Lumpur) -->
+    <article class="overall-card">
+      <img src="../../images/logo/kualalumpur.png" alt="Logo MSS WP Kuala Lumpur" class="champ-logo" onerror="this.style.display='none'">
+      <div class="champ-badge">🥉 TEMPAT KETIGA KESELURUHAN</div>
+      <h3 class="champ-title">MSS WP KUALA LUMPUR</h3>
+    </article>
+  </div>
+</section>
+s
+</main>
+
+<footer>
+  <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
+</footer>
+
+<script>
+    // FUNGSI UTAMA NAVIGATION RESPONSIVE & BURGER MENU
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    // Toggle Burger Menu
+    menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navMenu.classList.toggle('active');
+        
+        if (navMenu.classList.contains('active')) {
+            menuIcon.className = 'fas fa-xmark';
+        } else {
+            menuIcon.className = 'fas fa-bars';
+            dropdowns.forEach(d => d.classList.remove('open'));
+        }
+    });
+
+    // Toggle Dropdown Menu
+    dropdowns.forEach(dropdown => {
+        const btn = dropdown.querySelector('.dropdown-btn');
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            dropdowns.forEach(other => {
+                if (other !== dropdown) other.classList.remove('open');
+            });
+
+            dropdown.classList.toggle('open');
+        });
+    });
+
+    // Tutup menu secara automatik jika klik di luar
+    document.addEventListener('click', function(e) {
+        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+            if (window.innerWidth <= 900) {
+                navMenu.classList.remove('active');
+                menuIcon.className = 'fas fa-bars';
+            }
+            dropdowns.forEach(d => d.classList.remove('open'));
+        }
+    });
+
+    // Reset menu apabila window diubah saiz
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+            navMenu.classList.remove('active');
+            menuIcon.className = 'fas fa-bars';
+        }
+    });
+
+    // Carian dan Penapisan Sportsmanship
+    const search = document.getElementById('search');
+    const age = document.getElementById('ageFilter');
+    const cards = [...document.querySelectorAll('.team-card')];
+
+    function filterTeams(){
+        const q = search.value.toLowerCase().trim();
+        const a = age.value;
+        cards.forEach(card => {
+            const state = card.dataset.state.toLowerCase();
+            const players = [...card.querySelectorAll('.player')];
+            let visible = 0;
+            players.forEach(p => {
+                const text = p.innerText.toLowerCase();
+                const okAge = a === 'all' || p.dataset.age === a;
+                const okText = !q || state.includes(q) || text.includes(q);
+                const show = okAge && okText;
+                p.classList.toggle('hidden', !show);
+                if(show && p.dataset.age) visible++;
+            });
+            card.classList.toggle('hidden', visible === 0);
+        });
+    }
+    search.addEventListener('input', filterTeams);
+    age.addEventListener('change', filterTeams);
+</script>
+</body>
+</html>
