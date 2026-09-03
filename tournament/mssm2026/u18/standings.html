@@ -120,7 +120,6 @@
             100% { opacity: 1; }
         }
 
-        /* STRUCTURAL DROPDOWN DESKTOP */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -176,7 +175,6 @@
             }
         }
 
-        /* BUTANG BURGER MENU */
         .menu-toggle {
             display: none;
             font-size: 24px;
@@ -193,7 +191,6 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
-        /* CSS UTAMA JADUAL KEDUDUKAN */
         .main-container {
             padding: 30px 20px;
             max-width: 1200px;
@@ -312,7 +309,6 @@
             font-weight: 500;
         }
 
-        /* RESPONSIVE MOBILE (HANDSET KHUSUS) */
         @media (max-width: 900px) {
             header {
                 flex-wrap: wrap;
@@ -464,16 +460,13 @@
             </div>
         </div>
 
-        <!-- Butang Burger -->
         <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
             <i class="fas fa-bars" id="menu-icon"></i>
         </button>
 
-        <!-- Navigasi Utama -->
         <nav id="nav-menu">
             <a href="../../../index.html">HOME</a>
             
-            <!-- DROPDOWN BOLA JARING MSSM -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn">
                     <span>BOLA JARING MSSM</span>
@@ -491,7 +484,6 @@
                 </div>
             </div>
             
-            <!-- DROPDOWN KEJOHANAN -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn active">
                     <span>KEJOHANAN</span>
@@ -510,7 +502,6 @@
                 </div>
             </div>
 
-            <!-- DROPDOWN KHUSUS BAWAH 18 (B18) -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn" style="color: #ffeb3b;">
                     <span>MENU B18</span>
@@ -530,7 +521,6 @@
                 </div>
             </div>
 
-            <!-- DROPDOWN GALERI & MEDIA -->
             <div class="dropdown">
                 <button type="button" class="dropdown-btn">
                     <span>GALERI & MEDIA</span>
@@ -542,7 +532,6 @@
                 </div>
             </div>
 
-            <!-- LIVE LINK -->
             <a href="../../../live.html" class="live-link">🔴 LIVE</a>
         </nav>
     </header>
@@ -675,15 +664,13 @@
         <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
     </footer>
     
-    <!-- SKRIP JAVASCRIPT DINAMIK & CSV B18 -->
+    <!-- SKRIP JAVASCRIPT DINAMIK & CSV B18 DENGAN AUTO SORTING -->
     <script>
-        // FUNGSI UTAMA NAVIGATION RESPONSIVE & BURGER MENU
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
         const menuIcon = document.getElementById('menu-icon');
         const dropdowns = document.querySelectorAll('.dropdown');
 
-        // Toggle Burger Menu pada Mobile
         menuToggle.addEventListener('click', function(e) {
             e.stopPropagation();
             navMenu.classList.toggle('active');
@@ -696,7 +683,6 @@
             }
         });
 
-        // Toggle Dropdown Menu (Universal Desktop & Mobile)
         dropdowns.forEach(dropdown => {
             const btn = dropdown.querySelector('.dropdown-btn');
             btn.addEventListener('click', function(e) {
@@ -710,7 +696,6 @@
             });
         });
 
-        // Tutup menu secara automatik jika klik di luar
         document.addEventListener('click', function(e) {
             if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                 if (window.innerWidth <= 900) {
@@ -721,7 +706,6 @@
             }
         });
 
-        // Reset menu apabila window diubah saiz
         window.addEventListener('resize', function() {
             if (window.innerWidth > 900) {
                 navMenu.classList.remove('active');
@@ -730,7 +714,6 @@
             dropdowns.forEach(d => d.classList.remove('open'));
         });
 
-        // FUNGSI UNTUK CSV KEDUDUKAN & LOGO B18 (DIBETULKAN LALUAN KE ../../../images/logo/)
         function getLogo(team) {
             if (!team) return `../../../images/logo/default.png`;
             const logoMap = {
@@ -758,7 +741,6 @@
             return `../../../images/logo/${fileName}`;
         }
 
-        // Pautan Publish to Web CSV Google Sheet B18
         const csvUrlB18Standing = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRwsp6AKtDRnzX9xoQnXjVrYEE8uHO8mGZh9gMJzudmW7gQghV6G2k2IdkNEABf_Et5H65ZGbBdPkPm/pub?gid=626141204&single=true&output=csv";
 
         function parseCSV(str) {
@@ -785,7 +767,7 @@
                 const csvText = await response.text();
                 const rows = parseCSV(csvText);
 
-                let html = { A: "", B: "", C: "", D: "" };
+                let groupsData = { A: [], B: [], C: [], D: [] };
                 let currentGroup = "";
 
                 rows.forEach(cols => {
@@ -812,35 +794,69 @@
                         return;
                     }
 
-                    if (!r || !t || t === "" || t.toUpperCase().includes("PASUKAN")) return;
+                    if (!t || t === "" || t.toUpperCase().includes("PASUKAN")) return;
 
-                    if (groupToUse && html[groupToUse] !== undefined) {
-                        html[groupToUse] += `
-                        <tr class="${r == '1' || r == '2' ? 'qualified' : ''}">
-                            <td>${r}</td>
-                            <td class="team-col">
-                                <div class="team-cell">
-                                    <img src="${getLogo(t)}" class="team-logo" onerror="this.src='../../../images/logo/default.png'">
-                                    <span class="team-name">${t}</span>
-                                </div>
-                            </td>
-                            <td>${p || 0}</td>
-                            <td>${w || 0}</td>
-                            <td>${d || 0}</td>
-                            <td>${l || 0}</td>
-                            <td>${gf || 0}</td>
-                            <td>${ga || 0}</td>
-                            <td>${gd || 0}</td>
-                            <td>${gav || 0}</td>
-                            <td class="pts-col">${pts || 0}</td>
-                        </tr>`;
+                    if (groupToUse && groupsData[groupToUse]) {
+                        groupsData[groupToUse].push({
+                            team: t,
+                            p: parseFloat(p) || 0,
+                            w: parseFloat(w) || 0,
+                            d: parseFloat(d) || 0,
+                            l: parseFloat(l) || 0,
+                            gf: parseFloat(gf) || 0,
+                            ga: parseFloat(ga) || 0,
+                            gd: parseFloat(gd) || 0,
+                            gav: parseFloat(gav) || 0,
+                            pts: parseFloat(pts) || 0
+                        });
                     }
                 });
 
-                ["A", "B", "C", "D"].forEach(group => {
-                    const tbody = document.getElementById(`standings-group-${group.toLowerCase()}`);
+                // Proses Sorting Automatik untuk Bawah 18
+                ["A", "B", "C", "D"].forEach(groupKey => {
+                    let teamList = groupsData[groupKey];
+                    const tbody = document.getElementById(`standings-group-${groupKey.toLowerCase()}`);
+
+                    if (!teamList || teamList.length === 0) {
+                        if (tbody) tbody.innerHTML = "<tr><td colspan='11' style='font-style:italic; color:#888;'>Tiada data...</td></tr>";
+                        return;
+                    }
+
+                    // Kriteria: PTS ➔ GD ➔ GAV
+                    teamList.sort((a, b) => {
+                        if (b.pts !== a.pts) return b.pts - a.pts;
+                        if (b.gd !== a.gd) return b.gd - a.gd;
+                        return b.gav - a.gav;
+                    });
+
+                    let groupHtml = "";
+                    teamList.forEach((item, index) => {
+                        let rank = index + 1;
+                        let isQualified = (rank === 1 || rank === 2);
+
+                        groupHtml += `
+                        <tr class="${isQualified ? 'qualified' : ''}">
+                            <td>${rank}</td>
+                            <td class="team-col">
+                                <div class="team-cell">
+                                    <img src="${getLogo(item.team)}" class="team-logo" onerror="this.src='../../../images/logo/default.png'">
+                                    <span class="team-name">${item.team}</span>
+                                </div>
+                            </td>
+                            <td>${item.p}</td>
+                            <td>${item.w}</td>
+                            <td>${item.d}</td>
+                            <td>${item.l}</td>
+                            <td>${item.gf}</td>
+                            <td>${item.ga}</td>
+                            <td>${item.gd}</td>
+                            <td>${item.gav}</td>
+                            <td class="pts-col">${item.pts}</td>
+                        </tr>`;
+                    });
+
                     if (tbody) {
-                        tbody.innerHTML = html[group] || "<tr><td colspan='11' style='font-style:italic; color:#888;'>Tiada data...</td></tr>";
+                        tbody.innerHTML = groupHtml;
                     }
                 });
 
