@@ -244,7 +244,7 @@
             color: var(--maroon-mssm);
             font-size: 18px;
             font-weight: 700;
-            margin: 25px 0 12px 0;
+            margin: 30px 0 12px 0;
             border-left: 4px solid var(--maroon-mssm);
             padding-left: 10px;
         }
@@ -258,14 +258,14 @@
             margin: 0 auto; 
         }
 
-        /* KAD KECIL & KEMAS */
+        /* KAD KECIL & KEMAS (UNIFORM HEIGHT) */
         .quick-card { 
             position: relative; 
             display: flex; 
             align-items: center; 
             text-align: left; 
             gap: 12px; 
-            padding: 14px 16px; 
+            padding: 16px; 
             background: linear-gradient(135deg, #ffffff, #fff5f8); 
             border: 2px solid #f1c6d3; 
             border-radius: 14px; 
@@ -273,6 +273,8 @@
             color: #333; 
             box-shadow: 0 4px 12px rgba(123, 30, 58, 0.08); 
             transition: all 0.3s ease; 
+            height: 100%;
+            box-sizing: border-box;
         }
 
         .quick-icon { 
@@ -288,12 +290,44 @@
             flex-shrink: 0; 
         }
 
-        .quick-card h3 { margin: 0 0 2px; color: var(--maroon-mssm); font-size: 14px; font-weight: 800; }
-        .quick-card p { margin: 0; color: #666; font-size: 11px; line-height: 1.3; }
-        .quick-card .arrow { margin-left: auto; color: var(--maroon-mssm); font-size: 18px; font-weight: bold; transition: transform 0.3s ease; }
+        .quick-card-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .quick-card h3 { 
+            margin: 0 0 4px; 
+            color: var(--maroon-mssm); 
+            font-size: 13px; 
+            font-weight: 800; 
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .quick-card p { 
+            margin: 0; 
+            color: #666; 
+            font-size: 11px; 
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .quick-card .arrow { 
+            color: var(--maroon-mssm); 
+            font-size: 16px; 
+            font-weight: bold; 
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
 
         .quick-card:hover { transform: translateY(-4px); border-color: var(--maroon-mssm); box-shadow: 0 8px 20px rgba(123, 30, 58, 0.18); }
-        .quick-card:hover .arrow { transform: translateX(5px); }
+        .quick-card:hover .arrow { transform: translateX(4px); }
 
         /* BUTTON LIVE BAWAH SEKALI */
         .btn-live-footer {
@@ -312,7 +346,7 @@
             transition: all 0.3s ease;
             border: 2px solid #ff5252;
             max-width: 1100px;
-            margin: 25px auto 0 auto;
+            margin: 30px auto 0 auto;
             box-sizing: border-box;
             animation: pulse-live 1.5s infinite;
         }
@@ -394,8 +428,8 @@
             .hero p { font-size: 14px; }
 
             .btn-hub { width: 100%; box-sizing: border-box; font-size: 16px; padding: 14px 20px; }
-            .quick-grid { grid-template-columns: 1fr; }
-            .quick-card { padding: 14px 16px; }
+            .quick-grid { grid-template-columns: 1fr; gap: 12px; }
+            .quick-card { padding: 14px; }
             .btn-live-footer { font-size: 16px; padding: 14px 20px; }
         }
     </style>
@@ -494,40 +528,41 @@
                 <h2>AKSES PANTAS</h2>
                 <p class="quick-subtitle">Akses terus kepada maklumat kejohanan</p>
 
-                <!--KEPUTUSAN RASMI KESELURUHAN KEJOHANAN MSSM 2026-->
-
-                     <a href="keputusanrasmi.html" class="quick-card">
+                <!-- 1. KEPUTUSAN & KEDUDUKAN -->
+                <div class="section-title-sub">📊 Keputusan & Kedudukan</div>
+                <div class="quick-grid">
+                    <a href="keputusanrasmi.html" class="quick-card">
                         <div class="quick-icon">🏆</div>
-                        <div>
+                        <div class="quick-card-content">
                             <h3>KEPUTUSAN RASMI</h3>
-                            <p>Lihat keputusan rasmi dan keputusan terkini</p>
+                            <p>Lihat keputusan rasmi perlawanan terkini</p>
                         </div>
                         <span class="arrow">→</span>
                     </a>
 
                     <a href="kedudukankeseluruhan.html" class="quick-card">
-                        <div class="quick-icon">🏆</div>
-                        <div>
-                            <h3>KEDUDUKAN KESELURUHAN BOLA JARING MSSM 2026</h3>
-                            <p>Lihat kedudukan keseluruhan pasukan dalam kejohanan</p>
+                        <div class="quick-icon">🏅</div>
+                        <div class="quick-card-content">
+                            <h3>KEDUDUKAN KESELURUHAN</h3>
+                            <p>Kedudukan carta rasmi pasukan kejohanan</p>
                         </div>
                         <span class="arrow">→</span>
                     </a>
 
                     <a href="anugerahkhas.html" class="quick-card">
-                        <div class="quick-icon">🏆</div>
-                        <div>
-                            <h3>ANUGERAH KHAS BOLA JARING MSSM 2026</h3>
-                            <p>Lihat anugerah khas yang dianugerahkan kepada pasukan dan atlet terbaik</p>
+                        <div class="quick-icon">⭐</div>
+                        <div class="quick-card-content">
+                            <h3>ANUGERAH KHAS</h3>
+                            <p>Senarai penerima anugerah atlet & pasukan</p>
                         </div>
                         <span class="arrow">→</span>
                     </a>
 
                     <a href="bukukeputusanrasmi.html" class="quick-card">
-                        <div class="quick-icon">🏆</div>
-                        <div>
-                            <h3>BUKU KEPUTUSAN RASMI KEJOHANAN MSSM 2026</h3>
-                            <p>Lihat keseluruhan keputusan rasmi kejohanan</p>
+                        <div class="quick-icon">📖</div>
+                        <div class="quick-card-content">
+                            <h3>BUKU KEPUTUSAN RASMI</h3>
+                            <p>Dokumen lengkap keputusan kejohanan</p>
                         </div>
                         <span class="arrow">→</span>
                     </a>
@@ -538,23 +573,23 @@
                 <div class="quick-grid">
                     <a href="organisasi.html" class="quick-card">
                         <div class="quick-icon">👤</div>
-                        <div>
+                        <div class="quick-card-content">
                             <h3>PTPS</h3>
-                            <p>Maklumat Pengerusi Teknik & Pembangunan Sukan</p>
+                            <p>Pengerusi Teknik & Pembangunan Sukan</p>
                         </div>
                         <span class="arrow">→</span>
                     </a>
                     <a href="panel.html" class="quick-card">
-                        <div class="quick-icon">🏅</div>
-                        <div>
+                        <div class="quick-icon">🎖️</div>
+                        <div class="quick-card-content">
                             <h3>PANEL ANUGERAH</h3>
-                            <p>Senarai ahli panel anugerah kejohanan</p>
+                            <p>Senarai ahli panel anugerah rasmi</p>
                         </div>
                         <span class="arrow">→</span>
                     </a>
                     <a href="teknikal.html" class="quick-card">
                         <div class="quick-icon">⚙️</div>
-                        <div>
+                        <div class="quick-card-content">
                             <h3>PEGAWAI TEKNIKAL</h3>
                             <p>Jawatankuasa teknikal kejohanan</p>
                         </div>
@@ -562,7 +597,7 @@
                     </a>
                     <a href="pengadil.html" class="quick-card">
                         <div class="quick-icon">⚖️</div>
-                        <div>
+                        <div class="quick-card-content">
                             <h3>PENGADIL</h3>
                             <p>Senarai pengadil rasmi bertugas</p>
                         </div>
@@ -571,37 +606,37 @@
                 </div>
 
                 <!-- 3. PASUKAN & ATLET -->
-                <div class="section-title-sub">👥 Pasukan</div>
+                <div class="section-title-sub">👥 Pasukan & Penyertaan</div>
                 <div class="quick-grid">
                     <a href="tournament/mssm2026/u12/teams.html" class="quick-card">
                         <div class="quick-icon">⭐</div>
-                        <div>
+                        <div class="quick-card-content">
                             <h3>BAWAH 12</h3>
-                            <p>Senarai kontinjen Bawah 12</p>
+                            <p>Senarai kontinjen Bawah 12 tahun</p>
                         </div>
                         <span class="arrow">→</span>
                     </a>
                     <a href="tournament/mssm2026/u15/teams.html" class="quick-card">
                         <div class="quick-icon">⭐</div>
-                        <div>
+                        <div class="quick-card-content">
                             <h3>BAWAH 15</h3>
-                            <p>Senarai kontinjen Bawah 15</p>
+                            <p>Senarai kontinjen Bawah 15 tahun</p>
                         </div>
                         <span class="arrow">→</span>
                     </a>
                     <a href="tournament/mssm2026/u18/teams.html" class="quick-card">
                         <div class="quick-icon">⭐</div>
-                        <div>
+                        <div class="quick-card-content">
                             <h3>BAWAH 18</h3>
-                            <p>Senarai kontinjen Bawah 18</p>
+                            <p>Senarai kontinjen Bawah 18 tahun</p>
                         </div>
                         <span class="arrow">→</span>
                     </a>
                     <a href="statistik.html" class="quick-card">
                         <div class="quick-icon">📊</div>
-                        <div>
+                        <div class="quick-card-content">
                             <h3>STATISTIK PENYERTAAN</h3>
-                            <p>Statistik Penyertaan MSS Negeri</p>
+                            <p>Statistik penyertaan kontinjen negeri</p>
                         </div>
                         <span class="arrow">→</span>
                     </a>
@@ -649,14 +684,12 @@
                     e.preventDefault();
                     e.stopPropagation();
                     
-                    // Tutup dropdown lain yang terbuka
                     dropdowns.forEach(otherDropdown => {
                         if (otherDropdown !== dropdown) {
                             otherDropdown.classList.remove("open");
                         }
                     });
 
-                    // Buka/Tutup dropdown yang diklik
                     dropdown.classList.toggle("open");
                 }
             });
