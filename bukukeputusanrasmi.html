@@ -8,796 +8,1007 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
-    :root {
-        --maroon: #7B1E3A;
-        --maroon-dark: #581328;
-        --gold: #FFD700;
-        --pink: #FCE4EC;
-        --light: #f5f7fb;
-        --text: #182033;
-        --muted: #667085;
-        --white: #fff;
-        --line: #e6eaf0;
-    }
+:root{
+    --maroon:#7B1E3A;
+    --maroon-dark:#581328;
+    --gold:#FFD700;
+    --pink:#FCE4EC;
+    --light:#f5f7fb;
+    --text:#182033;
+    --muted:#667085;
+    --white:#fff;
+    --line:#d9dee7;
+    --green:#198754;
+    --red:#b42318;
+}
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+*{box-sizing:border-box;margin:0;padding:0}
 
-    html {
-        scroll-behavior: smooth;
-    }
+html{scroll-behavior:smooth}
 
-    body {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        background-color: var(--pink);
-        color: var(--text);
-        line-height: 1.5;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
+body{
+    font-family:'Segoe UI',Arial,sans-serif;
+    background:var(--pink);
+    color:var(--text);
+    line-height:1.5;
+    min-height:100vh;
+}
 
-    /* HEADER & NAVIGATION */
-    header.main-header { 
-        background-color: var(--maroon); 
-        color: white; 
-        padding: 15px 5%;
-        display: flex; 
-        justify-content: space-between; 
-        align-items: center;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
+/* HEADER */
+.main-header{
+    background:var(--maroon);
+    color:#fff;
+    padding:12px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.3);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
 
-    .header-left { 
-        display: flex; 
-        align-items: center; 
-        gap: 18px; 
-    }
+.header-left{display:flex;align-items:center;gap:15px}
 
-    .logo-header { 
-        width: 70px;
-        height: 70px;
-        min-width: 70px;
-        object-fit: contain;
-    }
-    
-    .header-title h1 { 
-        margin: 0; 
-        font-size: 24px; 
-        color: white; 
-        font-weight: 800;
-        line-height: 1.2;
-    }
+.logo-header{
+    width:64px;
+    height:64px;
+    object-fit:contain;
+}
 
-    .header-title .subtitle { 
-        color: var(--gold); 
-        font-size: 14px; 
-        margin: 2px 0 0 0; 
-        font-weight: bold; 
-    }
+.header-title h1{
+    font-size:23px;
+    line-height:1.2;
+    font-weight:800;
+}
 
-    nav {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-    }
+.header-title .subtitle{
+    color:var(--gold);
+    font-size:13px;
+    font-weight:700;
+    margin-top:2px;
+}
 
-    nav a, .dropdown-btn { 
-        color: white; 
-        text-decoration: none; 
-        font-weight: bold; 
-        font-size: 15px; 
-        padding: 10px 14px;
-        border-radius: 8px;
-        transition: .3s;
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-family: inherit;
-        white-space: nowrap;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-    }
+nav{display:flex;gap:8px;align-items:center}
 
-    nav a:hover, nav a.active, .dropdown-btn.active, .dropdown:hover .dropdown-btn { 
-        background: rgba(255,255,255,.15);
-        color: var(--gold); 
-    }
+nav a,.dropdown-btn{
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    font-size:14px;
+    padding:9px 12px;
+    border-radius:8px;
+    background:none;
+    border:0;
+    cursor:pointer;
+    font-family:inherit;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+}
 
-    .dropdown-btn i {
-        transition: transform 0.3s ease;
-    }
+nav a:hover,.dropdown-btn:hover,.dropdown-btn.active{
+    background:rgba(255,255,255,.15);
+    color:var(--gold);
+}
 
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
+.dropdown{position:relative}
 
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: var(--maroon);
-        min-width: 220px;
-        border-radius: 10px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        padding: 8px 0;
-        z-index: 1100;
-    }
+.dropdown-content{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    min-width:220px;
+    background:var(--maroon);
+    border-radius:10px;
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+    padding:7px 0;
+    z-index:1100;
+}
 
-    .dropdown-content a {
-        color: white;
-        padding: 12px 18px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-        font-size: 14px;
-        font-weight: bold;
-        border-radius: 0;
-        margin: 0;
-    }
+.dropdown:hover .dropdown-content,
+.dropdown.open .dropdown-content{display:block}
 
-    .dropdown-content a:hover {
-        background-color: rgba(255, 255, 255, 0.15);
-        color: #ffeb3b;
-    }
+.dropdown-content a{
+    display:block;
+    width:100%;
+    border-radius:0;
+    padding:11px 16px;
+}
 
-    .dropdown-content hr {
-        border: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        margin: 6px 0;
-    }
+.dropdown-content hr{
+    border:0;
+    border-top:1px solid rgba(255,255,255,.2);
+    margin:5px 0;
+}
 
-    @media(min-width: 901px){
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-    }
+.menu-toggle{
+    display:none;
+    font-size:23px;
+    color:#fff;
+    background:none;
+    border:0;
+    cursor:pointer;
+}
 
-    .dropdown.open .dropdown-content {
-        display: block !important;
-    }
+/* CONTROL */
+.control-bar{
+    background:rgba(255,255,255,.96);
+    border-bottom:1px solid var(--line);
+    padding:11px 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    box-shadow:0 4px 15px rgba(7,26,61,.05);
+    position:sticky;
+    top:88px;
+    z-index:900;
+}
 
-    .dropdown.open .dropdown-btn i {
-        transform: rotate(180deg);
-    }
+.control-bar button{
+    border:0;
+    padding:9px 16px;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:700;
+    font-size:13px;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+}
 
-    .menu-toggle {
-        display: none;
-        font-size: 24px;
-        color: white;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 8px;
-        border-radius: 6px;
-    }
+.btn-print{background:var(--maroon);color:#fff}
+.btn-refresh{background:var(--gold);color:var(--text)}
+.btn-print:hover{background:var(--maroon-dark)}
+.btn-refresh:hover{filter:brightness(.94)}
 
-    /* CONTROL BAR */
-    .control-bar {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--line);
-        padding: 12px 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-        box-shadow: 0 4px 15px rgba(7,26,61,.04);
-    }
+.status{
+    font-size:13px;
+    font-weight:700;
+    color:var(--muted);
+}
 
-    .control-bar button {
-        border: none;
-        padding: 10px 18px;
-        border-radius: 10px;
-        cursor: pointer;
-        font-weight: 700;
-        font-size: 14px;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        transition: 0.2s;
-    }
+/* BOOK */
+#book{
+    max-width:210mm;
+    margin:24px auto;
+    width:100%;
+}
 
-    .btn-print {
-        background: var(--maroon);
-        color: white;
-    }
-    .btn-print:hover {
-        background: var(--maroon-dark);
-    }
+.book-page{
+    width:210mm;
+    min-height:297mm;
+    background:#fff;
+    margin:0 auto 20px;
+    padding:16mm;
+    box-shadow:0 4px 20px rgba(0,0,0,.10);
+    position:relative;
+    page-break-after:always;
+    overflow:hidden;
+}
 
-    .btn-refresh {
-        background: var(--gold);
-        color: var(--text);
-    }
-    .btn-refresh:hover {
-        filter: brightness(0.9);
-    }
+.cover{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(255,215,0,.15),transparent 30%),
+        radial-gradient(circle at 85% 80%,rgba(123,30,58,.20),transparent 35%),
+        linear-gradient(135deg,#fff,var(--pink));
+}
 
-    .status {
-        margin-left: 10px;
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--muted);
-    }
+.cover-content{width:100%}
 
-    /* BOOK LAYOUT */
-    #book {
-        max-width: 210mm;
-        margin: 25px auto;
-        flex: 1;
-        width: 100%;
-    }
+.cover-logo{
+    width:125px;
+    height:125px;
+    object-fit:contain;
+    margin-bottom:20px;
+}
 
-    .book-page {
-        width: 210mm;
-        min-height: 297mm;
-        background: white;
-        margin: 0 auto 20px auto;
-        padding: 18mm;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        position: relative;
-        page-break-after: always;
-        border-radius: 6px;
-    }
+.cover h1{
+    color:var(--maroon);
+    font-size:30px;
+    font-weight:850;
+    margin:8px 0;
+}
 
-    .cover {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        background:
-            radial-gradient(circle at 15% 20%, rgba(255,215,0,.15), transparent 30%),
-            radial-gradient(circle at 85% 80%, rgba(123,30,58,.25), transparent 35%),
-            linear-gradient(135deg, #fff, var(--pink));
-    }
+.cover h2{
+    color:var(--text);
+    font-size:21px;
+    margin:13px 0;
+}
 
-    .cover-content {
-        width: 100%;
-    }
+.cover h3{
+    color:var(--maroon);
+    font-size:16px;
+    margin-top:25px;
+}
 
-    .cover-logo {
-        width: 120px;
-        height: 120px;
-        object-fit: contain;
-        margin-bottom: 25px;
-    }
+.cover-line{
+    width:100px;
+    height:4px;
+    background:var(--gold);
+    margin:20px auto;
+    border-radius:2px;
+}
 
-    .cover h1 {
-        color: var(--maroon);
-        font-size: 30px;
-        margin: 10px 0;
-        font-weight: 850;
-    }
+.section-title{
+    text-align:center;
+    color:var(--maroon);
+    border-bottom:3px solid var(--gold);
+    padding-bottom:9px;
+    margin-bottom:15px;
+    font-size:21px;
+    font-weight:800;
+    text-transform:uppercase;
+}
 
-    .cover h2 {
-        color: var(--text);
-        font-size: 22px;
-        margin: 15px 0;
-        font-weight: 700;
-    }
+.category-title{
+    color:var(--maroon);
+    font-size:16px;
+    margin:10px 0;
+    font-weight:800;
+    text-align:center;
+}
 
-    .cover h3 {
-        color: var(--maroon);
-        font-size: 17px;
-        margin-top: 30px;
-        font-weight: 700;
-    }
+.portal-source{
+    font-size:11px;
+    color:var(--muted);
+    text-align:center;
+    margin-bottom:15px;
+}
 
-    .cover-line {
-        width: 100px;
-        height: 4px;
-        background: var(--gold);
-        margin: 25px auto;
-        border-radius: 2px;
-    }
+.source-title{
+    color:var(--maroon);
+    font-weight:800;
+    margin:7px 0 12px;
+    font-size:15px;
+    text-align:center;
+}
 
-    .section-title {
-        text-align: center;
-        color: var(--maroon);
-        border-bottom: 3px solid var(--gold);
-        padding-bottom: 10px;
-        margin-bottom: 20px;
-        font-size: 22px;
-        font-weight: 800;
-        text-transform: uppercase;
-    }
+.sub-title{
+    color:var(--maroon);
+    font-size:14px;
+    margin:16px 0 7px;
+    border-left:4px solid var(--gold);
+    padding-left:9px;
+    font-weight:800;
+}
 
-    .sub-title {
-        color: var(--maroon);
-        font-size: 16px;
-        margin-top: 22px;
-        margin-bottom: 10px;
-        border-left: 5px solid var(--gold);
-        padding-left: 10px;
-        font-weight: 700;
-    }
+.book-page .result-table{
+    width:100%;
+    border-collapse:collapse;
+    table-layout:auto;
+    margin:8px 0 16px;
+    font-size:10px;
+    background:#fff;
+}
 
-    .source-title {
-        color: var(--maroon);
-        font-weight: bold;
-        margin: 18px 0 8px 0;
-        font-size: 14px;
-    }
+.book-page .result-table th{
+    background:var(--maroon);
+    color:#fff;
+    border:1px solid #999;
+    padding:6px 5px;
+    text-align:center;
+    vertical-align:middle;
+    font-weight:800;
+}
 
-    .book-page table {
-        width: 100% !important;
-        border-collapse: collapse !important;
-        margin: 10px 0 20px 0 !important;
-        font-size: 11px !important;
-    }
+.book-page .result-table td{
+    border:1px solid #aaa;
+    padding:5px;
+    text-align:center;
+    vertical-align:middle;
+    color:#182033;
+    background:#fff;
+}
 
-    .book-page table th {
-        background: var(--maroon) !important;
-        color: white !important;
-        border: 1px solid #999 !important;
-        padding: 7px !important;
-        text-align: center !important;
-    }
+.book-page .result-table td:first-child{
+    text-align:center;
+}
 
-    .book-page table td {
-        border: 1px solid #aaa !important;
-        padding: 6px !important;
-        text-align: center !important;
-    }
+.book-page .result-table tbody tr:nth-child(even) td{
+    background:#fafafa;
+}
 
-    .book-page table tr:nth-child(even) {
-        background: #fafafa !important;
-    }
+.book-page .result-table tbody tr:hover td{
+    background:#f6eef1;
+}
 
-    #loading {
-        position: fixed;
-        inset: 0;
-        background: rgba(255,255,255,.96);
-        z-index: 10000;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
+/* KAWALAN SAIZ LOGO YANG SERAGAM & TERATUR */
+.book-page .result-table img,
+.book-page .result-table .team-logo,
+.results-list img,
+.match-card img {
+    width: 32px !important;
+    height: 32px !important;
+    max-width: 32px !important;
+    max-height: 32px !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    margin: 0 auto !important;
+}
 
-    .spinner {
-        width: 50px;
-        height: 50px;
-        border: 5px solid #eee;
-        border-top: 5px solid var(--maroon);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin-bottom: 20px;
-    }
+.error{
+    background:#fff0f0;
+    border:1px solid #e57373;
+    padding:14px;
+    margin:10px 0;
+    border-radius:8px;
+    color:#9b1c1c;
+}
 
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
+.success-note{
+    background:#eefaf2;
+    border:1px solid #9ad7ae;
+    padding:10px 12px;
+    border-radius:8px;
+    color:#146c37;
+    margin-bottom:12px;
+    font-size:12px;
+    font-weight:600;
+}
 
-    .error {
-        background: #fff0f0;
-        border: 1px solid #e57373;
-        padding: 15px;
-        margin: 10px 0;
-        border-radius: 8px;
-        color: #9b1c1c;
-    }
+.page-number{
+    position:absolute;
+    bottom:7mm;
+    left:0;
+    right:0;
+    text-align:center;
+    color:#777;
+    font-size:9px;
+}
 
-    .page-number {
-        position: absolute;
-        bottom: 8mm;
-        left: 0;
-        right: 0;
-        text-align: center;
-        color: #777;
-        font-size: 10px;
-    }
+#loading{
+    position:fixed;
+    inset:0;
+    background:rgba(255,255,255,.97);
+    z-index:10000;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
 
-    footer {
-        background: var(--maroon);
-        color: white;
-        text-align: center;
-        padding: 20px 15px;
-        margin-top: auto;
-        font-size: 12px;
-    }
+.spinner{
+    width:50px;
+    height:50px;
+    border:5px solid #eee;
+    border-top:5px solid var(--maroon);
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+    margin-bottom:18px;
+}
 
-    @media print {
-        header.main-header, .control-bar, footer, nav, .menu-toggle, #loading {
-            display: none !important;
-        }
-        body {
-            background: white !important;
-            color: #000 !important;
-        }
-        #book {
-            margin: 0;
-            max-width: none;
-        }
-        .book-page {
-            margin: 0;
-            box-shadow: none;
-            width: 210mm;
-            min-height: 297mm;
-            page-break-after: always;
-            border-radius: 0;
-        }
-    }
+@keyframes spin{to{transform:rotate(360deg)}}
 
-    @media (max-width: 900px) {
-        header.main-header {
-            flex-wrap: wrap;
-            padding: 12px 20px;
-        }
-        .menu-toggle {
-            display: block;
-        }
-        nav {
-            display: none;
-            flex-direction: column;
-            width: 100%;
-            margin-top: 12px;
-            background-color: var(--maroon-dark);
-            border-radius: 10px;
-        }
-        nav.active {
-            display: flex;
-        }
-        nav a, .dropdown-btn {
-            width: 100%;
-            text-align: left;
-            padding: 14px 20px;
-            display: flex;
-            justify-content: space-between;
-        }
-        .dropdown-content {
-            position: static;
-            display: none;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.25);
-        }
-        .dropdown.active .dropdown-content {
-            display: block;
-        }
-    }
+.loading-small{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:5px;
+    max-width:500px;
+}
+
+footer{
+    background:var(--maroon);
+    color:#fff;
+    text-align:center;
+    padding:17px 15px;
+    font-size:11px;
+}
+
+@media print{
+    @page{size:A4;margin:0}
+    .main-header,.control-bar,footer,nav,.menu-toggle,#loading{display:none!important}
+    body{background:#fff!important}
+    #book{margin:0;max-width:none}
+    .book-page{width:210mm;min-height:297mm;margin:0;padding:16mm;box-shadow:none;border-radius:0;overflow:hidden}
+    .book-page .result-table{font-size:9px}
+    .book-page .result-table th,.book-page .result-table td{padding:4px 3px}
+}
+
+@media(max-width:900px){
+    .main-header{flex-wrap:wrap;padding:10px 16px}
+    .menu-toggle{display:block}
+    nav{display:none;flex-direction:column;width:100%;margin-top:10px;background:var(--maroon-dark);border-radius:9px;align-items:stretch}
+    nav.active{display:flex}
+    nav a,.dropdown-btn{width:100%;justify-content:space-between;padding:12px 16px}
+    .dropdown-content{position:static;width:100%;box-shadow:none;background:rgba(0,0,0,.2)}
+    .control-bar{position:static}
+    #book{margin:10px auto}
+    .book-page{width:100%;min-height:auto;padding:20px 12px 45px}
+    .book-page .result-table{display:block;overflow-x:auto;white-space:nowrap}
+}
 </style>
 </head>
 
 <body>
 
-    <header class="main-header">
-        <div class="header-left">
-            <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo-header">
-            <div class="header-title">
-                <h1>PORTAL BOLA JARING MSSM</h1>
-                <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+<header class="main-header">
+    <div class="header-left">
+        <img src="images/mssmlogo.png" alt="Logo MSSM" class="logo-header" onerror="this.style.display='none'">
+        <div class="header-title">
+            <h1>PORTAL BOLA JARING MSSM</h1>
+            <p class="subtitle">Majlis Sukan Sekolah Malaysia</p>
+        </div>
+    </div>
+
+    <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+        <i class="fas fa-bars" id="menu-icon"></i>
+    </button>
+
+    <nav id="nav-menu">
+        <a href="../../index.html">HOME</a>
+
+        <div class="dropdown">
+            <button type="button" class="dropdown-btn">
+                <span>BOLA JARING MSSM</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="organisasi.html">ORGANISASI BOLA JARING MSSM</a>
+                <a href="panel.html">PANEL ANUGERAH MSSM</a>
+                <a href="teknikal.html">TEKNIKAL KEJOHANAN</a>
+                <a href="pengadil.html">PENGADIL</a>
+                <hr>
+                <a href="about.html">MANUAL PENGURUSAN</a>
+                <a href="rules.html">PERATURAN</a>
+                <a href="calendar.html">TAKWIM</a>
             </div>
         </div>
 
-        <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
-            <i class="fas fa-bars" id="menu-icon"></i>
-        </button>
-
-        <nav id="nav-menu">
-            <a href="../../index.html">HOME</a>
-            
-            <div class="dropdown">
-                <button type="button" class="dropdown-btn">
-                    <span>BOLA JARING MSSM</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="dropdown-content"> 
-                    <a href="organisasi.html">ORGANISASI BOLA JARING MSSM</a>
-                    <a href="panel.html">PANEL ANUGERAH MSSM</a>
-                    <a href="teknikal.html">TEKNIKAL KEJOHANAN</a>
-                    <a href="pengadil.html">PENGADIL</a>
-                    <hr>
-                    <a href="about.html">MANUAL PENGURUSAN</a>
-                    <a href="rules.html">PERATURAN</a>
-                    <a href="calendar.html">TAKWIM</a>
-                </div>
+        <div class="dropdown">
+            <button type="button" class="dropdown-btn active">
+                <span>KEJOHANAN</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="index.html">MSSM 2026</a>
+                <hr>
+                <a href="tournament/mssm2026/u12.html">BAWAH 12</a>
+                <a href="tournament/mssm2026/u15.html">BAWAH 15</a>
+                <a href="tournament/mssm2026/u18.html">BAWAH 18</a>
             </div>
-            
-            <div class="dropdown">
-                <button type="button" class="dropdown-btn active">
-                    <span>KEJOHANAN</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="index.html">MSSM 2026</a>  
-                    <hr>
-                    <a href="../u12/ranking.html">BAWAH 12</a>
-                    <a href="../u15/ranking.html">BAWAH 15</a>
-                    <a href="../u18/ranking.html">BAWAH 18</a>
-                </div>
-            </div>
+        </div>
 
-            <a href="live.html" style="color: #ffeb3b;">🔴 LIVE</a>
-        </nav>
-    </header>
+        <a href="live.html" style="color:#ffeb3b;">🔴 LIVE</a>
+    </nav>
+</header>
 
-    <div id="loading">
-        <div class="spinner"></div>
-        <h2>Sedang menjana Buku Keputusan</h2>
-        <p id="loadingText">Sedang mengambil data kejohanan...</p>
-    </div>
+<div id="loading">
+    <div class="spinner"></div>
+    <h2>Menjana Buku Keputusan Rasmi</h2>
+    <p id="loadingText" class="loading-small">Sedang mengambil data keputusan...</p>
+</div>
 
-    <div class="control-bar">
-        <button class="btn-print" onclick="window.print()">
-            <i class="fas fa-print"></i> CETAK / SIMPAN PDF
-        </button>
-        <button class="btn-refresh" onclick="janaBuku()">
-            <i class="fas fa-sync"></i> KEMASKINI DATA
-        </button>
-        <span class="status" id="status">Menunggu...</span>
-    </div>
+<div class="control-bar">
+    <button class="btn-print" onclick="window.print()">
+        <i class="fas fa-print"></i> CETAK / SIMPAN PDF
+    </button>
 
-    <main id="book" class="container"></main>
+    <button class="btn-refresh" onclick="janaBuku()">
+        <i class="fas fa-sync"></i> KEMASKINI DATA
+    </button>
 
-    <footer>
-        <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
-    </footer>
+    <span class="status" id="status">Menunggu...</span>
+</div>
+
+<main id="book"></main>
+
+<footer>
+    <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
+</footer>
 
 <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    const dropdowns = document.querySelectorAll('.dropdown');
+/* ---------------- MENU ---------------- */
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
+const menuIcon = document.getElementById("menu-icon");
 
-    menuToggle.addEventListener('click', function(e) {
+menuToggle.addEventListener("click", function(e){
+    e.stopPropagation();
+    navMenu.classList.toggle("active");
+    menuIcon.className = navMenu.classList.contains("active") ? "fas fa-xmark" : "fas fa-bars";
+});
+
+document.querySelectorAll(".dropdown").forEach(dropdown=>{
+    const btn = dropdown.querySelector(".dropdown-btn");
+    btn.addEventListener("click", function(e){
         e.stopPropagation();
-        navMenu.classList.toggle('active');
-        menuIcon.className = navMenu.classList.contains('active') ? 'fas fa-xmark' : 'fas fa-bars';
-    });
-
-    dropdowns.forEach(dropdown => {
-        const btn = dropdown.querySelector('.dropdown-btn');
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            dropdowns.forEach(other => { if (other !== dropdown) other.classList.remove('open'); });
-            dropdown.classList.toggle('open');
+        document.querySelectorAll(".dropdown").forEach(other=>{
+            if(other !== dropdown) other.classList.remove("open");
         });
+        dropdown.classList.toggle("open");
     });
+});
 
-    const sumberBuku = [
-        { kategori: "KEPUTUSAN RASMI", url: "keputusanrasmi.html" },
-        { kategori: "KEDUDUKAN KESELURUHAN", url: "kedudukankeseluruhan.html" },
-        { kategori: "STATISTIK KESELURUHAN", url: "statistic.html" },
-        { kategori: "ANUGERAH KHAS", url: "anugerahkhas.html" },
-        { kategori: "U12 - PASUKAN", url: "tournament/mssm2026/u12/teams.html" },
-        { kategori: "U12 - RANKING", url: "tournament/mssm2026/u12/ranking.html" },
-        { kategori: "U12 - STATISTIK", url: "tournament/mssm2026/u12/statistic.html" },
-        { kategori: "U15 - PASUKAN", url: "tournament/mssm2026/u15/teams.html" },
-        { kategori: "U15 - RANKING", url: "tournament/mssm2026/u15/ranking.html" },
-        { kategori: "U15 - STATISTIK", url: "tournament/mssm2026/u15/statistic.html" },
-        { kategori: "U18 - PASUKAN", url: "tournament/mssm2026/u18/teams.html" },
-        { kategori: "U18 - RANKING", url: "tournament/mssm2026/u18/ranking.html" },
-        { kategori: "U18 - STATISTIK", url: "tournament/mssm2026/u18/statistic.html" }
-    ];
+document.addEventListener("click", function(){
+    document.querySelectorAll(".dropdown").forEach(d=>{
+        d.classList.remove("open");
+    });
+});
 
-    function setLoading(text){
-        document.getElementById("loadingText").textContent = text;
+/* ---------------- SUMBER GOOGLE SHEETS & STANDARD ---------------- */
+const KATEGORI_KEPUTUSAN = [
+    { 
+        id: "u12", 
+        nama: "BAWAH 12 TAHUN", 
+        url: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/export?format=csv&gid=1045376482" 
+    },
+    { 
+        id: "u15", 
+        nama: "BAWAH 15 TAHUN", 
+        url: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/export?format=csv&gid=624168085" 
+    },
+    { 
+        id: "u18", 
+        nama: "BAWAH 18 TAHUN", 
+        url: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/export?format=csv&gid=755929729" 
     }
+];
 
-    function loadPage(url){
-        return new Promise((resolve, reject)=>{
-            const iframe = document.createElement("iframe");
-            iframe.style.position = "fixed";
-            iframe.style.left = "-10000px";
-            iframe.style.top = "-10000px";
-            iframe.style.width = "1200px";
-            iframe.style.height = "1000px";
-            iframe.style.border = "0";
-            iframe.src = url;
-            document.body.appendChild(iframe);
+const KATEGORI_KEDUDUKAN = [
+    { 
+        id: "kedudukan_u12", 
+        nama: "KEDUDUKAN BAWAH 12 TAHUN", 
+        url: "https://docs.google.com/spreadsheets/d/1ItWWq1j0D2nO6zxQzgv24nQuzhKqyXEe3_Eu4wIHAg0/export?format=csv&gid=626141204" 
+    },
+    { 
+        id: "kedudukan_u15", 
+        nama: "KEDUDUKAN BAWAH 15 TAHUN", 
+        url: "https://docs.google.com/spreadsheets/d/1Oc_BowwyXJF8-AubPLmSompXQ5YUDp23LWesuOmQEMw/export?format=csv&gid=626141204" 
+    },
+    { 
+        id: "kedudukan_u18", 
+        nama: "KEDUDUKAN BAWAH 18 TAHUN", 
+        url: "https://docs.google.com/spreadsheets/d/180gesLRs2fnsR677akZUTVFYFkkSiEu-aaVUnKquXHo/export?format=csv&gid=626141204" 
+    }
+];
 
-            let selesai = false;
-            const timeout = setTimeout(()=>{
+const sumberBukuStandard = [
+    {
+        kategori: "KEDUDUKAN KESELURUHAN",
+        url: "data keudukankeseluruhan.html"
+    },
+    {
+        kategori: "ANUGERAH KHAS",
+        url: "anugerahkhas.html"
+    },
+    {
+        kategori: "BAWAH 12",
+        url: "data u12.html"
+    },
+    {
+        kategori: "BAWAH 15",
+        url: "data u15.html"
+    },
+    {
+        kategori: "BAWAH 18",
+        url: "data u18.html"
+    }
+];
+
+/* ---------------- UTILITY ---------------- */
+function setLoading(text){
+    const el = document.getElementById("loadingText");
+    if(el) el.textContent = text;
+}
+
+function escapeHTML(text){
+    return String(text ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+function normalizeUrl(url){
+    return new URL(url, window.location.href).href;
+}
+
+function tunggu(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function tableAdaData(table){
+    if(!table) return false;
+    const text = (table.innerText || table.textContent || "").replace(/\s+/g," ").trim();
+    const rows = table.querySelectorAll("tr");
+    if(rows.length < 2) return false;
+    if(text.length < 10) return false;
+    const lower = text.toLowerCase();
+    if(lower === "loading..." || lower === "loading" || lower.includes("sedang memuatkan data")){
+        return false;
+    }
+    return true;
+}
+
+function tungguData(iframe, maxWait = 20000){
+    return new Promise(resolve=>{
+        const mula = Date.now();
+        const check = setInterval(()=>{
+            try{
+                const doc = iframe.contentDocument;
+                if(!doc) return;
+                const tables = Array.from(doc.querySelectorAll("table"));
+                const adaTableDenganData = tables.some(table => tableAdaData(table));
+                if(adaTableDenganData){
+                    clearInterval(check);
+                    resolve(true);
+                    return;
+                }
+            }catch(error){}
+
+            if(Date.now() - mula >= maxWait){
+                clearInterval(check);
+                resolve(false);
+            }
+        },300);
+    });
+}
+
+function loadPage(url){
+    return new Promise((resolve,reject)=>{
+        const fullUrl = normalizeUrl(url);
+        const iframe = document.createElement("iframe");
+        iframe.style.position = "fixed";
+        iframe.style.left = "-20000px";
+        iframe.style.top = "0";
+        iframe.style.width = "1400px";
+        iframe.style.height = "1200px";
+        iframe.style.border = "0";
+        iframe.setAttribute("aria-hidden","true");
+
+        let selesai = false;
+        const timeout = setTimeout(()=>{
+            if(selesai) return;
+            selesai = true;
+            try{ iframe.remove(); }catch(e){}
+            reject(new Error("Masa menunggu halaman tamat: " + url));
+        },25000);
+
+        iframe.onload = async function(){
+            try{
+                await tungguData(iframe,20000);
+                if(selesai) return;
+                const doc = iframe.contentDocument;
+                if(!doc) throw new Error("Dokumen sumber tidak dapat dibaca.");
+                selesai = true;
+                clearTimeout(timeout);
+                resolve(doc);
+            }catch(error){
                 if(!selesai){
                     selesai = true;
+                    clearTimeout(timeout);
                     try{ iframe.remove(); }catch(e){}
-                    reject(new Error("Masa menunggu halaman tamat: " + url));
-                }
-            }, 15000);
-
-            iframe.onload = async function(){
-                await tungguData(iframe, 5000);
-                if(selesai) return;
-                selesai = true;
-                clearTimeout(timeout);
-                try{
-                    const doc = iframe.contentDocument;
-                    resolve(doc);
-                }catch(error){
                     reject(error);
                 }
-                try{ iframe.remove(); }catch(e){}
-            };
-
-            iframe.onerror = function(){
-                if(selesai) return;
-                selesai = true;
-                clearTimeout(timeout);
-                try{ iframe.remove(); }catch(e){}
-                reject(new Error("Gagal membuka: " + url));
-            };
-        });
-    }
-
-    function tungguData(iframe, maxWait){
-        return new Promise(resolve=>{
-            const mula = Date.now();
-            const check = setInterval(()=>{
-                try{
-                    const doc = iframe.contentDocument;
-                    const tables = doc.querySelectorAll("table");
-                    if(tables.length > 0){
-                        clearInterval(check);
-                        resolve();
-                        return;
-                    }
-                }catch(e){}
-
-                if(Date.now() - mula > maxWait){
-                    clearInterval(check);
-                    resolve();
-                }
-            }, 300);
-        });
-    }
-
-    function ambilTables(doc){
-        return Array.from(doc.querySelectorAll("table"));
-    }
-
-    function bersihkanTable(table){
-        const clone = table.cloneNode(true);
-        clone.querySelectorAll("button,input,select,textarea,script,style").forEach(el=>el.remove());
-        clone.querySelectorAll("a").forEach(a=>{
-            const span = document.createElement("span");
-            span.innerHTML = a.innerHTML;
-            a.replaceWith(span);
-        });
-        return clone;
-    }
-
-    function ambilTajuk(doc){
-        const h1 = doc.querySelector("h1");
-        if(h1 && h1.textContent.trim()) return h1.textContent.trim();
-        const title = doc.querySelector("title");
-        if(title) return title.textContent.trim();
-        return "";
-    }
-
-    function binaCover(){
-        return `
-            <section class="book-page cover">
-                <div class="cover-content">
-                    <img src="images/mssmlogo.png" class="cover-logo" alt="Logo MSSM" onerror="this.style.display='none'">
-                    <h1>BUKU KEPUTUSAN RASMI</h1>
-                    <div class="cover-line"></div>
-                    <h2>KEJOHANAN BOLA JARING MSSM 2026</h2>
-                    <h3>MAJLIS SUKAN SEKOLAH MALAYSIA</h3>
-                    <p>MALAYSIA</p>
-                    <br>
-                    <p><strong>DOKUMEN KEPUTUSAN RASMI</strong></p>
-                </div>
-                <div class="page-number">MSSM 2026</div>
-            </section>
-        `;
-    }
-
-    function binaSection(kategori, doc){
-        const tables = ambilTables(doc);
-        let html = `
-            <section class="book-page">
-                <div class="section-title">${kategori}</div>
-        `;
-
-        const tajuk = ambilTajuk(doc);
-        if(tajuk){
-            html += `<div class="source-title">${escapeHTML(tajuk)}</div>`;
-        }
-
-        if(tables.length === 0){
-            const main = doc.querySelector("main") || doc.querySelector(".container") || doc.body;
-            html += `<div>${bersihkanHTML(main.innerHTML)}</div>`;
-        } else {
-            tables.forEach((table, index)=>{
-                const clean = bersihkanTable(table);
-                html += `<div class="sub-title">${kategori} ${tables.length > 1 ? " - " + (index+1) : ""}</div>`;
-                html += clean.outerHTML;
-            });
-        }
-
-        html += `
-                <div class="page-number">MSSM 2026</div>
-            </section>
-        `;
-        return html;
-    }
-
-    function escapeHTML(text){
-        return String(text)
-            .replace(/&/g,"&amp;")
-            .replace(/</g,"&lt;")
-            .replace(/>/g,"&gt;")
-            .replace(/"/g,"&quot;")
-            .replace(/'/g,"&#039;");
-    }
-
-    function bersihkanHTML(html){
-        const temp = document.createElement("div");
-        temp.innerHTML = html;
-        temp.querySelectorAll("script,style,button,input,select,textarea,nav,header,footer").forEach(el=>el.remove());
-        return temp.innerHTML;
-    }
-
-    async function janaBuku(){
-        const book = document.getElementById("book");
-        const status = document.getElementById("status");
-        book.innerHTML = "";
-        document.getElementById("loading").style.display = "flex";
-
-        try{
-            book.innerHTML += binaCover();
-            let berjaya = 0;
-            let gagal = 0;
-
-            for(let i=0; i<sumberBuku.length; i++){
-                const sumber = sumberBuku[i];
-                setLoading(`Mengambil ${sumber.kategori}...`);
-                status.textContent = `${i+1}/${sumberBuku.length}`;
-
-                try{
-                    const doc = await loadPage(sumber.url);
-                    book.innerHTML += binaSection(sumber.kategori, doc);
-                    berjaya++;
-                }catch(error){
-                    console.error(sumber.url, error);
-                    gagal++;
-                    book.innerHTML += `
-                        <section class="book-page">
-                            <div class="section-title">${sumber.kategori}</div>
-                            <div class="error">
-                                <strong>Data tidak dapat diambil.</strong><br><br>
-                                Laluan: ${escapeHTML(sumber.url)}<br><br>
-                                Sila pastikan fail tersebut wujud pada lokasi yang betul.
-                            </div>
-                            <div class="page-number">MSSM 2026</div>
-                        </section>
-                    `;
-                }
             }
+        };
 
-            setLoading("Buku Keputusan telah siap.");
-            status.textContent = `Siap: ${berjaya} | Gagal: ${gagal}`;
-        }catch(error){
-            console.error(error);
-            book.innerHTML = `
-                <section class="book-page">
-                    <div class="error">
-                        <h2>Ralat menjana buku</h2>
-                        ${escapeHTML(error.message)}
-                    </div>
-                </section>
-            `;
+        iframe.onerror = function(){
+            if(selesai) return;
+            selesai = true;
+            clearTimeout(timeout);
+            try{ iframe.remove(); }catch(e){}
+            reject(new Error("Gagal membuka halaman: " + url));
+        };
+
+        iframe.src = fullUrl;
+        document.body.appendChild(iframe);
+    });
+}
+
+/* ---------------- GOOGLE SHEET CSV PARSER & RENDERER ---------------- */
+function parseCSV(text) {
+    let lines = text.split("\n");
+    let result = [];
+    for (let i = 0; i < lines.length; i++) {
+        let row = [];
+        let current = "";
+        let inQuotes = false;
+        for (let j = 0; j < lines[i].length; j++) {
+            let char = lines[i][j];
+            if (char === '"') {
+                inQuotes = !inQuotes;
+            } else if (char === ',' && !inQuotes) {
+                row.push(current.trim());
+                current = "";
+            } else {
+                current += char;
+            }
         }
+        row.push(current.trim());
+        result.push(row);
+    }
+    return result.filter(row => row.some(cell => cell !== ""));
+}
 
-        setTimeout(()=>{
-            document.getElementById("loading").style.display = "none";
-        }, 500);
+async function ambilDataGoogleSheet(csvUrl) {
+    const response = await fetch(csvUrl);
+    if (!response.ok) throw new Error("Gagal mengambil data CSV dari Google Sheet.");
+    const text = await response.text();
+    return parseCSV(text);
+}
+
+function binaJadualDariCSV(rows) {
+    if (!rows || rows.length === 0) {
+        return `<div class="error">Tiada data dijumpai.</div>`;
+    }
+    let html = `<table class="result-table"><thead><tr>`;
+    rows[0].forEach(cell => {
+        html += `<th>${escapeHTML(cell.replace(/^"|"$/g, ''))}</th>`;
+    });
+    html += `</tr></thead><tbody>`;
+
+    for (let i = 1; i < rows.length; i++) {
+        html += `<tr>`;
+        rows[i].forEach(cell => {
+            let cleanCell = cell.replace(/^"|"$/g, '');
+            if (cleanCell.toLowerCase().startsWith('http') && (cleanCell.endsWith('.png') || cleanCell.endsWith('.jpg') || cleanCell.endsWith('.jpeg'))) {
+                html += `<td><img src="${escapeHTML(cleanCell)}" class="team-logo" alt="Logo"></td>`;
+            } else {
+                html += `<td>${escapeHTML(cleanCell)}</td>`;
+            }
+        });
+        html += `</tr>`;
+    }
+    html += `</tbody></table>`;
+    return html;
+}
+
+async function binaSectionGoogleSheet(kategori, tajukUtama = "KEPUTUSAN RASMI") {
+    let html = `
+        <section class="book-page results-page">
+            <div class="section-title">${escapeHTML(tajukUtama)}</div>
+            <div class="category-title">${escapeHTML(kategori.nama)}</div>
+            <div class="portal-source">Sumber: Google Sheets Rasmi MSSM 2026</div>
+    `;
+    try {
+        const rows = await ambilDataGoogleSheet(kategori.url);
+        html += `<div class="success-note">Data Google Sheet berjaya dimuatkan.</div>`;
+        html += binaJadualDariCSV(rows);
+    } catch (error) {
+        html += `<div class="error"><strong>Gagal memuatkan data Google Sheet:</strong><br>${escapeHTML(error.message)}</div>`;
+    }
+    html += `
+            <div class="page-number">MSSM 2026</div>
+        </section>
+    `;
+    return html;
+}
+
+/* ---------------- STANDARD TABLES ---------------- */
+function ambilTables(doc){
+    if(!doc) return [];
+    return Array.from(doc.querySelectorAll("table")).filter(tableAdaData);
+}
+
+function bersihkanTable(table){
+    const clone = table.cloneNode(true);
+    clone.querySelectorAll("button,input,select,textarea,script,style,form").forEach(el=>el.remove());
+    clone.querySelectorAll(".no-print,.print-hide,.action,.actions,.pagination").forEach(el=>el.remove());
+    clone.querySelectorAll("a").forEach(a=>{
+        const span = document.createElement("span");
+        span.innerHTML = a.innerHTML;
+        span.className = a.className || "";
+        a.replaceWith(span);
+    });
+    clone.classList.add("result-table");
+    clone.querySelectorAll("[width],[height]").forEach(el=>{
+        el.removeAttribute("width");
+        el.removeAttribute("height");
+    });
+    return clone;
+}
+
+function ambilTajuk(doc){
+    if(!doc) return "";
+    const h1 = doc.querySelector("h1");
+    if(h1 && h1.textContent.trim()) return h1.textContent.trim();
+    const title = doc.querySelector("title");
+    if(title && title.textContent.trim()) return title.textContent.trim();
+    return "";
+}
+
+function betulkanImej(clone, sourceDoc){
+    if(!sourceDoc) return;
+    const base = sourceDoc.location.href;
+    clone.querySelectorAll("img").forEach(img=>{
+        const src = img.getAttribute("src");
+        if(!src) return;
+        try{
+            img.setAttribute("src", new URL(src, base).href);
+        }catch(e){}
+    });
+}
+
+function binaSectionStandard(kategori, doc, url){
+    const tables = ambilTables(doc);
+    let html = `
+        <section class="book-page">
+            <div class="section-title">${escapeHTML(kategori)}</div>
+    `;
+
+    const tajuk = ambilTajuk(doc);
+    if(tajuk && tajuk.toUpperCase() !== kategori.toUpperCase()){
+        html += `<div class="source-title">${escapeHTML(tajuk)}</div>`;
     }
 
-    window.addEventListener("DOMContentLoaded", function(){
-        janaBuku();
-    });
+    if(tables.length === 0){
+        html += `
+            <div class="error">
+                <strong>Table data tidak ditemui.</strong><br><br>
+                Halaman sumber: ${escapeHTML(url)}<br><br>
+                Pastikan fail HTML tersebut mengandungi jadual (&lt;table&gt;) yang sah.
+            </div>
+        `;
+    }else{
+        html += `<div class="success-note">${tables.length} jadual data berjaya dimuatkan.</div>`;
+        tables.forEach((table, index)=>{
+            const clean = bersihkanTable(table);
+            betulkanImej(clean, doc);
+            let subTitle = "";
+            if(tables.length > 1){
+                subTitle = `<div class="sub-title">${escapeHTML(kategori)} — JADUAL ${index + 1}</div>`;
+            }
+            html += subTitle;
+            html += clean.outerHTML;
+        });
+    }
+
+    html += `<div class="page-number">MSSM 2026</div></section>`;
+    return html;
+}
+
+function binaCover(){
+    return `
+        <section class="book-page cover">
+            <div class="cover-content">
+                <img src="images/mssmlogo.png" class="cover-logo" alt="Logo MSSM" onerror="this.style.display='none'">
+                <h1>BUKU KEPUTUSAN RASMI</h1>
+                <div class="cover-line"></div>
+                <h2>KEJOHANAN BOLA JARING MSSM 2026</h2>
+                <h3>MAJLIS SUKAN SEKOLAH MALAYSIA</h3>
+                <p>MALAYSIA</p>
+                <br>
+                <p><strong>DOKUMEN KEPUTUSAN RASMI</strong></p>
+            </div>
+            <div class="page-number">MSSM 2026</div>
+        </section>
+    `;
+}
+
+async function janaBuku(){
+    const book = document.getElementById("book");
+    const status = document.getElementById("status");
+    const loading = document.getElementById("loading");
+
+    book.innerHTML = "";
+    loading.style.display = "flex";
+
+    let berjaya = 0;
+    let gagal = 0;
+    const jumlahSumber = 1 + KATEGORI_KEPUTUSAN.length + KATEGORI_KEDUDUKAN.length + sumberBukuStandard.length;
+    let langkahSemasa = 0;
+
+    try{
+        book.innerHTML = binaCover();
+
+        // 1. Ambil data keputusan rasmi dari Google Sheets (U12, U15, U18)
+        for (let i = 0; i < KATEGORI_KEPUTUSAN.length; i++) {
+            langkahSemasa++;
+            const kat = KATEGORI_KEPUTUSAN[i];
+            setLoading(`Mengambil keputusan rasmi ${kat.nama} dari Google Sheet...`);
+            if(status) status.textContent = `${langkahSemasa}/${jumlahSumber}`;
+
+            try {
+                const sectionHtml = await binaSectionGoogleSheet(kat, "KEPUTUSAN RASMI");
+                book.insertAdjacentHTML("beforeend", sectionHtml);
+                berjaya++;
+            } catch (sheetError) {
+                console.error("Gagal memuatkan Google Sheet:", sheetError);
+                gagal++;
+                book.insertAdjacentHTML("beforeend", `
+                    <section class="book-page">
+                        <div class="section-title">KEPUTUSAN RASMI</div>
+                        <div class="category-title">${escapeHTML(kat.nama)}</div>
+                        <div class="error">
+                            <strong>Data Google Sheet tidak dapat dimuatkan.</strong><br><br>
+                            ${escapeHTML(sheetError.message)}
+                        </div>
+                        <div class="page-number">MSSM 2026</div>
+                    </section>
+                `);
+            }
+        }
+
+        // 2. Ambil data kedudukan dari Google Sheets (U12, U15, U18)
+        for (let i = 0; i < KATEGORI_KEDUDUKAN.length; i++) {
+            langkahSemasa++;
+            const kat = KATEGORI_KEDUDUKAN[i];
+            setLoading(`Mengambil ${kat.nama} dari Google Sheet...`);
+            if(status) status.textContent = `${langkahSemasa}/${jumlahSumber}`;
+
+            try {
+                const sectionHtml = await binaSectionGoogleSheet(kat, "KEDUDUKAN");
+                book.insertAdjacentHTML("beforeend", sectionHtml);
+                berjaya++;
+            } catch (sheetError) {
+                console.error("Gagal memuatkan Google Sheet Kedudukan:", sheetError);
+                gagal++;
+                book.insertAdjacentHTML("beforeend", `
+                    <section class="book-page">
+                        <div class="section-title">KEDUDUKAN</div>
+                        <div class="category-title">${escapeHTML(kat.nama)}</div>
+                        <div class="error">
+                            <strong>Data Google Sheet tidak dapat dimuatkan.</strong><br><br>
+                            ${escapeHTML(sheetError.message)}
+                        </div>
+                        <div class="page-number">MSSM 2026</div>
+                    </section>
+                `);
+            }
+        }
+
+        // 3. Ambil fail-fail standard yang lain
+        for(let i=0; i<sumberBukuStandard.length; i++){
+            langkahSemasa++;
+            const sumber = sumberBukuStandard[i];
+            setLoading(`Mengambil ${sumber.kategori}...`);
+            if(status) status.textContent = `${langkahSemasa}/${jumlahSumber}`;
+
+            try{
+                const doc = await loadPage(sumber.url);
+                const section = binaSectionStandard(sumber.kategori, doc, sumber.url);
+                book.insertAdjacentHTML("beforeend", section);
+                berjaya++;
+            }catch(error){
+                console.error("Gagal:", sumber.kategori, sumber.url, error);
+                gagal++;
+                book.insertAdjacentHTML("beforeend", `
+                    <section class="book-page">
+                        <div class="section-title">${escapeHTML(sumber.kategori)}</div>
+                        <div class="error">
+                            <strong>Data tidak dapat dimuatkan.</strong><br><br>
+                            Laluan: <code>${escapeHTML(sumber.url)}</code><br><br>
+                            ${escapeHTML(error.message)}
+                        </div>
+                        <div class="page-number">MSSM 2026</div>
+                    </section>
+                `);
+            }
+        }
+
+        setLoading("Buku Keputusan telah selesai dijana.");
+        if(status) status.textContent = `Siap: ${berjaya} berjaya | ${gagal} gagal`;
+    }catch(error){
+        console.error(error);
+        book.insertAdjacentHTML("beforeend", `
+            <section class="book-page">
+                <div class="error">
+                    <h2>Ralat menjana buku</h2><br>${escapeHTML(error.message)}
+                </div>
+            </section>
+        `);
+        if(status) status.textContent = "Ralat";
+    }finally{
+        setTimeout(()=>{
+            loading.style.display = "none";
+        }, 700);
+    }
+}
+
+window.addEventListener("DOMContentLoaded", janaBuku);
 </script>
+
 </body>
 </html>
