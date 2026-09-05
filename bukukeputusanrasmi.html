@@ -18,8 +18,6 @@
     --muted:#667085;
     --white:#fff;
     --line:#d9dee7;
-    --green:#198754;
-    --red:#b42318;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -32,6 +30,8 @@ body{
     color:var(--text);
     line-height:1.5;
     min-height:100vh;
+    display:flex;
+    flex-direction:column;
 }
 
 /* HEADER */
@@ -132,7 +132,7 @@ nav a:hover,.dropdown-btn:hover,.dropdown-btn.active{
     cursor:pointer;
 }
 
-/* CONTROL */
+/* CONTROL BAR */
 .control-bar{
     background:rgba(255,255,255,.96);
     border-bottom:1px solid var(--line);
@@ -141,14 +141,15 @@ nav a:hover,.dropdown-btn:hover,.dropdown-btn.active{
     justify-content:center;
     align-items:center;
     gap:10px;
-    flex-wrap:wrap;
     box-shadow:0 4px 15px rgba(7,26,61,.05);
     position:sticky;
     top:88px;
     z-index:900;
 }
 
-.control-bar button{
+.btn-download{
+    background:var(--maroon);
+    color:#fff;
     border:0;
     padding:9px 16px;
     border-radius:9px;
@@ -158,83 +159,25 @@ nav a:hover,.dropdown-btn:hover,.dropdown-btn.active{
     display:inline-flex;
     align-items:center;
     gap:7px;
+    text-decoration:none;
 }
 
-.btn-print{background:var(--maroon);color:#fff}
-.btn-refresh{background:var(--gold);color:var(--text)}
-.btn-print:hover{background:var(--maroon-dark)}
-.btn-refresh:hover{filter:brightness(.94)}
-
-.status{
-    font-size:13px;
-    font-weight:700;
-    color:var(--muted);
+.btn-download:hover{
+    background:var(--maroon-dark);
 }
 
-/* BOOK */
-#book{
+/* PDF CONTAINER */
+.pdf-section{
+    flex:1;
     max-width:210mm;
-    margin:24px auto;
     width:100%;
-}
-
-.book-page{
-    width:210mm;
-    min-height:297mm;
+    margin:24px auto;
     background:#fff;
-    margin:0 auto 20px;
-    padding:16mm;
     box-shadow:0 4px 20px rgba(0,0,0,.10);
-    position:relative;
-    page-break-after:always;
-    overflow:hidden;
-}
-
-.cover{
+    padding:20px;
+    border-radius:8px;
     display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    background:
-        radial-gradient(circle at 15% 20%,rgba(255,215,0,.15),transparent 30%),
-        radial-gradient(circle at 85% 80%,rgba(123,30,58,.20),transparent 35%),
-        linear-gradient(135deg,#fff,var(--pink));
-}
-
-.cover-content{width:100%}
-
-.cover-logo{
-    width:125px;
-    height:125px;
-    object-fit:contain;
-    margin-bottom:20px;
-}
-
-.cover h1{
-    color:var(--maroon);
-    font-size:30px;
-    font-weight:850;
-    margin:8px 0;
-}
-
-.cover h2{
-    color:var(--text);
-    font-size:21px;
-    margin:13px 0;
-}
-
-.cover h3{
-    color:var(--maroon);
-    font-size:16px;
-    margin-top:25px;
-}
-
-.cover-line{
-    width:100px;
-    height:4px;
-    background:var(--gold);
-    margin:20px auto;
-    border-radius:2px;
+    flex-direction:column;
 }
 
 .section-title{
@@ -248,152 +191,18 @@ nav a:hover,.dropdown-btn:hover,.dropdown-btn.active{
     text-transform:uppercase;
 }
 
-.category-title{
-    color:var(--maroon);
-    font-size:16px;
-    margin:10px 0;
-    font-weight:800;
-    text-align:center;
-}
-
-.portal-source{
-    font-size:11px;
-    color:var(--muted);
-    text-align:center;
-    margin-bottom:15px;
-}
-
-.source-title{
-    color:var(--maroon);
-    font-weight:800;
-    margin:7px 0 12px;
-    font-size:15px;
-    text-align:center;
-}
-
-.sub-title{
-    color:var(--maroon);
-    font-size:14px;
-    margin:16px 0 7px;
-    border-left:4px solid var(--gold);
-    padding-left:9px;
-    font-weight:800;
-}
-
-.book-page .result-table{
+.pdf-viewer{
     width:100%;
-    border-collapse:collapse;
-    table-layout:auto;
-    margin:8px 0 16px;
-    font-size:10px;
-    background:#fff;
+    height:850px;
+    border:1px solid var(--line);
+    border-radius:6px;
 }
 
-.book-page .result-table th{
-    background:var(--maroon);
-    color:#fff;
-    border:1px solid #999;
-    padding:6px 5px;
+.pdf-fallback{
     text-align:center;
-    vertical-align:middle;
-    font-weight:800;
-}
-
-.book-page .result-table td{
-    border:1px solid #aaa;
-    padding:5px;
-    text-align:center;
-    vertical-align:middle;
-    color:#182033;
-    background:#fff;
-}
-
-.book-page .result-table td:first-child{
-    text-align:center;
-}
-
-.book-page .result-table tbody tr:nth-child(even) td{
-    background:#fafafa;
-}
-
-.book-page .result-table tbody tr:hover td{
-    background:#f6eef1;
-}
-
-/* KAWALAN SAIZ LOGO YANG SERAGAM & TERATUR */
-.book-page .result-table img,
-.book-page .result-table .team-logo,
-.results-list img,
-.match-card img {
-    width: 32px !important;
-    height: 32px !important;
-    max-width: 32px !important;
-    max-height: 32px !important;
-    object-fit: contain !important;
-    display: inline-block !important;
-    vertical-align: middle !important;
-    margin: 0 auto !important;
-}
-
-.error{
-    background:#fff0f0;
-    border:1px solid #e57373;
-    padding:14px;
-    margin:10px 0;
-    border-radius:8px;
-    color:#9b1c1c;
-}
-
-.success-note{
-    background:#eefaf2;
-    border:1px solid #9ad7ae;
-    padding:10px 12px;
-    border-radius:8px;
-    color:#146c37;
-    margin-bottom:12px;
-    font-size:12px;
-    font-weight:600;
-}
-
-.page-number{
-    position:absolute;
-    bottom:7mm;
-    left:0;
-    right:0;
-    text-align:center;
-    color:#777;
-    font-size:9px;
-}
-
-#loading{
-    position:fixed;
-    inset:0;
-    background:rgba(255,255,255,.97);
-    z-index:10000;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-}
-
-.spinner{
-    width:50px;
-    height:50px;
-    border:5px solid #eee;
-    border-top:5px solid var(--maroon);
-    border-radius:50%;
-    animation:spin 1s linear infinite;
-    margin-bottom:18px;
-}
-
-@keyframes spin{to{transform:rotate(360deg)}}
-
-.loading-small{
+    padding:20px;
+    font-size:14px;
     color:var(--muted);
-    font-size:13px;
-    margin-top:5px;
-    max-width:500px;
 }
 
 footer{
@@ -402,16 +211,7 @@ footer{
     text-align:center;
     padding:17px 15px;
     font-size:11px;
-}
-
-@media print{
-    @page{size:A4;margin:0}
-    .main-header,.control-bar,footer,nav,.menu-toggle,#loading{display:none!important}
-    body{background:#fff!important}
-    #book{margin:0;max-width:none}
-    .book-page{width:210mm;min-height:297mm;margin:0;padding:16mm;box-shadow:none;border-radius:0;overflow:hidden}
-    .book-page .result-table{font-size:9px}
-    .book-page .result-table th,.book-page .result-table td{padding:4px 3px}
+    margin-top:auto;
 }
 
 @media(max-width:900px){
@@ -421,10 +221,8 @@ footer{
     nav.active{display:flex}
     nav a,.dropdown-btn{width:100%;justify-content:space-between;padding:12px 16px}
     .dropdown-content{position:static;width:100%;box-shadow:none;background:rgba(0,0,0,.2)}
-    .control-bar{position:static}
-    #book{margin:10px auto}
-    .book-page{width:100%;min-height:auto;padding:20px 12px 45px}
-    .book-page .result-table{display:block;overflow-x:auto;white-space:nowrap}
+    .pdf-section{margin:10px;width:auto;padding:10px}
+    .pdf-viewer{height:600px}
 }
 </style>
 </head>
@@ -482,32 +280,27 @@ footer{
     </nav>
 </header>
 
-<div id="loading">
-    <div class="spinner"></div>
-    <h2>Menjana Buku Keputusan Rasmi</h2>
-    <p id="loadingText" class="loading-small">Sedang mengambil data keputusan...</p>
-</div>
-
 <div class="control-bar">
-    <button class="btn-print" onclick="window.print()">
-        <i class="fas fa-print"></i> CETAK / SIMPAN PDF
-    </button>
-
-    <button class="btn-refresh" onclick="janaBuku()">
-        <i class="fas fa-sync"></i> KEMASKINI DATA
-    </button>
-
-    <span class="status" id="status">Menunggu...</span>
+    <a href="documents/bukukeputusanbolajaringmssm2026.pdf" download class="btn-download">
+        <i class="fas fa-download"></i> MUAT TURUN PDF
+    </a>
 </div>
 
-<main id="book"></main>
+<main class="pdf-section">
+    <div class="section-title">Buku Keputusan Rasmi MSSM 2026</div>
+    
+    <iframe src="documents/bukukeputusanbolajaringmssm2026.pdf" class="pdf-viewer" title="Buku Keputusan Rasmi MSSM 2026">
+        <div class="pdf-fallback">
+            Pelayar anda tidak menyokong paparan PDF secara terus. Sila muat turun fail melalui pautan di atas.
+        </div>
+    </iframe>
+</main>
 
 <footer>
     <p>© 2026 Portal Rasmi Bola Jaring MSSM. Hak Cipta Terpelihara.</p>
 </footer>
 
 <script>
-/* ---------------- MENU ---------------- */
 const menuToggle = document.getElementById("menu-toggle");
 const navMenu = document.getElementById("nav-menu");
 const menuIcon = document.getElementById("menu-icon");
@@ -534,480 +327,6 @@ document.addEventListener("click", function(){
         d.classList.remove("open");
     });
 });
-
-/* ---------------- SUMBER GOOGLE SHEETS & STANDARD ---------------- */
-const KATEGORI_KEPUTUSAN = [
-    { 
-        id: "u12", 
-        nama: "BAWAH 12 TAHUN", 
-        url: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/export?format=csv&gid=1045376482" 
-    },
-    { 
-        id: "u15", 
-        nama: "BAWAH 15 TAHUN", 
-        url: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/export?format=csv&gid=624168085" 
-    },
-    { 
-        id: "u18", 
-        nama: "BAWAH 18 TAHUN", 
-        url: "https://docs.google.com/spreadsheets/d/1Qu-lddktMuwUjG7Bn1b6MsvmuQ3a5kzQLXmD1jHCMU4/export?format=csv&gid=755929729" 
-    }
-];
-
-const KATEGORI_KEDUDUKAN = [
-    { 
-        id: "kedudukan_u12", 
-        nama: "KEDUDUKAN BAWAH 12 TAHUN", 
-        url: "https://docs.google.com/spreadsheets/d/1ItWWq1j0D2nO6zxQzgv24nQuzhKqyXEe3_Eu4wIHAg0/export?format=csv&gid=626141204" 
-    },
-    { 
-        id: "kedudukan_u15", 
-        nama: "KEDUDUKAN BAWAH 15 TAHUN", 
-        url: "https://docs.google.com/spreadsheets/d/1Oc_BowwyXJF8-AubPLmSompXQ5YUDp23LWesuOmQEMw/export?format=csv&gid=626141204" 
-    },
-    { 
-        id: "kedudukan_u18", 
-        nama: "KEDUDUKAN BAWAH 18 TAHUN", 
-        url: "https://docs.google.com/spreadsheets/d/180gesLRs2fnsR677akZUTVFYFkkSiEu-aaVUnKquXHo/export?format=csv&gid=626141204" 
-    }
-];
-
-const sumberBukuStandard = [
-    {
-        kategori: "KEDUDUKAN KESELURUHAN",
-        url: "data keudukankeseluruhan.html"
-    },
-    {
-        kategori: "ANUGERAH KHAS",
-        url: "anugerahkhas.html"
-    },
-    {
-        kategori: "BAWAH 12",
-        url: "data u12.html"
-    },
-    {
-        kategori: "BAWAH 15",
-        url: "data u15.html"
-    },
-    {
-        kategori: "BAWAH 18",
-        url: "data u18.html"
-    }
-];
-
-/* ---------------- UTILITY ---------------- */
-function setLoading(text){
-    const el = document.getElementById("loadingText");
-    if(el) el.textContent = text;
-}
-
-function escapeHTML(text){
-    return String(text ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-}
-
-function normalizeUrl(url){
-    return new URL(url, window.location.href).href;
-}
-
-function tunggu(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function tableAdaData(table){
-    if(!table) return false;
-    const text = (table.innerText || table.textContent || "").replace(/\s+/g," ").trim();
-    const rows = table.querySelectorAll("tr");
-    if(rows.length < 2) return false;
-    if(text.length < 10) return false;
-    const lower = text.toLowerCase();
-    if(lower === "loading..." || lower === "loading" || lower.includes("sedang memuatkan data")){
-        return false;
-    }
-    return true;
-}
-
-function tungguData(iframe, maxWait = 20000){
-    return new Promise(resolve=>{
-        const mula = Date.now();
-        const check = setInterval(()=>{
-            try{
-                const doc = iframe.contentDocument;
-                if(!doc) return;
-                const tables = Array.from(doc.querySelectorAll("table"));
-                const adaTableDenganData = tables.some(table => tableAdaData(table));
-                if(adaTableDenganData){
-                    clearInterval(check);
-                    resolve(true);
-                    return;
-                }
-            }catch(error){}
-
-            if(Date.now() - mula >= maxWait){
-                clearInterval(check);
-                resolve(false);
-            }
-        },300);
-    });
-}
-
-function loadPage(url){
-    return new Promise((resolve,reject)=>{
-        const fullUrl = normalizeUrl(url);
-        const iframe = document.createElement("iframe");
-        iframe.style.position = "fixed";
-        iframe.style.left = "-20000px";
-        iframe.style.top = "0";
-        iframe.style.width = "1400px";
-        iframe.style.height = "1200px";
-        iframe.style.border = "0";
-        iframe.setAttribute("aria-hidden","true");
-
-        let selesai = false;
-        const timeout = setTimeout(()=>{
-            if(selesai) return;
-            selesai = true;
-            try{ iframe.remove(); }catch(e){}
-            reject(new Error("Masa menunggu halaman tamat: " + url));
-        },25000);
-
-        iframe.onload = async function(){
-            try{
-                await tungguData(iframe,20000);
-                if(selesai) return;
-                const doc = iframe.contentDocument;
-                if(!doc) throw new Error("Dokumen sumber tidak dapat dibaca.");
-                selesai = true;
-                clearTimeout(timeout);
-                resolve(doc);
-            }catch(error){
-                if(!selesai){
-                    selesai = true;
-                    clearTimeout(timeout);
-                    try{ iframe.remove(); }catch(e){}
-                    reject(error);
-                }
-            }
-        };
-
-        iframe.onerror = function(){
-            if(selesai) return;
-            selesai = true;
-            clearTimeout(timeout);
-            try{ iframe.remove(); }catch(e){}
-            reject(new Error("Gagal membuka halaman: " + url));
-        };
-
-        iframe.src = fullUrl;
-        document.body.appendChild(iframe);
-    });
-}
-
-/* ---------------- GOOGLE SHEET CSV PARSER & RENDERER ---------------- */
-function parseCSV(text) {
-    let lines = text.split("\n");
-    let result = [];
-    for (let i = 0; i < lines.length; i++) {
-        let row = [];
-        let current = "";
-        let inQuotes = false;
-        for (let j = 0; j < lines[i].length; j++) {
-            let char = lines[i][j];
-            if (char === '"') {
-                inQuotes = !inQuotes;
-            } else if (char === ',' && !inQuotes) {
-                row.push(current.trim());
-                current = "";
-            } else {
-                current += char;
-            }
-        }
-        row.push(current.trim());
-        result.push(row);
-    }
-    return result.filter(row => row.some(cell => cell !== ""));
-}
-
-async function ambilDataGoogleSheet(csvUrl) {
-    const response = await fetch(csvUrl);
-    if (!response.ok) throw new Error("Gagal mengambil data CSV dari Google Sheet.");
-    const text = await response.text();
-    return parseCSV(text);
-}
-
-function binaJadualDariCSV(rows) {
-    if (!rows || rows.length === 0) {
-        return `<div class="error">Tiada data dijumpai.</div>`;
-    }
-    let html = `<table class="result-table"><thead><tr>`;
-    rows[0].forEach(cell => {
-        html += `<th>${escapeHTML(cell.replace(/^"|"$/g, ''))}</th>`;
-    });
-    html += `</tr></thead><tbody>`;
-
-    for (let i = 1; i < rows.length; i++) {
-        html += `<tr>`;
-        rows[i].forEach(cell => {
-            let cleanCell = cell.replace(/^"|"$/g, '');
-            if (cleanCell.toLowerCase().startsWith('http') && (cleanCell.endsWith('.png') || cleanCell.endsWith('.jpg') || cleanCell.endsWith('.jpeg'))) {
-                html += `<td><img src="${escapeHTML(cleanCell)}" class="team-logo" alt="Logo"></td>`;
-            } else {
-                html += `<td>${escapeHTML(cleanCell)}</td>`;
-            }
-        });
-        html += `</tr>`;
-    }
-    html += `</tbody></table>`;
-    return html;
-}
-
-async function binaSectionGoogleSheet(kategori, tajukUtama = "KEPUTUSAN RASMI") {
-    let html = `
-        <section class="book-page results-page">
-            <div class="section-title">${escapeHTML(tajukUtama)}</div>
-            <div class="category-title">${escapeHTML(kategori.nama)}</div>
-            <div class="portal-source">Sumber: Google Sheets Rasmi MSSM 2026</div>
-    `;
-    try {
-        const rows = await ambilDataGoogleSheet(kategori.url);
-        html += `<div class="success-note">Data Google Sheet berjaya dimuatkan.</div>`;
-        html += binaJadualDariCSV(rows);
-    } catch (error) {
-        html += `<div class="error"><strong>Gagal memuatkan data Google Sheet:</strong><br>${escapeHTML(error.message)}</div>`;
-    }
-    html += `
-            <div class="page-number">MSSM 2026</div>
-        </section>
-    `;
-    return html;
-}
-
-/* ---------------- STANDARD TABLES ---------------- */
-function ambilTables(doc){
-    if(!doc) return [];
-    return Array.from(doc.querySelectorAll("table")).filter(tableAdaData);
-}
-
-function bersihkanTable(table){
-    const clone = table.cloneNode(true);
-    clone.querySelectorAll("button,input,select,textarea,script,style,form").forEach(el=>el.remove());
-    clone.querySelectorAll(".no-print,.print-hide,.action,.actions,.pagination").forEach(el=>el.remove());
-    clone.querySelectorAll("a").forEach(a=>{
-        const span = document.createElement("span");
-        span.innerHTML = a.innerHTML;
-        span.className = a.className || "";
-        a.replaceWith(span);
-    });
-    clone.classList.add("result-table");
-    clone.querySelectorAll("[width],[height]").forEach(el=>{
-        el.removeAttribute("width");
-        el.removeAttribute("height");
-    });
-    return clone;
-}
-
-function ambilTajuk(doc){
-    if(!doc) return "";
-    const h1 = doc.querySelector("h1");
-    if(h1 && h1.textContent.trim()) return h1.textContent.trim();
-    const title = doc.querySelector("title");
-    if(title && title.textContent.trim()) return title.textContent.trim();
-    return "";
-}
-
-function betulkanImej(clone, sourceDoc){
-    if(!sourceDoc) return;
-    const base = sourceDoc.location.href;
-    clone.querySelectorAll("img").forEach(img=>{
-        const src = img.getAttribute("src");
-        if(!src) return;
-        try{
-            img.setAttribute("src", new URL(src, base).href);
-        }catch(e){}
-    });
-}
-
-function binaSectionStandard(kategori, doc, url){
-    const tables = ambilTables(doc);
-    let html = `
-        <section class="book-page">
-            <div class="section-title">${escapeHTML(kategori)}</div>
-    `;
-
-    const tajuk = ambilTajuk(doc);
-    if(tajuk && tajuk.toUpperCase() !== kategori.toUpperCase()){
-        html += `<div class="source-title">${escapeHTML(tajuk)}</div>`;
-    }
-
-    if(tables.length === 0){
-        html += `
-            <div class="error">
-                <strong>Table data tidak ditemui.</strong><br><br>
-                Halaman sumber: ${escapeHTML(url)}<br><br>
-                Pastikan fail HTML tersebut mengandungi jadual (&lt;table&gt;) yang sah.
-            </div>
-        `;
-    }else{
-        html += `<div class="success-note">${tables.length} jadual data berjaya dimuatkan.</div>`;
-        tables.forEach((table, index)=>{
-            const clean = bersihkanTable(table);
-            betulkanImej(clean, doc);
-            let subTitle = "";
-            if(tables.length > 1){
-                subTitle = `<div class="sub-title">${escapeHTML(kategori)} — JADUAL ${index + 1}</div>`;
-            }
-            html += subTitle;
-            html += clean.outerHTML;
-        });
-    }
-
-    html += `<div class="page-number">MSSM 2026</div></section>`;
-    return html;
-}
-
-function binaCover(){
-    return `
-        <section class="book-page cover">
-            <div class="cover-content">
-                <img src="images/mssmlogo.png" class="cover-logo" alt="Logo MSSM" onerror="this.style.display='none'">
-                <h1>BUKU KEPUTUSAN RASMI</h1>
-                <div class="cover-line"></div>
-                <h2>KEJOHANAN BOLA JARING MSSM 2026</h2>
-                <h3>MAJLIS SUKAN SEKOLAH MALAYSIA</h3>
-                <p>MALAYSIA</p>
-                <br>
-                <p><strong>DOKUMEN KEPUTUSAN RASMI</strong></p>
-            </div>
-            <div class="page-number">MSSM 2026</div>
-        </section>
-    `;
-}
-
-async function janaBuku(){
-    const book = document.getElementById("book");
-    const status = document.getElementById("status");
-    const loading = document.getElementById("loading");
-
-    book.innerHTML = "";
-    loading.style.display = "flex";
-
-    let berjaya = 0;
-    let gagal = 0;
-    const jumlahSumber = 1 + KATEGORI_KEPUTUSAN.length + KATEGORI_KEDUDUKAN.length + sumberBukuStandard.length;
-    let langkahSemasa = 0;
-
-    try{
-        book.innerHTML = binaCover();
-
-        // 1. Ambil data keputusan rasmi dari Google Sheets (U12, U15, U18)
-        for (let i = 0; i < KATEGORI_KEPUTUSAN.length; i++) {
-            langkahSemasa++;
-            const kat = KATEGORI_KEPUTUSAN[i];
-            setLoading(`Mengambil keputusan rasmi ${kat.nama} dari Google Sheet...`);
-            if(status) status.textContent = `${langkahSemasa}/${jumlahSumber}`;
-
-            try {
-                const sectionHtml = await binaSectionGoogleSheet(kat, "KEPUTUSAN RASMI");
-                book.insertAdjacentHTML("beforeend", sectionHtml);
-                berjaya++;
-            } catch (sheetError) {
-                console.error("Gagal memuatkan Google Sheet:", sheetError);
-                gagal++;
-                book.insertAdjacentHTML("beforeend", `
-                    <section class="book-page">
-                        <div class="section-title">KEPUTUSAN RASMI</div>
-                        <div class="category-title">${escapeHTML(kat.nama)}</div>
-                        <div class="error">
-                            <strong>Data Google Sheet tidak dapat dimuatkan.</strong><br><br>
-                            ${escapeHTML(sheetError.message)}
-                        </div>
-                        <div class="page-number">MSSM 2026</div>
-                    </section>
-                `);
-            }
-        }
-
-        // 2. Ambil data kedudukan dari Google Sheets (U12, U15, U18)
-        for (let i = 0; i < KATEGORI_KEDUDUKAN.length; i++) {
-            langkahSemasa++;
-            const kat = KATEGORI_KEDUDUKAN[i];
-            setLoading(`Mengambil ${kat.nama} dari Google Sheet...`);
-            if(status) status.textContent = `${langkahSemasa}/${jumlahSumber}`;
-
-            try {
-                const sectionHtml = await binaSectionGoogleSheet(kat, "KEDUDUKAN");
-                book.insertAdjacentHTML("beforeend", sectionHtml);
-                berjaya++;
-            } catch (sheetError) {
-                console.error("Gagal memuatkan Google Sheet Kedudukan:", sheetError);
-                gagal++;
-                book.insertAdjacentHTML("beforeend", `
-                    <section class="book-page">
-                        <div class="section-title">KEDUDUKAN</div>
-                        <div class="category-title">${escapeHTML(kat.nama)}</div>
-                        <div class="error">
-                            <strong>Data Google Sheet tidak dapat dimuatkan.</strong><br><br>
-                            ${escapeHTML(sheetError.message)}
-                        </div>
-                        <div class="page-number">MSSM 2026</div>
-                    </section>
-                `);
-            }
-        }
-
-        // 3. Ambil fail-fail standard yang lain
-        for(let i=0; i<sumberBukuStandard.length; i++){
-            langkahSemasa++;
-            const sumber = sumberBukuStandard[i];
-            setLoading(`Mengambil ${sumber.kategori}...`);
-            if(status) status.textContent = `${langkahSemasa}/${jumlahSumber}`;
-
-            try{
-                const doc = await loadPage(sumber.url);
-                const section = binaSectionStandard(sumber.kategori, doc, sumber.url);
-                book.insertAdjacentHTML("beforeend", section);
-                berjaya++;
-            }catch(error){
-                console.error("Gagal:", sumber.kategori, sumber.url, error);
-                gagal++;
-                book.insertAdjacentHTML("beforeend", `
-                    <section class="book-page">
-                        <div class="section-title">${escapeHTML(sumber.kategori)}</div>
-                        <div class="error">
-                            <strong>Data tidak dapat dimuatkan.</strong><br><br>
-                            Laluan: <code>${escapeHTML(sumber.url)}</code><br><br>
-                            ${escapeHTML(error.message)}
-                        </div>
-                        <div class="page-number">MSSM 2026</div>
-                    </section>
-                `);
-            }
-        }
-
-        setLoading("Buku Keputusan telah selesai dijana.");
-        if(status) status.textContent = `Siap: ${berjaya} berjaya | ${gagal} gagal`;
-    }catch(error){
-        console.error(error);
-        book.insertAdjacentHTML("beforeend", `
-            <section class="book-page">
-                <div class="error">
-                    <h2>Ralat menjana buku</h2><br>${escapeHTML(error.message)}
-                </div>
-            </section>
-        `);
-        if(status) status.textContent = "Ralat";
-    }finally{
-        setTimeout(()=>{
-            loading.style.display = "none";
-        }, 700);
-    }
-}
-
-window.addEventListener("DOMContentLoaded", janaBuku);
 </script>
 
 </body>
