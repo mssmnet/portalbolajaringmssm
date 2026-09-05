@@ -38,7 +38,7 @@ body{
 .main-header{
     background:var(--maroon);
     color:#fff;
-    padding:12px 5%;
+    padding:10px 4%;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -48,35 +48,35 @@ body{
     z-index:1000;
 }
 
-.header-left{display:flex;align-items:center;gap:15px}
+.header-left{display:flex;align-items:center;gap:12px}
 
 .logo-header{
-    width:64px;
-    height:64px;
+    width:55px;
+    height:55px;
     object-fit:contain;
 }
 
 .header-title h1{
-    font-size:23px;
+    font-size:20px;
     line-height:1.2;
     font-weight:800;
 }
 
 .header-title .subtitle{
     color:var(--gold);
-    font-size:13px;
+    font-size:12px;
     font-weight:700;
     margin-top:2px;
 }
 
-nav{display:flex;gap:8px;align-items:center}
+nav{display:flex;gap:6px;align-items:center}
 
 nav a,.dropdown-btn{
     color:#fff;
     text-decoration:none;
     font-weight:700;
-    font-size:14px;
-    padding:9px 12px;
+    font-size:13px;
+    padding:8px 10px;
     border-radius:8px;
     background:none;
     border:0;
@@ -84,7 +84,7 @@ nav a,.dropdown-btn{
     font-family:inherit;
     display:inline-flex;
     align-items:center;
-    gap:6px;
+    gap:5px;
 }
 
 nav a:hover,.dropdown-btn:hover,.dropdown-btn.active{
@@ -125,7 +125,7 @@ nav a:hover,.dropdown-btn:hover,.dropdown-btn.active{
 
 .menu-toggle{
     display:none;
-    font-size:23px;
+    font-size:22px;
     color:#fff;
     background:none;
     border:0;
@@ -136,46 +136,46 @@ nav a:hover,.dropdown-btn:hover,.dropdown-btn.active{
 .control-bar{
     background:rgba(255,255,255,.96);
     border-bottom:1px solid var(--line);
-    padding:11px 20px;
+    padding:10px 15px;
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:10px;
+    gap:15px;
     box-shadow:0 4px 15px rgba(7,26,61,.05);
     position:sticky;
-    top:88px;
+    top:75px;
     z-index:900;
 }
 
-.btn-download{
+.btn-action{
     background:var(--maroon);
     color:#fff;
     border:0;
-    padding:9px 16px;
-    border-radius:9px;
+    padding:8px 16px;
+    border-radius:8px;
     cursor:pointer;
     font-weight:700;
-    font-size:13px;
+    font-size:12px;
     display:inline-flex;
     align-items:center;
-    gap:7px;
+    gap:6px;
     text-decoration:none;
 }
 
-.btn-download:hover{
+.btn-action:hover{
     background:var(--maroon-dark);
 }
 
 /* PDF CONTAINER */
 .pdf-section{
     flex:1;
-    max-width:210mm;
-    width:100%;
-    margin:24px auto;
+    max-width:1100px;
+    width:96%;
+    margin:15px auto;
     background:#fff;
-    box-shadow:0 4px 20px rgba(0,0,0,.10);
-    padding:20px;
-    border-radius:8px;
+    box-shadow:0 4px 20px rgba(0,0,0,.12);
+    padding:15px;
+    border-radius:10px;
     display:flex;
     flex-direction:column;
 }
@@ -184,45 +184,84 @@ nav a:hover,.dropdown-btn:hover,.dropdown-btn.active{
     text-align:center;
     color:var(--maroon);
     border-bottom:3px solid var(--gold);
-    padding-bottom:9px;
-    margin-bottom:15px;
-    font-size:21px;
+    padding-bottom:8px;
+    margin-bottom:12px;
+    font-size:18px;
     font-weight:800;
     text-transform:uppercase;
 }
 
 .pdf-viewer{
     width:100%;
-    height:850px;
+    height:85vh;
+    min-height:700px;
     border:1px solid var(--line);
     border-radius:6px;
 }
 
 .pdf-fallback{
     text-align:center;
-    padding:20px;
+    padding:40px 20px;
     font-size:14px;
-    color:var(--muted);
+    color:var(--text);
+    background:#fff5f7;
+    border:1px dashed var(--maroon);
+    border-radius:6px;
+}
+
+.pdf-fallback a {
+    color: var(--maroon);
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 footer{
     background:var(--maroon);
     color:#fff;
     text-align:center;
-    padding:17px 15px;
+    padding:15px;
     font-size:11px;
     margin-top:auto;
 }
 
 @media(max-width:900px){
-    .main-header{flex-wrap:wrap;padding:10px 16px}
+    .main-header{padding:10px 12px}
+    .header-title h1{font-size:17px}
+    .header-title .subtitle{font-size:11px}
+    .logo-header{width:45px;height:45px}
     .menu-toggle{display:block}
-    nav{display:none;flex-direction:column;width:100%;margin-top:10px;background:var(--maroon-dark);border-radius:9px;align-items:stretch}
+    
+    nav{
+        display:none;
+        flex-direction:column;
+        width:100%;
+        margin-top:10px;
+        background:var(--maroon-dark);
+        border-radius:9px;
+        align-items:stretch;
+        padding:5px 0;
+    }
     nav.active{display:flex}
-    nav a,.dropdown-btn{width:100%;justify-content:space-between;padding:12px 16px}
-    .dropdown-content{position:static;width:100%;box-shadow:none;background:rgba(0,0,0,.2)}
-    .pdf-section{margin:10px;width:auto;padding:10px}
-    .pdf-viewer{height:600px}
+    nav a,.dropdown-btn{width:100%;justify-content:space-between;padding:10px 14px;font-size:13px}
+    .dropdown-content{position:static;width:100%;box-shadow:none;background:rgba(0,0,0,.25)}
+    
+    .control-bar{top:65px;padding:8px 10px;flex-wrap:wrap}
+    
+    .pdf-section{
+        margin:5px auto;
+        width:100%;
+        max-width:100%;
+        padding:8px;
+        border-radius:0;
+        box-shadow:none;
+    }
+    
+    .section-title{font-size:15px;margin-bottom:8px}
+    
+    .pdf-viewer{
+        height:80vh;
+        min-height:500px;
+    }
 }
 </style>
 </head>
@@ -281,7 +320,10 @@ footer{
 </header>
 
 <div class="control-bar">
-    <a href="documents/bukukeputusanbolajaringmssm2026.pdf" download class="btn-download">
+    <a href="documents/bukukeputusanbolajaringmssm2026.pdf" target="_blank" class="btn-action">
+        <i class="fas fa-external-link-alt"></i> BUKA PDF DALAM TAB BARU
+    </a>
+    <a href="documents/bukukeputusanbolajaringmssm2026.pdf" download class="btn-action">
         <i class="fas fa-download"></i> MUAT TURUN PDF
     </a>
 </div>
@@ -291,7 +333,8 @@ footer{
     
     <iframe src="documents/bukukeputusanbolajaringmssm2026.pdf" class="pdf-viewer" title="Buku Keputusan Rasmi MSSM 2026">
         <div class="pdf-fallback">
-            Pelayar anda tidak menyokong paparan PDF secara terus. Sila muat turun fail melalui pautan di atas.
+            <p><strong>Paparan terus tidak aktif (Disebabkan sekuriti pelayar tempatan).</strong></p><br>
+            <p>Sila gunakan butang <strong>"Buka PDF Dalam Tab Baru"</strong> di atas atau <a href="documents/bukukeputusanbolajaringmssm2026.pdf" target="_blank">klik di sini</a> untuk membaca buku keputusan dengan lancar.</p>
         </div>
     </iframe>
 </main>
