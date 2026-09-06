@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Buku Keputusan Rasmi | MSSM 2026</title>
 
+<!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<!-- PDF.JS CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
 <style>
 :root{
@@ -16,14 +20,12 @@
     --light:#f5f7fb;
     --text:#182033;
     --muted:#667085;
-    --white:#fff;
+    --white:#ffffff;
     --line:#d9dee7;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-
 html{scroll-behavior:smooth}
-
 body{
     font-family:'Segoe UI',Arial,sans-serif;
     background:var(--pink);
@@ -49,28 +51,12 @@ body{
 }
 
 .header-left{display:flex;align-items:center;gap:15px}
+.logo-header{width:64px;height:64px;object-fit:contain}
+.header-title h1{font-size:23px;line-height:1.2;font-weight:800}
+.header-title .subtitle{color:var(--gold);font-size:13px;font-weight:700;margin-top:2px}
 
-.logo-header{
-    width:64px;
-    height:64px;
-    object-fit:contain;
-}
-
-.header-title h1{
-    font-size:23px;
-    line-height:1.2;
-    font-weight:800;
-}
-
-.header-title .subtitle{
-    color:var(--gold);
-    font-size:13px;
-    font-weight:700;
-    margin-top:2px;
-}
-
+/* NAVIGATION */
 nav{display:flex;gap:8px;align-items:center}
-
 nav a,.dropdown-btn{
     color:#fff;
     text-decoration:none;
@@ -86,51 +72,32 @@ nav a,.dropdown-btn{
     align-items:center;
     gap:6px;
 }
-
 nav a:hover,.dropdown-btn:hover,.dropdown-btn.active{
     background:rgba(255,255,255,.15);
     color:var(--gold);
 }
 
+/* DROPDOWN */
 .dropdown{position:relative}
-
 .dropdown-content{
     display:none;
     position:absolute;
     top:100%;
     left:0;
-    min-width:220px;
+    min-width:230px;
     background:var(--maroon);
     border-radius:10px;
     box-shadow:0 8px 20px rgba(0,0,0,.3);
     padding:7px 0;
     z-index:1100;
 }
+.dropdown:hover .dropdown-content,.dropdown.open .dropdown-content{display:block}
+.dropdown-content a{display:block;width:100%;border-radius:0;padding:11px 16px}
+.dropdown-content a:hover{background:rgba(255,255,255,.12)}
+.dropdown-content hr{border:0;border-top:1px solid rgba(255,255,255,.2);margin:5px 0}
 
-.dropdown:hover .dropdown-content,
-.dropdown.open .dropdown-content{display:block}
-
-.dropdown-content a{
-    display:block;
-    width:100%;
-    border-radius:0;
-    padding:11px 16px;
-}
-
-.dropdown-content hr{
-    border:0;
-    border-top:1px solid rgba(255,255,255,.2);
-    margin:5px 0;
-}
-
-.menu-toggle{
-    display:none;
-    font-size:23px;
-    color:#fff;
-    background:none;
-    border:0;
-    cursor:pointer;
-}
+/* MOBILE MENU */
+.menu-toggle{display:none;font-size:23px;color:#fff;background:none;border:0;cursor:pointer}
 
 /* CONTROL BAR */
 .control-bar{
@@ -147,11 +114,12 @@ nav a:hover,.dropdown-btn:hover,.dropdown-btn.active{
     z-index:900;
 }
 
+/* BUTTON */
 .btn-download{
     background:var(--maroon);
     color:#fff;
     border:0;
-    padding:9px 16px;
+    padding:10px 17px;
     border-radius:9px;
     cursor:pointer;
     font-weight:700;
@@ -160,22 +128,20 @@ nav a:hover,.dropdown-btn:hover,.dropdown-btn.active{
     align-items:center;
     gap:7px;
     text-decoration:none;
+    transition:.2s ease;
 }
+.btn-download:hover{background:var(--maroon-dark);transform:translateY(-1px)}
 
-.btn-download:hover{
-    background:var(--maroon-dark);
-}
-
-/* PDF CONTAINER */
+/* PDF SECTION */
 .pdf-section{
     flex:1;
-    max-width:210mm;
-    width:100%;
+    width:calc(100% - 40px);
+    max-width:1100px;
     margin:24px auto;
     background:#fff;
     box-shadow:0 4px 20px rgba(0,0,0,.10);
     padding:20px;
-    border-radius:8px;
+    border-radius:10px;
     display:flex;
     flex-direction:column;
 }
@@ -191,20 +157,51 @@ nav a:hover,.dropdown-btn:hover,.dropdown-btn.active{
     text-transform:uppercase;
 }
 
-.pdf-viewer{
+/* PDF VIEWER CONTAINER */
+.pdf-wrapper{
     width:100%;
     height:850px;
+    min-height:600px;
     border:1px solid var(--line);
-    border-radius:6px;
-}
-
-.pdf-fallback{
-    text-align:center;
+    border-radius:8px;
+    overflow-y:auto;
+    background:#f8f9fb;
+    position:relative;
     padding:20px;
-    font-size:14px;
-    color:var(--muted);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
+.pdf-canvas-container {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    background: #fff;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.pdf-canvas-container canvas {
+    display: block;
+    max-width: 100%;
+    height: auto !important;
+}
+
+.pdf-loading{
+    text-align:center;
+    padding:60px 20px;
+    color:var(--muted);
+    font-size:15px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+}
+
+.pdf-loading i{font-size:35px;color:var(--maroon)}
+
+/* FOOTER */
 footer{
     background:var(--maroon);
     color:#fff;
@@ -214,15 +211,22 @@ footer{
     margin-top:auto;
 }
 
+/* MOBILE */
 @media(max-width:900px){
     .main-header{flex-wrap:wrap;padding:10px 16px}
+    .header-left{gap:10px}
+    .logo-header{width:50px;height:50px}
+    .header-title h1{font-size:17px}
+    .header-title .subtitle{font-size:11px}
     .menu-toggle{display:block}
-    nav{display:none;flex-direction:column;width:100%;margin-top:10px;background:var(--maroon-dark);border-radius:9px;align-items:stretch}
+    nav{display:none;flex-direction:column;width:100%;margin-top:10px;background:var(--maroon-dark);border-radius:9px;align-items:stretch;padding:5px 0}
     nav.active{display:flex}
     nav a,.dropdown-btn{width:100%;justify-content:space-between;padding:12px 16px}
     .dropdown-content{position:static;width:100%;box-shadow:none;background:rgba(0,0,0,.2)}
-    .pdf-section{margin:10px;width:auto;padding:10px}
-    .pdf-viewer{height:600px}
+    .control-bar{top:70px}
+    .pdf-section{width:calc(100% - 20px);margin:10px auto;padding:10px}
+    .section-title{font-size:17px}
+    .pdf-wrapper{height:700px;min-height:500px}
 }
 </style>
 </head>
@@ -238,12 +242,12 @@ footer{
         </div>
     </div>
 
-    <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu">
+    <button class="menu-toggle" id="menu-toggle" aria-label="Buka Menu" type="button">
         <i class="fas fa-bars" id="menu-icon"></i>
     </button>
 
     <nav id="nav-menu">
-        <a href="../../index.html">HOME</a>
+        <a href="index.html">HOME</a>
 
         <div class="dropdown">
             <button type="button" class="dropdown-btn">
@@ -281,6 +285,9 @@ footer{
 </header>
 
 <div class="control-bar">
+    <a href="documents/bukukeputusanrasmimssm2026.pdf" target="_blank" class="btn-download">
+        <i class="fas fa-file-pdf"></i> BUKA PDF
+    </a>
     <a href="documents/bukukeputusanrasmimssm2026.pdf" download class="btn-download">
         <i class="fas fa-download"></i> MUAT TURUN PDF
     </a>
@@ -288,12 +295,13 @@ footer{
 
 <main class="pdf-section">
     <div class="section-title">Buku Keputusan Rasmi MSSM 2026</div>
-    
-    <iframe src="documents/bukukeputusanrasmimssm2026.pdf" class="pdf-viewer" title="Buku Keputusan Rasmi MSSM 2026">
-        <div class="pdf-fallback">
-            Pelayar anda tidak menyokong paparan PDF secara terus. Sila muat turun fail melalui pautan di atas.
+
+    <div class="pdf-wrapper" id="pdf-container">
+        <div class="pdf-loading" id="pdf-loading">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Sedang memuatkan Buku Keputusan Rasmi...</p>
         </div>
-    </iframe>
+    </div>
 </main>
 
 <footer>
@@ -301,21 +309,25 @@ footer{
 </footer>
 
 <script>
+/* MOBILE MENU */
 const menuToggle = document.getElementById("menu-toggle");
 const navMenu = document.getElementById("nav-menu");
 const menuIcon = document.getElementById("menu-icon");
 
-menuToggle.addEventListener("click", function(e){
-    e.stopPropagation();
-    navMenu.classList.toggle("active");
-    menuIcon.className = navMenu.classList.contains("active") ? "fas fa-xmark" : "fas fa-bars";
-});
+if(menuToggle){
+    menuToggle.addEventListener("click", function(e){
+        e.stopPropagation();
+        navMenu.classList.toggle("active");
+        menuIcon.className = navMenu.classList.contains("active") ? "fas fa-xmark" : "fas fa-bars";
+    });
+}
 
-document.querySelectorAll(".dropdown").forEach(dropdown=>{
+/* DROPDOWN MENU */
+document.querySelectorAll(".dropdown").forEach(function(dropdown){
     const btn = dropdown.querySelector(".dropdown-btn");
     btn.addEventListener("click", function(e){
         e.stopPropagation();
-        document.querySelectorAll(".dropdown").forEach(other=>{
+        document.querySelectorAll(".dropdown").forEach(function(other){
             if(other !== dropdown) other.classList.remove("open");
         });
         dropdown.classList.toggle("open");
@@ -323,9 +335,47 @@ document.querySelectorAll(".dropdown").forEach(dropdown=>{
 });
 
 document.addEventListener("click", function(){
-    document.querySelectorAll(".dropdown").forEach(d=>{
-        d.classList.remove("open");
+    document.querySelectorAll(".dropdown").forEach(function(dropdown){
+        dropdown.classList.remove("open");
     });
+});
+
+/* PDF.JS RENDERING */
+const url = 'documents/bukukeputusanrasmimssm2026.pdf';
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+const container = document.getElementById('pdf-container');
+const loadingEl = document.getElementById('pdf-loading');
+
+pdfjsLib.getDocument(url).promise.then(function(pdfDoc) {
+    if(loadingEl) loadingEl.remove();
+
+    for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
+        pdfDoc.getPage(pageNum).then(function(page) {
+            const canvasContainer = document.createElement('div');
+            canvasContainer.className = 'pdf-canvas-container';
+            
+            const canvas = document.createElement('canvas');
+            canvasContainer.appendChild(canvas);
+            container.appendChild(canvasContainer);
+
+            const context = canvas.getContext('2d');
+            const viewport = page.getViewport({ scale: 1.5 });
+            
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            const renderContext = {
+                canvasContext: context,
+                viewport: viewport
+            };
+            page.render(renderContext);
+        });
+    }
+}).catch(function(error) {
+    if(loadingEl) {
+        loadingEl.innerHTML = '<i class="fas fa-exclamation-triangle" style="color:#7B1E3A;"></i><p>Gagal memuatkan paparan PDF secara terus. Sila gunakan butang <b>Muat Turun PDF</b> di atas.</p>';
+    }
 });
 </script>
 
