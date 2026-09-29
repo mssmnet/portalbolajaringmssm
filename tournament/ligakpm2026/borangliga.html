@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borang Rasmi - Liga KPM Bola Jaring</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #1d4ed8; 
+            --accent-red: #dc2626;
+            --accent-yellow: #facc15;
+            --light-blue: #38bdf8;
+            --dark-blue: #1e3a8a;
+        }
+
+        /* Latar Belakang Baby Blue Eksklusif dengan Grafik Posisi Netball (GS, GA, WA, C, WD, GD, GK) */
+        body {
+            background-color: #e0f2fe;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='%230284c7' fill-opacity='0.11' font-family='Segoe UI, sans-serif' font-weight='900' font-size='15'%3E%3Ctext x='20' y='30'%3EGS%3C/text%3E%3Ctext x='110' y='30'%3EGA%3C/text%3E%3Ctext x='20' y='95'%3EWA%3C/text%3E%3Ctext x='85' y='95'%3EC%3C/text%3E%3Ctext x='140' y='95'%3EWD%3C/text%3E%3Ctext x='40' y='155'%3EGD%3C/text%3E%3Ctext x='120' y='155'%3EGK%3C/text%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Jalur Warna Tema (Merah, Kuning, Biru Muda, Biru) */
+        .color-stripe {
+            height: 6px;
+            background: linear-gradient(to right, #dc2626, #facc15, #38bdf8, #1d4ed8);
+            width: 100%;
+        }
+
+        @keyframes pulse-live {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .live-pulse {
+            animation: pulse-live 1.5s infinite;
+        }
+    </style>
+</head>
+<body class="text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Jalur Tema Warna-warni di Paling Atas -->
+    <div class="color-stripe"></div>
+
+    <!-- HEADER -->
+    <header class="bg-gradient-to-r from-blue-950 via-blue-900 to-indigo-900 text-white shadow-xl sticky top-0 z-50 border-b-4 border-yellow-400">
+        <div class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
+            <!-- Logo Section -->
+            <div class="flex items-center space-x-3 md:space-x-4">
+                <img src="../../images/ligasukan.jpg" alt="Logo Liga KPM" class="h-14 md:h-18 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-yellow-400">
+                <img src="../../images/ligakpm.jpg" alt="Logo Sukan" class="h-14 md:h-18 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-400">
+                <span class="font-extrabold text-lg md:text-2xl tracking-wide text-yellow-300 drop-shadow hidden sm:inline">LIGA KPM 2026</span>
+            </div>
+
+            <!-- Navigation Menu (Desktop) -->
+            <nav class="hidden md:flex items-center space-x-2.5 font-bold text-sm">
+                <a href="index.html" class="hover:text-yellow-300 transition px-3.5 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Home</a>
+                <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="hover:text-yellow-300 transition px-3.5 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Keputusan Jsport</a>
+                <a href="keputusan rasmi.html" class="hover:text-yellow-300 transition px-3.5 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Keputusan Rasmi</a>
+                <a href="jadual.html" class="hover:text-yellow-300 transition px-3.5 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jadual</a>
+                <a href="peraturan.html" class="hover:text-yellow-300 transition px-3.5 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Peraturan</a>
+                <a href="galeri.html" class="hover:text-yellow-300 transition px-3.5 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Galeri</a>
+                <a href="borangliga.html" class="hover:text-yellow-300 transition px-3.5 py-2 rounded-lg bg-red-600 border border-yellow-400 text-yellow-300 font-extrabold">Borang</a>
+                <!-- Navi Live di Header -->
+                <a href="live.html" class="px-3.5 py-2 rounded-lg bg-red-600 text-yellow-300 border-2 border-yellow-400 font-extrabold flex items-center gap-1.5 live-pulse hover:bg-red-700 transition">
+                    <i class="fa-solid fa-video"></i> LIVE
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="text-yellow-300 focus:outline-none p-2.5 bg-blue-900 border border-yellow-400/50 rounded-xl shadow">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-950 border-t border-yellow-400/30 px-4 pt-3 pb-5 space-y-2 text-base font-medium">
+            <a href="index.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Home</a>
+            <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Jsport</a>
+            <a href="keputusan rasmi.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Rasmi</a>
+            <a href="jadual.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Jadual Perlawanan</a>
+            <a href="peraturan.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Peraturan</a>
+            <a href="galeri.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Galeri</a>
+            <a href="borangliga.html" class="block bg-red-600 text-yellow-300 px-3 py-2 rounded-lg transition font-extrabold">Borang</a>
+            <!-- Live di Mobile Menu -->
+            <a href="live.html" class="block bg-red-600 text-yellow-300 font-extrabold px-3 py-2.5 rounded-lg text-center live-pulse border border-yellow-400 transition">
+                <i class="fa-solid fa-video mr-1"></i> SIARAN LANGSUNG (LIVE)
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="py-6 md:py-8 text-center relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <span class="bg-red-600 text-yellow-300 text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow border border-yellow-400 mb-2 inline-block">Muat Turun Dokumen Rasmi</span>
+            <h1 class="text-2xl md:text-4xl font-black mb-2 text-blue-950 drop-shadow-sm">Borang Rasmi Liga KPM 2026</h1>
+            <p class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold">Sila muat turun borang pendaftaran dan pertukaran pemain rasmi di bawah.</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTAINER: KAD BORANG -->
+    <main class="flex-grow container mx-auto px-4 pb-12 pt-2 max-w-4xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Kad 1: Borang Pemain Utama Liga -->
+            <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-6 border-2 border-sky-200 flex flex-col justify-between hover:border-red-600 transition">
+                <div>
+                    <div class="w-14 h-14 bg-blue-100 text-blue-700 rounded-2xl flex items-center justify-center text-2xl mb-4 shadow-sm border border-blue-200">
+                        <i class="fa-solid fa-file-word"></i>
+                    </div>
+                    <h3 class="font-extrabold text-lg text-blue-950 mb-2">Borang Pemain Utama Liga</h3>
+                    <p class="text-xs md:text-sm text-gray-600 mb-6 leading-relaxed">
+                        Dokumen rasmi pendaftaran senarai pemain utama pasukan bagi menyertai kejohanan Bola Jaring Liga KPM 2026. (Format Word).
+                    </p>
+                </div>
+                <div class="flex flex-col gap-3 pt-4 border-t border-gray-100">
+                    <a href="../../documents/borangpemainutamaliga.docx" download class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-4 rounded-xl text-center text-xs md:text-sm transition flex items-center justify-center gap-2 shadow">
+                        <i class="fa-solid fa-download"></i> Muat Turun Borang Word (.docx)
+                    </a>
+                    <!-- Nota: Gantikan fail .docx kepada .pdf jika mahu fungsi buka/cetak langsung -->
+                    <a href="../../documents/borangpemainutamaliga.pdf" target="_blank" class="w-full bg-gray-100 hover:bg-gray-200 text-blue-950 font-bold py-2.5 px-4 rounded-xl text-center text-xs md:text-sm transition flex items-center justify-center gap-2 border border-gray-300">
+                        <i class="fa-solid fa-eye"></i> Papar / Cetak Dokumen (PDF)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Kad 2: Borang Pertukaran Liga -->
+            <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-6 border-2 border-sky-200 flex flex-col justify-between hover:border-red-600 transition">
+                <div>
+                    <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-4 shadow-sm border border-orange-200">
+                        <i class="fa-solid fa-file-pen"></i>
+                    </div>
+                    <h3 class="font-extrabold text-lg text-blue-950 mb-2">Borang Pertukaran Liga</h3>
+                    <p class="text-xs md:text-sm text-gray-600 mb-6 leading-relaxed">
+                        Dokumen rasmi permohonan pertukaran atau penggantian pemain mengikut syarat pertandingan Liga KPM. (Format Word).
+                    </p>
+                </div>
+                <div class="flex flex-col gap-3 pt-4 border-t border-gray-100">
+                    <a href="../../documents/borangpertukaranliga.docx" download class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-4 rounded-xl text-center text-xs md:text-sm transition flex items-center justify-center gap-2 shadow">
+                        <i class="fa-solid fa-download"></i> Muat Turun Borang Word (.docx)
+                    </a>
+                    <a href="../../documents/borangpertukaranliga.pdf" target="_blank" class="w-full bg-gray-100 hover:bg-gray-200 text-blue-950 font-bold py-2.5 px-4 rounded-xl text-center text-xs md:text-sm transition flex items-center justify-center gap-2 border border-gray-300">
+                        <i class="fa-solid fa-eye"></i> Papar / Cetak Dokumen (PDF)
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-blue-950 text-yellow-300 py-5 text-center text-sm md:text-base border-t-4 border-yellow-400 font-black uppercase tracking-widest shadow-inner">
+        LIGA KPM 2026 • HAK CIPTA TERPELIHARA
+    </footer>
+
+    <!-- JAVASCRIPT FOR MOBILE MENU -->
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

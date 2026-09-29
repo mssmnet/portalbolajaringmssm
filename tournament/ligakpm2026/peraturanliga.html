@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peraturan Rasmi - Liga KPM Bola Jaring</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #1d4ed8; 
+            --accent-red: #dc2626;
+            --accent-yellow: #facc15;
+            --light-blue: #38bdf8;
+            --dark-blue: #1e3a8a;
+        }
+
+        /* Latar Belakang Baby Blue Eksklusif dengan Grafik Posisi Netball (GS, GA, WA, C, WD, GD, GK) */
+        body {
+            background-color: #e0f2fe;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='%230284c7' fill-opacity='0.11' font-family='Segoe UI, sans-serif' font-weight='900' font-size='15'%3E%3Ctext x='20' y='30'%3EGS%3C/text%3E%3Ctext x='110' y='30'%3EGA%3C/text%3E%3Ctext x='20' y='95'%3EWA%3C/text%3E%3Ctext x='85' y='95'%3EC%3C/text%3E%3Ctext x='140' y='95'%3EWD%3C/text%3E%3Ctext x='40' y='155'%3EGD%3C/text%3E%3Ctext x='120' y='155'%3EGK%3C/text%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Jalur Warna Tema (Merah, Kuning, Biru Muda, Biru) */
+        .color-stripe {
+            height: 6px;
+            background: linear-gradient(to right, #dc2626, #facc15, #38bdf8, #1d4ed8);
+            width: 100%;
+        }
+
+        @keyframes pulse-live {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .live-pulse {
+            animation: pulse-live 1.5s infinite;
+        }
+    </style>
+</head>
+<body class="text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Jalur Tema Warna-warni di Paling Atas -->
+    <div class="color-stripe"></div>
+
+    <!-- HEADER -->
+    <header class="bg-gradient-to-r from-blue-950 via-blue-900 to-indigo-900 text-white shadow-xl sticky top-0 z-50 border-b-4 border-yellow-400">
+        <div class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
+            <!-- Logo Section -->
+            <div class="flex items-center space-x-3 md:space-x-4">
+                <img src="../../images/ligasukan.jpg" alt="Logo Liga KPM" class="h-14 md:h-18 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-yellow-400">
+                <img src="../../images/ligakpm.jpg" alt="Logo Sukan" class="h-14 md:h-18 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-400">
+                <span class="font-extrabold text-lg md:text-2xl tracking-wide text-yellow-300 drop-shadow hidden sm:inline">LIGA KPM 2026</span>
+            </div>
+
+            <!-- Navigation Menu (Desktop) -->
+            <nav class="hidden lg:flex items-center space-x-2 font-bold text-xs xl:text-sm">
+                <a href="index.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Home</a>
+                <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jsport</a>
+                <a href="keputusan rasmi.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Keputusan</a>
+                <a href="jadual.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jadual</a>
+                <a href="peraturan.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-red-600 border border-yellow-400 text-yellow-300 font-extrabold">Peraturan</a>
+                <a href="statistikliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Statistik</a>
+                <a href="borangliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Borang</a>
+                <a href="galeri.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Galeri</a>
+                <!-- Navi Live di Header -->
+                <a href="live.html" class="px-3 py-2 rounded-lg bg-red-600 text-yellow-300 border-2 border-yellow-400 font-extrabold flex items-center gap-1 live-pulse hover:bg-red-700 transition">
+                    <i class="fa-solid fa-video"></i> LIVE
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center">
+                <button id="menu-btn" class="text-yellow-300 focus:outline-none p-2.5 bg-blue-900 border border-yellow-400/50 rounded-xl shadow">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-blue-950 border-t border-yellow-400/30 px-4 pt-3 pb-5 space-y-2 text-base font-medium">
+            <a href="index.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Home</a>
+            <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Jsport</a>
+            <a href="keputusan rasmi.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Rasmi</a>
+            <a href="jadual.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Jadual Perlawanan</a>
+            <a href="peraturan.html" class="block bg-red-600 text-yellow-300 px-3 py-2 rounded-lg transition font-extrabold">Peraturan Rasmi</a>
+            <a href="statistikliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Statistik Liga</a>
+            <a href="borangliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Borang Rasmi</a>
+            <a href="galeri.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Galeri</a>
+            <!-- Live di Mobile Menu -->
+            <a href="live.html" class="block bg-red-600 text-yellow-300 font-extrabold px-3 py-2.5 rounded-lg text-center live-pulse border border-yellow-400 transition">
+                <i class="fa-solid fa-video mr-1"></i> SIARAN LANGSUNG (LIVE)
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="py-6 md:py-8 text-center relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <span class="bg-red-600 text-yellow-300 text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow border border-yellow-400 mb-2 inline-block">Syarat & Garis Panduan</span>
+            <h1 class="text-2xl md:text-4xl font-black mb-2 text-blue-950 drop-shadow-sm">Peraturan Rasmi Liga KPM 2026</h1>
+            <p class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold">Rujuk dan muat turun dokumen peraturan pertandingan rasmi di bawah.</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTAINER: KAD PERATURAN & PDF VIEWER -->
+    <main class="flex-grow container mx-auto px-4 pb-12 pt-2 max-w-4xl">
+        <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-6 md:p-8 border-2 border-sky-200">
+            
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6 pb-6 border-b border-gray-200">
+                <div class="flex items-center space-x-4">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-red-200 shrink-0">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-lg md:text-xl text-blue-950">Dokumen Peraturan Pertandingan</h3>
+                        <p class="text-xs md:text-sm text-gray-600">Fail PDF rasmi syarat, format, dan undang-undang permainan Liga KPM.</p>
+                    </div>
+                </div>
+
+                <!-- Butang Tindakan (Download & Print/View) -->
+                <div class="flex flex-wrap sm:flex-nowrap gap-3 w-full md:w-auto">
+                    <a href="../../documents/peraturanliga.pdf" download class="flex-1 md:flex-none bg-blue-700 hover:bg-blue-800 text-white font-bold py-2.5 px-5 rounded-xl text-center text-xs md:text-sm transition flex items-center justify-center gap-2 shadow">
+                        <i class="fa-solid fa-download"></i> Muat Turun
+                    </a>
+                    <a href="../../documents/peraturanliga.pdf" target="_blank" class="flex-1 md:flex-none bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-5 rounded-xl text-center text-xs md:text-sm transition flex items-center justify-center gap-2 shadow">
+                        <i class="fa-solid fa-print"></i> Papar / Cetak
+                    </a>
+                </div>
+            </div>
+
+            <!-- Paparan Terus (Embed PDF Viewer) yang Responsif -->
+            <div class="w-full bg-gray-100 rounded-xl overflow-hidden border-2 border-gray-300 shadow-inner">
+                <iframe src="../../documents/peraturanliga.pdf" class="w-full h-[550px] md:h-[650px]" title="Peraturan Liga KPM PDF">
+                    <p class="p-4 text-center text-gray-700">Pelayar web anda tidak menyokong paparan PDF secara terus. Sila klik butang <a href="documents/peraturanliga.pdf" class="text-blue-600 underline font-bold" download>Muat Turun</a> di atas.</p>
+                </iframe>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-blue-950 text-yellow-300 py-5 text-center text-sm md:text-base border-t-4 border-yellow-400 font-black uppercase tracking-widest shadow-inner">
+        LIGA KPM 2026 • HAK CIPTA TERPELIHARA
+    </footer>
+
+    <!-- JAVASCRIPT FOR MOBILE MENU -->
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
