@@ -7,132 +7,187 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+    
+    <style>
+        :root {
+            --primary-blue: #1d4ed8; 
+            --accent-red: #dc2626;
+            --accent-yellow: #facc15;
+            --light-blue: #38bdf8;
+            --dark-blue: #1e3a8a;
+        }
 
-    <!-- HEADER (Logo & Header Lebih Besar, Tema Biru & Kuning) -->
-    <header class="bg-blue-900 border-b-4 border-yellow-400 text-white shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 md:py-5 flex justify-between items-center">
-            <!-- Logo Section (Besar & Responsif) -->
+        /* Latar Belakang Baby Blue Eksklusif dengan Grafik Posisi Netball (GS, GA, WA, C, WD, GD, GK) */
+        body {
+            background-color: #e0f2fe;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='%230284c7' fill-opacity='0.11' font-family='Segoe UI, sans-serif' font-weight='900' font-size='15'%3E%3Ctext x='20' y='30'%3EGS%3C/text%3E%3Ctext x='110' y='30'%3EGA%3C/text%3E%3Ctext x='20' y='95'%3EWA%3C/text%3E%3Ctext x='85' y='95'%3EC%3C/text%3E%3Ctext x='140' y='95'%3EWD%3C/text%3E%3Ctext x='40' y='155'%3EGD%3C/text%3E%3Ctext x='120' y='155'%3EGK%3C/text%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Jalur Warna Tema (Merah, Kuning, Biru Muda, Biru) */
+        .color-stripe {
+            height: 6px;
+            background: linear-gradient(to right, #dc2626, #facc15, #38bdf8, #1d4ed8);
+            width: 100%;
+        }
+
+        @keyframes pulse-live {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .live-pulse {
+            animation: pulse-live 1.5s infinite;
+        }
+    </style>
+</head>
+<body class="text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Jalur Tema Warna-warni di Paling Atas -->
+    <div class="color-stripe"></div>
+
+    <!-- HEADER -->
+    <header class="bg-gradient-to-r from-blue-950 via-blue-900 to-indigo-900 text-white shadow-xl sticky top-0 z-50 border-b-4 border-yellow-400">
+        <div class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
+            <!-- Logo Section -->
             <div class="flex items-center space-x-3 md:space-x-4">
-                <img src="../../images/ligasukan.jpg" alt="Logo Liga KPM" class="h-16 md:h-20 w-auto object-contain bg-white p-1 rounded-md shadow">
-                <img src="../../images/ligakpm.jpg" alt="Logo Sukan" class="h-16 md:h-20 w-auto object-contain bg-white p-1 rounded-md shadow">
-                <span class="font-bold text-lg md:text-2xl tracking-wide text-yellow-300 hidden sm:inline">LIGA KPM 2026</span>
+                <img src="../../images/ligasukan.jpg" alt="Logo Liga KPM" class="h-14 md:h-18 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-yellow-400">
+                <img src="../../images/ligakpm.jpg" alt="Logo Sukan" class="h-14 md:h-18 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-400">
+                <span class="font-extrabold text-lg md:text-2xl tracking-wide text-yellow-300 drop-shadow hidden sm:inline">LIGA KPM 2026</span>
             </div>
 
             <!-- Navigation Menu (Desktop) -->
-            <nav class="hidden md:flex items-center space-x-6 font-semibold text-sm">
-                <a href="#home" class="hover:text-yellow-300 transition">Home</a>
-                <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="hover:text-yellow-300 transition">Keputusan Jsport</a>
-                <a href="keputusan rasmi.html" class="hover:text-yellow-300 transition">Keputusan Rasmi</a>
-                <a href="jadual.html" class="hover:text-yellow-300 transition">Jadual</a>
-                <a href="peraturan.html" class="hover:text-yellow-300 transition">Peraturan</a>
-                <a href="galeri.htm" class="hover:text-yellow-300 transition">Galeri</a>
+            <nav class="hidden md:flex items-center space-x-2.5 font-bold text-sm">
+                <a href="../../index.html" class="hover:text-yellow-300 transition px-3.5 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Home</a>
+                <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="hover:text-yellow-300 transition px-3.5 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Keputusan Jsport</a>
+                <a href="keputusan rasmi.html" class="hover:text-yellow-300 transition px-3.5 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Keputusan Rasmi</a>
+                <a href="jadual.html" class="hover:text-yellow-300 transition px-3.5 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jadual</a>
+                <a href="peraturan.html" class="hover:text-yellow-300 transition px-3.5 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Peraturan</a>
+                <a href="galeri.html" class="hover:text-yellow-300 transition px-3.5 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Galeri</a>
+                <!-- Navi Live di Header -->
+                <a href="live.html" class="px-3.5 py-2 rounded-lg bg-red-600 text-yellow-300 border-2 border-yellow-400 font-extrabold flex items-center gap-1.5 live-pulse hover:bg-red-700 transition">
+                    <i class="fa-solid fa-video"></i> LIVE
+                </a>
             </nav>
 
             <!-- Mobile Menu Button -->
             <div class="md:hidden flex items-center">
-                <button id="menu-btn" class="text-yellow-300 focus:outline-none p-2">
-                    <i class="fa-solid fa-bars text-3xl"></i>
+                <button id="menu-btn" class="text-yellow-300 focus:outline-none p-2.5 bg-blue-900 border border-yellow-400/50 rounded-xl shadow">
+                    <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-blue-950 border-t border-yellow-400 px-4 pt-3 pb-5 space-y-3 text-base font-medium">
-            <a href="#home" class="block hover:bg-blue-900 hover:text-yellow-300 px-3 py-2 rounded">Home</a>
-            <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="block hover:bg-blue-900 hover:text-yellow-300 px-3 py-2 rounded">Keputusan Jsport</a>
-            <a href="keputusan rasmi.html" class="block hover:bg-blue-900 hover:text-yellow-300 px-3 py-2 rounded">Keputusan Rasmi</a>
-            <a href="jadual.html" class="block hover:bg-blue-900 hover:text-yellow-300 px-3 py-2 rounded">Jadual Perlawanan</a>
-            <a href="peraturan.html" class="block hover:bg-blue-900 hover:text-yellow-300 px-3 py-2 rounded">Peraturan</a>
-            <a href="galeri.htm" class="block hover:bg-blue-900 hover:text-yellow-300 px-3 py-2 rounded">Galeri</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-950 border-t border-yellow-400/30 px-4 pt-3 pb-5 space-y-2 text-base font-medium">
+            <a href="../../index.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Home</a>
+            <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Jsport</a>
+            <a href="keputusan rasmi.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Rasmi</a>
+            <a href="jadual.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Jadual Perlawanan</a>
+            <a href="peraturan.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Peraturan</a>
+            <a href="galeri.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Galeri</a>
+            <!-- Live di Mobile Menu -->
+            <a href="live.html" class="block bg-red-600 text-yellow-300 font-extrabold px-3 py-2.5 rounded-lg text-center live-pulse border border-yellow-400 transition">
+                <i class="fa-solid fa-video mr-1"></i> SIARAN LANGSUNG (LIVE)
+            </a>
         </div>
     </header>
 
-    <!-- HERO SECTION (Teks Selamat Datang Dikecilkan Sedikit) -->
-    <section id="home" class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white py-10 md:py-14 text-center border-b-2 border-yellow-400">
-        <div class="container mx-auto px-4">
-            <h1 class="text-2xl md:text-4xl font-extrabold mb-3 text-yellow-300">Selamat Datang ke Liga KPM</h1>
-            <p class="text-sm md:text-base text-blue-100 max-w-xl mx-auto">Portal Rasmi Kejohanan Sukan Bola Jaring Kementerian Pendidikan Malaysia.</p>
+    <!-- HERO SECTION (Jarak dirapatkan) -->
+    <section id="home" class="py-6 md:py-8 text-center relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <span class="bg-red-600 text-yellow-300 text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow border border-yellow-400 mb-2 inline-block">Kejohanan Rasmi KPM</span>
+            <h1 class="text-2xl md:text-4xl font-black mb-2 text-blue-950 drop-shadow-sm">Selamat Datang ke Liga KPM</h1>
+            <p class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold">Portal Rasmi Kejohanan Sukan Bola Jaring Kementerian Pendidikan Malaysia.</p>
         </div>
     </section>
 
-    <!-- MAIN CONTAINER: KAD GRID (Sesuai untuk Telefon & Desktop) -->
-    <main class="flex-grow container mx-auto px-4 py-8 md:py-12">
-        <div class="text-center mb-8">
-            <h2 class="text-2xl md:text-3xl font-bold text-blue-900">Menu Utama & Pautan Modul</h2>
-            <p class="text-sm md:text-base text-gray-600">Sila pilih kad di bawah untuk mengakses halaman berkaitan.</p>
+    <!-- MAIN CONTAINER: KAD GRID (Dinaikkan & Dirapatkan) -->
+    <main class="flex-grow container mx-auto px-4 pb-10 pt-2">
+        <div class="text-center mb-6">
+            <p class="text-sm md:text-base text-gray-800 font-bold">Sila pilih kad di bawah untuk mengakses halaman berkaitan.</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
             <!-- 1. Pasukan Liga -->
-            <a href="pasukanliga.html" class="bg-white rounded-xl shadow-md p-5 hover:shadow-xl hover:border-yellow-400 transition border-2 border-gray-100 flex flex-col items-center text-center group">
-                <div class="w-14 h-14 bg-blue-100 text-blue-900 rounded-full flex items-center justify-center text-xl mb-3 group-hover:bg-yellow-400 group-hover:text-blue-950 transition">
+            <a href="pasukanliga.html" class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex flex-col items-center text-center group">
+                <div class="w-14 h-14 bg-blue-100 text-blue-700 rounded-2xl flex items-center justify-center text-xl mb-3 group-hover:bg-red-600 group-hover:text-yellow-300 transition shadow-sm border border-blue-200">
                     <i class="fa-solid fa-users"></i>
                 </div>
-                <h3 class="font-bold text-lg text-blue-900 mb-1">Pasukan Liga</h3>
-                <p class="text-xs md:text-sm text-gray-500">Senarai lengkap pasukan yang bertanding dalam kejohanan.</p>
+                <h3 class="font-extrabold text-base text-blue-950 mb-1 group-hover:text-red-600 transition">Pasukan Liga</h3>
+                <p class="text-xs text-gray-600">Senarai lengkap pasukan yang bertanding dalam kejohanan.</p>
             </a>
 
             <!-- 2. Keputusan Jsport -->
-            <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="bg-white rounded-xl shadow-md p-5 hover:shadow-xl hover:border-yellow-400 transition border-2 border-gray-100 flex flex-col items-center text-center group">
-                <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-xl mb-3 group-hover:bg-yellow-400 group-hover:text-blue-950 transition">
+            <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex flex-col items-center text-center group">
+                <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-xl mb-3 group-hover:bg-red-600 group-hover:text-yellow-300 transition shadow-sm border border-orange-200">
                     <i class="fa-solid fa-trophy"></i>
                 </div>
-                <h3 class="font-bold text-lg text-blue-900 mb-1">Keputusan Jsport</h3>
-                <p class="text-xs md:text-sm text-gray-500">Pautan terus ke portal JSports untuk keputusan terkini.</p>
+                <h3 class="font-extrabold text-base text-blue-950 mb-1 group-hover:text-red-600 transition">Keputusan Jsport</h3>
+                <p class="text-xs text-gray-600">Pautan terus ke portal JSports untuk keputusan terkini.</p>
             </a>
 
             <!-- 3. Keputusan Rasmi -->
-            <a href="keputusan rasmi.html" class="bg-white rounded-xl shadow-md p-5 hover:shadow-xl hover:border-yellow-400 transition border-2 border-gray-100 flex flex-col items-center text-center group">
-                <div class="w-14 h-14 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl mb-3 group-hover:bg-yellow-400 group-hover:text-blue-950 transition">
+            <a href="keputusan rasmi.html" class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex flex-col items-center text-center group">
+                <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-xl mb-3 group-hover:bg-red-600 group-hover:text-yellow-300 transition shadow-sm border border-emerald-200">
                     <i class="fa-solid fa-clipboard-list"></i>
                 </div>
-                <h3 class="font-bold text-lg text-blue-900 mb-1">Keputusan Rasmi</h3>
-                <p class="text-xs md:text-sm text-gray-500">Semak keputusan rasmi dan kedudukan carta perlawanan.</p>
+                <h3 class="font-extrabold text-base text-blue-950 mb-1 group-hover:text-red-600 transition">Keputusan Rasmi</h3>
+                <p class="text-xs text-gray-600">Semak keputusan rasmi dan kedudukan carta perlawanan.</p>
             </a>
 
-            <!-- 4. Jadual Perlawanan (Baru) -->
-            <a href="jadual.html" class="bg-white rounded-xl shadow-md p-5 hover:shadow-xl hover:border-yellow-400 transition border-2 border-gray-100 flex flex-col items-center text-center group">
-                <div class="w-14 h-14 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center text-xl mb-3 group-hover:bg-yellow-400 group-hover:text-blue-950 transition">
+            <!-- 4. Jadual Perlawanan -->
+            <a href="jadual.html" class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex flex-col items-center text-center group">
+                <div class="w-14 h-14 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center text-xl mb-3 group-hover:bg-red-600 group-hover:text-yellow-300 transition shadow-sm border border-sky-200">
                     <i class="fa-solid fa-calendar-days"></i>
                 </div>
-                <h3 class="font-bold text-lg text-blue-900 mb-1">Jadual Perlawanan</h3>
-                <p class="text-xs md:text-sm text-gray-500">Rujuk takwim dan masa perlawanan kejohanan.</p>
+                <h3 class="font-extrabold text-base text-blue-950 mb-1 group-hover:text-red-600 transition">Jadual Perlawanan</h3>
+                <p class="text-xs text-gray-600">Rujuk takwim dan masa perlawanan kejohanan.</p>
             </a>
 
-            <!-- 5. Peraturan (Baru) -->
-            <a href="peraturan.html" class="bg-white rounded-xl shadow-md p-5 hover:shadow-xl hover:border-yellow-400 transition border-2 border-gray-100 flex flex-col items-center text-center group">
-                <div class="w-14 h-14 bg-yellow-100 text-yellow-700 rounded-full flex items-center justify-center text-xl mb-3 group-hover:bg-yellow-400 group-hover:text-blue-950 transition">
+            <!-- 5. Peraturan -->
+            <a href="peraturan.html" class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex flex-col items-center text-center group">
+                <div class="w-14 h-14 bg-yellow-100 text-yellow-700 rounded-2xl flex items-center justify-center text-xl mb-3 group-hover:bg-red-600 group-hover:text-yellow-300 transition shadow-sm border border-yellow-200">
                     <i class="fa-solid fa-book"></i>
                 </div>
-                <h3 class="font-bold text-lg text-blue-900 mb-1">Peraturan</h3>
-                <p class="text-xs md:text-sm text-gray-500">Syarat dan peraturan pertandingan bola jaring KPM.</p>
+                <h3 class="font-extrabold text-base text-blue-950 mb-1 group-hover:text-red-600 transition">Peraturan</h3>
+                <p class="text-xs text-gray-600">Syarat dan peraturan pertandingan bola jaring KPM.</p>
             </a>
 
-            <!-- 6. Galeri -->
-            <a href="borangpertandingan.html" class="bg-white rounded-xl shadow-md p-5 hover:shadow-xl hover:border-yellow-400 transition border-2 border-gray-100 flex flex-col items-center text-center group">
-                <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-xl mb-3 group-hover:bg-yellow-400 group-hover:text-blue-950 transition">
-                    <i class="fa-solid fa-images"></i>
+            <!-- 6. Borang Pertandingan -->
+            <a href="borangpertandingan.html" class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex flex-col items-center text-center group">
+                <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-xl mb-3 group-hover:bg-red-600 group-hover:text-yellow-300 transition shadow-sm border border-purple-200">
+                    <i class="fa-solid fa-file-pen"></i>
                 </div>
-                <h3 class="font-bold text-lg text-blue-900 mb-1">Borang Pertandingan</h3>
-                <p class="text-xs md:text-sm text-gray-500">Koleksi foto aksi menarik sepanjang kejohanan.</p>
+                <h3 class="font-extrabold text-base text-blue-950 mb-1 group-hover:text-red-600 transition">Borang Pertandingan</h3>
+                <p class="text-xs text-gray-600">Muat turun atau isi borang pendaftaran rasmi.</p>
             </a>
 
             <!-- 7. Galeri -->
-            <a href="galeri.html" class="bg-white rounded-xl shadow-md p-5 hover:shadow-xl hover:border-yellow-400 transition border-2 border-gray-100 flex flex-col items-center text-center group sm:col-span-2 lg:col-span-3 max-w-md mx-auto w-full">
-                <div class="w-14 h-14 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-xl mb-3 group-hover:bg-yellow-400 group-hover:text-blue-950 transition">
-                    <i class="fa-solid fa-file-pen"></i>
+            <a href="galeri.html" class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex flex-col items-center text-center group">
+                <div class="w-14 h-14 bg-pink-100 text-pink-600 rounded-2xl flex items-center justify-center text-xl mb-3 group-hover:bg-red-600 group-hover:text-yellow-300 transition shadow-sm border border-pink-200">
+                    <i class="fa-solid fa-images"></i>
                 </div>
-                <h3 class="font-bold text-lg text-blue-900 mb-1">Galeri</h3>
-                <p class="text-xs md:text-sm text-gray-500">Muat turun atau isi borang pendaftaran rasmi.</p>
+                <h3 class="font-extrabold text-base text-blue-950 mb-1 group-hover:text-red-600 transition">Galeri</h3>
+                <p class="text-xs text-gray-600">Koleksi foto aksi menarik sepanjang kejohanan.</p>
+            </a>
+
+            <!-- 8. Kad Siaran Langsung (LIVE) di dalam Grid -->
+            <a href="live.html" class="bg-gradient-to-br from-red-600 via-red-700 to-rose-800 text-white rounded-2xl shadow-xl p-5 hover:shadow-2xl hover:scale-[1.02] transition border-2 border-yellow-400 flex flex-col items-center text-center group sm:col-span-2 lg:col-span-2 max-w-lg mx-auto w-full live-pulse">
+                <div class="w-14 h-14 bg-white/20 text-yellow-300 rounded-2xl flex items-center justify-center text-xl mb-3 group-hover:bg-yellow-400 group-hover:text-red-700 transition shadow-sm border border-yellow-300">
+                    <i class="fa-solid fa-video"></i>
+                </div>
+                <h3 class="font-black text-base md:text-lg text-yellow-300 mb-1">🔴 SIARAN LANGSUNG (LIVE)</h3>
+                <p class="text-xs text-red-100">Tonton perlawanan bola jaring secara langsung di sini.</p>
             </a>
         </div>
     </main>
 
-    <!-- FOOTER (Huruf Besar Penuh, Tebal, & Lebih Besar) -->
-    <footer class="bg-blue-950 text-yellow-300 py-5 text-center text-base md:text-lg border-t-4 border-yellow-400 font-black uppercase tracking-widest">
-        LIGA KPM 2026
+    <!-- FOOTER -->
+    <footer class="bg-blue-950 text-yellow-300 py-5 text-center text-sm md:text-base border-t-4 border-yellow-400 font-black uppercase tracking-widest shadow-inner">
+        LIGA KPM 2026 • HAK CIPTA TERPELIHARA
     </footer>
 
     <!-- JAVASCRIPT FOR MOBILE MENU -->
