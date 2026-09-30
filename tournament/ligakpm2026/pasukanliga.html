@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senarai Pasukan - Liga KPM Bola Jaring</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #1d4ed8; 
+            --accent-red: #dc2626;
+            --accent-yellow: #facc15;
+            --light-blue: #38bdf8;
+            --dark-blue: #1e3a8a;
+        }
+
+        /* Latar Belakang Baby Blue Eksklusif dengan Grafik Posisi Netball */
+        body {
+            background-color: #e0f2fe;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='%230284c7' fill-opacity='0.11' font-family='Segoe UI, sans-serif' font-weight='900' font-size='15'%3E%3Ctext x='20' y='30'%3EGS%3C/text%3E%3Ctext x='110' y='30'%3EGA%3C/text%3E%3Ctext x='20' y='95'%3EWA%3C/text%3E%3Ctext x='85' y='95'%3EC%3C/text%3E%3Ctext x='140' y='95'%3EWD%3C/text%3E%3Ctext x='40' y='155'%3EGD%3C/text%3E%3Ctext x='120' y='155'%3EGK%3C/text%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Jalur Warna Tema (Merah, Kuning, Biru Muda, Biru) */
+        .color-stripe {
+            height: 6px;
+            background: linear-gradient(to right, #dc2626, #facc15, #38bdf8, #1d4ed8);
+            width: 100%;
+        }
+
+        @keyframes pulse-live {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .live-pulse {
+            animation: pulse-live 1.5s infinite;
+        }
+    </style>
+</head>
+<body class="text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Jalur Tema Warna-warni di Paling Atas -->
+    <div class="color-stripe"></div>
+
+    <!-- HEADER -->
+    <header class="bg-gradient-to-r from-blue-950 via-blue-900 to-indigo-900 text-white shadow-xl sticky top-0 z-50 border-b-4 border-yellow-400">
+        <div class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
+            <!-- Logo Section -->
+            <div class="flex items-center space-x-3 md:space-x-4">
+                <img src="../../images/ligasukan.jpg" alt="Logo Liga KPM" class="h-14 md:h-18 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-yellow-400">
+                <img src="../../images/ligakpm.jpg" alt="Logo Sukan" class="h-14 md:h-18 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-400">
+                <span class="font-extrabold text-lg md:text-2xl tracking-wide text-yellow-300 drop-shadow hidden sm:inline">LIGA KPM 2026</span>
+            </div>
+
+            <!-- Navigation Menu (Desktop) -->
+            <nav class="hidden lg:flex items-center space-x-1.5 font-bold text-xs xl:text-sm">
+                <a href="../../index.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Home</a>
+                <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jsport</a>
+                <a href="keputusan rasmi.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Keputusan</a>
+                <a href="jadualliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jadual</a>
+                <a href="pasukanliga.html" class="px-3 py-2 rounded-lg bg-red-600 text-yellow-300 border border-yellow-400 font-extrabold shadow">Pasukan</a>
+                <a href="peraturanliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Peraturan</a>
+                <a href="statistikliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Statistik</a>
+                <a href="borangliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Borang</a>
+                <a href="galeri.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Galeri</a>
+                <!-- Navi Live di Header -->
+                <a href="live.html" class="px-3 py-2 rounded-lg bg-red-600 text-yellow-300 border-2 border-yellow-400 font-extrabold flex items-center gap-1 live-pulse hover:bg-red-700 transition">
+                    <i class="fa-solid fa-video"></i> LIVE
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center">
+                <button id="menu-btn" class="text-yellow-300 focus:outline-none p-2.5 bg-blue-900 border border-yellow-400/50 rounded-xl shadow">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-blue-950 border-t border-yellow-400/30 px-4 pt-3 pb-5 space-y-2 text-base font-medium">
+            <a href="../../index.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Home</a>
+            <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Jsport</a>
+            <a href="keputusan rasmi.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Rasmi</a>
+            <a href="jadualliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Jadual Perlawanan</a>
+            <a href="pasukanliga.html" class="block bg-red-600 text-yellow-300 px-3 py-2 rounded-lg font-bold border border-yellow-400">Pasukan Liga</a>
+            <a href="peraturanliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Peraturan</a>
+            <a href="statistikliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Statistik Liga</a>
+            <a href="borangliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Borang Rasmi</a>
+            <a href="galeri.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Galeri</a>
+            <!-- Live di Mobile Menu -->
+            <a href="live.html" class="block bg-red-600 text-yellow-300 font-extrabold px-3 py-2.5 rounded-lg text-center live-pulse border border-yellow-400 transition">
+                <i class="fa-solid fa-video mr-1"></i> SIARAN LANGSUNG (LIVE)
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="py-6 md:py-8 text-center relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <span class="bg-red-600 text-yellow-300 text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow border border-yellow-400 mb-2 inline-block">Senarai Pasukan</span>
+            <h1 class="text-2xl md:text-4xl font-black mb-2 text-blue-950 drop-shadow-sm">Pasukan Liga KPM</h1>
+            <p class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold">Senarai lengkap pasukan Kategori Super dan Kategori Perdana yang bertanding.Sila klik kad untuk profile pasukan</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-grow container mx-auto px-4 pb-12 pt-2 max-w-5xl space-y-10">
+        
+        <!-- BAHAGIAN 1: KATEGORI SUPER -->
+        <section>
+            <div class="mb-5 border-b-2 border-blue-900/20 pb-2 flex items-center justify-between">
+                <h2 class="text-xl md:text-2xl font-black text-blue-950 flex items-center gap-2">
+                    <i class="fa-solid fa-star text-yellow-500"></i> PASUKAN SUPER
+                </h2>
+                <span class="bg-blue-900 text-yellow-300 text-xs font-bold px-3 py-1 rounded-full shadow">9 Pasukan</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5">
+                <!-- 1. Sekolah Sukan Bukit Jalil -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/ssbj.png" alt="Logo SSBJ" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-blue-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-red-600 uppercase tracking-wide">Pasukan Super</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Bukit Jalil</h3>
+                    </div>
+                </div>
+
+                <!-- 2. Sekolah Sukan Malaysia Pahang -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/ssmp.png" alt="Logo SSMP" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-blue-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-red-600 uppercase tracking-wide">Pasukan Super</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Malaysia Pahang</h3>
+                    </div>
+                </div>
+
+                <!-- 3. Sekolah Sukan Tunku Mahkota Ismail -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/sstmi.png" alt="Logo SSTMI" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-blue-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-red-600 uppercase tracking-wide">Pasukan Super</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Tunku Mahkota Ismail</h3>
+                    </div>
+                </div>
+
+                <!-- 4. Sekolah Sukan Terengganu -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/ssnt.png" alt="Logo SST" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-blue-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-red-600 uppercase tracking-wide">Pasukan Super</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Terengganu</h3>
+                    </div>
+                </div>
+
+                <!-- 5. Sekolah Sukan Johor -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/tho.png" alt="Logo SSJ" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-blue-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-red-600 uppercase tracking-wide">Pasukan Super</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Johor</h3>
+                    </div>
+                </div>
+
+                <!-- 6. Sekolah Sukan Melaka -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/serikota.png" alt="Logo SSMelaka" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-blue-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-red-600 uppercase tracking-wide">Pasukan Super</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Melaka</h3>
+                    </div>
+                </div>
+
+                <!-- 7. Sekolah Sukan Sarawak -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/ssntjaya.png" alt="Logo SSSarawak" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-blue-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-red-600 uppercase tracking-wide">Pasukan Super</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Sarawak</h3>
+                    </div>
+                </div>
+
+                <!-- 8. Sekolah Sukan Kuala Lumpur -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/ssnkl.png" alt="Logo SSKL" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-blue-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-red-600 uppercase tracking-wide">Pasukan Super</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Kuala Lumpur</h3>
+                    </div>
+                </div>
+
+                <!-- 9. Sekolah Sukan Selangor -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/ss11.png" alt="Logo SSSelangor" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-blue-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-red-600 uppercase tracking-wide">Pasukan Super</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Selangor</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BAHAGIAN 2: KATEGORI PERDANA -->
+        <section>
+            <div class="mb-5 border-b-2 border-blue-900/20 pb-2 flex items-center justify-between">
+                <h2 class="text-xl md:text-2xl font-black text-blue-950 flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-blue-600"></i> PASUKAN PERDANA
+                </h2>
+                <span class="bg-blue-900 text-yellow-300 text-xs font-bold px-3 py-1 rounded-full shadow">10 Pasukan</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5">
+                <!-- 1. Sekolah Sukan Kedah -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/sskedah.png" alt="Logo SSKedah" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-sky-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">Pasukan Perdana</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Kedah</h3>
+                    </div>
+                </div>
+
+                <!-- 2. Sekolah Sukan Perlis -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/ssperlis.png" alt="Logo SSPerlis" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-sky-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">Pasukan Perdana</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Perlis</h3>
+                    </div>
+                </div>
+
+                <!-- 3. Sekolah Sukan Negeri Sembilan -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/ssns.png" alt="Logo SSNS" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-sky-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">Pasukan Perdana</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Negeri Sembilan</h3>
+                    </div>
+                </div>
+
+                <!-- 4. Sekolah Sukan Kelantan -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/sskelantan.png" alt="Logo SSKelantan" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-sky-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">Pasukan Perdana</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Kelantan</h3>
+                    </div>
+                </div>
+
+                <!-- 5. Sekolah Sukan Pahang -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/sspahang.png" alt="Logo SSPahang" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-sky-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">Pasukan Perdana</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Pahang</h3>
+                    </div>
+                </div>
+
+                <!-- 6. Sekolah Sukan Sabah -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/sssabah.png" alt="Logo SSSabah" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-sky-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">Pasukan Perdana</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Sabah</h3>
+                    </div>
+                </div>
+
+                <!-- 7. Sekolah Sukan Labuan -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/sslabuan.png" alt="Logo SSLabuan" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-sky-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">Pasukan Perdana</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Labuan</h3>
+                    </div>
+                </div>
+
+                <!-- 8. Sekolah Sukan Pulau Pinang -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/sspp.png" alt="Logo SSPP" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-sky-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">Pasukan Perdana</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Pulau Pinang</h3>
+                    </div>
+                </div>
+
+                <!-- 9. Sekolah Sukan Perak -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/ssperak.png" alt="Logo SSPerak" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-sky-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">Pasukan Perdana</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Sekolah Sukan Perak</h3>
+                    </div>
+                </div>
+
+                <!-- 10. Putrajaya -->
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-lg p-5 hover:shadow-2xl hover:border-red-600 transition border-2 border-sky-200 flex items-center space-x-4 group">
+                    <img src="../../images/putrajaya.png" alt="Logo Putrajaya" class="w-14 h-14 object-contain rounded-xl bg-white p-1 shrink-0 border border-sky-200 shadow-sm group-hover:scale-105 transition">
+                    <div>
+                        <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">Pasukan Perdana</span>
+                        <h3 class="font-extrabold text-base md:text-lg text-blue-950 group-hover:text-red-600 transition">Putrajaya</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-blue-950 text-yellow-300 py-5 text-center text-sm md:text-base border-t-4 border-yellow-400 font-black uppercase tracking-widest shadow-inner">
+        LIGA KPM 2026 • HAK CIPTA TERPELIHARA
+    </footer>
+
+    <!-- JAVASCRIPT FOR MOBILE MENU -->
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
