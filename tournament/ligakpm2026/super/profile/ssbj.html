@@ -59,12 +59,12 @@
             </div>
 
             <!-- Navigation Menu (Desktop) -->
-            <nav class="hidden lg:flex items-center space-x-1.5 font-bold text-xs xl:text-sm">
+            <nav id="nav-menu" class="hidden lg:flex items-center space-x-1.5 font-bold text-xs xl:text-sm">
                 <a href="../../index.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Home</a>
                 <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jsport</a>
                 <a href="keputusan rasmi.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Keputusan</a>
                 <a href="jadualliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jadual</a>
-                <a href="pasukanliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Pasukan</a>
+                <a href="pasukanliga.html" class="px-3 py-2 rounded-lg bg-red-600 text-yellow-300 border border-yellow-400 font-extrabold shadow">Pasukan</a>
                 <a href="peraturanliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Peraturan</a>
                 <a href="statistikliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Statistik</a>
                 <a href="borangliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Borang</a>
@@ -77,7 +77,7 @@
 
             <!-- Mobile Menu Button -->
             <div class="lg:hidden flex items-center">
-                <button id="menu-btn" class="text-yellow-300 focus:outline-none p-2.5 bg-blue-900 border border-yellow-400/50 rounded-xl shadow">
+                <button id="menu-toggle" class="text-yellow-300 focus:outline-none p-2.5 bg-blue-900 border border-yellow-400/50 rounded-xl shadow">
                     <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -89,12 +89,11 @@
             <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Jsport</a>
             <a href="keputusan rasmi.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Rasmi</a>
             <a href="jadualliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Jadual Perlawanan</a>
-            <a href="pasukanliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Pasukan Liga</a>
+            <a href="pasukanliga.html" class="block bg-red-600 text-yellow-300 px-3 py-2 rounded-lg font-bold border border-yellow-400">Pasukan Liga</a>
             <a href="peraturanliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Peraturan</a>
             <a href="statistikliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Statistik Liga</a>
             <a href="borangliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Borang Rasmi</a>
             <a href="galeri.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Galeri</a>
-            <!-- Live di Mobile Menu -->
             <a href="live.html" class="block bg-red-600 text-yellow-300 font-extrabold px-3 py-2.5 rounded-lg text-center live-pulse border border-yellow-400 transition">
                 <i class="fa-solid fa-video mr-1"></i> SIARAN LANGSUNG (LIVE)
             </a>
@@ -104,99 +103,99 @@
     <!-- HERO SECTION -->
     <section class="py-6 md:py-8 text-center relative overflow-hidden">
         <div class="container mx-auto px-4 relative z-10">
-            <span class="bg-red-600 text-yellow-300 text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow border border-yellow-400 mb-2 inline-block">Profil Rasmi</span>
-            <h1 class="text-2xl md:text-4xl font-black mb-2 text-blue-950 drop-shadow-sm">Maklumat Terperinci Pasukan</h1>
-            <p class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold">Barisan kejurulatihan dan profil kad atlet yang dimuat turun secara langsung dari pangkalan data.</p>
+            <span class="bg-red-600 text-yellow-300 text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow border border-yellow-400 mb-2 inline-block">Profil Rasmi Pasukan</span>
+            <h2 class="text-2xl md:text-4xl font-black mb-2 text-blue-950 drop-shadow-sm">👥 SEKOLAH SUKAN BUKIT JALIL</h2>
+            <p class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold">Kategori Super - Liga KPM Bola Jaring 2026</p>
         </div>
     </section>
 
-    <!-- MAIN CONTAINER: PROFIL PASUKAN -->
-    <main class="flex-grow container mx-auto px-4 pb-12 pt-2 max-w-5xl">
+    <!-- MAIN CONTAINER -->
+    <main class="flex-grow container mx-auto px-4 pb-12 pt-2 max-w-5xl space-y-10">
         
-        <!-- RUANGAN LINK GOOGLE SHEET -->
-        <div class="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-blue-950 rounded-2xl shadow-lg p-4 mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 border-2 border-yellow-300">
-            <div class="flex items-center gap-3 text-center sm:text-left">
-                <div class="w-12 h-12 bg-white/40 rounded-xl flex items-center justify-center text-2xl text-blue-900 shrink-0 shadow-sm">
-                    <i class="fa-solid fa-file-excel"></i>
-                </div>
-                <div>
-                    <h4 class="font-black text-sm md:text-base">Pangkalan Data Maklumat (Google Sheet)</h4>
-                    <p class="text-xs text-blue-900 font-semibold">Data pemain dikemas kini secara automatik dari Google Sheet.</p>
-                </div>
-            </div>
-            <!-- Masukkan link Google Sheet anda di href nanti -->
-            <a id="sheet-link" href="#" target="_blank" class="bg-blue-950 text-yellow-300 font-extrabold text-xs md:text-sm px-4 py-2.5 rounded-xl hover:bg-red-600 transition shadow border border-yellow-400 flex items-center gap-2 shrink-0">
-                <i class="fa-solid fa-external-link-alt"></i> Buka Google Sheet
-            </a>
-        </div>
+        <!-- PEGAWAI PASUKAN -->
+        <section class="bg-white/95 backdrop-blur-md rounded-3xl shadow-xl p-6 md:p-8 border-2 border-sky-200">
+            <h3 class="text-lg md:text-xl font-black text-blue-950 mb-6 flex items-center gap-2 border-b-2 border-sky-100 pb-3">
+                <i class="fa-solid fa-user-tie text-red-600"></i> Pegawai Pasukan
+            </h3>
 
-        <div class="bg-white/95 backdrop-blur-md rounded-3xl shadow-xl p-6 md:p-8 border-2 border-sky-200">
-            
-            <!-- KAD HEADER: LOGO SEKOLAH & LOGO LIGA KPM -->
-            <div class="flex flex-col sm:flex-row items-center justify-between border-b-2 border-gray-100 pb-6 mb-6 gap-4 text-center sm:text-left">
-                <!-- Logo & Nama Sekolah -->
-                <div class="flex flex-col sm:flex-row items-center gap-4">
-                    <img src="../../images/ssbj.png" alt="Logo Sekolah" class="w-20 h-20 object-contain rounded-2xl bg-gray-50 p-1.5 border-2 border-blue-200 shadow-md">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <!-- Pegawai 1: Pengurus -->
+                <div class="bg-sky-50/70 border-2 border-sky-200 rounded-2xl p-4 shadow-sm flex flex-col items-center text-center">
+                    <div class="relative w-24 h-24 mb-3">
+                        <img src="profile/ssbj/pengurus.jpg" alt="Pengurus" class="w-full h-full object-cover rounded-2xl bg-white p-1 border-2 border-blue-300 shadow-md" onerror="this.src='../../images/default-profile.png'">
+                        <img src="../../images/ssbj.png" class="absolute -bottom-2 -right-2 w-9 h-9 object-contain bg-white rounded-xl p-0.5 border border-blue-200 shadow" alt="Logo Sekolah">
+                    </div>
                     <div>
-                        <span class="bg-red-100 text-red-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-red-200">Kategori Super</span>
-                        <h2 class="text-xl md:text-2xl font-black text-blue-950 mt-1">Sekolah Sukan Bukit Jalil</h2>
-                        <p class="text-xs text-gray-500 font-medium">Pasukan Rasmi Bola Jaring Liga KPM 2026</p>
+                        <h4 id="pegawai-0-nama" class="font-extrabold text-blue-950 text-sm mb-1">PENGURUS</h4>
+                        <span class="bg-red-600 text-yellow-300 font-bold text-[10px] px-2.5 py-0.5 rounded-full uppercase">Pengurus</span>
+                        <p id="pegawai-0-sekolah" class="text-xs font-semibold text-gray-500 mt-2">SEKOLAH</p>
                     </div>
                 </div>
 
-                <!-- Logo Liga KPM -->
-                <div class="flex items-center gap-2">
-                    <img src="../../images/ligakpm.jpg" alt="Logo Liga KPM" class="h-14 w-auto object-contain bg-white p-1 rounded-xl shadow border border-yellow-400">
+                <!-- Pegawai 2: Jurulatih -->
+                <div class="bg-sky-50/70 border-2 border-sky-200 rounded-2xl p-4 shadow-sm flex flex-col items-center text-center">
+                    <div class="relative w-24 h-24 mb-3">
+                        <img src="profile/ssbj/jurulatih.jpg" alt="Jurulatih" class="w-full h-full object-cover rounded-2xl bg-white p-1 border-2 border-blue-300 shadow-md" onerror="this.src='../../images/default-profile.png'">
+                        <img src="../../images/ssbj.png" class="absolute -bottom-2 -right-2 w-9 h-9 object-contain bg-white rounded-xl p-0.5 border border-blue-200 shadow" alt="Logo Sekolah">
+                    </div>
+                    <div>
+                        <h4 id="pegawai-1-nama" class="font-extrabold text-blue-950 text-sm mb-1">JURULATIH</h4>
+                        <span class="bg-red-600 text-yellow-300 font-bold text-[10px] px-2.5 py-0.5 rounded-full uppercase">Jurulatih</span>
+                        <p id="pegawai-1-sekolah" class="text-xs font-semibold text-gray-500 mt-2">SEKOLAH</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- MAKLUMAT PEGAWAI & JURULATIH -->
-            <div class="mb-8">
-                <h3 class="text-base md:text-lg font-black text-blue-950 mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-user-tie text-red-600"></i> Barisan Pengurusan & Kejurulatihan
-                </h3>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <!-- Jurulatih -->
-                    <div class="bg-sky-50/70 border border-sky-200 rounded-2xl p-4 shadow-sm flex flex-col items-center text-center">
-                        <img src="../../images/jurulatih.png" alt="Gambar Jurulatih" class="w-20 h-20 object-cover rounded-2xl bg-white p-1 border-2 border-blue-300 shadow-md mb-3">
-                        <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-1">Jurulatih Sekolah</span>
-                        <p class="font-extrabold text-blue-950 text-sm">En. Mohd. Rizal bin Ahmad</p>
+                <!-- Pegawai 3: Fisioterapi -->
+                <div class="bg-sky-50/70 border-2 border-sky-200 rounded-2xl p-4 shadow-sm flex flex-col items-center text-center">
+                    <div class="relative w-24 h-24 mb-3">
+                        <img src="profile/ssbj/fisioterapi.jpg" alt="Fisioterapi" class="w-full h-full object-cover rounded-2xl bg-white p-1 border-2 border-blue-300 shadow-md" onerror="this.src='../../images/default-profile.png'">
+                        <img src="../../images/ssbj.png" class="absolute -bottom-2 -right-2 w-9 h-9 object-contain bg-white rounded-xl p-0.5 border border-blue-200 shadow" alt="Logo Sekolah">
                     </div>
-                    
-                    <!-- Pengurus -->
-                    <div class="bg-sky-50/70 border border-sky-200 rounded-2xl p-4 shadow-sm flex flex-col items-center text-center">
-                        <img src="../../images/pengurus.png" alt="Gambar Pengurus" class="w-20 h-20 object-cover rounded-2xl bg-white p-1 border-2 border-blue-300 shadow-md mb-3">
-                        <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-1">Pengurus Pasukan</span>
-                        <p class="font-extrabold text-blue-950 text-sm">Puan Siti Hajar binti Abdullah</p>
-                    </div>
-
-                    <!-- Fisioterapi -->
-                    <div class="bg-sky-50/70 border border-sky-200 rounded-2xl p-4 shadow-sm flex flex-col items-center text-center">
-                        <img src="../../images/fisioterapi.png" alt="Gambar Fisioterapi" class="w-20 h-20 object-cover rounded-2xl bg-white p-1 border-2 border-blue-300 shadow-md mb-3">
-                        <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-1">Fisioterapi Sekolah</span>
-                        <p class="font-extrabold text-blue-950 text-sm">Cik Nurul Ain binti Zulkifli</p>
+                    <div>
+                        <h4 id="pegawai-2-nama" class="font-extrabold text-blue-950 text-sm mb-1">FISIOTERAPI</h4>
+                        <span class="bg-red-600 text-yellow-300 font-bold text-[10px] px-2.5 py-0.5 rounded-full uppercase">Fisioterapi</span>
+                        <p id="pegawai-2-sekolah" class="text-xs font-semibold text-gray-500 mt-2">SEKOLAH</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- BAHAGIAN KAD PEMAIN (DINAMIK DARI GOOGLE SHEET) -->
-            <div>
-                <h3 class="text-base md:text-lg font-black text-blue-950 mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-id-card text-blue-600"></i> Kad Profil Pemain Pasukan
-                </h3>
+        <!-- SENARAI ATLET (15 PEMAIN) -->
+        <section class="bg-white/95 backdrop-blur-md rounded-3xl shadow-xl p-6 md:p-8 border-2 border-sky-200">
+            <h3 class="text-lg md:text-xl font-black text-blue-950 mb-6 flex items-center gap-2 border-b-2 border-sky-100 pb-3">
+                <i class="fa-solid fa-people-group text-blue-600"></i> Senarai Atlet
+            </h3>
 
-                <!-- Grid Kad Pemain -->
-                <div id="player-cards-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-                    <!-- Kad Pemain akan dijana secara automatik oleh JavaScript dari Google Sheet -->
-                    <div class="text-center py-10 col-span-full text-blue-900 font-semibold text-sm animate-pulse">
-                        <i class="fa-solid fa-spinner fa-spin mr-2"></i> Memuatkan data pemain dari Google Sheet...
-                    </div>
-                </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+                <script>
+                    // Menjana 15 kad atlet secara dinamik mengikut struktur yang dihendaki
+                    for (let i = 0; i < 15; i++) {
+                        document.write(`
+                            <div class="bg-gradient-to-br from-white to-sky-50 border-2 border-sky-200 rounded-2xl p-4 shadow-md hover:shadow-xl transition flex flex-col items-center text-center group">
+                                <div class="w-full flex justify-between items-center mb-2 px-1">
+                                    <span class="bg-red-600 text-yellow-300 font-black text-xs px-2.5 py-0.5 rounded-full shadow border border-yellow-400">No. ${i+1}</span>
+                                    <img src="../../images/ssbj.png" class="w-8 h-8 object-contain bg-white p-0.5 rounded-lg border border-blue-200 shadow-sm" alt="Logo Sekolah">
+                                </div>
+                                <div class="relative mb-3">
+                                    <img src="profile/ssbj/player${i+1}.jpg" class="w-24 h-24 object-cover rounded-2xl border-2 border-blue-400 shadow bg-white p-1 group-hover:scale-105 transition" alt="Player ${i+1}" onerror="this.src='../../images/default-player.png'">
+                                    <span id="atlet-${i}-posisi" class="absolute bottom-0 right-0 bg-blue-900 text-white font-extrabold text-[10px] px-2 py-0.5 rounded-md shadow">POSISI</span>
+                                </div>
+                                <h4 id="atlet-${i}-nama" class="font-black text-blue-950 text-sm mb-0.5 line-clamp-1">NAMA ATLET ${i+1}</h4>
+                                <p id="atlet-${i}-sekolah" class="text-xs font-semibold text-gray-500 mb-3 line-clamp-1">SEKOLAH</p>
+                                <div class="grid grid-cols-2 gap-2 w-full text-xs font-bold mt-auto">
+                                    <div class="bg-sky-100/70 border border-sky-200 rounded-xl py-1.5 text-blue-900">
+                                        Umur: <span id="atlet-${i}-umur" class="font-normal text-gray-700">--</span> thn
+                                    </div>
+                                    <div class="bg-sky-100/70 border border-sky-200 rounded-xl py-1.5 text-blue-900">
+                                        Tinggi: <span id="atlet-${i}-tinggi" class="font-normal text-gray-700">--</span> cm
+                                    </div>
+                                </div>
+                            </div>
+                        `);
+                    }
+                </script>
             </div>
-
-        </div>
-
+        </section>
     </main>
 
     <!-- FOOTER -->
@@ -204,89 +203,80 @@
         LIGA KPM 2026 • HAK CIPTA TERPELIHARA
     </footer>
 
-    <!-- SCRIPT UNTUK MOBILE MENU & AMBIL DATA GOOGLE SHEET -->
+    <!-- SKRIP PENARIKAN DATA AUTOMATIK DARI GOOGLE SHEET CSV -->
     <script>
         // Toggle Mobile Menu
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
         });
 
-        // --- KONFIGURASI GOOGLE SHEET ---
-        // Gantikan URL di bawah dengan URL CSV Google Sheet anda apabila sudah siap nanti
-        // Contoh format CSV: https://docs.google.com/spreadsheets/d/ID_SHEET_ANDA/export?format=csv
-        const SHEET_CSV_URL = "#"; 
-
-        // Fungsi untuk muat turun dan papar kad pemain
-        async function loadPlayerCards() {
-            const container = document.getElementById('player-cards-container');
-            
-            // Jika link belum diisi (masih '#'), paparkan data contoh (mock data) 15 pemain supaya paparan nampak lengkap
-            if (SHEET_CSV_URL === "#") {
-                renderSamplePlayers();
-                return;
-            }
-
+        // Fungsi Ambil Data dari Google Sheet
+        async function muatDataPasukan() {
+            // Gantikan URL CSV Google Sheet anda di sini
+            const csvUrl = "https://docs.google.com/spreadsheets/d/16oMbCgmJP3SfdsrqSdG1_ltmp6CROky8-2FNOeLBerc/export?format=csv&gid=0";
             try {
-                const response = await fetch(SHEET_CSV_URL);
-                const data = await response.text();
-                parseAndRenderCSV(data);
+                const response = await fetch(csvUrl);
+                const dataText = await response.text();
+
+                const rows = dataText.split('\n').map(row => {
+                    return row
+                        .split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+                        .map(val => val.replace(/^"|"$/g, '').trim());
+                });
+
+                let rowAtletCount = 0;
+
+                for (let i = 1; i < rows.length; i++) {
+                    const cols = rows[i];
+                    if (!cols || cols.length < 2) continue;
+
+                    // =========================
+                    // PEGAWAI
+                    // =========================
+                    const jawatan = (cols[3] || '').trim().toLowerCase();
+
+                    if (jawatan === 'pengurus' || jawatan === 'jurulatih' || jawatan === 'fisioterapi') {
+                        let idx;
+                        if (jawatan === 'pengurus') idx = 0;
+                        if (jawatan === 'jurulatih') idx = 1;
+                        if (jawatan === 'fisioterapi') idx = 2;
+
+                        const elNama = document.getElementById(`pegawai-${idx}-nama`);
+                        const elSekolah = document.getElementById(`pegawai-${idx}-sekolah`);
+
+                        if (elNama) elNama.textContent = cols[2] || '';
+                        if (elSekolah) elSekolah.textContent = cols[6] || '';
+                    }
+
+                    // =========================
+                    // ATLET
+                    // =========================
+                    if (cols[1] && cols[1].toLowerCase().includes("atlet")) {
+                        let idx = rowAtletCount;
+                        const elNama = document.getElementById(`atlet-${idx}-nama`);
+                        const elPosisi = document.getElementById(`atlet-${idx}-posisi`);
+                        const elSekolah = document.getElementById(`atlet-${idx}-sekolah`);
+                        const elUmur = document.getElementById(`atlet-${idx}-umur`);
+                        const elTinggi = document.getElementById(`atlet-${idx}-tinggi`);
+
+                        if (elNama) elNama.textContent = cols[2] || '';
+                        if (elPosisi) elPosisi.textContent = cols[3] || '';
+                        if (elUmur) elUmur.textContent = cols[4] || '';
+                        if (elTinggi) elTinggi.textContent = cols[5] || '';
+                        if (elSekolah) elSekolah.textContent = cols[6] || '';
+
+                        rowAtletCount++;
+                    }
+                }
             } catch (error) {
                 console.error("Gagal memuatkan data dari Google Sheet:", error);
-                container.innerHTML = `<div class="col-span-full text-center py-6 text-red-600 font-bold text-xs">Gagal menyambung ke Google Sheet. Sila semak pautan.</div>`;
             }
         }
 
-        // Fungsi sampel jika Google Sheet belum dipautkan
-        function renderSamplePlayers() {
-            const container = document.getElementById('player-cards-container');
-            container.innerHTML = "";
-
-            // Senarai 15 pemain contoh
-            const samplePlayers = [
-                {no: 1, name: "Nur Alya Zahra binti Rosli", age: 17, height: 168, pos: "GS", img: "../../images/pemain1.png"},
-                {no: 2, name: "Qistina Batrisya binti Azman", age: 16, height: 172, pos: "GA", img: "../../images/pemain2.png"},
-                {no: 3, name: "Damia Sofea binti Kamarul", age: 17, height: 165, pos: "WA", img: "../../images/pemain3.png"},
-                {no: 4, name: "Nurul Izzah binti Hamdan", age: 16, height: 170, pos: "C", img: "../../images/pemain4.png"},
-                {no: 5, name: "Adriana Maisarah binti Khairul", age: 17, height: 175, pos: "WD", img: "../../images/pemain5.png"},
-                {no: 6, name: "Amira Shuhada binti Mazlan", age: 16, height: 163, pos: "GD", img: "../../images/pemain6.png"},
-                {no: 7, name: "Hani Safiyyah binti Razali", age: 17, height: 167, pos: "GK", img: "../../images/pemain7.png"},
-                {no: 8, name: "Nur Atikah binti Sulaiman", age: 16, height: 171, pos: "GS", img: "../../images/pemain8.png"},
-                {no: 9, name: "Syafiqah Nadia binti Yusof", age: 17, height: 169, pos: "GA", img: "../../images/pemain9.png"},
-                {no: 10, name: "Najwa Huda binti Othman", age: 16, height: 174, pos: "WA", img: "../../images/pemain10.png"},
-                {no: 11, name: "Aleeya Maisara binti Shaharudin", age: 17, height: 166, pos: "C", img: "../../images/pemain11.png"},
-                {no: 12, name: "Fatin Nabila binti Badri", age: 16, height: 168, pos: "WD", img: "../../images/pemain12.png"},
-                {no: 13, name: "Nurin Jazlina binti Farouk", age: 17, height: 173, pos: "GD", img: "../../images/pemain13.png"},
-                {no: 14, name: "Zulaikha Zahra binti Mokhtar", age: 16, height: 164, pos: "GK", img: "../../images/pemain14.png"},
-                {no: 15, name: "Dania Qistina binti Lutfi", age: 17, height: 170, pos: "C", img: "../../images/pemain15.png"}
-            ];
-
-            samplePlayers.forEach(p => {
-                const cardHTML = `
-                    <div class="bg-gradient-to-br from-white to-sky-50 border-2 border-sky-200 rounded-2xl p-4 shadow-md hover:shadow-xl transition flex flex-col items-center text-center group">
-                        <div class="relative mb-3">
-                            <img src="${p.img}" alt="${p.name}" class="w-24 h-24 object-cover rounded-2xl border-2 border-blue-400 shadow bg-white p-1 group-hover:scale-105 transition" onerror="this.src='../../images/default-player.png'">
-                            <span class="absolute -top-2 -right-2 bg-red-600 text-yellow-300 font-black text-xs w-7 h-7 rounded-full flex items-center justify-center border-2 border-yellow-400 shadow">${p.no}</span>
-                            <span class="absolute bottom-0 right-0 bg-blue-900 text-white font-extrabold text-[10px] px-2 py-0.5 rounded-md shadow">${p.pos}</span>
-                        </div>
-                        <h4 class="font-extrabold text-blue-950 text-sm mb-2 line-clamp-1">${p.name}</h4>
-                        <div class="grid grid-cols-2 gap-2 w-full text-xs font-bold">
-                            <div class="bg-sky-100/70 border border-sky-200 rounded-xl py-1 text-blue-900">
-                                Umur: <span class="font-normal text-gray-700">${p.age} thn</span>
-                            </div>
-                            <div class="bg-sky-100/70 border border-sky-200 rounded-xl py-1 text-blue-900">
-                                Tinggi: <span class="font-normal text-gray-700">${p.height} cm</span>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += cardHTML;
-            });
-        }
-
-        // Jalankan fungsi muat turun kad apabila laman dibuka
-        window.addEventListener('DOMContentLoaded', loadPlayerCards);
+        window.addEventListener('DOMContentLoaded', muatDataPasukan);
     </script>
 </body>
 </html>
