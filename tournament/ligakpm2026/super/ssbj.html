@@ -42,27 +42,27 @@
             animation: pulse-live 1.5s infinite;
         }
 
-        /* Reka Bentuk Kontena & Kad Grid yang Kemas */
+        /* Reka Bentuk Kontena & Kad Grid yang Kemas & Responsif */
         .hero {
             background: linear-gradient(to right, #1e3a8a, #1d4ed8);
             color: white;
-            padding: 2.5rem 1rem;
+            padding: 2rem 1rem;
             text-align: center;
             border-radius: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             border-bottom: 4px solid #facc15;
         }
 
         .team-section {
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .team-section h2 {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 900;
             color: #1e3a8a;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -70,15 +70,23 @@
             padding-bottom: 0.5rem;
         }
 
+        /* Grid Dioptimumkan untuk Hanset & Skrin Kecil */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 640px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                gap: 1.5rem;
+            }
         }
 
         .member-card {
             background: white;
-            border-radius: 1.25rem;
+            border-radius: 1rem;
             overflow: hidden;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             border: 2px solid #bae6fd;
@@ -88,59 +96,46 @@
         }
 
         .member-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             border-color: #dc2626;
         }
 
-        /* Ruang Foto dan Logo yang Tersusun & Lebih Besar */
+        /* Ruang Foto Full (Penuh) dengan Latar Belakang Baby Blue */
         .player-photo {
             position: relative;
             width: 100%;
-            height: 220px;
-            background: #e2e8f0;
+            height: 240px;
+            background: #e0f2fe; /* Latar belakang baby blue */
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .player-photo img.profile-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: top center;
+            object-fit: contain; /* Memastikan gambar dipaparkan penuh tanpa terpotong */
         }
 
-        /* Logo Liga KPM di Penjuru Kiri Atas (Saiz Dibesarkan) */
+        /* Logo Liga KPM di Penjuru Kiri Atas */
         .league-logo {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 46px;
-            height: 46px;
+            top: 8px;
+            left: 8px;
+            width: 38px;
+            height: 38px;
             background: white;
-            padding: 4px;
+            padding: 3px;
             border-radius: 50%;
-            border: 2.5px solid #facc15;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-            object-fit: contain;
-        }
-
-        /* Logo Sekolah / Negeri di Penjuru Kanan Bawah Foto (Saiz Dibesarkan) */
-        .team-logo {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            width: 52px;
-            height: 52px;
-            background: white;
-            padding: 5px;
-            border-radius: 50%;
-            border: 2.5px solid #38bdf8;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+            border: 2px solid #facc15;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
             object-fit: contain;
         }
 
         .member-info {
-            padding: 1.25rem;
+            padding: 1.1rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -151,52 +146,50 @@
             font-size: 1.05rem;
             font-weight: 900;
             color: #1e3a8a;
-            margin-bottom: 0.35rem;
-            line-height: 1.3;
+            margin-bottom: 0;
+            line-height: 1.25;
         }
 
         .badge {
             background: #1d4ed8;
             color: #facc15;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 800;
-            padding: 0.25rem 0.75rem;
+            padding: 0.2rem 0.6rem;
             border-radius: 9999px;
             display: inline-block;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
         .badge-player {
             background: #dc2626;
             color: white;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 800;
-            padding: 0.25rem 0.75rem;
+            padding: 0.2rem 0.6rem;
             border-radius: 9999px;
             display: inline-block;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
         .member-info p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #64748b;
             font-weight: 600;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .player-details {
             display: flex;
             justify-content: space-between;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #475569;
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            padding: 0.5rem 0.75rem;
-            border-radius: 0.5rem;
+            padding: 0.4rem 0.6rem;
+            border-radius: 0.4rem;
             margin-top: auto;
         }
     </style>
@@ -274,11 +267,13 @@
                     <div class="player-photo">
                         <img src="../../../images/ssbj/pei.jpg" class="profile-img" alt="Pengurus" onerror="this.src='../../../images/kpm-default.png'">
                         <img src="../../../images/ligakpm.jpg" class="league-logo" alt="Logo Liga KPM">
-                        <img src="../../../images/ssbj.png" id="pegawai-0-logo" class="team-logo" alt="Logo Sekolah" onerror="this.src='../../../images/kpm-default.png'">
                     </div>
                     <div class="member-info">
                         <div>
-                            <h3 id="pegawai-0-nama">PUAH PEI SAN</h3>
+                            <div class="flex items-center gap-3 mb-2">
+                                <img src="../../../images/ssbj.png" id="pegawai-0-logo" class="w-14 h-14 object-contain bg-white p-1 rounded-full border-2 border-sky-400 shadow-md shrink-0" alt="Logo Sekolah" onerror="this.src='../../../images/kpm-default.png'">
+                                <h3 id="pegawai-0-nama" class="flex-grow">PUAH PEI SAN</h3>
+                            </div>
                             <span class="badge">Pengurus</span>
                         </div>
                         <p id="pegawai-0-sekolah" class="mt-2"><i class="fas fa-school mr-1 text-blue-600"></i> SEKOLAH SUKAN BUKIT JALIL</p>
@@ -290,11 +285,13 @@
                     <div class="player-photo">
                         <img src="../../../images/ssbj/ana.jpg" class="profile-img" alt="Jurulatih" onerror="this.src='../../../images/kpm-default.png'">
                         <img src="../../../images/ligakpm.jpg" class="league-logo" alt="Logo Liga KPM">
-                        <img src="../../../images/ssbj.png" id="pegawai-1-logo" class="team-logo" alt="Logo Sekolah" onerror="this.src='../../../images/kpm-default.png'">
                     </div>
                     <div class="member-info">
                         <div>
-                            <h3 id="pegawai-1-nama">SITI NOR FARHANA BINTI MUSTAFA</h3>
+                            <div class="flex items-center gap-3 mb-2">
+                                <img src="../../../images/ssbj.png" id="pegawai-1-logo" class="w-14 h-14 object-contain bg-white p-1 rounded-full border-2 border-sky-400 shadow-md shrink-0" alt="Logo Sekolah" onerror="this.src='../../../images/kpm-default.png'">
+                                <h3 id="pegawai-1-nama" class="flex-grow">SITI NOR FARHANA BINTI MUSTAFA</h3>
+                            </div>
                             <span class="badge">Jurulatih</span>
                         </div>
                         <p id="pegawai-1-sekolah" class="mt-2"><i class="fas fa-school mr-1 text-blue-600"></i> SEKOLAH SUKAN BUKIT JALIL</p>
@@ -306,11 +303,13 @@
                     <div class="player-photo">
                         <img src="../../../images/ssbj/fisioterapi.jpg" class="profile-img" alt="Fisioterapi" onerror="this.src='../../../images/kpm-default.png'">
                         <img src="../../../images/ligakpm.jpg" class="league-logo" alt="Logo Liga KPM">
-                        <img src="../../../images/ssbj.png" id="pegawai-2-logo" class="team-logo" alt="Logo Sekolah" onerror="this.src='../../../images/kpm-default.png'">
                     </div>
                     <div class="member-info">
                         <div>
-                            <h3 id="pegawai-2-nama">FISIOTERAPI</h3>
+                            <div class="flex items-center gap-3 mb-2">
+                                <img src="../../../images/ssbj.png" id="pegawai-2-logo" class="w-14 h-14 object-contain bg-white p-1 rounded-full border-2 border-sky-400 shadow-md shrink-0" alt="Logo Sekolah" onerror="this.src='../../../images/kpm-default.png'">
+                                <h3 id="pegawai-2-nama" class="flex-grow">FISIOTERAPI</h3>
+                            </div>
                             <span class="badge">Fisioterapi</span>
                         </div>
                         <p id="pegawai-2-sekolah" class="mt-2"><i class="fas fa-school mr-1 text-blue-600"></i> SEKOLAH SUKAN BUKIT JALIL</p>
@@ -332,11 +331,13 @@
                                 <div class="player-photo">
                                     <img src="profile/team/player${i+1}.jpg" class="profile-img" alt="Player ${i+1}" onerror="this.src='../../../images/kpm-default.png'">
                                     <img src="../../../images/ligakpm.jpg" class="league-logo" alt="Logo Liga KPM">
-                                    <img src="../../../images/ssbj.png" id="atlet-${i}-logo" class="team-logo" alt="Logo Sekolah" onerror="this.src='../../../images/kpm-default.png'">
                                 </div>
                                 <div class="member-info">
                                     <div>
-                                        <h3 id="atlet-${i}-nama">NAMA ATLET ${i+1}</h3>
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <img src="../../../images/ssbj.png" id="atlet-${i}-logo" class="w-14 h-14 object-contain bg-white p-1 rounded-full border-2 border-sky-400 shadow-md shrink-0" alt="Logo Sekolah" onerror="this.src='../../../images/kpm-default.png'">
+                                            <h3 id="atlet-${i}-nama" class="flex-grow">NAMA ATLET ${i+1}</h3>
+                                        </div>
                                         <span class="badge-player" id="atlet-${i}-posisi">POSISI</span>
                                     </div>
                                     <p id="atlet-${i}-sekolah" class="mt-1"><i class="fas fa-school mr-1 text-blue-600"></i> SEKOLAH</p>
@@ -472,3 +473,9 @@
                 console.error("Gagal memuatkan data dari Google Sheet:", error);
             }
         }
+
+        // Panggil fungsi muat data apabila halaman dimuatkan
+        window.addEventListener('DOMContentLoaded', muatDataPasukan);
+    </script>
+</body>
+</html>
