@@ -265,7 +265,7 @@
                 <!-- Pegawai 1: Pengurus -->
                 <div class="member-card">
                     <div class="player-photo">
-                        <img src="pengurus.jpg" class="profile-img" alt="Pengurus" onerror="this.src='../../../images/kpm-default.png'">
+                        <img src="../../../images/tho/pengurus.jpg" class="profile-img" alt="Pengurus" onerror="this.src='../../../images/kpm-default.png'">
                         <img src="../../../images/ligakpm.jpg" class="league-logo" alt="Logo Liga KPM">
                     </div>
                     <div class="member-info">
@@ -283,7 +283,7 @@
                 <!-- Pegawai 2: Jurulatih -->
                 <div class="member-card">
                     <div class="player-photo">
-                        <img src="jurulatih.jpg" class="profile-img" alt="Jurulatih" onerror="this.src='../../../images/kpm-default.png'">
+                        <img src="../../../images/tho/jurulatih.jpg" class="profile-img" alt="Jurulatih" onerror="this.src='../../../images/kpm-default.png'">
                         <img src="../../../images/ligakpm.jpg" class="league-logo" alt="Logo Liga KPM">
                     </div>
                     <div class="member-info">
@@ -329,7 +329,7 @@
                         document.write(`
                             <div class="member-card">
                                 <div class="player-photo">
-                                    <img src="profile/team/player${i+1}.jpg" class="profile-img" alt="Player ${i+1}" onerror="this.src='../../../images/kpm-default.png'">
+                                    <img src="../../../images/tho/atlet${i+1}.jpg" class="profile-img" alt="Player ${i+1}" onerror="this.src='../../../images/kpm-default.png'">
                                     <img src="../../../images/ligakpm.jpg" class="league-logo" alt="Logo Liga KPM">
                                 </div>
                                 <div class="member-info">
@@ -373,25 +373,29 @@
             if (!schoolName) return '../../../images/ssbj.png';
             const name = schoolName.toUpperCase();
             const logoMap = {
-                'SEKSYEN SEBELAS': '../../../images/ss11.png',
-                'MUTIARA IMPIAN': '../../../images/mutiaraimpian.png',
-                'MUTIARA': '../../../images/mutiara.png',
-                'PUTRAJAYA PRESINT 8': '../../../images/putrajaya8.png',
-                'ZA\'BA': '../../../images/zaba.png',
-                'BUKIT NENAS': '../../../images/ssnt.png',
-                'TABUAN JAYA': '../../../images/ssntjaya.png',
-                'TUNKU MAHKOTA ISMAIL': '../../../images/sstmi.png',
-                'TUNKU ANUM': '../../../images/tunkuanum.png',
-                'SYED HASSAN': '../../../images/syedhassan.png',
-                'SEBERANG TEMERLOH': '../../../images/seberangtemerloh.png',
-                'PUTERA': '../../../images/putera.png',
-                'GUNUNG RAPAT': '../../../images/gunungrapat.png',
-                'PAHANG': '../../../images/ssmp.png',
-                'SERI KOTA': '../../../images/serikota.png',
-                'BUKIT JALIL': '../../../images/ssbj.png',
-                'SERI TITIWANGSA': '../../../images/ssnkl.png',
-                'DATUK PETER MOJUNTIN': '../../../images/petermojuntin.png',
-                'TUN HUSSEIN ONN': '../../../images/tho.png'
+                const logoMap = {
+
+    'SEKSYEN SEBELAS': '../../../images/ss11.png',
+    'MUTIARA IMPIAN': '../../../images/mutiaraimpian.png',
+    'MUTIARA': '../../../images/mutiara.png',
+    'PUTRAJAYA PRESINT 8': '../../../images/putrajaya8.png',
+    'ZA\'BA': '../../../images/zaba.png',
+    'BUKIT NENAS': '../../../images/ssnt.png',
+    'TABUAN JAYA': '../../../images/ssntjaya.png',
+    'TUNKU MAHKOTA ISMAIL': '../../../images/sstmi.png',
+    'TUNKU ANUM': '../../../images/tunkuanum.png',
+    'SYED HASSAN': '../../../images/syedhassan.png',
+    'SEBERANG TEMERLOH': '../../../images/seberangtemerloh.png',
+    'PUTERA': '../../../images/putera.png',
+    'GUNUNG RAPAT': '../../../images/gunungrapat.png',
+    'PAHANG': '../../../images/ssmp.png',
+    'SERI KOTA': '../../../images/serikota.png',
+    'BUKIT JALIL': '../../../images/ssbj.png',
+    'SERI TITIWANGSA': '../../../images/ssnkl.png',
+    'DATUK PETER MOJUNTIN': '../../../images/petermojuntin.png',
+    'TUN HUSSIEN ONN': '../../../images/tho.png',
+    'THO': '../../../images/tho.png'
+};
             };
             
             for (let key in logoMap) {
