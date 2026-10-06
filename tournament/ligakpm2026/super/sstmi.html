@@ -329,7 +329,7 @@
                         document.write(`
                             <div class="member-card">
                                 <div class="player-photo">
-                                    <img src="profile/team/player${i+1}.jpg" class="profile-img" alt="Player ${i+1}" onerror="this.src='../../../images/kpm-default.png'">
+                                    <img src="../../../images/sstmi/atlet${i+1}.jpg" class="profile-img" alt="Player ${i+1}" onerror="this.src='../../../images/kpm-default.png'">
                                     <img src="../../../images/ligakpm.jpg" class="league-logo" alt="Logo Liga KPM">
                                 </div>
                                 <div class="member-info">
@@ -403,7 +403,7 @@
         }
 
         async function muatDataPasukan() {
-            const csvUrl = "https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID_HERE/export?format=csv&gid=0";
+            const csvUrl = "https://docs.google.com/spreadsheets/d/1dF5p8p0pz8uiVR1nmDIIiQdKbT184wAjv1PzkR-_00A/export?format=csv&gid=0";
             try {
                 const response = await fetch(csvUrl);
                 const dataText = await response.text();
