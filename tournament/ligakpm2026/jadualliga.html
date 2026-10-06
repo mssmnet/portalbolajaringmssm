@@ -1,506 +1,291 @@
 <!DOCTYPE html>
 <html lang="ms">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Jadual Perlawanan - Liga KPM Bola Jaring</title>
-
-    <!-- Tailwind CSS -->
+    <title>Jadual Ringkas | Liga Bola Jaring KPM 2026</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary-blue: #1d4ed8;
+            --primary-blue: #1d4ed8; 
             --accent-red: #dc2626;
             --accent-yellow: #facc15;
             --light-blue: #38bdf8;
             --dark-blue: #1e3a8a;
         }
 
+        /* Latar Belakang Baby Blue Eksklusif dengan Grafik Posisi Netball */
         body {
             background-color: #e0f2fe;
-
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='%230284c7' fill-opacity='0.11' font-family='Segoe UI, sans-serif' font-weight='900' font-size='15'%3E%3Ctext x='20' y='30'%3EGS%3C/text%3E%3Ctext x='110' y='30'%3EGA%3C/text%3E%3Ctext x='20' y='95'%3EWA%3C/text%3E%3Ctext x='85' y='95'%3EC%3C/text%3E%3Ctext x='140' y='95'%3EWD%3C/text%3E%3Ctext x='40' y='155'%3EGD%3C/text%3E%3Ctext x='120' y='155'%3EGK%3C/text%3E%3C/g%3E%3C/svg%3E");
-
             background-attachment: fixed;
-
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* Jalur Warna Tema */
         .color-stripe {
             height: 6px;
-            background: linear-gradient(
-                to right,
-                #dc2626,
-                #facc15,
-                #38bdf8,
-                #1d4ed8
-            );
+            background: linear-gradient(to right, #dc2626, #facc15, #38bdf8, #1d4ed8);
             width: 100%;
         }
 
         @keyframes pulse-live {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.6;
-            }
-
-            100% {
-                opacity: 1;
-            }
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
         }
 
         .live-pulse {
             animation: pulse-live 1.5s infinite;
         }
-
-        /* PDF VIEWER */
-        .pdf-container {
-            width: 100%;
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 2px solid #d1d5db;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-        }
-
-        .pdf-viewer {
-            width: 100%;
-            height: 750px;
-            display: block;
-            border: none;
-            background: #f3f4f6;
-        }
-
-        @media (max-width: 768px) {
-            .pdf-viewer {
-                height: 600px;
-            }
-        }
     </style>
 </head>
-
-
 <body class="text-gray-800 flex flex-col min-h-screen">
 
-
-    <!-- JALUR WARNA -->
+    <!-- Jalur Warna -->
     <div class="color-stripe"></div>
 
-
-    <!-- ================= HEADER ================= -->
-
-    <header
-        class="bg-gradient-to-r from-blue-950 via-blue-900 to-indigo-900 text-white shadow-xl sticky top-0 z-50 border-b-4 border-yellow-400">
-
-        <div
-            class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
-
-
-            <!-- LOGO -->
-
+    <!-- HEADER -->
+    <header class="bg-gradient-to-r from-blue-950 via-blue-900 to-indigo-900 text-white shadow-xl sticky top-0 z-50 border-b-4 border-yellow-400">
+        <div class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
+            <!-- Logo Section -->
             <div class="flex items-center space-x-3 md:space-x-4">
-
-                <img
-                    src="../../images/ligasukan.jpg"
-                    alt="Logo Liga KPM"
-                    class="h-14 md:h-18 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-yellow-400">
-
-                <img
-                    src="../../images/ligakpm.jpg"
-                    alt="Logo Sukan"
-                    class="h-14 md:h-18 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-400">
-
-                <span
-                    class="font-extrabold text-lg md:text-2xl tracking-wide text-yellow-300 drop-shadow hidden sm:inline">
-                    LIGA KPM 2026
-                </span>
-
+                <img src="../../images/ligasukan.jpg" alt="Logo Liga KPM" class="h-12 md:h-16 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-yellow-400" onerror="this.src='../../images/kpm-default.png'">
+                <img src="../../images/ligakpm.jpg" alt="Logo Sukan" class="h-12 md:h-16 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-400" onerror="this.src='../../images/kpm-default.png'">
+                <span class="font-extrabold text-base md:text-xl tracking-wide text-yellow-300 drop-shadow hidden sm:inline">LIGA KPM 2026</span>
             </div>
 
-
-            <!-- DESKTOP MENU -->
-
-            <nav
-                class="hidden lg:flex items-center space-x-2 font-bold text-xs xl:text-sm">
-
-                <a href="index.html"
-                   class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">
-                    Home
+            <!-- Navigation Menu (Desktop) -->
+            <nav class="hidden lg:flex items-center space-x-2 font-bold text-xs xl:text-sm">
+                <a href="../../index.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Home</a>
+                <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" rel="noopener" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jsport</a>
+                <a href="keputusanrasmi.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Keputusan Rasmi</a>
+                <a href="jadualliga.html" class="px-3 py-2 rounded-lg bg-red-600 border border-yellow-400 text-yellow-300 font-extrabold">Jadual</a>
+                <a href="pasukanliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Pasukan</a>
+                <a href="peraturanliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Peraturan</a>
+                <a href="statistikliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Statistik</a>
+                <a href="borangliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Borang</a>
+                <a href="galeri.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Galeri</a>
+                <!-- Navi Live di Header -->
+                <a href="live.html" class="px-3 py-2 rounded-lg bg-red-600 text-yellow-300 border-2 border-yellow-400 font-extrabold flex items-center gap-1 live-pulse hover:bg-red-700 transition">
+                    <i class="fa-solid fa-video"></i> LIVE
                 </a>
-
-                <a href="https://jsports.com.my/ligakpm/bolajaring/"
-                   target="_blank"
-                   rel="noopener"
-                   class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">
-                    Jsport
-                </a>
-
-                <a href="keputusanrasmi.html"
-                   class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">
-                    Keputusan
-                </a>
-
-                <a href="jadualliga.html"
-                   class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-red-600 border border-yellow-400 text-yellow-300 font-extrabold">
-                    Jadual
-                </a>
-
-                <a href="peraturanliga.html"
-                   class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">
-                    Peraturan
-                </a>
-
-                <a href="statistikliga.html"
-                   class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">
-                    Statistik
-                </a>
-
-                <a href="borangliga.html"
-                   class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">
-                    Borang
-                </a>
-
-                <a href="galeri.html"
-                   class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">
-                    Galeri
-                </a>
-
-                <a href="live.html"
-                   class="px-3 py-2 rounded-lg bg-red-600 text-yellow-300 border-2 border-yellow-400 font-extrabold flex items-center gap-1 live-pulse hover:bg-red-700 transition">
-
-                    <i class="fa-solid fa-video"></i>
-                    LIVE
-
-                </a>
-
             </nav>
 
-
-            <!-- MOBILE BUTTON -->
-
+            <!-- Mobile Menu Button -->
             <div class="lg:hidden flex items-center">
-
-                <button
-                    id="menu-btn"
-                    class="text-yellow-300 focus:outline-none p-2.5 bg-blue-900 border border-yellow-400/50 rounded-xl shadow">
-
+                <button id="menu-btn" type="button" class="text-yellow-300 focus:outline-none p-2.5 bg-blue-900 border border-yellow-400/50 rounded-xl shadow">
                     <i class="fa-solid fa-bars text-2xl"></i>
-
                 </button>
-
             </div>
-
         </div>
 
-
-        <!-- MOBILE MENU -->
-
-        <div
-            id="mobile-menu"
-            class="hidden lg:hidden bg-blue-950 border-t border-yellow-400/30 px-4 pt-3 pb-5 space-y-2 text-base font-medium">
-
-            <a href="index.html"
-               class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">
-                Home
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-blue-950 border-t border-yellow-400/30 px-4 pt-3 pb-5 space-y-2 text-base font-medium">
+            <a href="../../index.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Home</a>
+            <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" rel="noopener" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Jsport</a>
+            <a href="keputusanrasmi.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Rasmi</a>
+            <a href="jadualliga.html" class="block bg-red-600 text-yellow-300 px-3 py-2 rounded-lg transition font-bold">Jadual Perlawanan</a>
+            <a href="pasukanliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Pasukan Liga</a>
+            <a href="peraturanliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Peraturan</a>
+            <a href="statistikliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Statistik Liga</a>
+            <a href="borangliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Borang Rasmi</a>
+            <a href="galeri.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Galeri</a>
+            <a href="live.html" class="block bg-red-600 text-yellow-300 font-extrabold px-3 py-2.5 rounded-lg text-center live-pulse border border-yellow-400 transition">
+                <i class="fa-solid fa-video mr-1"></i> SIARAN LANGSUNG (LIVE)
             </a>
-
-            <a href="https://jsports.com.my/ligakpm/bolajaring/"
-               target="_blank"
-               rel="noopener"
-               class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">
-                Keputusan Jsport
-            </a>
-
-            <a href="keputusanrasmi.html"
-               class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">
-                Keputusan Rasmi
-            </a>
-
-            <a href="jadualliga.html"
-               class="block bg-red-600 text-yellow-300 px-3 py-2 rounded-lg transition font-extrabold">
-                Jadual Perlawanan
-            </a>
-
-            <a href="peraturanliga.html"
-               class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">
-                Peraturan Rasmi
-            </a>
-
-            <a href="statistikliga.html"
-               class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">
-                Statistik Liga
-            </a>
-
-            <a href="borangliga.html"
-               class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">
-                Borang Rasmi
-            </a>
-
-            <a href="galeri.html"
-               class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">
-                Galeri
-            </a>
-
-            <a href="live.html"
-               class="block bg-red-600 text-yellow-300 font-extrabold px-3 py-2.5 rounded-lg text-center live-pulse border border-yellow-400 transition">
-
-                <i class="fa-solid fa-video mr-1"></i>
-                SIARAN LANGSUNG (LIVE)
-
-            </a>
-
         </div>
-
     </header>
 
-
-    <!-- ================= HERO ================= -->
-
-    <section
-        class="py-6 md:py-8 text-center relative overflow-hidden">
-
-        <div
-            class="container mx-auto px-4 relative z-10">
-
-            <span
-                class="bg-red-600 text-yellow-300 text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow border border-yellow-400 mb-2 inline-block">
-                Takwim Rasmi
-            </span>
-
-            <h1
-                class="text-2xl md:text-4xl font-black mb-2 text-blue-950 drop-shadow-sm">
-                Jadual Perlawanan Liga KPM 2026
-            </h1>
-
-            <p
-                class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold">
-                Semak, muat turun, dan cetak jadual perlawanan rasmi kejohanan di bawah.
-            </p>
-
+    <!-- HERO SECTION -->
+    <section class="py-6 md:py-8 text-center relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <span class="bg-red-600 text-yellow-300 text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow border border-yellow-400 mb-2 inline-block">Sirkit Akhir 2026</span>
+            <h1 class="text-2xl md:text-4xl font-black mb-2 text-blue-950 drop-shadow-sm">Jadual Ringkas Liga Bola Jaring KPM</h1>
+            <p class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold">Paparan jadual perlawanan ringkas dan padat untuk rujukan pantas.</p>
         </div>
-
     </section>
 
-
-    <!-- ================= MAIN ================= -->
-
-    <main
-        class="flex-grow container mx-auto px-4 pb-12 pt-2 max-w-5xl">
-
-        <div
-            class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-6 md:p-8 border-2 border-sky-200">
-
-
-            <!-- TAJUK DAN BUTANG -->
-
-            <div
-                class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6 pb-6 border-b border-gray-200">
-
-
-                <div class="flex items-center space-x-4">
-
-                    <div
-                        class="w-16 h-16 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-sky-200 shrink-0">
-
-                        <i class="fa-solid fa-calendar-days"></i>
-
-                    </div>
-
-
-                    <div>
-
-                        <h3
-                            class="font-extrabold text-lg md:text-xl text-blue-950">
-                            Takwim Jadual Perlawanan
-                        </h3>
-
-                        <p
-                            class="text-xs md:text-sm text-gray-600">
-                            Dokumen PDF rasmi masa, gelanggang, dan senarai pertemuan pasukan.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- BUTANG -->
-
-                <div
-                    class="flex flex-wrap sm:flex-nowrap gap-3 w-full md:w-auto">
-
-
-                    <!-- DOWNLOAD -->
-
-                    <a
-                        href="../../documents/jadual-liga-sirkit-akhir.pdf"
-                        download
-                        class="flex-1 md:flex-none bg-blue-700 hover:bg-blue-800 text-white font-bold py-2.5 px-5 rounded-xl text-center text-xs md:text-sm transition flex items-center justify-center gap-2 shadow">
-
-                        <i class="fa-solid fa-download"></i>
-
-                        Muat Turun
-
-                    </a>
-
-
-                    <!-- BUKA PDF -->
-
-                    <a
-                        href="../../documents/jadual-liga-sirkit-akhir.pdf"
-                        target="_blank"
-                        rel="noopener"
-                        class="flex-1 md:flex-none bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-5 rounded-xl text-center text-xs md:text-sm transition flex items-center justify-center gap-2 shadow">
-
-                        <i class="fa-solid fa-file-pdf"></i>
-
-                        Papar / Cetak
-
-                    </a>
-
-                </div>
-
+    <!-- MAIN CONTAINER -->
+    <main class="flex-grow container mx-auto px-4 pb-12 max-w-5xl">
+        
+        <!-- Butang Cetak & Header Ringkas -->
+        <div class="flex justify-between items-center mb-6">
+            <div class="text-xs md:text-sm font-bold text-blue-950">
+                <i class="fa-solid fa-list mr-1 text-blue-700"></i> Senarai Perlawanan Rasmi (#28 - #83)
             </div>
+            <button onclick="window.print()" class="px-4 py-2 rounded-xl font-bold text-xs md:text-sm bg-emerald-600 text-white shadow hover:bg-emerald-700 transition flex items-center gap-2 cursor-pointer border border-emerald-400">
+                <i class="fas fa-print"></i> Cetak Jadual
+            </button>
+        </div>
 
-
-            <!-- ================= PDF VIEWER ================= -->
-
-            <div class="pdf-container">
-
-
-                <!-- BAR PDF -->
-
-                <div
-                    class="bg-blue-950 text-white px-4 py-3 flex items-center justify-between">
-
-                    <div
-                        class="flex items-center gap-2 font-bold">
-
-                        <i
-                            class="fa-solid fa-file-pdf text-red-400">
-                        </i>
-
-                        Jadual Perlawanan Liga KPM 2026
-
-                    </div>
-
-
-                    <a
-                        href="../../documents/jadual-liga-sirkit-akhir.pdf"
-                        target="_blank"
-                        rel="noopener"
-                        class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-xs md:text-sm font-bold transition">
-
-                        <i class="fa-solid fa-up-right-from-square mr-1"></i>
-
-                        Buka PDF
-
-                    </a>
-
-                </div>
-
-
-                <!-- PAPARAN PDF -->
-
-                <embed
-                    class="pdf-viewer"
-                    src="../../documents/jadual-liga-sirkit-akhir.pdf"
-                    type="application/pdf"
-                    title="Jadual Perlawanan Liga KPM 2026">
-
-
-                <!-- FALLBACK -->
-
-                <div
-                    class="p-5 bg-sky-50 border-t border-sky-200 text-center">
-
-                    <p
-                        class="text-sm text-gray-700 mb-3">
-
-                        Jika PDF tidak dipaparkan di dalam halaman,
-                        sila klik butang di bawah untuk membuka dokumen.
-
-                    </p>
-
-
-                    <div
-                        class="flex flex-wrap justify-center gap-3">
-
-
-                        <a
-                            href="../../documents/jadual-liga-sirkit-akhir.pdf"
-                            target="_blank"
-                            rel="noopener"
-                            class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2.5 px-5 rounded-xl shadow transition text-sm">
-
-                            <i class="fa-solid fa-file-pdf mr-1"></i>
-
-                            Buka PDF Penuh
-
-                        </a>
-
-
-                        <a
-                            href="../../documents/jadual-liga-sirkit-akhir.pdf"
-                            download
-                            class="bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-5 rounded-xl shadow transition text-sm">
-
-                            <i class="fa-solid fa-download mr-1"></i>
-
-                            Muat Turun PDF
-
-                        </a>
-
-                    </div>
-
-                </div>
-
+        <!-- Jadual Ringkas Table -->
+        <div class="bg-white rounded-2xl shadow-md border border-sky-200 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs md:text-sm">
+                    <thead>
+                        <tr class="bg-blue-950 text-yellow-300 font-bold uppercase tracking-wider text-[11px] md:text-xs">
+                            <th class="py-3 px-3 text-center">No</th>
+                            <th class="py-3 px-3">Tarikh & Masa</th>
+                            <th class="py-3 px-3 text-center">Kumpulan</th>
+                            <th class="py-3 px-3 text-right">Pasukan A</th>
+                            <th class="py-3 px-3 text-center">LWN</th>
+                            <th class="py-3 px-3 text-left">Pasukan B</th>
+                            <th class="py-3 px-3 text-center">Court</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule-tbody" class="divide-y divide-slate-200 font-medium text-slate-700">
+                        <!-- Dijana secara dinamik oleh JS -->
+                    </tbody>
+                </table>
             </div>
-
-
         </div>
 
     </main>
 
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer
-        class="bg-blue-950 text-yellow-300 py-5 text-center text-sm md:text-base border-t-4 border-yellow-400 font-black uppercase tracking-widest shadow-inner">
-
+    <!-- FOOTER -->
+    <footer class="bg-blue-950 text-yellow-300 py-5 text-center text-sm md:text-base border-t-4 border-yellow-400 font-black uppercase tracking-widest shadow-inner">
         LIGA KPM 2026 • HAK CIPTA TERPELIHARA
-
     </footer>
 
-
-    <!-- ================= JAVASCRIPT ================= -->
-
+    <!-- SCRIPT -->
     <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
-        const btn = document.getElementById('menu-btn');
+        // Fungsi mendapatkan logo sekolah menggunakan laluan relatif '../../images/'
+        function getTeamLogo(teamName) {
+            if (!teamName) return '../../images/kpm-default.png';
+            const name = teamName.toUpperCase();
+            const logoMap = {
+                'SMK SEKSYEN SEBELAS': 'ss11.png',
+                'SMK MUTIARA IMPIAN': 'mutiaraimpian.png',
+                'SMK MUTIARA': 'mutiara.png',
+                'SMK PUTRAJAYA PRESINT 8': 'putrajaya8.png',
+                'SMK ZA\'BA': 'zaba.png',
+                'SMK BUKIT NENAS': 'ssnt.png',
+                'SMK TABUAN JAYA': 'ssntjaya.png',
+                'SS TUNKU MAHKOTA ISMAIL': 'sstmi.png',
+                'SMK TUNKU ANUM': 'tunkuanum.png',
+                'SMK SYED HASSAN': 'syedhassan.png',
+                'SMK SEBERANG TEMERLOH': 'seberangtemerloh.png',
+                'SMK PUTERA': 'putera.png',
+                'SMK GUNUNG RAPAT': 'gunungrapat.png',
+                'SS PAHANG': 'ssmp.png',
+                'SMK SERI KOTA': 'serikota.png',
+                'SS BUKIT JALIL': 'ssbj.png',
+                'SMK SERI TITIWANGSA': 'ssnkl.png',
+                'SMK DATUK PETER MOJUNTIN': 'petermojuntin.png',
+                'SMK TUN HUSSEIN ONN': 'tho.png'
+            };
+            
+            for (let key in logoMap) {
+                if (name.includes(key)) {
+                    return `../../images/${logoMap[key]}`;
+                }
+            }
+            return `../../images/kpm-default.png`;
+        }
 
-        const menu = document.getElementById('mobile-menu');
+        const matches = [
+            { bil: 28, date: "9 Okt (Jumaat)", time: "8.00 PAGI", kumpulan: "Perdana", court: "Court A", teamA: "SMK MUTIARA", teamB: "SMK PUTRAJAYA PRESINT 8 (1)" },
+            { bil: 29, date: "9 Okt (Jumaat)", time: "8.00 PAGI", kumpulan: "Super", court: "Court B", teamA: "SMK SERI KOTA", teamB: "SS PAHANG" },
+            { bil: 30, date: "9 Okt (Jumaat)", time: "9.00 PAGI", kumpulan: "Super", court: "Court A", teamA: "SMK BUKIT NENAS", teamB: "SMK SEKSYEN SEBELAS" },
+            { bil: 31, date: "9 Okt (Jumaat)", time: "9.00 PAGI", kumpulan: "Super", court: "Court B", teamA: "SMK TABUAN JAYA", teamB: "SS TUNKU MAHKOTA ISMAIL" },
+            { bil: 32, date: "9 Okt (Jumaat)", time: "10.00 PAGI", kumpulan: "Perdana", court: "Court A", teamA: "SMK TUNKU ANUM", teamB: "SMK SYED HASSAN" },
+            { bil: 33, date: "9 Okt (Jumaat)", time: "10.00 PAGI", kumpulan: "Perdana", court: "Court B", teamA: "SMK PUTERA", teamB: "SMK SEBERANG TEMERLOH" },
+            { bil: 34, date: "9 Okt (Jumaat)", time: "11.00 PAGI", kumpulan: "Super", court: "Court A", teamA: "SS BUKIT JALIL", teamB: "SMK SERI TITIWANGSA" },
+            { bil: 35, date: "9 Okt (Jumaat)", time: "12.00 T/HARI", kumpulan: "Perdana", court: "Court B", teamA: "SMK GUNUNG RAPAT", teamB: "SMK DATUK PETER MOJUNTIN" },
+            { bil: 36, date: "9 Okt (Jumaat)", time: "12.00 T/HARI", kumpulan: "Perdana", court: "Court A", teamA: "SMK MUTIARA", teamB: "SMK SYED HASSAN" },
+            { bil: 37, date: "9 Okt (Jumaat)", time: "2.00 PTG", kumpulan: "Super", court: "Court A", teamA: "SMK SEKSYEN SEBELAS", teamB: "SS TUNKU MAHKOTA ISMAIL" },
+            { bil: 38, date: "9 Okt (Jumaat)", time: "3.00 PTG", kumpulan: "Super", court: "Court B", teamA: "SMK BUKIT NENAS", teamB: "SS PAHANG" },
+            { bil: 39, date: "9 Okt (Jumaat)", time: "4.00 PTG", kumpulan: "Perdana", court: "Court A", teamA: "SMK MUTIARA IMPIAN", teamB: "SMK SEBERANG TEMERLOH" },
+            { bil: 40, date: "9 Okt (Jumaat)", time: "4.00 PTG", kumpulan: "Perdana", court: "Court B", teamA: "SMK TUNKU ANUM", teamB: "SMK DATUK PETER MOJUNTIN" },
+            { bil: 41, date: "9 Okt (Jumaat)", time: "5.00 PTG", kumpulan: "Super", court: "Court A", teamA: "SMK TABUAN JAYA", teamB: "SMK TUN HUSSEIN ONN" },
+            { bil: 42, date: "9 Okt (Jumaat)", time: "5.00 PTG", kumpulan: "Super", court: "Court B", teamA: "SMK SERI KOTA", teamB: "SMK SERI TITIWANGSA" },
+            { bil: 43, date: "9 Okt (Jumaat)", time: "6.00 PTG", kumpulan: "Perdana", court: "Court A", teamA: "SMK PUTERA", teamB: "SMK GUNUNG RAPAT" },
+            
+            { bil: 44, date: "10 Okt (Sabtu)", time: "8.00 PAGI", kumpulan: "Perdana", court: "Court A", teamA: "SMK SYED HASSAN", teamB: "SMK PUTRAJAYA PRESINT 8 (1)" },
+            { bil: 45, date: "10 Okt (Sabtu)", time: "8.00 PAGI", kumpulan: "Perdana", court: "Court B", teamA: "SMK TUNKU ANUM", teamB: "SMK PUTERA" },
+            { bil: 46, date: "10 Okt (Sabtu)", time: "9.00 PAGI", kumpulan: "Super", court: "Court A", teamA: "SS PAHANG", teamB: "SMK SEKSYEN SEBELAS" },
+            { bil: 47, date: "10 Okt (Sabtu)", time: "10.00 PAGI", kumpulan: "Super", court: "Court B", teamA: "SS TUNKU MAHKOTA ISMAIL", teamB: "SMK TUN HUSSEIN ONN" },
+            { bil: 48, date: "10 Okt (Sabtu)", time: "10.00 PAGI", kumpulan: "Perdana", court: "Court A", teamA: "SMK MUTIARA", teamB: "SMK DATUK PETER MOJUNTIN" },
+            { bil: 49, date: "10 Okt (Sabtu)", time: "11.00 PAGI", kumpulan: "Perdana", court: "Court B", teamA: "SMK MUTIARA IMPIAN", teamB: "SMK GUNUNG RAPAT" },
+            { bil: 50, date: "10 Okt (Sabtu)", time: "11.00 PAGI", kumpulan: "Super", court: "Court A", teamA: "SMK BUKIT NENAS", teamB: "SMK SERI TITIWANGSA" },
+            { bil: 51, date: "10 Okt (Sabtu)", time: "11.00 PAGI", kumpulan: "Super", court: "Court B", teamA: "SMK TABUAN JAYA", teamB: "SS BUKIT JALIL" },
+            { bil: 52, date: "10 Okt (Sabtu)", time: "2.00 PTG", kumpulan: "Perdana", court: "Court A", teamA: "SMK PUTRAJAYA PRESINT 8 (1)", teamB: "SMK SEBERANG TEMERLOH" },
+            { bil: 53, date: "10 Okt (Sabtu)", time: "3.00 PTG", kumpulan: "Perdana", court: "Court B", teamA: "SMK SYED HASSAN", teamB: "SMK DATUK PETER MOJUNTIN" },
+            { bil: 54, date: "10 Okt (Sabtu)", time: "3.00 PTG", kumpulan: "Super", court: "Court A", teamA: "SMK SEKSYEN SEBELAS", teamB: "SMK TUN HUSSEIN ONN" },
+            { bil: 55, date: "10 Okt (Sabtu)", time: "3.00 PTG", kumpulan: "Super", court: "Court B", teamA: "SS PAHANG", teamB: "SMK SERI TITIWANGSA" },
+            { bil: 56, date: "10 Okt (Sabtu)", time: "4.00 PTG", kumpulan: "Perdana", court: "Court A", teamA: "SMK MUTIARA IMPIAN", teamB: "SMK TUNKU ANUM" },
+            { bil: 57, date: "10 Okt (Sabtu)", time: "4.00 PTG", kumpulan: "Perdana", court: "Court B", teamA: "SMK MUTIARA", teamB: "SMK PUTERA" },
+            { bil: 58, date: "10 Okt (Sabtu)", time: "5.00 PTG", kumpulan: "Super", court: "Court A", teamA: "SS TUNKU MAHKOTA ISMAIL", teamB: "SS BUKIT JALIL" },
+            { bil: 59, date: "10 Okt (Sabtu)", time: "5.00 PTG", kumpulan: "Super", court: "Court B", teamA: "SMK TABUAN JAYA", teamB: "SMK SERI KOTA" },
 
+            { bil: 60, date: "11 Okt (Ahad)", time: "8.00 PAGI", kumpulan: "Perdana", court: "Court A", teamA: "SMK DATUK PETER MOJUNTIN", teamB: "SMK PUTRAJAYA PRESINT 8 (1)" },
+            { bil: 61, date: "11 Okt (Ahad)", time: "8.00 PAGI", kumpulan: "Perdana", court: "Court B", teamA: "SMK SEBERANG TEMERLOH", teamB: "SMK GUNUNG RAPAT" },
+            { bil: 62, date: "11 Okt (Ahad)", time: "9.00 PAGI", kumpulan: "Super", court: "Court A", teamA: "SMK SERI TITIWANGSA", teamB: "SMK SEKSYEN SEBELAS" },
+            { bil: 63, date: "11 Okt (Ahad)", time: "9.00 PAGI", kumpulan: "Super", court: "Court B", teamA: "SMK TUN HUSSEIN ONN", teamB: "SS BUKIT JALIL" },
+            { bil: 64, date: "11 Okt (Ahad)", time: "10.00 PAGI", kumpulan: "Perdana", court: "Court A", teamA: "SMK SYED HASSAN", teamB: "SMK PUTERA" },
+            { bil: 65, date: "11 Okt (Ahad)", time: "10.00 PAGI", kumpulan: "Perdana", court: "Court B", teamA: "SMK MUTIARA", teamB: "SMK MUTIARA IMPIAN" },
+            { bil: 66, date: "11 Okt (Ahad)", time: "11.00 PAGI", kumpulan: "Super", court: "Court A", teamA: "SS TUNKU MAHKOTA ISMAIL", teamB: "SMK SERI KOTA" },
+            { bil: 67, date: "11 Okt (Ahad)", time: "11.00 PAGI", kumpulan: "Super", court: "Court B", teamA: "SMK BUKIT NENAS", teamB: "SMK TABUAN JAYA" },
+            { bil: 68, date: "11 Okt (Ahad)", time: "11.00 PAGI", kumpulan: "Perdana", court: "Court C", teamA: "SMK PUTRAJAYA PRESINT 8 (1)", teamB: "SMK GUNUNG RAPAT" },
+            { bil: 69, date: "11 Okt (Ahad)", time: "2.00 PTG", kumpulan: "Perdana", court: "Court B", teamA: "SMK DATUK PETER MOJUNTIN", teamB: "SMK PUTERA" },
+            { bil: 70, date: "11 Okt (Ahad)", time: "2.00 PTG", kumpulan: "Super", court: "Court A", teamA: "SMK SEKSYEN SEBELAS", teamB: "SS BUKIT JALIL" },
+            { bil: 71, date: "11 Okt (Ahad)", time: "3.00 PTG", kumpulan: "Super", court: "Court B", teamA: "SMK TUN HUSSEIN ONN", teamB: "SMK SERI KOTA" },
+            { bil: 72, date: "11 Okt (Ahad)", time: "4.00 PTG", kumpulan: "Perdana", court: "Court A", teamA: "SMK SEBERANG TEMERLOH", teamB: "SMK TUNKU ANUM" },
+            { bil: 73, date: "11 Okt (Ahad)", time: "4.00 PTG", kumpulan: "Perdana", court: "Court B", teamA: "SMK SYED HASSAN", teamB: "SMK MUTIARA IMPIAN" },
+            { bil: 74, date: "11 Okt (Ahad)", time: "4.00 PTG", kumpulan: "Super", court: "Court C", teamA: "SS PAHANG", teamB: "SMK TABUAN JAYA" },
+            { bil: 75, date: "11 Okt (Ahad)", time: "5.00 PTG", kumpulan: "Super", court: "Court A", teamA: "SS TUNKU MAHKOTA ISMAIL", teamB: "SMK BUKIT NENAS" },
 
-        btn.addEventListener('click', () => {
+            { bil: 76, date: "12 Okt (Isnin)", time: "9.00 PAGI", kumpulan: "SUKU AKHIR", court: "-", teamA: "JOHAN LIGA SUPER", teamB: "KE-3 LIGA PERDANA" },
+            { bil: 77, date: "12 Okt (Isnin)", time: "9.00 PAGI", kumpulan: "SUKU AKHIR", court: "-", teamA: "NAIB JOHAN LIGA SUPER", teamB: "KE-5 LIGA SUPER" },
+            { bil: 78, date: "12 Okt (Isnin)", time: "10.00 PAGI", kumpulan: "SUKU AKHIR", court: "-", teamA: "NAIB JOHAN LIGA PERDANA", teamB: "KE-3 LIGA SUPER" },
+            { bil: 79, date: "12 Okt (Isnin)", time: "10.00 PAGI", kumpulan: "SUKU AKHIR", court: "-", teamA: "JOHAN LIGA PERDANA", teamB: "KE-4 LIGA SUPER" },
+            { bil: 80, date: "12 Okt (Isnin)", time: "4.00 PTG", kumpulan: "SEPARUH AKHIR", court: "-", teamA: "MENANG 76", teamB: "MENANG 78" },
+            { bil: 81, date: "12 Okt (Isnin)", time: "5.00 PTG", kumpulan: "SEPARUH AKHIR", court: "-", teamA: "MENANG 77", teamB: "MENANG 79" },
 
-            menu.classList.toggle('hidden');
+            { bil: 82, date: "13 Okt (Selasa)", time: "8.30 PAGI", kumpulan: "TEMPAT KE-3/4", court: "-", teamA: "KALAH 80", teamB: "KALAH 81" },
+            { bil: 83, date: "13 Okt (Selasa)", time: "9.30 PAGI", kumpulan: "AKHIR", court: "-", teamA: "MENANG 80", teamB: "MENANG 81" }
+        ];
 
+        const tbody = document.getElementById('schedule-tbody');
+        let html = '';
+        matches.forEach(m => {
+            const logoA = getTeamLogo(m.teamA);
+            const logoB = getTeamLogo(m.teamB);
+            html += `
+                <tr class="hover:bg-sky-50 transition">
+                    <td class="py-2.5 px-3 text-center font-bold text-blue-900">#${m.bil}</td>
+                    <td class="py-2.5 px-3 whitespace-nowrap"><div class="font-bold text-slate-800">${m.date}</div><div class="text-[11px] text-slate-500">${m.time}</div></td>
+                    <td class="py-2.5 px-3 text-center"><span class="bg-blue-900 text-yellow-300 px-2.5 py-0.5 rounded-full text-[10px] font-bold">${m.kumpulan}</span></td>
+                    <td class="py-2.5 px-3 text-right font-bold text-slate-900">
+                        <div class="flex items-center justify-end gap-2">
+                            <span>${m.teamA}</span>
+                            <img src="${logoA}" alt="${m.teamA}" class="w-6 h-6 object-contain shrink-0 bg-white p-0.5 rounded-full border border-sky-300 shadow-sm" onerror="this.src='../../images/kpm-default.png'">
+                        </div>
+                    </td>
+                    <td class="py-2.5 px-3 text-center font-extrabold text-red-600">LWN</td>
+                    <td class="py-2.5 px-3 text-left font-bold text-slate-900">
+                        <div class="flex items-center justify-start gap-2">
+                            <img src="${logoB}" alt="${m.teamB}" class="w-6 h-6 object-contain shrink-0 bg-white p-0.5 rounded-full border border-sky-300 shadow-sm" onerror="this.src='../../images/kpm-default.png'">
+                            <span>${m.teamB}</span>
+                        </div>
+                    </td>
+                    <td class="py-2.5 px-3 text-center"><span class="bg-sky-100 text-sky-800 border border-sky-300 px-2 py-0.5 rounded-full text-[10px] font-bold">${m.court}</span></td>
+                </tr>
+            `;
         });
-
+        tbody.innerHTML = html;
     </script>
-
-
 </body>
-
 </html>
