@@ -154,12 +154,12 @@
             });
         }
 
-        // URL Google Sheet CSV (Sila tukar ID jika perlu)
+        // URL Google Sheet CSV
         const sheetUrls = {
             semua: "https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID_HERE/export?format=csv&gid=0"
         };
 
-        // Pangkalan data lengkap perlawanan terkini berdasarkan jadual rasmi (Perlawanan 28 hingga 83)
+        // Pangkalan data lengkap perlawanan terkini berdasarkan jadual rasmi PDF (Perlawanan 28 hingga 83)
         const fullMatches = [
             // JUMAAT, 9 OKTOBER 2026
             { bil: 28, date: "9 OKTOBER 2026 (JUMAAT)", time: "8.00 PAGI", kump: "Perdana A", teamA: "SMK MUTIARA", teamB: "SMK PUTRAJAYA PRESINT 8 (1)", cat: "perdana" },
@@ -169,9 +169,9 @@
             { bil: 32, date: "9 OKTOBER 2026 (JUMAAT)", time: "10.00 PAGI", kump: "Perdana A", teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", teamB: "SMK SYED HASSAN", cat: "perdana" },
             { bil: 33, date: "9 OKTOBER 2026 (JUMAAT)", time: "10.00 PAGI", kump: "Perdana B", teamA: "SMK PUTERA", teamB: "SMK SEBERANG TEMERLOH", cat: "perdana" },
             { bil: 34, date: "9 OKTOBER 2026 (JUMAAT)", time: "11.00 PAGI", kump: "Super A", teamA: "SS BUKIT JALIL", teamB: "SMK SERI TITIWANGSA", cat: "super" },
-            { bil: 35, date: "9 OKTOBER 2026 (JUMAAT)", time: "12.00 TENGAH HARI", kump: "Perdana B", teamA: "SMK GUNUNG RAPAT", teamB: "SMK DATUK PETER MOJUNTIN", cat: "perdana" },
-            { bil: 36, date: "9 OKTOBER 2026 (JUMAAT)", time: "12.00 TENGAH HARI", kump: "Perdana B", teamA: "SMK MUTIARA", teamB: "SMK SYED HASSAN", cat: "perdana" },
-            { bil: 37, date: "9 OKTOBER 2026 (JUMAAT)", time: "2.00 PETANG", kump: "Super A", teamA: "SMK SEKSYEN SEBELAS", teamB: "SS TUNKU MAHKOTA ISMAIL", cat: "super" },
+            { bil: 35, date: "9 OKTOBER 2026 (JUMAAT)", time: "2.00 PETANG", kump: "Perdana B", teamA: "SMK GUNUNG RAPAT", teamB: "SMK DATUK PETER MOJUNTIN", cat: "perdana" },
+            { bil: 36, date: "9 OKTOBER 2026 (JUMAAT)", time: "2.00 PETANG", kump: "Perdana B", teamA: "SMK MUTIARA", teamB: "SMK SYED HASSAN", cat: "perdana" },
+            { bil: 37, date: "9 OKTOBER 2026 (JUMAAT)", time: "3.00 PETANG", kump: "Super A", teamA: "SMK SEKSYEN SEBELAS", teamB: "SS TUNKU MAHKOTA ISMAIL", cat: "super" },
             { bil: 38, date: "9 OKTOBER 2026 (JUMAAT)", time: "3.00 PETANG", kump: "Super B", teamA: "SMK BUKIT NENAS", teamB: "SS PAHANG", cat: "super" },
             { bil: 39, date: "9 OKTOBER 2026 (JUMAAT)", time: "4.00 PETANG", kump: "Perdana A", teamA: "SMK MUTIARA IMPIAN", teamB: "SMK SEBERANG TEMERLOH", cat: "perdana" },
             { bil: 40, date: "9 OKTOBER 2026 (JUMAAT)", time: "4.00 PETANG", kump: "Perdana B", teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", teamB: "SMK DATUK PETER MOJUNTIN", cat: "perdana" },
@@ -183,13 +183,13 @@
             { bil: 44, date: "10 OKTOBER 2026 (SABTU)", time: "8.00 PAGI", kump: "Perdana A", teamA: "SMK SYED HASSAN", teamB: "SMK PUTRAJAYA PRESINT 8 (1)", cat: "perdana" },
             { bil: 45, date: "10 OKTOBER 2026 (SABTU)", time: "8.00 PAGI", kump: "Perdana B", teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", teamB: "SMK PUTERA", cat: "perdana" },
             { bil: 46, date: "10 OKTOBER 2026 (SABTU)", time: "9.00 PAGI", kump: "Super A", teamA: "SS PAHANG", teamB: "SMK SEKSYEN SEBELAS", cat: "super" },
-            { bil: 47, date: "10 OKTOBER 2026 (SABTU)", time: "10.00 PAGI", kump: "Super B", teamA: "SS TUNKU MAHKOTA ISMAIL", teamB: "SMK TUN HUSSEIN ONN", cat: "super" },
+            { bil: 47, date: "10 OKTOBER 2026 (SABTU)", time: "9.00 PAGI", kump: "Super B", teamA: "SS TUNKU MAHKOTA ISMAIL", teamB: "SMK TUN HUSSEIN ONN", cat: "super" },
             { bil: 48, date: "10 OKTOBER 2026 (SABTU)", time: "10.00 PAGI", kump: "Perdana A", teamA: "SMK MUTIARA", teamB: "SMK DATUK PETER MOJUNTIN", cat: "perdana" },
-            { bil: 49, date: "10 OKTOBER 2026 (SABTU)", time: "11.00 PAGI", kump: "Perdana B", teamA: "SMK MUTIARA IMPIAN", teamB: "SMK GUNUNG RAPAT", cat: "perdana" },
+            { bil: 49, date: "10 OKTOBER 2026 (SABTU)", time: "10.00 PAGI", kump: "Perdana B", teamA: "SMK MUTIARA IMPIAN", teamB: "SMK GUNUNG RAPAT", cat: "perdana" },
             { bil: 50, date: "10 OKTOBER 2026 (SABTU)", time: "11.00 PAGI", kump: "Super A", teamA: "SMK BUKIT NENAS", teamB: "SMK SERI TITIWANGSA", cat: "super" },
             { bil: 51, date: "10 OKTOBER 2026 (SABTU)", time: "11.00 PAGI", kump: "Super B", teamA: "SMK TABUAN JAYA", teamB: "SS BUKIT JALIL", cat: "super" },
             { bil: 52, date: "10 OKTOBER 2026 (SABTU)", time: "2.00 PETANG", kump: "Perdana A", teamA: "SMK PUTRAJAYA PRESINT 8 (1)", teamB: "SMK SEBERANG TEMERLOH", cat: "perdana" },
-            { bil: 53, date: "10 OKTOBER 2026 (SABTU)", time: "3.00 PETANG", kump: "Perdana B", teamA: "SMK SYED HASSAN", teamB: "SMK DATUK PETER MOJUNTIN", cat: "perdana" },
+            { bil: 53, date: "10 OKTOBER 2026 (SABTU)", time: "2.00 PETANG", kump: "Perdana B", teamA: "SMK SYED HASSAN", teamB: "SMK DATUK PETER MOJUNTIN", cat: "perdana" },
             { bil: 54, date: "10 OKTOBER 2026 (SABTU)", time: "3.00 PETANG", kump: "Super A", teamA: "SMK SEKSYEN SEBELAS", teamB: "SMK TUN HUSSEIN ONN", cat: "super" },
             { bil: 55, date: "10 OKTOBER 2026 (SABTU)", time: "3.00 PETANG", kump: "Super B", teamA: "SS PAHANG", teamB: "SMK SERI TITIWANGSA", cat: "super" },
             { bil: 56, date: "10 OKTOBER 2026 (SABTU)", time: "4.00 PETANG", kump: "Perdana A", teamA: "SMK MUTIARA IMPIAN", teamB: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", cat: "perdana" },
@@ -206,13 +206,13 @@
             { bil: 65, date: "11 OKTOBER 2026 (AHAD)", time: "10.00 PAGI", kump: "Perdana B", teamA: "SMK MUTIARA", teamB: "SMK MUTIARA IMPIAN", cat: "perdana" },
             { bil: 66, date: "11 OKTOBER 2026 (AHAD)", time: "11.00 PAGI", kump: "Super A", teamA: "SS TUNKU MAHKOTA ISMAIL", teamB: "SMK SERI KOTA", cat: "super" },
             { bil: 67, date: "11 OKTOBER 2026 (AHAD)", time: "11.00 PAGI", kump: "Super B", teamA: "SMK BUKIT NENAS", teamB: "SMK TABUAN JAYA", cat: "super" },
-            { bil: 68, date: "11 OKTOBER 2026 (AHAD)", time: "11.00 PAGI", kump: "Perdana A", teamA: "SMK PUTRAJAYA PRESINT 8 (1)", teamB: "SMK GUNUNG RAPAT", cat: "perdana" },
+            { bil: 68, date: "11 OKTOBER 2026 (AHAD)", time: "2.00 PETANG", kump: "Perdana A", teamA: "SMK PUTRAJAYA PRESINT 8 (1)", teamB: "SMK GUNUNG RAPAT", cat: "perdana" },
             { bil: 69, date: "11 OKTOBER 2026 (AHAD)", time: "2.00 PETANG", kump: "Perdana B", teamA: "SMK DATUK PETER MOJUNTIN", teamB: "SMK PUTERA", cat: "perdana" },
-            { bil: 70, date: "11 OKTOBER 2026 (AHAD)", time: "2.00 PETANG", kump: "Super A", teamA: "SMK SEKSYEN SEBELAS", teamB: "SS BUKIT JALIL", cat: "super" },
+            { bil: 70, date: "11 OKTOBER 2026 (AHAD)", time: "3.00 PETANG", kump: "Super A", teamA: "SMK SEKSYEN SEBELAS", teamB: "SS BUKIT JALIL", cat: "super" },
             { bil: 71, date: "11 OKTOBER 2026 (AHAD)", time: "3.00 PETANG", kump: "Super B", teamA: "SMK TUN HUSSEIN ONN", teamB: "SMK SERI KOTA", cat: "super" },
             { bil: 72, date: "11 OKTOBER 2026 (AHAD)", time: "4.00 PETANG", kump: "Perdana A", teamA: "SMK SEBERANG TEMERLOH", teamB: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", cat: "perdana" },
             { bil: 73, date: "11 OKTOBER 2026 (AHAD)", time: "4.00 PETANG", kump: "Perdana B", teamA: "SMK SYED HASSAN", teamB: "SMK MUTIARA IMPIAN", cat: "perdana" },
-            { bil: 74, date: "11 OKTOBER 2026 (AHAD)", time: "4.00 PETANG", kump: "Super A", teamA: "SS PAHANG", teamB: "SMK TABUAN JAYA", cat: "super" },
+            { bil: 74, date: "11 OKTOBER 2026 (AHAD)", time: "5.00 PETANG", kump: "Super A", teamA: "SS PAHANG", teamB: "SMK TABUAN JAYA", cat: "super" },
             { bil: 75, date: "11 OKTOBER 2026 (AHAD)", time: "5.00 PETANG", kump: "Super B", teamA: "SS TUNKU MAHKOTA ISMAIL", teamB: "SMK BUKIT NENAS", cat: "super" },
 
             // ISNIN, 12 OKTOBER 2026 (SUKU AKHIR & SEPARUH AKHIR)
