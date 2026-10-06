@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kedudukan Carta (Standings) | Liga Bola Jaring KPM 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #1d4ed8; 
+            --accent-red: #dc2626;
+            --accent-yellow: #facc15;
+            --light-blue: #38bdf8;
+            --dark-blue: #1e3a8a;
+        }
+
+        /* Latar Belakang Baby Blue Eksklusif dengan Grafik Posisi Netball */
+        body {
+            background-color: #e0f2fe;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='%230284c7' fill-opacity='0.11' font-family='Segoe UI, sans-serif' font-weight='900' font-size='15'%3E%3Ctext x='20' y='30'%3EGS%3C/text%3E%3Ctext x='110' y='30'%3EGA%3C/text%3E%3Ctext x='20' y='95'%3EWA%3C/text%3E%3Ctext x='85' y='95'%3EC%3C/text%3E%3Ctext x='140' y='95'%3EWD%3C/text%3E%3Ctext x='40' y='155'%3EGD%3C/text%3E%3Ctext x='120' y='155'%3EGK%3C/text%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Jalur Warna Tema */
+        .color-stripe {
+            height: 6px;
+            background: linear-gradient(to right, #dc2626, #facc15, #38bdf8, #1d4ed8);
+            width: 100%;
+        }
+
+        @keyframes pulse-live {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .live-pulse {
+            animation: pulse-live 1.5s infinite;
+        }
+    </style>
+</head>
+<body class="text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Jalur Tema Warna-warni di Paling Atas -->
+    <div class="color-stripe"></div>
+
+    <!-- HEADER -->
+    <header class="bg-gradient-to-r from-blue-950 via-blue-900 to-indigo-900 text-white shadow-xl sticky top-0 z-50 border-b-4 border-yellow-400">
+        <div class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
+            <!-- Logo Section -->
+            <div class="flex items-center space-x-2 md:space-x-4">
+                <img src="../../images/ligasukan.jpg" alt="Logo Liga KPM" class="h-10 sm:h-12 md:h-16 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-yellow-400" onerror="this.src='../../images/kpm-default.png'">
+                <img src="../../images/ligakpm.jpg" alt="Logo Sukan" class="h-10 sm:h-12 md:h-16 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-400" onerror="this.src='../../images/kpm-default.png'">
+                <span class="font-extrabold text-xs sm:text-base md:text-xl tracking-wide text-yellow-300 drop-shadow">LIGA KPM 2026</span>
+            </div>
+
+            <!-- Navigation Menu (Desktop) -->
+            <nav class="hidden lg:flex items-center space-x-2 font-bold text-xs xl:text-sm">
+                <a href="../../index.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Home</a>
+                <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jsport</a>
+                <a href="keputusanrasmi.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Keputusan Rasmi</a>
+                <a href="jadualliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jadual</a>
+                <a href="standingliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-red-600 border border-yellow-400">Carta</a>
+                <a href="peraturanliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Peraturan</a>
+                <a href="statistikliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Statistik</a>
+                <a href="borangliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Borang</a>
+                <a href="galeri.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Galeri</a>
+                <!-- Navi Live di Header -->
+                <a href="live.html" class="px-3 py-2 rounded-lg bg-red-600 text-yellow-300 border-2 border-yellow-400 font-extrabold flex items-center gap-1 live-pulse hover:bg-red-700 transition">
+                    <i class="fa-solid fa-video"></i> LIVE
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center">
+                <button id="menu-btn" class="text-yellow-300 focus:outline-none p-2.5 bg-blue-900 border border-yellow-400/50 rounded-xl shadow">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-blue-950 border-t border-yellow-400/30 px-4 pt-3 pb-5 space-y-2 text-sm font-medium">
+            <a href="../../index.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Home</a>
+            <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Jsport</a>
+            <a href="keputusanrasmi.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Rasmi</a>
+            <a href="jadualliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Jadual Perlawanan</a>
+            <a href="standingliga.html" class="block bg-red-600 text-yellow-300 px-3 py-2 rounded-lg transition font-bold">Kedudukan Carta</a>
+            <a href="peraturanliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Peraturan</a>
+            <a href="statistikliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Statistik Liga</a>
+            <a href="borangliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Borang Rasmi</a>
+            <a href="galeri.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Galeri</a>
+            <a href="live.html" class="block bg-red-600 text-yellow-300 font-extrabold px-3 py-2.5 rounded-lg text-center live-pulse border border-yellow-400 transition">
+                <i class="fa-solid fa-video mr-1"></i> SIARAN LANGSUNG (LIVE)
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="py-6 md:py-8 text-center relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <span class="bg-red-600 text-yellow-300 text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow border border-yellow-400 mb-2 inline-block">Sirkit Akhir 2026</span>
+            <h1 class="text-xl sm:text-2xl md:text-4xl font-black mb-2 text-blue-950 drop-shadow-sm">Kedudukan Carta Kumpulan (Standings)</h1>
+            <p class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold px-2">Carta kedudukan rasmi pasukan bagi Kumpulan Super & Kumpulan Perdana berdasarkan keputusan terkini.</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-grow container mx-auto px-3 sm:px-4 pb-12 max-w-6xl space-y-8 md:space-y-10">
+        
+        <!-- Status Info -->
+        <div>
+            <div id="sync-status" class="text-center text-xs md:text-sm font-bold p-3 rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-300 shadow-sm">
+                ✅ Data keputusan perlawanan 11 & 12 Mei 2026 telah berjaya dimuatkan ke dalam carta.
+            </div>
+        </div>
+
+        <!-- KUMPULAN SUPER (DI ATAS) -->
+        <div class="bg-white rounded-2xl shadow-md border border-sky-200 overflow-hidden">
+            <div class="bg-blue-950 text-yellow-300 px-4 md:px-5 py-3.5 flex justify-between items-center border-b-2 border-yellow-400">
+                <h3 class="font-extrabold text-xs sm:text-sm md:text-base flex items-center gap-2">
+                    <i class="fa-solid fa-star text-yellow-400"></i> Kumpulan Super
+                </h3>
+                <span class="text-[11px] md:text-xs font-semibold bg-blue-900 text-white px-2.5 py-1 rounded-full">Sirkit Akhir 2026</span>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs md:text-sm whitespace-nowrap">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider text-[11px] border-b border-slate-200">
+                            <th class="py-3 px-2 md:px-3 text-center">Ked</th>
+                            <th class="py-3 px-3">Pasukan</th>
+                            <th class="py-3 px-2 text-center">P</th>
+                            <th class="py-3 px-2 text-center">M</th>
+                            <th class="py-3 px-2 text-center">S</th>
+                            <th class="py-3 px-2 text-center">K</th>
+                            <th class="py-3 px-2 text-center">J</th>
+                            <th class="py-3 px-2 text-center">B</th>
+                            <th class="py-3 px-2 text-center">Beza Gol</th>
+                            <th class="py-3 px-2 text-center">Purata Gol</th>
+                            <th class="py-3 px-3 text-center text-blue-900 font-black">Mata</th>
+                        </tr>
+                    </thead>
+                    <tbody id="super-standing-tbody" class="divide-y divide-slate-100 font-medium text-slate-700">
+                        <!-- Data dimasukkan secara dinamik melalui JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- KUMPULAN PERDANA (DI BAWAH) -->
+        <div class="bg-white rounded-2xl shadow-md border border-sky-200 overflow-hidden">
+            <div class="bg-blue-950 text-yellow-300 px-4 md:px-5 py-3.5 flex justify-between items-center border-b-2 border-yellow-400">
+                <h3 class="font-extrabold text-xs sm:text-sm md:text-base flex items-center gap-2">
+                    <i class="fa-solid fa-medal text-yellow-400"></i> Kumpulan Perdana
+                </h3>
+                <span class="text-[11px] md:text-xs font-semibold bg-blue-900 text-white px-2.5 py-1 rounded-full">Sirkit Akhir 2026</span>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs md:text-sm whitespace-nowrap">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider text-[11px] border-b border-slate-200">
+                            <th class="py-3 px-2 md:px-3 text-center">Ked</th>
+                            <th class="py-3 px-3">Pasukan</th>
+                            <th class="py-3 px-2 text-center">P</th>
+                            <th class="py-3 px-2 text-center">M</th>
+                            <th class="py-3 px-2 text-center">S</th>
+                            <th class="py-3 px-2 text-center">K</th>
+                            <th class="py-3 px-2 text-center">J</th>
+                            <th class="py-3 px-2 text-center">B</th>
+                            <th class="py-3 px-2 text-center">Beza Gol</th>
+                            <th class="py-3 px-2 text-center">Purata Gol</th>
+                            <th class="py-3 px-3 text-center text-blue-900 font-black">Mata</th>
+                        </tr>
+                    </thead>
+                    <tbody id="perdana-standing-tbody" class="divide-y divide-slate-100 font-medium text-slate-700">
+                        <!-- Data dimasukkan secara dinamik melalui JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-blue-950 text-yellow-300 py-5 text-center text-xs md:text-base border-t-4 border-yellow-400 font-black uppercase tracking-widest shadow-inner">
+        LIGA KPM 2026 • HAK CIPTA TERPELIHARA
+    </footer>
+
+    <!-- SCRIPT LOGIK CARTA -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        function getTeamLogo(teamName) {
+            if (!teamName) return '../../images/kpm-default.png';
+            const name = teamName.toUpperCase();
+            const logoMap = {
+                'SMK SEKSYEN SEBELAS': 'ss11.png',
+                'SMK MUTIARA IMPIAN': 'mutiaraimpian.png',
+                'SMK MUTIARA': 'mutiara.png',
+                'SMK PUTRAJAYA PRESINT 8': 'putrajaya8.png',
+                'SMK ZA\'BA': 'zaba.png',
+                'SMK BUKIT NENAS': 'ssnt.png',
+                'SMK TABUAN JAYA': 'ssntjaya.png',
+                'SS TUNKU MAHKOTA ISMAIL': 'sstmi.png',
+                'SMK TUNKU ANUM': 'tunkuanum.png',
+                'SMK SYED HASSAN': 'syedhassan.png',
+                'SMK SEBERANG TEMERLOH': 'seberangtemerloh.png',
+                'SMK PUTERA': 'putera.png',
+                'SMK GUNUNG RAPAT': 'gunungrapat.png',
+                'SS PAHANG': 'ssmp.png',
+                'SMK SERI KOTA': 'serikota.png',
+                'SS BUKIT JALIL': 'ssbj.png',
+                'SMK SERI TITIWANGSA': 'ssnkl.png',
+                'SMK DATUK PETER MOJUNTIN': 'petermojuntin.png',
+                'SMK TUN HUSSEIN ONN': 'tho.png',
+                'SSM PAHANG': 'ssmp.png',
+                'SSM TUNKU MAHKOTA ISMAIL': 'sstmi.png'
+            };
+            
+            for (let key in logoMap) {
+                if (name.includes(key)) {
+                    return `../../images/${logoMap[key]}`;
+                }
+            }
+            return `../../images/kpm-default.png`;
+        }
+
+        const perdanaTeams = [
+            "SMK MUTIARA",
+            "SMK PUTRAJAYA PRESINT 8 (1)",
+            "SMK TUNKU ANUM TUNKU ABDUL RAHMAN",
+            "SMK SYED HASSAN",
+            "SMK PUTERA",
+            "SMK SEBERANG TEMERLOH",
+            "SMK GUNUNG RAPAT",
+            "SMK DATUK PETER MOJUNTIN",
+            "SMK MUTIARA IMPIAN"
+        ];
+
+        const superTeams = [
+            "SMK SERI KOTA",
+            "SS PAHANG",
+            "SMK BUKIT NENAS",
+            "SMK SEKSYEN SEBELAS",
+            "SMK TABUAN JAYA",
+            "SS TUNKU MAHKOTA ISMAIL",
+            "SS BUKIT JALIL",
+            "SMK SERI TITIWANGSA",
+            "SMK TUN HUSSEIN ONN"
+        ];
+
+        // Data keputusan rasmi 11 & 12 Mei 2026
+        const matchResults = [
+            { teamA: "SMK PUTRAJAYA PRESINT 8(1)", scoreA: 41, teamB: "SMK PUTERA", scoreB: 23, cat: "perdana" },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 19, teamB: "SMK TUNKU ANUM TAR", scoreB: 23, cat: "perdana" },
+            { teamA: "SS BUKIT JALIL", scoreA: 56, teamB: "SMK SERI KOTA", scoreB: 16, cat: "super" },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 29, teamB: "SMK TABUAN JAYA", scoreB: 28, cat: "super" },
+            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 28, teamB: "SMK MUTIARA IMPIAN", scoreB: 31, cat: "perdana" },
+            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 40, teamB: "SMK MUTIARA", scoreB: 4, cat: "perdana" },
+            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 38, teamB: "SMK BUKIT NENAS", scoreB: 26, cat: "super" },
+            { teamA: "SSM PAHANG", scoreA: 30, teamB: "SSM TUNKU MAHKOTA ISMAIL", scoreB: 29, cat: "super" },
+            { teamA: "SMK TUNKU ANUM TAR", scoreA: 22, teamB: "SMK PUTRAJAYA PRESINT 8(1)", scoreB: 28, cat: "perdana" },
+            { teamA: "SMK PUTERA", scoreA: 15, teamB: "SMK MUTIARA IMPIAN", scoreB: 31, cat: "perdana" },
+            { teamA: "SMK SERI KOTA", scoreA: 13, teamB: "SMK SEKSYEN SEBELAS", scoreB: 49, cat: "super" },
+            { teamA: "SS BUKIT JALIL", scoreA: 49, teamB: "SMK BUKIT NENAS", scoreB: 21, cat: "super" },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 46, teamB: "SMK MUTIARA", scoreB: 8, cat: "perdana" },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 28, teamB: "SSM TUNKU MAHKOTA ISMAIL", scoreB: 34, cat: "super" },
+            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 32, teamB: "SSM PAHANG", scoreB: 24, cat: "super" },
+            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 32, teamB: "SMK SYED HASSAN", scoreB: 25, cat: "perdana" },
+            { teamA: "SMK PUTRAJAYA PRESINT 8(1)", scoreA: 33, teamB: "SMK MUTIARA IMPIAN", scoreB: 23, cat: "perdana" },
+            { teamA: "SMK TUNKU ANUM TAR", scoreA: 47, teamB: "SMK MUTIARA", scoreB: 6, cat: "perdana" },
+            { teamA: "SMK SEKSYEN SEBELAS", scoreA: 41, teamB: "SMK TABUAN JAYA", scoreB: 21, cat: "super" },
+            { teamA: "SMK SERI KOTA", scoreA: 20, teamB: "SMK BUKIT NENAS", scoreB: 38, cat: "super" },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 47, teamB: "SMK SYED HASSAN", scoreB: 16, cat: "perdana" },
+            { teamA: "SS BUKIT JALIL", scoreA: 50, teamB: "SSM PAHANG", scoreB: 18, cat: "super" },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 22, teamB: "SMK TUN HUSSEIN ONN", scoreB: 27, cat: "super" },
+            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 25, teamB: "SMK SEBERANG TEMERLOH", scoreB: 32, cat: "perdana" }
+        ];
+
+        function normalizeName(name) {
+            if (!name) return "";
+            let upper = name.toUpperCase().trim();
+            if (upper.includes("PUTRAJAYA PRESINT 8")) return "SMK PUTRAJAYA PRESINT 8 (1)";
+            if (upper.includes("SSM PAHANG") || upper.includes("SS PAHANG")) return "SS PAHANG";
+            if (upper.includes("SSM TUNKU MAHKOTA ISMAIL") || upper.includes("SS TUNKU MAHKOTA ISMAIL")) return "SS TUNKU MAHKOTA ISMAIL";
+            if (upper.includes("SMK TUNKU ANUM")) return "SMK TUNKU ANUM TUNKU ABDUL RAHMAN";
+            return upper;
+        }
+
+        function calculateStandings(teams, category) {
+            const stats = {};
+            teams.forEach(t => {
+                stats[t] = { name: t, p: 0, m: 0, s: 0, k: 0, j: 0, b: 0, bezaGol: 0, purataGol: 0, pts: 0 };
+            });
+
+            matchResults.filter(m => m.cat === category).forEach(m => {
+                const tA = normalizeName(m.teamA);
+                const tB = normalizeName(m.teamB);
+                const sA = m.scoreA;
+                const sB = m.scoreB;
+
+                if (stats[tA]) {
+                    stats[tA].p += 1;
+                    stats[tA].j += sA;
+                    stats[tA].b += sB;
+                    if (sA > sB) {
+                        stats[tA].m += 1;
+                        stats[tA].pts += 3;
+                    } else if (sA === sB) {
+                        stats[tA].s += 1;
+                        stats[tA].pts += 1;
+                    } else {
+                        stats[tA].k += 1;
+                    }
+                }
+
+                if (stats[tB]) {
+                    stats[tB].p += 1;
+                    stats[tB].j += sB;
+                    stats[tB].b += sA;
+                    if (sB > sA) {
+                        stats[tB].m += 1;
+                        stats[tB].pts += 3;
+                    } else if (sB === sA) {
+                        stats[tB].s += 1;
+                        stats[tB].pts += 1;
+                    } else {
+                        stats[tB].k += 1;
+                    }
+                }
+            });
+
+            // Pengiraan Beza Gol & Purata Gol (J / B)
+            Object.values(stats).forEach(t => {
+                t.bezaGol = t.j - t.b;
+                if (t.b === 0) {
+                    t.purataGol = t.j > 0 ? t.j.toFixed(2) : "0.00";
+                } else {
+                    t.purataGol = (t.j / t.b).toFixed(2);
+                }
+            });
+
+            return Object.values(stats).sort((a, b) => {
+                if (b.pts !== a.pts) return b.pts - a.pts;
+                if (b.bezaGol !== a.bezaGol) return b.bezaGol - a.bezaGol;
+                return parseFloat(b.purataGol) - parseFloat(a.purataGol);
+            });
+        }
+
+        function renderTable(teams, tbodyId, category) {
+            const tbody = document.getElementById(tbodyId);
+            if (!tbody) return;
+
+            const sortedStats = calculateStandings(teams, category);
+            let html = '';
+            sortedStats.forEach((t, index) => {
+                const logo = getTeamLogo(t.name);
+                html += `
+                    <tr class="hover:bg-sky-50 transition">
+                        <td class="py-3 px-2 md:px-3 text-center font-extrabold text-blue-900">${index + 1}</td>
+                        <td class="py-3 px-3 font-bold text-slate-900">
+                            <div class="flex items-center gap-2">
+                                <img src="${logo}" alt="${t.name}" class="w-6 h-6 object-contain shrink-0 bg-white p-0.5 rounded-full border border-sky-300 shadow-sm" onerror="this.src='../../images/kpm-default.png'">
+                                <span>${t.name}</span>
+                            </div>
+                        </td>
+                        <td class="py-3 px-2 text-center">${t.p}</td>
+                        <td class="py-3 px-2 text-center">${t.m}</td>
+                        <td class="py-3 px-2 text-center">${t.s}</td>
+                        <td class="py-3 px-2 text-center">${t.k}</td>
+                        <td class="py-3 px-2 text-center">${t.j}</td>
+                        <td class="py-3 px-2 text-center">${t.b}</td>
+                        <td class="py-3 px-2 text-center font-semibold ${t.bezaGol > 0 ? 'text-emerald-600' : t.bezaGol < 0 ? 'text-red-600' : 'text-slate-600'}">${t.bezaGol > 0 ? '+' + t.bezaGol : t.bezaGol}</td>
+                        <td class="py-3 px-2 text-center font-semibold text-blue-800">${t.purataGol}</td>
+                        <td class="py-3 px-3 text-center font-black text-blue-900 bg-sky-50/50">${t.pts}</td>
+                    </tr>
+                `;
+            });
+            tbody.innerHTML = html;
+        }
+
+        window.onload = () => {
+            renderTable(superTeams, 'super-standing-tbody', 'super');
+            renderTable(perdanaTeams, 'perdana-standing-tbody', 'perdana');
+        };
+    </script>
+</body>
+</html>
