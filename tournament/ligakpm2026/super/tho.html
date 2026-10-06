@@ -272,7 +272,7 @@
                         <div>
                             <div class="flex items-center gap-3 mb-2">
                                 <img src="../../../images/tho.png" id="pegawai-0-logo" class="w-14 h-14 object-contain bg-white p-1 rounded-full border-2 border-sky-400 shadow-md shrink-0" alt="Logo Sekolah" onerror="this.src='../../../images/kpm-default.png'">
-                                <h3 id="pegawai-0-nama" class="flex-grow">PENGURUS</h3>
+                                <h3 id="pegawai-0-nama" class="flex-grow">SITI SARIPAH MAIZUN BINTI SUHAIMI</h3>
                             </div>
                             <span class="badge">Pengurus</span>
                         </div>
@@ -359,56 +359,286 @@
         LIGA KPM 2026 • HAK CIPTA TERPELIHARA
     </footer>
 
-    <!-- SKRIP MOBILE MENU & TARIK DATA GOOGLE SHEET CSV -->
-    <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+   <!-- SKRIP MOBILE MENU & TARIK DATA GOOGLE SHEET CSV -->
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
+    if (menuBtn && mobileMenu) {
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+    }
 
-        // Fungsi mendapatkan logo sekolah menggunakan laluan direktori yang betul "../../../images/"
-        function getSchoolLogo(schoolName) {
-            if (!schoolName) return '../../../images/ssbj.png';
-            const name = schoolName.toUpperCase();
-            const logoMap = {
-               
+    // ==========================================
+    // FUNGSI LOGO SEKOLAH
+    // ==========================================
+    function getSchoolLogo(schoolName) {
 
-    'SEKSYEN SEBELAS': '../../../images/ss11.png',
-    'MUTIARA IMPIAN': '../../../images/mutiaraimpian.png',
-    'MUTIARA': '../../../images/mutiara.png',
-    'PUTRAJAYA PRESINT 8': '../../../images/putrajaya8.png',
-    'ZA\'BA': '../../../images/zaba.png',
-    'BUKIT NENAS': '../../../images/ssnt.png',
-    'TABUAN JAYA': '../../../images/ssntjaya.png',
-    'TUNKU MAHKOTA ISMAIL': '../../../images/sstmi.png',
-    'TUNKU ANUM': '../../../images/tunkuanum.png',
-    'SYED HASSAN': '../../../images/syedhassan.png',
-    'SEBERANG TEMERLOH': '../../../images/seberangtemerloh.png',
-    'PUTERA': '../../../images/putera.png',
-    'GUNUNG RAPAT': '../../../images/gunungrapat.png',
-    'PAHANG': '../../../images/ssmp.png',
-    'SERI KOTA': '../../../images/serikota.png',
-    'BUKIT JALIL': '../../../images/ssbj.png',
-    'SERI TITIWANGSA': '../../../images/ssnkl.png',
-    'DATUK PETER MOJUNTIN': '../../../images/petermojuntin.png',
-    'TUN HUSSIEN ONN': '../../../images/tho.png',
-    'THO': '../../../images/tho.png'
-};
-            };
-            
-            for (let key in logoMap) {
-                if (name.includes(key)) {
-                    return logoMap[key];
+        if (!schoolName) {
+            return '../../../images/ssbj.png';
+        }
+
+        const name = schoolName.toUpperCase().trim();
+
+        const logoMap = {
+
+            'SEKSYEN SEBELAS': '../../../images/ss11.png',
+            'MUTIARA IMPIAN': '../../../images/mutiaraimpian.png',
+            'MUTIARA': '../../../images/mutiara.png',
+            'PUTRAJAYA PRESINT 8': '../../../images/putrajaya8.png',
+            'ZA\'BA': '../../../images/zaba.png',
+            'BUKIT NENAS': '../../../images/ssnt.png',
+            'TABUAN JAYA': '../../../images/ssntjaya.png',
+            'TUNKU MAHKOTA ISMAIL': '../../../images/sstmi.png',
+            'TUNKU ANUM': '../../../images/tunkuanum.png',
+            'SYED HASSAN': '../../../images/syedhassan.png',
+            'SEBERANG TEMERLOH': '../../../images/seberangtemerloh.png',
+            'PUTERA': '../../../images/putera.png',
+            'GUNUNG RAPAT': '../../../images/gunungrapat.png',
+            'PAHANG': '../../../images/ssmp.png',
+            'SERI KOTA': '../../../images/serikota.png',
+            'BUKIT JALIL': '../../../images/ssbj.png',
+            'SERI TITIWANGSA': '../../../images/ssnkl.png',
+            'DATUK PETER MOJUNTIN': '../../../images/petermojuntin.png',
+            'TUN HUSSIEN ONN': '../../../images/tho.png',
+            'THO': '../../../images/tho.png'
+        };
+
+        for (let key in logoMap) {
+            if (name.includes(key)) {
+                return logoMap[key];
+            }
+        }
+
+        return '../../../images/ssbj.png';
+    }
+
+
+    // ==========================================
+    // FUNGSI MUAT DATA GOOGLE SHEET
+    // ==========================================
+    async function muatDataPasukan() {
+
+        try {
+
+            const csvUrl =
+                "https://docs.google.com/spreadsheets/d/e/2PACX-1vS4soLt_B5mqCrzR9x_DwtP-1_TJYuufVt1E38wIRrr6DjQWJifQqkLqu_E5a3SIj3KMRe-D0KSybZD/pub?output=csv";
+
+            console.log("Sedang mengambil data Google Sheet...");
+
+            const response = await fetch(csvUrl);
+
+            if (!response.ok) {
+                throw new Error(
+                    "Google Sheet gagal dicapai. Status: " + response.status
+                );
+            }
+
+            const dataText = await response.text();
+
+            console.log("Data Google Sheet diterima.");
+            console.log(dataText);
+
+            // ==========================================
+            // PARSE CSV
+            // ==========================================
+
+            const rows = dataText
+                .split(/\r?\n/)
+                .map(row => {
+
+                    return row
+                        .split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+                        .map(val => {
+
+                            return val
+                                .replace(/^"|"$/g, '')
+                                .replace(/""/g, '"')
+                                .trim();
+
+                        });
+
+                });
+
+            console.log("Jumlah baris:", rows.length);
+
+            let rowAtletCount = 0;
+
+
+            // ==========================================
+            // BACA SETIAP BARIS
+            // ==========================================
+
+            for (let i = 1; i < rows.length; i++) {
+
+                const cols = rows[i];
+
+                if (!cols || cols.length < 2) {
+                    continue;
+                }
+
+                // Berdasarkan struktur Sheet:
+                // cols[1] = kategori
+                // cols[2] = nama
+                // cols[3] = jawatan / posisi
+                // cols[4] = umur
+                // cols[5] = tinggi
+                // cols[6] = sekolah
+
+                const kategori = (cols[1] || '').trim().toLowerCase();
+                const nama = (cols[2] || '').trim();
+                const jawatan = (cols[3] || '').trim().toLowerCase();
+                const umur = (cols[4] || '').trim();
+                const tinggi = (cols[5] || '').trim();
+                const sekolahName = (cols[6] || '').trim();
+
+                const logoSrc = getSchoolLogo(sekolahName);
+
+
+                // ==========================================
+                // PEGAWAI
+                // ==========================================
+
+                if (
+                    jawatan === 'pengurus' ||
+                    jawatan === 'jurulatih' ||
+                    jawatan === 'fisioterapi'
+                ) {
+
+                    let idx = -1;
+
+                    if (jawatan === 'pengurus') {
+                        idx = 0;
+                    }
+
+                    if (jawatan === 'jurulatih') {
+                        idx = 1;
+                    }
+
+                    if (jawatan === 'fisioterapi') {
+                        idx = 2;
+                    }
+
+
+                    if (idx !== -1) {
+
+                        const elNama =
+                            document.getElementById(`pegawai-${idx}-nama`);
+
+                        const elSekolah =
+                            document.getElementById(`pegawai-${idx}-sekolah`);
+
+                        const elLogo =
+                            document.getElementById(`pegawai-${idx}-logo`);
+
+
+                        if (elNama) {
+                            elNama.textContent = nama;
+                        }
+
+                        if (elSekolah) {
+                            elSekolah.innerHTML =
+                                `<i class="fas fa-school mr-1 text-blue-600"></i> ${sekolahName}`;
+                        }
+
+                        if (elLogo && sekolahName) {
+                            elLogo.src = logoSrc;
+                        }
+                    }
+                }
+
+
+                // ==========================================
+                // ATLET
+                // ==========================================
+
+                if (
+                    kategori.includes('atlet') &&
+                    rowAtletCount < 15
+                ) {
+
+                    const idx = rowAtletCount;
+
+                    const elNama =
+                        document.getElementById(`atlet-${idx}-nama`);
+
+                    const elPosisi =
+                        document.getElementById(`atlet-${idx}-posisi`);
+
+                    const elSekolah =
+                        document.getElementById(`atlet-${idx}-sekolah`);
+
+                    const elUmur =
+                        document.getElementById(`atlet-${idx}-umur`);
+
+                    const elTinggi =
+                        document.getElementById(`atlet-${idx}-tinggi`);
+
+                    const elLogo =
+                        document.getElementById(`atlet-${idx}-logo`);
+
+
+                    if (elNama) {
+                        elNama.textContent = nama;
+                    }
+
+                    if (elPosisi) {
+                        elPosisi.textContent = jawatan || 'ATLET';
+                    }
+
+                    if (elUmur) {
+                        elUmur.textContent = umur || '--';
+                    }
+
+                    if (elTinggi) {
+                        elTinggi.textContent = tinggi || '--';
+                    }
+
+                    if (elSekolah) {
+                        elSekolah.innerHTML =
+                            `<i class="fas fa-school mr-1 text-blue-600"></i> ${sekolahName}`;
+                    }
+
+                    if (elLogo && sekolahName) {
+                        elLogo.src = logoSrc;
+                    }
+
+                    rowAtletCount++;
                 }
             }
-            return '../../../images/ssbj.png'; // Fallback default
-        
+
+
+            console.log(
+                "Data selesai dimuat. Jumlah atlet:",
+                rowAtletCount
+            );
+
+        } catch (error) {
+
+            console.error(
+                "GAGAL MEMUAT DATA GOOGLE SHEET:",
+                error
+            );
+
+        }
+    }
+
+
+    // ==========================================
+    // JALANKAN APABILA PAGE SIAP
+    // ==========================================
+
+    document.addEventListener(
+        'DOMContentLoaded',
+        muatDataPasukan
+    );
+
+</script>
 
         async function muatDataPasukan() {
             try {
-                const csvUrl = "https://docs.google.com/spreadsheets/d/1mzmX5DX2nz5YwZ0K6C-mhh7Gq2mh0Fagc2YhFFf4Sww/export?format=csv&gid=0";
+                const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS4soLt_B5mqCrzR9x_DwtP-1_TJYuufVt1E38wIRrr6DjQWJifQqkLqu_E5a3SIj3KMRe-D0KSybZD/pub?output=csv";
                 const response = await fetch(csvUrl);
                 const dataText = await response.text();
 
