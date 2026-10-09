@@ -105,7 +105,7 @@
         <div class="container mx-auto px-4 relative z-10">
             <span class="bg-red-600 text-yellow-300 text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow border border-yellow-400 mb-2 inline-block">Sirkit Akhir 2026</span>
             <h1 class="text-xl sm:text-2xl md:text-4xl font-black mb-2 text-blue-950 drop-shadow-sm">Kedudukan Carta Kumpulan (Standings)</h1>
-            <p class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold px-2">Carta kedudukan rasmi pasukan bagi Kumpulan Super & Kumpulan Perdana berdasarkan keputusan terkini.</p>
+            <p class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold px-2">Carta kedudukan rasmi pasukan bagi Kumpulan Super & Kumpulan Perdana berdasarkan keputusan Sirkit 1.</p>
         </div>
     </section>
 
@@ -115,7 +115,7 @@
         <!-- Status Info -->
         <div>
             <div id="sync-status" class="text-center text-xs md:text-sm font-bold p-3 rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-300 shadow-sm">
-                ✅ Data keputusan perlawanan 11 & 12 Mei 2026 telah berjaya dimuatkan ke dalam carta.
+                ✅ Keputusan Sirkit 1 dimuatkan. Jadual Sirkit Akhir telah dimasukkan dan carta hanya akan mengemas kini mata apabila perlawanan selesai dimainkan.
             </div>
         </div>
 
@@ -125,7 +125,7 @@
                 <h3 class="font-extrabold text-xs sm:text-sm md:text-base flex items-center gap-2">
                     <i class="fa-solid fa-star text-yellow-400"></i> Kumpulan Super
                 </h3>
-                <span class="text-[11px] md:text-xs font-semibold bg-blue-900 text-white px-2.5 py-1 rounded-full">STANDING SIRKIT 1</span>
+                <span class="text-[11px] md:text-xs font-semibold bg-blue-900 text-white px-2.5 py-1 rounded-full">Sirkit Akhir 2026</span>
             </div>
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse text-xs md:text-sm whitespace-nowrap">
@@ -157,7 +157,7 @@
                 <h3 class="font-extrabold text-xs sm:text-sm md:text-base flex items-center gap-2">
                     <i class="fa-solid fa-medal text-yellow-400"></i> Kumpulan Perdana
                 </h3>
-                <span class="text-[11px] md:text-xs font-semibold bg-blue-900 text-white px-2.5 py-1 rounded-full">STANDING SIRKIT 1</span>
+                <span class="text-[11px] md:text-xs font-semibold bg-blue-900 text-white px-2.5 py-1 rounded-full">Sirkit Akhir 2026</span>
             </div>
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse text-xs md:text-sm whitespace-nowrap">
@@ -259,32 +259,83 @@
             "SMK TUN HUSSEIN ONN"
         ];
 
-        // Data keputusan rasmi 11 & 12 Mei 2026
+        // Senarai perlawanan (Sirkit 1: played: true | Sirkit Akhir: played: false)
         const matchResults = [
-            { teamA: "SMK PUTRAJAYA PRESINT 8(1)", scoreA: 41, teamB: "SMK PUTERA", scoreB: 23, cat: "perdana" },
-            { teamA: "SMK GUNUNG RAPAT", scoreA: 19, teamB: "SMK TUNKU ANUM TAR", scoreB: 23, cat: "perdana" },
-            { teamA: "SS BUKIT JALIL", scoreA: 56, teamB: "SMK SERI KOTA", scoreB: 16, cat: "super" },
-            { teamA: "SMK SERI TITIWANGSA", scoreA: 29, teamB: "SMK TABUAN JAYA", scoreB: 28, cat: "super" },
-            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 28, teamB: "SMK MUTIARA IMPIAN", scoreB: 31, cat: "perdana" },
-            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 40, teamB: "SMK MUTIARA", scoreB: 4, cat: "perdana" },
-            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 38, teamB: "SMK BUKIT NENAS", scoreB: 26, cat: "super" },
-            { teamA: "SSM PAHANG", scoreA: 30, teamB: "SSM TUNKU MAHKOTA ISMAIL", scoreB: 29, cat: "super" },
-            { teamA: "SMK TUNKU ANUM TAR", scoreA: 22, teamB: "SMK PUTRAJAYA PRESINT 8(1)", scoreB: 28, cat: "perdana" },
-            { teamA: "SMK PUTERA", scoreA: 15, teamB: "SMK MUTIARA IMPIAN", scoreB: 31, cat: "perdana" },
-            { teamA: "SMK SERI KOTA", scoreA: 13, teamB: "SMK SEKSYEN SEBELAS", scoreB: 49, cat: "super" },
-            { teamA: "SS BUKIT JALIL", scoreA: 49, teamB: "SMK BUKIT NENAS", scoreB: 21, cat: "super" },
-            { teamA: "SMK GUNUNG RAPAT", scoreA: 46, teamB: "SMK MUTIARA", scoreB: 8, cat: "perdana" },
-            { teamA: "SMK SERI TITIWANGSA", scoreA: 28, teamB: "SSM TUNKU MAHKOTA ISMAIL", scoreB: 34, cat: "super" },
-            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 32, teamB: "SSM PAHANG", scoreB: 24, cat: "super" },
-            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 32, teamB: "SMK SYED HASSAN", scoreB: 25, cat: "perdana" },
-            { teamA: "SMK PUTRAJAYA PRESINT 8(1)", scoreA: 33, teamB: "SMK MUTIARA IMPIAN", scoreB: 23, cat: "perdana" },
-            { teamA: "SMK TUNKU ANUM TAR", scoreA: 47, teamB: "SMK MUTIARA", scoreB: 6, cat: "perdana" },
-            { teamA: "SMK SEKSYEN SEBELAS", scoreA: 41, teamB: "SMK TABUAN JAYA", scoreB: 21, cat: "super" },
-            { teamA: "SMK SERI KOTA", scoreA: 20, teamB: "SMK BUKIT NENAS", scoreB: 38, cat: "super" },
-            { teamA: "SMK GUNUNG RAPAT", scoreA: 47, teamB: "SMK SYED HASSAN", scoreB: 16, cat: "perdana" },
-            { teamA: "SS BUKIT JALIL", scoreA: 50, teamB: "SSM PAHANG", scoreB: 18, cat: "super" },
-            { teamA: "SMK SERI TITIWANGSA", scoreA: 22, teamB: "SMK TUN HUSSEIN ONN", scoreB: 27, cat: "super" },
-            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 25, teamB: "SMK SEBERANG TEMERLOH", scoreB: 32, cat: "perdana" }
+            // --- KEPUTUSAN SIRKIT 1 (Sudah Dimaenkan) ---
+            { teamA: "SMK PUTRAJAYA PRESINT 8(1)", scoreA: 41, teamB: "SMK PUTERA", scoreB: 23, cat: "perdana", played: true },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 19, teamB: "SMK TUNKU ANUM TAR", scoreB: 23, cat: "perdana", played: true },
+            { teamA: "SS BUKIT JALIL", scoreA: 56, teamB: "SMK SERI KOTA", scoreB: 16, cat: "super", played: true },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 29, teamB: "SMK TABUAN JAYA", scoreB: 28, cat: "super", played: true },
+            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 28, teamB: "SMK MUTIARA IMPIAN", scoreB: 31, cat: "perdana", played: true },
+            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 40, teamB: "SMK MUTIARA", scoreB: 4, cat: "perdana", played: true },
+            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 38, teamB: "SMK BUKIT NENAS", scoreB: 26, cat: "super", played: true },
+            { teamA: "SSM PAHANG", scoreA: 30, teamB: "SSM TUNKU MAHKOTA ISMAIL", scoreB: 29, cat: "super", played: true },
+            { teamA: "SMK TUNKU ANUM TAR", scoreA: 22, teamB: "SMK PUTRAJAYA PRESINT 8(1)", scoreB: 28, cat: "perdana", played: true },
+            { teamA: "SMK PUTERA", scoreA: 15, teamB: "SMK MUTIARA IMPIAN", scoreB: 31, cat: "perdana", played: true },
+            { teamA: "SMK SERI KOTA", scoreA: 13, teamB: "SMK SEKSYEN SEBELAS", scoreB: 49, cat: "super", played: true },
+            { teamA: "SS BUKIT JALIL", scoreA: 49, teamB: "SMK BUKIT NENAS", scoreB: 21, cat: "super", played: true },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 46, teamB: "SMK MUTIARA", scoreB: 8, cat: "perdana", played: true },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 28, teamB: "SSM TUNKU MAHKOTA ISMAIL", scoreB: 34, cat: "super", played: true },
+            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 32, teamB: "SSM PAHANG", scoreB: 24, cat: "super", played: true },
+            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 32, teamB: "SMK SYED HASSAN", scoreB: 25, cat: "perdana", played: true },
+            { teamA: "SMK PUTRAJAYA PRESINT 8(1)", scoreA: 33, teamB: "SMK MUTIARA IMPIAN", scoreB: 23, cat: "perdana", played: true },
+            { teamA: "SMK TUNKU ANUM TAR", scoreA: 47, teamB: "SMK MUTIARA", scoreB: 6, cat: "perdana", played: true },
+            { teamA: "SMK SEKSYEN SEBELAS", scoreA: 41, teamB: "SMK TABUAN JAYA", scoreB: 21, cat: "super", played: true },
+            { teamA: "SMK SERI KOTA", scoreA: 20, teamB: "SMK BUKIT NENAS", scoreB: 38, cat: "super", played: true },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 47, teamB: "SMK SYED HASSAN", scoreB: 16, cat: "perdana", played: true },
+            { teamA: "SS BUKIT JALIL", scoreA: 50, teamB: "SSM PAHANG", scoreB: 18, cat: "super", played: true },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 22, teamB: "SMK TUN HUSSEIN ONN", scoreB: 27, cat: "super", played: true },
+            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 25, teamB: "SMK SEBERANG TEMERLOH", scoreB: 32, cat: "perdana", played: true },
+
+            // --- JADUAL SIRKIT AKHIR (Perlawanan 28 - 75: Belum Dimainkan -> played: false) ---
+            { teamA: "SMK MUTIARA", scoreA: 0, teamB: "SMK PUTRAJAYA PRESINT 8 (1)", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK SERI KOTA", scoreA: 0, teamB: "SS PAHANG", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK BUKIT NENAS", scoreA: 0, teamB: "SMK SEKSYEN SEBELAS", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK TABUAN JAYA", scoreA: 0, teamB: "SS TUNKU MAHKOTA ISMAIL", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreA: 0, teamB: "SMK SYED HASSAN", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK PUTERA", scoreA: 0, teamB: "SMK SEBERANG TEMERLOH", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SS BUKIT JALIL", scoreA: 0, teamB: "SMK SERI TITIWANGSA", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 0, teamB: "SMK DATUK PETER MOJUNTIN", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK MUTIARA", scoreA: 0, teamB: "SMK SYED HASSAN", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK SEKSYEN SEBELAS", scoreA: 0, teamB: "SS TUNKU MAHKOTA ISMAIL", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK BUKIT NENAS", scoreA: 0, teamB: "SS PAHANG", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK MUTIARA IMPIAN", scoreA: 0, teamB: "SMK SEBERANG TEMERLOH", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreA: 0, teamB: "SMK DATUK PETER MOJUNTIN", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK TABUAN JAYA", scoreA: 0, teamB: "SMK TUN HUSSEIN ONN", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK SERI KOTA", scoreA: 0, teamB: "SMK SERI TITIWANGSA", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK PUTERA", scoreA: 0, teamB: "SMK GUNUNG RAPAT", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK SYED HASSAN", scoreA: 0, teamB: "SMK PUTRAJAYA PRESINT 8 (1)", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreA: 0, teamB: "SMK PUTERA", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SS PAHANG", scoreA: 0, teamB: "SMK SEKSYEN SEBELAS", scoreB: 0, cat: "super", played: false },
+            { teamA: "SS TUNKU MAHKOTA ISMAIL", scoreA: 0, teamB: "SMK TUN HUSSEIN ONN", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK MUTIARA", scoreA: 0, teamB: "SMK DATUK PETER MOJUNTIN", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK MUTIARA IMPIAN", scoreA: 0, teamB: "SMK GUNUNG RAPAT", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK BUKIT NENAS", scoreA: 0, teamB: "SMK SERI TITIWANGSA", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK TABUAN JAYA", scoreA: 0, teamB: "SS BUKIT JALIL", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK PUTRAJAYA PRESINT 8 (1)", scoreA: 0, teamB: "SMK SEBERANG TEMERLOH", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK SYED HASSAN", scoreA: 0, teamB: "SMK DATUK PETER MOJUNTIN", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK SEKSYEN SEBELAS", scoreA: 0, teamB: "SMK TUN HUSSEIN ONN", scoreB: 0, cat: "super", played: false },
+            { teamA: "SS PAHANG", scoreA: 0, teamB: "SMK SERI TITIWANGSA", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK MUTIARA IMPIAN", scoreA: 0, teamB: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK MUTIARA", scoreA: 0, teamB: "SMK PUTERA", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SS TUNKU MAHKOTA ISMAIL", scoreA: 0, teamB: "SS BUKIT JALIL", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK TABUAN JAYA", scoreA: 0, teamB: "SMK SERI KOTA", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 0, teamB: "SMK PUTRAJAYA PRESINT 8 (1)", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 0, teamB: "SMK GUNUNG RAPAT", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 0, teamB: "SMK SEKSYEN SEBELAS", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 0, teamB: "SS BUKIT JALIL", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK SYED HASSAN", scoreA: 0, teamB: "SMK PUTERA", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK MUTIARA", scoreA: 0, teamB: "SMK MUTIARA IMPIAN", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SS TUNKU MAHKOTA ISMAIL", scoreA: 0, teamB: "SMK SERI KOTA", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK BUKIT NENAS", scoreA: 0, teamB: "SMK TABUAN JAYA", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK PUTRAJAYA PRESINT 8 (1)", scoreA: 0, teamB: "SMK GUNUNG RAPAT", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 0, teamB: "SMK PUTERA", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK SEKSYEN SEBELAS", scoreA: 0, teamB: "SS BUKIT JALIL", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 0, teamB: "SMK SERI KOTA", scoreB: 0, cat: "super", played: false },
+            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 0, teamB: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SMK SYED HASSAN", scoreA: 0, teamB: "SMK MUTIARA IMPIAN", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SS PAHANG", scoreA: 0, teamB: "SMK TABUAN JAYA", scoreB: 0, cat: "super", played: false },
+            { teamA: "SS TUNKU MAHKOTA ISMAIL", scoreA: 0, teamB: "SMK BUKIT NENAS", scoreB: 0, cat: "super", played: false }
         ];
 
         function normalizeName(name) {
@@ -303,7 +354,8 @@
                 stats[t] = { name: t, p: 0, m: 0, s: 0, k: 0, j: 0, b: 0, bezaGol: 0, purataGol: 0, pts: 0 };
             });
 
-            matchResults.filter(m => m.cat === category).forEach(m => {
+            // HANYA kira perlawanan yang berstatus played: true
+            matchResults.filter(m => m.cat === category && m.played).forEach(m => {
                 const tA = normalizeName(m.teamA);
                 const tB = normalizeName(m.teamB);
                 const sA = m.scoreA;
