@@ -160,9 +160,9 @@
             });
         }
 
-        // URL Google Sheet CSV
+        // URL Google Sheet ditukar kepada format CSV Export yang betul
         const sheetUrls = {
-            semua: "https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID_HERE/export?format=csv&gid=0"
+            semua: "https://docs.google.com/spreadsheets/d/1rvlTzPuNf3miXgLj_cB9zg9M8Tu37HgMaCnADx3ewrw/export?format=csv&gid=0"
         };
 
         // Pangkalan data Keputusan Sirkit 1 (11 & 12 Mei 2026)
@@ -226,7 +226,7 @@
             { bil: 53, date: "10 OKTOBER 2026 (SABTU)", time: "3.00 PETANG", kump: "Perdana B", teamA: "SMK SYED HASSAN", teamB: "SMK DATUK PETER MOJUNTIN", cat: "perdana" },
             { bil: 54, date: "10 OKTOBER 2026 (SABTU)", time: "3.00 PETANG", kump: "Super A", teamA: "SMK SEKSYEN SEBELAS", teamB: "SMK TUN HUSSEIN ONN", cat: "super" },
             { bil: 55, date: "10 OKTOBER 2026 (SABTU)", time: "3.00 PETANG", kump: "Super B", teamA: "SS PAHANG", teamB: "SMK SERI TITIWANGSA", cat: "super" },
-            { bil: 56, date: "10 OKTOBER 2026 (SABTU)", time: "4.00 PETANG", kump: "Perdana A", teamA: "SMK MUTIARA IMPIAN", teamB: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", cat: "perdana" },
+            { bil: 56, date: "10 OKTOBER 2026 (SABTU)", time: "4.00 PAGI", kump: "Perdana A", teamA: "SMK MUTIARA IMPIAN", teamB: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", cat: "perdana" },
             { bil: 57, date: "10 OKTOBER 2026 (SABTU)", time: "4.00 PETANG", kump: "Perdana B", teamA: "SMK MUTIARA", teamB: "SMK PUTERA", cat: "perdana" },
             { bil: 58, date: "10 OKTOBER 2026 (SABTU)", time: "5.00 PETANG", kump: "Super A", teamA: "SS TUNKU MAHKOTA ISMAIL", teamB: "SS BUKIT JALIL", cat: "super" },
             { bil: 59, date: "10 OKTOBER 2026 (SABTU)", time: "5.00 PETANG", kump: "Super B", teamA: "SMK TABUAN JAYA", teamB: "SMK SERI KOTA", cat: "super" },
@@ -326,7 +326,8 @@
                     m.q1a = row[5] !== '' && !isNaN(row[5]) ? Number(row[5]) : m.q1a;
                     m.q1b = row[6] !== '' && !isNaN(row[6]) ? Number(row[6]) : m.q1b;
                     m.q2a = row[7] !== '' && !isNaN(row[7]) ? Number(row[7]) : m.q2a;
-                    m.q2b = row[8] !== '' && !isNaN(row[8]) ? Number(row[8]) : m.q8b;
+                    // Ralat taip m.q8b dibetulkan kepada m.q2b
+                    m.q2b = row[8] !== '' && !isNaN(row[8]) ? Number(row[8]) : m.q2b;
                     m.q3a = row[9] !== '' && !isNaN(row[9]) ? Number(row[9]) : m.q3a;
                     m.q3b = row[10] !== '' && !isNaN(row[10]) ? Number(row[10]) : m.q3b;
                     m.q4a = row[11] !== '' && !isNaN(row[11]) ? Number(row[11]) : m.q4a;
@@ -422,7 +423,6 @@
                             </div>
                         `;
                     } else {
-                        // Kosongkan perincian quarter untuk Sirkit 1 seperti yang diminta
                         quarterTableHTML = `
                             <div class="bg-slate-50 px-4 py-2 border-t border-slate-100 text-center text-xs text-slate-500 font-semibold">
                                 <i class="fas fa-map-marker-alt mr-1 text-red-500"></i> Venue: ${m.venue || 'Seri Kota'} • (Perincian suku/quarter tidak direkodkan)
@@ -468,10 +468,8 @@
         }
 
         function renderMatches() {
-            // Render Sirkit 1
             renderList('sirkit1', circuit1Matches, true);
 
-            // Render Semua, Perdana, Super
             const categories = ['semua', 'perdana', 'super'];
 
             categories.forEach(catKey => {
@@ -515,7 +513,7 @@
                         success = true;
                     }
                 } catch (err) {
-                    console.warn(`Gagal sambung Google Sheet.`);
+                    console.warn(`Gagal sambung Google Sheet: ${err.message}`);
                 }
             }
 
