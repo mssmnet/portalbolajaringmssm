@@ -408,7 +408,7 @@
                         `;
                     }
 
-                    // Paparan Grid 3 Lajur (grid-cols-[1fr_auto_1fr]) mengekalkan susun atur komputer meja merentas mod potret & lanskap
+                    // Susun atur Grid Desktop & Mobile diseragamkan dengan `minmax(0, 1fr)` supaya paparan melintang (side-by-side) kekal penuh dan selaras
                     htmlContent += `
                         <div class="bg-white rounded-2xl shadow-md border border-sky-100 overflow-hidden mb-4 transition hover:shadow-lg">
                             <div class="bg-slate-100 px-3 sm:px-4 py-2.5 flex justify-between items-center text-xs font-semibold text-slate-600 border-b border-slate-200 flex-wrap gap-2">
@@ -420,22 +420,22 @@
                                 </div>
                                 <span class="${statusBg} text-white px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase">${statusText}</span>
                             </div>
-                            <div class="p-3 sm:p-5 grid grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-4">
+                            <div class="p-3 sm:p-5 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 sm:gap-4">
                                 <!-- Pasukan A (Kiri) -->
-                                <div class="flex items-center gap-2 sm:gap-3 justify-end text-right">
-                                    <h4 class="font-extrabold text-[11px] sm:text-xs md:text-base text-slate-800 leading-snug">${m.teamA}</h4>
-                                    <img src="${logoA}" alt="${m.teamA}" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain shrink-0 bg-slate-50 p-1 rounded-xl border border-sky-200 shadow-sm" onerror="this.src='../../images/kpm-default.png'">
+                                <div class="flex items-center gap-1.5 sm:gap-3 justify-end text-right min-w-0">
+                                    <h4 class="font-extrabold text-[10px] sm:text-xs md:text-base text-slate-800 leading-tight">${m.teamA}</h4>
+                                    <img src="${logoA}" alt="${m.teamA}" class="w-7 h-7 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain shrink-0 bg-slate-50 p-1 rounded-xl border border-sky-200 shadow-sm" onerror="this.src='../../images/kpm-default.png'">
                                 </div>
                                 <!-- Skor Tengah -->
                                 <div class="text-center px-1 sm:px-2 shrink-0">
-                                    <div class="text-xl sm:text-2xl md:text-3xl font-black text-blue-950 tracking-wider">${scoreDisplay}</div>
+                                    <div class="text-lg sm:text-2xl md:text-3xl font-black text-blue-950 tracking-wider">${scoreDisplay}</div>
                                     <div class="text-[9px] sm:text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">SKOR AKHIR</div>
-                                    <div class="mt-1 text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full inline-block ${winnerBg}">${winnerDisplay}</div>
+                                    <div class="mt-1 text-[9px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full inline-block ${winnerBg}">${winnerDisplay}</div>
                                 </div>
                                 <!-- Pasukan B (Kanan) -->
-                                <div class="flex items-center gap-2 sm:gap-3 justify-start text-left">
-                                    <img src="${logoB}" alt="${m.teamB}" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain shrink-0 bg-slate-50 p-1 rounded-xl border border-sky-200 shadow-sm" onerror="this.src='../../images/kpm-default.png'">
-                                    <h4 class="font-extrabold text-[11px] sm:text-xs md:text-base text-slate-800 leading-snug">${m.teamB}</h4>
+                                <div class="flex items-center gap-1.5 sm:gap-3 justify-start text-left min-w-0">
+                                    <img src="${logoB}" alt="${m.teamB}" class="w-7 h-7 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain shrink-0 bg-slate-50 p-1 rounded-xl border border-sky-200 shadow-sm" onerror="this.src='../../images/kpm-default.png'">
+                                    <h4 class="font-extrabold text-[10px] sm:text-xs md:text-base text-slate-800 leading-tight">${m.teamB}</h4>
                                 </div>
                             </div>
                             ${quarterTableHTML}
