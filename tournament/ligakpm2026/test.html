@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Statistik Liga - Liga KPM Bola Jaring 2026 (Sirkit Akhir)</title>
+    <title>Kedudukan Carta (Standings) | Liga Bola Jaring KPM 2026</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,6 +17,7 @@
             --dark-blue: #1e3a8a;
         }
 
+        /* Latar Belakang Baby Blue Eksklusif dengan Grafik Posisi Netball */
         body {
             background-color: #e0f2fe;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='%230284c7' fill-opacity='0.11' font-family='Segoe UI, sans-serif' font-weight='900' font-size='15'%3E%3Ctext x='20' y='30'%3EGS%3C/text%3E%3Ctext x='110' y='30'%3EGA%3C/text%3E%3Ctext x='20' y='95'%3EWA%3C/text%3E%3Ctext x='85' y='95'%3EC%3C/text%3E%3Ctext x='140' y='95'%3EWD%3C/text%3E%3Ctext x='40' y='155'%3EGD%3C/text%3E%3Ctext x='120' y='155'%3EGK%3C/text%3E%3C/g%3E%3C/svg%3E");
@@ -24,6 +25,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* Jalur Warna Tema */
         .color-stripe {
             height: 6px;
             background: linear-gradient(to right, #dc2626, #facc15, #38bdf8, #1d4ed8);
@@ -39,51 +41,41 @@
         .live-pulse {
             animation: pulse-live 1.5s infinite;
         }
-
-        @media print {
-            header, footer, .no-print, nav, #view-switcher-container {
-                display: none !important;
-            }
-            body {
-                background: white !important;
-            }
-            .print-container {
-                box-shadow: none !important;
-                border: none !important;
-                padding: 0 !important;
-            }
-        }
     </style>
 </head>
 <body class="text-gray-800 flex flex-col min-h-screen">
 
+    <!-- Jalur Tema Warna-warni di Paling Atas -->
     <div class="color-stripe"></div>
 
     <!-- HEADER -->
     <header class="bg-gradient-to-r from-blue-950 via-blue-900 to-indigo-900 text-white shadow-xl sticky top-0 z-50 border-b-4 border-yellow-400">
         <div class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3 md:space-x-4">
-                <img src="../../images/ligasukan.jpg" alt="Logo Liga KPM" class="h-12 md:h-16 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-yellow-400 shrink-0" onerror="this.style.display='none'">
-                <img src="../../images/ligakpm.jpg" alt="Logo Sukan" class="h-12 md:h-16 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-400 shrink-0" onerror="this.style.display='none'">
-                <span class="font-extrabold text-base md:text-2xl tracking-wide text-yellow-300 drop-shadow hidden sm:inline">LIGA KPM 2026</span>
+            <!-- Logo Section -->
+            <div class="flex items-center space-x-2 md:space-x-4">
+                <img src="../../images/ligasukan.jpg" alt="Logo Liga KPM" class="h-10 sm:h-12 md:h-16 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-yellow-400" onerror="this.src='../../images/kpm-default.png'">
+                <img src="../../images/ligakpm.jpg" alt="Logo Sukan" class="h-10 sm:h-12 md:h-16 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-400" onerror="this.src='../../images/kpm-default.png'">
+                <span class="font-extrabold text-xs sm:text-base md:text-xl tracking-wide text-yellow-300 drop-shadow">LIGA KPM 2026</span>
             </div>
 
-            <nav class="hidden lg:flex items-center space-x-1.5 font-bold text-xs xl:text-sm">
-                <a href="index.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Home</a>
+            <!-- Navigation Menu (Desktop) -->
+            <nav class="hidden lg:flex items-center space-x-2 font-bold text-xs xl:text-sm">
+                <a href="../../index.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Home</a>
                 <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jsport</a>
-                <a href="keputusanrasmi.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Keputusan</a>
+                <a href="keputusanrasmi.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Keputusan Rasmi</a>
                 <a href="jadualliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jadual</a>
-                <a href="pasukanliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Pasukan</a>
-                <a href="standing.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Carta</a>
+                <a href="standingliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-red-600 border border-yellow-400">Carta</a>
                 <a href="peraturanliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Peraturan</a>
-                <a href="statistikliga.html" class="px-3 py-2 rounded-lg bg-red-600 text-yellow-300 border border-yellow-400 font-extrabold shadow">Statistik</a>
+                <a href="statistikliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Statistik</a>
                 <a href="borangliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Borang</a>
                 <a href="galeri.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Galeri</a>
+                <!-- Navi Live di Header -->
                 <a href="live.html" class="px-3 py-2 rounded-lg bg-red-600 text-yellow-300 border-2 border-yellow-400 font-extrabold flex items-center gap-1 live-pulse hover:bg-red-700 transition">
                     <i class="fa-solid fa-video"></i> LIVE
                 </a>
             </nav>
 
+            <!-- Mobile Menu Button -->
             <div class="lg:hidden flex items-center">
                 <button id="menu-btn" class="text-yellow-300 focus:outline-none p-2.5 bg-blue-900 border border-yellow-400/50 rounded-xl shadow">
                     <i class="fa-solid fa-bars text-xl"></i>
@@ -91,15 +83,15 @@
             </div>
         </div>
 
+        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden lg:hidden bg-blue-950 border-t border-yellow-400/30 px-4 pt-3 pb-5 space-y-2 text-sm font-medium">
-            <a href="index.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Home</a>
+            <a href="../../index.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Home</a>
             <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Jsport</a>
             <a href="keputusanrasmi.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Rasmi</a>
             <a href="jadualliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Jadual Perlawanan</a>
-            <a href="pasukanliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Pasukan Liga</a>
-            <a href="standing.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Carta</a>
+            <a href="standingliga.html" class="block bg-red-600 text-yellow-300 px-3 py-2 rounded-lg transition font-bold">Kedudukan Carta</a>
             <a href="peraturanliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Peraturan</a>
-            <a href="statistikliga.html" class="block bg-red-600 text-yellow-300 px-3 py-2 rounded-lg font-bold border border-yellow-400">Statistik Liga</a>
+            <a href="statistikliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Statistik Liga</a>
             <a href="borangliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Borang Rasmi</a>
             <a href="galeri.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Galeri</a>
             <a href="live.html" class="block bg-red-600 text-yellow-300 font-extrabold px-3 py-2.5 rounded-lg text-center live-pulse border border-yellow-400 transition">
@@ -109,604 +101,350 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="py-5 md:py-8 text-center relative overflow-hidden">
+    <section class="py-6 md:py-8 text-center relative overflow-hidden">
         <div class="container mx-auto px-4 relative z-10">
-            <span class="bg-red-600 text-yellow-300 text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow border border-yellow-400 mb-2 inline-block">Analisis Jaringan</span>
-            <h1 class="text-xl md:text-4xl font-black mb-2 text-blue-950 drop-shadow-sm">Statistik Jaringan Atlet Liga KPM 2026</h1>
-            <p class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold px-2">Rumusan kumulatif jaringan mengikut pemain dan sekolah (Sirkit Akhir) Kategori Super dan Perdana.</p>
-            
-            <div id="view-switcher-container" class="mt-4 flex flex-wrap justify-center gap-2 px-2 no-print">
-                <button onclick="switchView('by-school')" id="btn-by-school" class="px-3 py-2 rounded-xl font-bold text-xs md:text-sm bg-blue-900 text-yellow-300 shadow-lg border-2 border-yellow-400 transition flex items-center gap-1.5">
-                    <i class="fa-solid fa-school"></i> Mengikut Sekolah
-                </button>
-                <button onclick="switchView('ranking')" id="btn-ranking" class="px-3 py-2 rounded-xl font-bold text-xs md:text-sm bg-white text-blue-900 shadow-lg border-2 border-sky-300 hover:bg-blue-50 transition flex items-center gap-1.5">
-                    <i class="fa-solid fa-trophy text-yellow-500"></i> Rangking Keseluruhan (Leaderboard)
-                </button>
-                <button onclick="window.print()" class="px-3 py-2 rounded-xl font-bold text-xs md:text-sm bg-emerald-700 text-white shadow-lg border-2 border-emerald-400 hover:bg-emerald-800 transition flex items-center gap-1.5">
-                    <i class="fa-solid fa-print"></i> Cetak/PDF
-                </button>
-            </div>
+            <span class="bg-red-600 text-yellow-300 text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow border border-yellow-400 mb-2 inline-block">Sirkit Akhir 2026</span>
+            <h1 class="text-xl sm:text-2xl md:text-4xl font-black mb-2 text-blue-950 drop-shadow-sm">Kedudukan Carta Kumpulan (Standings)</h1>
+            <p class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold px-2">Carta kedudukan rasmi pasukan bagi Kumpulan Super & Kumpulan Perdana berdasarkan keputusan Sirkit 1.</p>
         </div>
     </section>
 
     <!-- MAIN CONTAINER -->
-    <main class="flex-grow container mx-auto px-3 sm:px-4 pb-12 pt-2 max-w-6xl space-y-8">
+    <main class="flex-grow container mx-auto px-3 sm:px-4 pb-12 max-w-6xl space-y-8 md:space-y-10">
         
-        <!-- ================= VIEW 1: PAPARAN MENGIKUT SEKOLAH ================= -->
-        <div id="view-by-school" class="space-y-8">
-            
-            <!-- SUPER SECTION -->
-            <section class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-3 sm:p-6 md:p-8 border-2 border-sky-200 overflow-hidden">
-                <div class="mb-4 border-b-2 border-blue-900/20 pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                    <h2 class="text-base sm:text-xl md:text-2xl font-black text-blue-950 flex items-center gap-2">
-                        <i class="fa-solid fa-star text-yellow-500"></i> ANALISIS KATEGORI SUPER
-                    </h2>
-                    <span class="bg-blue-900 text-yellow-300 text-xs font-bold px-3 py-1 rounded-full shadow self-start sm:self-auto">Laporan Analisis Jaringan Liga Bola Jaring KPM 2026</span>
-                </div>
-
-                <div class="overflow-x-auto -mx-3 sm:mx-0">
-                    <table class="w-full text-left border-collapse min-w-[600px]">
-                        <thead>
-                            <tr class="bg-blue-950 text-yellow-300 text-xs md:text-sm uppercase font-bold">
-                                <th class="p-2.5 sm:p-3 rounded-tl-xl text-center w-10">No</th>
-                                <th class="p-2.5 sm:p-3 text-center w-16">Logo</th>
-                                <th class="p-2.5 sm:p-3">Sekolah / Pasukan</th>
-                                <th class="p-2.5 sm:p-3">Nama Atlet</th>
-                                <th class="p-2.5 sm:p-3 text-center w-16">Percubaan</th>
-                                <th class="p-2.5 sm:p-3 text-center w-16">Jaringan</th>
-                                <th class="p-2.5 sm:p-3 text-center rounded-tr-xl w-20">Peratusan</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-sky-100 text-xs sm:text-sm text-gray-700">
-                            <!-- SEKOLAH SUKAN BUKIT JALIL -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="4">1</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="4">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/ssbj.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="4">Sekolah Sukan Bukit Jalil</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">NURALYA ZARITH SOFEA BINTI MOHD NORSYAFIAQ</td>
-                                <td class="p-2.5 sm:p-3 text-center">120</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">105</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">87.50%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">ERYNA KHAN BINTI MUZAFAR</td><td class="p-2.5 sm:p-3 text-center">53</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">44</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">83.0%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">PUTERI AFRINA BINTI APISZAM</td><td class="p-2.5 sm:p-3 text-center">47</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">39</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">83.0%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR HAFIZA BINTI ABDULLAH</td><td class="p-2.5 sm:p-3 text-center">14</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">10</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">71.43%</td></tr>
-
-                            <!-- SEKOLAH SUKAN MALAYSIA PAHANG -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="5">2</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="5">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/ssmp.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="5">Sekolah Sukan Malaysia Pahang</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">ALIYA KHALIESAH BINTI SHAMSUDDIN</td>
-                                <td class="p-2.5 sm:p-3 text-center">150</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">118</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">79.0%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">QISTINA QAISARA BINTI ABDUL RAHIM</td><td class="p-2.5 sm:p-3 text-center">28</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">18</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">64.29%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NADIA QAISARA BINTI MOHD FADZIL</td><td class="p-2.5 sm:p-3 text-center">8</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">4</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">50.0%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NIVASHINI A/P DIVID</td><td class="p-2.5 sm:p-3 text-center">2</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">2</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">100%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR ARIANA DELISHA BINTI MUHAMMAD FADZIL</td><td class="p-2.5 sm:p-3 text-center">2</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">1</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">50.0%</td></tr>
-
-                            <!-- SEKOLAH SUKAN TUNKU MAHKOTA ISMAIL -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="4">3</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="4">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/sstmi.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="4">Sekolah Sukan Tunku Mahkota Ismail</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">SITI KHADIJAH BINTI MOHD ABIYAMIN</td>
-                                <td class="p-2.5 sm:p-3 text-center">85</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">64</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">75.2%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR HAZWANI BINTI HAMZAH</td><td class="p-2.5 sm:p-3 text-center">59</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">35</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">59.3%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">HANANIA DANISHA BINTI MUHAMMAD HIDAYAT</td><td class="p-2.5 sm:p-3 text-center">4</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">3</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">75.00%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">A`QILAH SALSABILA BINTI ZULKHAIRI</td><td class="p-2.5 sm:p-3 text-center">8</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">5</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">62.50%</td></tr>
-
-                            <!-- SMK BUKIT NENAS -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="5">4</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="5">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/ssnt.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="5">SMK Bukit Nenas</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR AINUL MARDHIAH BINTI HAZEMI</td>
-                                <td class="p-2.5 sm:p-3 text-center">57</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">44</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">77.19%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR DAMIA MAISARA BINTI MOHD NOR HISHAM</td><td class="p-2.5 sm:p-3 text-center">35</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">19</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">54.0%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NURIN AISYAH ADNI BINTI KAMAL ARIFFIN</td><td class="p-2.5 sm:p-3 text-center">42</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">27</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">64.3%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">KHAIRUNNISA QISTINA BINTI MOHD YUZI</td><td class="p-2.5 sm:p-3 text-center">40</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">26</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">65.0%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">SITI NURDAMIA KHADEEJA BINTI AZIZOL</td><td class="p-2.5 sm:p-3 text-center">5</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">1</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">20.0%</td></tr>
-
-                            <!-- SMK SEKSYEN SEBELAS -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="5">5</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="5">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/ss11.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="5">SMK Seksyen Sebelas</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR SYAZREEN PUTRI BINTI ROSDI</td>
-                                <td class="p-2.5 sm:p-3 text-center">105</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">82</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">78.0%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR QALESYA UMAIRA BINTI ISSHAM</td><td class="p-2.5 sm:p-3 text-center">48</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">33</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">69.0%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR ARIANA QAISARA BINTI ABDUL HALIM</td><td class="p-2.5 sm:p-3 text-center">54</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">32</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">59.0%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NURSYAKIRAH DAYANA BINTI MUHAMAD SHAFIZAN</td><td class="p-2.5 sm:p-3 text-center">5</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">2</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">40.00%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">HAMANI ARIANA BINTI MOHD HERITHZAKY</td><td class="p-2.5 sm:p-3 text-center">1</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">1</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">100.00%</td></tr>
-
-                            <!-- SMK SERI KOTA -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="5">6</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="5">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/serikota.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="5">SMK Seri Kota</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">SITI NOR NAJWA BINTI MOHD NOR NAIMI</td>
-                                <td class="p-2.5 sm:p-3 text-center">62</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">48</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">77.4%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR HUMAIRA IMANI BINTI MOHD HASFAZLI</td><td class="p-2.5 sm:p-3 text-center">24</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">16</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">66.67%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR NABILA AZZAHRA` BINTI MOHD OMAR</td><td class="p-2.5 sm:p-3 text-center">59</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">42</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">71.1%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NURSYAZWANI HUSNA BINTI MOHAMAD NOR SAUFI</td><td class="p-2.5 sm:p-3 text-center">11</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">5</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">45.45%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">MIA SARAH EMELDA BINTI NOR HAKIM</td><td class="p-2.5 sm:p-3 text-center">2</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">1</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">50.0%</td></tr>
-
-                            <!-- SMK SERI TITIWANGSA -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="3">7</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="3">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/ssnkl.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="3">SMK Seri Titiwangsa</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR ATIKAH BINTI AHMAD ZAINAL</td>
-                                <td class="p-2.5 sm:p-3 text-center">67</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">54</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">80.0%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">ROS DAYANA AINULBATRISYA BINTI MOHAMED KHAIRUL FAHMIN</td><td class="p-2.5 sm:p-3 text-center">53</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">41</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">77.3%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">HANIS MARDHYIAH BINTI MOHD TARMIZI</td><td class="p-2.5 sm:p-3 text-center">47</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">39</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">83.0%</td></tr>
-
-                            <!-- SMK TABUAN JAYA -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="5">8</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="5">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/ssntjaya.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="5">SMK Tabuan Jaya</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">DIANITA DIMONG</td>
-                                <td class="p-2.5 sm:p-3 text-center">96</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">71</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">74.0%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">RACHEL ANAK RAWA</td><td class="p-2.5 sm:p-3 text-center">34</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">18</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">53.0%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">AISYAHFITRI BINTI MOHAMAD JIZI</td><td class="p-2.5 sm:p-3 text-center">2</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">1</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">50.0%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">MELLISSA CLARA ANAK ADOUL</td><td class="p-2.5 sm:p-3 text-center">3</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">2</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">66.67%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">CLAUDIA BELLA LAWAI</td><td class="p-2.5 sm:p-3 text-center">3</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">1</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">31.33%</td></tr>
-
-                            <!-- SMK TUN HUSSIEN ONN -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="3">9</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="3">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/tho.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="3">SMK Tun Hussien Onn</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">NURIN NAJWA BINTI ADI FAIRUZ</td>
-                                <td class="p-2.5 sm:p-3 text-center">115</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">91</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">79.13%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">UMMI NAJIHA BINTI MUHAMMAD HARISS AZAM</td><td class="p-2.5 sm:p-3 text-center">42</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">33</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">92.86%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NURFASIHATUL HUSNINA BINTI FAIZAL</td><td class="p-2.5 sm:p-3 text-center">13</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">10</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">78.57%</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- PERDANA SECTION -->
-            <section class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-3 sm:p-6 md:p-8 border-2 border-sky-200 overflow-hidden">
-                <div class="mb-4 border-b-2 border-blue-900/20 pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                    <h2 class="text-base sm:text-xl md:text-2xl font-black text-blue-950 flex items-center gap-2">
-                        <i class="fa-solid fa-shield-halved text-blue-600"></i> ANALISIS KATEGORI PERDANA
-                    </h2>
-                    <span class="bg-blue-900 text-yellow-300 text-xs font-bold px-3 py-1 rounded-full shadow self-start sm:self-auto">Laporan Analisis Jaringan Liga Bola Jaring KPM 2026</span>
-                </div>
-
-                <div class="overflow-x-auto -mx-3 sm:mx-0">
-                    <table class="w-full text-left border-collapse min-w-[600px]">
-                        <thead>
-                            <tr class="bg-blue-950 text-yellow-300 text-xs md:text-sm uppercase font-bold">
-                                <th class="p-2.5 sm:p-3 rounded-tl-xl text-center w-10">No</th>
-                                <th class="p-2.5 sm:p-3 text-center w-16">Logo</th>
-                                <th class="p-2.5 sm:p-3">Sekolah / Pasukan</th>
-                                <th class="p-2.5 sm:p-3">Nama Atlet</th>
-                                <th class="p-2.5 sm:p-3 text-center w-16">Percubaan</th>
-                                <th class="p-2.5 sm:p-3 text-center w-16">Jaringan</th>
-                                <th class="p-2.5 sm:p-3 text-center rounded-tr-xl w-20">Peratusan</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-sky-100 text-xs sm:text-sm text-gray-700">
-                            <!-- SMK DATUK PETER MOJUNTIN -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="6">1</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="6">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/petermojuntin.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="6">SMK Datuk Peter Mojuntin</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">ALYA HUMAIRA BINTI ALIZAT</td>
-                                <td class="p-2.5 sm:p-3 text-center">119</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">78</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">65.54%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR ATILIA BINTI RAZUAN</td><td class="p-2.5 sm:p-3 text-center">35</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">19</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">54.29%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">AMELLYENDA SARVISTOL</td><td class="p-2.5 sm:p-3 text-center">26</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">16</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">61.53%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">DAMIA MARISSA BINTI MAHATHIR</td><td class="p-2.5 sm:p-3 text-center">2</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">1</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">50.00%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR FARYSHASYAWANI BINTI ABDULLAH</td><td class="p-2.5 sm:p-3 text-center">11</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">5</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">45.45%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR ALLESYA NADIA BINTI AZMAN</td><td class="p-2.5 sm:p-3 text-center">1</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">1</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">100%</td></tr>
-
-                            <!-- SMK GUNUNG RAPAT -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="4">2</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="4">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/gunungrapat.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="4">SMK Gunung Rapat</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR HAIFA RAUDAH BINTI HAFIZ</td>
-                                <td class="p-2.5 sm:p-3 text-center">183</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">139</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">76.0%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR LUTFIAH HUMAIRAH BINTI MUHAMMAD ROSIDI</td><td class="p-2.5 sm:p-3 text-center">34</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">20</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">59.0%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">RABIATUL ADAWIYAH BINTI MOHD HAMIZAN</td><td class="p-2.5 sm:p-3 text-center">27</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">12</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">44.44%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR DAMIA BINTI SUBHANA</td><td class="p-2.5 sm:p-3 text-center">3</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">1</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">33.33%</td></tr>
-
-                            <!-- SMK MUTIARA -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="5">3</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="5">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/mutiara.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="5">SMK Mutiara</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">ALISHA SAFIYYAH BINTI SHEROLD</td>
-                                <td class="p-2.5 sm:p-3 text-center">27</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">16</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">59.2%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">FIYOSHI FENNIX EDWARD MOTOYOU</td><td class="p-2.5 sm:p-3 text-center">12</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">5</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">41.67%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">SITI NURRAUDAH BINTI ABDULLAH</td><td class="p-2.5 sm:p-3 text-center">12</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">2</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">20.0%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR ARIYANA DANISHA BINTI RAMLE</td><td class="p-2.5 sm:p-3 text-center">32</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">15</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">47.0%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">QAISARA BINTI ABDULLAH</td><td class="p-2.5 sm:p-3 text-center">2</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">1</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">50.0%</td></tr>
-
-                            <!-- SMK MUTIARA IMPIAN -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="4">4</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="4">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/mutiaraimpian.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="4">SMK Mutiara Impian</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">NURALEESYA DANIA BINTI MAT SIDEK</td>
-                                <td class="p-2.5 sm:p-3 text-center">127</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">81</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">64.0%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NURUL IMAN DAMIA BINTI ZAINAL NISHAM</td><td class="p-2.5 sm:p-3 text-center">42</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">28</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">66.6%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">SARAH RAIHANAH BINTI SANDY ARDI</td><td class="p-2.5 sm:p-3 text-center">14</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">5</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">36.0%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">QISTINA BINTI NORHAFIZ</td><td class="p-2.5 sm:p-3 text-center">2</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">2</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">100.00%</td></tr>
-
-                            <!-- SMK PUTRAJAYA PERSINT 8(1) -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="4">5</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="4">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/putrajaya8.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="4">SMK Putrajaya Persint 8(1)</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">AMNI RAUDHAH BINTI ADI ZAIED</td>
-                                <td class="p-2.5 sm:p-3 text-center">98</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">78</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">80.0%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">AISYAH ZARA BINTI AHMAD SHURADI</td><td class="p-2.5 sm:p-3 text-center">30</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">18</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">60.00%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">ALEESYA DANIA BINTI AMRI</td><td class="p-2.5 sm:p-3 text-center">73</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">55</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">75.3%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">ARISSA SOFEA BINTI KHAIRUL ANNUAR</td><td class="p-2.5 sm:p-3 text-center">6</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">5</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">83.33%</td></tr>
-
-                            <!-- SMK PUTERA -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="2">6</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="2">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/putera.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="2">SMK Putera</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">WAN AIRIS RANIA BINTI WAN MOHD AZMI</td>
-                                <td class="p-2.5 sm:p-3 text-center">137</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">102</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">74.44%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR AINSHAH AFIFIEY BINTI MOHD ASRI</td><td class="p-2.5 sm:p-3 text-center">44</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">25</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">57.00%</td></tr>
-
-                            <!-- SMK SEBERANG TERMELOH -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="5">7</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="5">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/seberangtemerloh.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="5">SMK Seberang Temerloh</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR BATRISYIA AINA BINTI MOHD JAFRI</td>
-                                <td class="p-2.5 sm:p-3 text-center">115</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">83</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">72.17%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NURAINA NABILA BINTI MADZLAN</td><td class="p-2.5 sm:p-3 text-center">38</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">21</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">55.26%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR AMYLIA NATASYA BINTI AZHAR</td><td class="p-2.5 sm:p-3 text-center">40</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">26</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">65.00%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">ALIYA NUR ALISYA BINTI ZULKIFLIE</td><td class="p-2.5 sm:p-3 text-center">28</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">20</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">71.42%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR AZHARINA BINTI MOHD AZHAR</td><td class="p-2.5 sm:p-3 text-center">1</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">1</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">100%</td></tr>
-
-                            <!-- SMK SYED HASSAN -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="5">8</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="5">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/syedhassan.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="5">SMK Syed Hassan</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR AIMY SHAFIQA BINTI ZULKIFLI</td>
-                                <td class="p-2.5 sm:p-3 text-center">93</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">67</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">72.04%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">ALYA INSYIRAH BINTI ASNOR EZAIDY</td><td class="p-2.5 sm:p-3 text-center">172</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">37</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">21.51%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">SYAZA SHAHINDAH BINTI SHAIRULNIZAR</td><td class="p-2.5 sm:p-3 text-center">6</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">5</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">83.33%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">IZZ HANANIA HUSNA BINTI MOHD IZHARDY</td><td class="p-2.5 sm:p-3 text-center">24</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">18</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">75.0%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">AINUR SOFEA BINTI MOHD HASNAD</td><td class="p-2.5 sm:p-3 text-center">7</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">5</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">71.43</td></tr>
-
-                            <!-- SMK TUNKU ANUM TUNKU ABDUL RAHMAN -->
-                            <tr class="hover:bg-blue-50 transition border-t-2 border-sky-200">
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-900 align-middle" rowspan="6">9</td>
-                                <td class="p-2.5 sm:p-3 text-center align-middle bg-sky-50/50" rowspan="6">
-                                    <div class="flex justify-center items-center">
-                                        <img src="../../images/tunkuanum.png" alt="Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-300 shrink-0" onerror="this.style.display='none'">
-                                    </div>
-                                </td>
-                                <td class="p-2.5 sm:p-3 text-blue-950 font-bold align-middle" rowspan="6">SMK Tunku Anum Tunku Abdul Rahman</td>
-                                <td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR FARISYA BINTI ROSLI</td>
-                                <td class="p-2.5 sm:p-3 text-center">62</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">45</td>
-                                <td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">72.58%</td>
-                            </tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR QISMINA QURAISYA BINTI MUHAMAD ZAIRI</td><td class="p-2.5 sm:p-3 text-center">47</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">32</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">68.08%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NUR FATIN DANIA BINTI SAFIE</td><td class="p-2.5 sm:p-3 text-center">15</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">13</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">86.67%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NURUL HIJAIAH BINTI SUDIN</td><td class="p-2.5 sm:p-3 text-center">14</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">9</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">77.77%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">AMNA QHISTIE NATASHA BINTI MUSTAFA</td><td class="p-2.5 sm:p-3 text-center">36</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">28</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">100.00%</td></tr>
-                            <tr class="hover:bg-blue-50 transition"><td class="p-2.5 sm:p-3 font-semibold text-gray-800">NURIN IZZAH HAKIMAH BINTI HAMZAH</td><td class="p-2.5 sm:p-3 text-center">38</td><td class="p-2.5 sm:p-3 text-center font-bold text-emerald-600">31</td><td class="p-2.5 sm:p-3 text-center font-bold text-blue-600">81.58%</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </div>
-
-        <!-- ================= VIEW 2: RANGKING KESELURUHAN (LEADERBOARD) ================= -->
-        <div id="view-ranking" class="hidden space-y-6">
-            <div class="flex justify-center gap-2">
-                <button onclick="switchRankingCat('super')" id="btn-rank-super" class="px-4 py-2 rounded-xl font-extrabold text-xs sm:text-sm bg-blue-950 text-yellow-300 border-2 border-yellow-400 shadow">
-                    <i class="fa-solid fa-star text-yellow-400"></i> Peringkat Keseluruhan Kategori Super
-                </button>
-                <button onclick="switchRankingCat('perdana')" id="btn-rank-perdana" class="px-4 py-2 rounded-xl font-extrabold text-xs sm:text-sm bg-white text-blue-950 border-2 border-sky-300 shadow hover:bg-blue-50">
-                    <i class="fa-solid fa-shield-halved text-blue-600"></i> Peringkat Keseluruhan Kategori Perdana
-                </button>
+        <!-- Status Info -->
+        <div>
+            <div id="sync-status" class="text-center text-xs md:text-sm font-bold p-3 rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-300 shadow-sm">
+                ✅ Keputusan Sirkit 1 dimuatkan. Jadual Sirkit Akhir telah dimasukkan dan carta hanya akan mengemas kini mata apabila perlawanan selesai dimainkan.
             </div>
-
-            <!-- LEADERBOARD SUPER (KESELURUHAN) -->
-            <section id="ranking-super-section" class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-3 sm:p-6 md:p-8 border-2 border-sky-200">
-                <div class="mb-4 border-b-2 border-blue-900/20 pb-3 flex justify-between items-center">
-                    <h2 class="text-base sm:text-xl font-black text-blue-950">Leaderboard Keseluruhan - Kategori Super</h2>
-                    <span class="bg-yellow-400 text-blue-950 text-xs font-black px-2.5 py-1 rounded-full shadow">Laporan Analisis Jaringan</span>
-                </div>
-                <div class="overflow-x-auto -mx-3 sm:mx-0">
-                    <table class="w-full text-left border-collapse min-w-[550px]">
-                        <thead>
-                            <tr class="bg-blue-950 text-yellow-300 text-xs sm:text-sm uppercase font-bold">
-                                <th class="p-3 text-center w-16">Rank</th>
-                                <th class="p-3">Nama Atlet</th>
-                                <th class="p-3">Sekolah / Pasukan</th>
-                                <th class="p-3 text-center">Percubaan</th>
-                                <th class="p-3 text-center">Jaringan</th>
-                                <th class="p-3 text-center">Peratusan (%)</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-sky-100 text-xs sm:text-sm font-semibold text-gray-700">
-                            <tr class="bg-yellow-50/90"><td class="p-3 text-center font-black text-yellow-600"><i class="fa-solid fa-trophy mr-1"></i> 1</td><td class="p-3 text-blue-950 font-bold">ALIYA KHALIESAH BINTI SHAMSUDDIN</td><td class="p-3">Sekolah Sukan Malaysia Pahang</td><td class="p-3 text-center">150</td><td class="p-3 text-center font-bold text-emerald-600 text-base">118</td><td class="p-3 text-center text-blue-600">79.0%</td></tr>
-                            <tr class="bg-slate-50"><td class="p-3 text-center font-black text-slate-500"><i class="fa-solid fa-medal mr-1"></i> 2</td><td class="p-3 text-blue-950 font-bold">NURALYA ZARITH SOFEA BINTI MOHD NORSYAFIAQ</td><td class="p-3">Sekolah Sukan Bukit Jalil</td><td class="p-3 text-center">120</td><td class="p-3 text-center font-bold text-emerald-600 text-base">105</td><td class="p-3 text-center text-blue-600">87.50%</td></tr>
-                            <tr class="bg-amber-50/50"><td class="p-3 text-center font-black text-amber-700"><i class="fa-solid fa-award mr-1"></i> 3</td><td class="p-3 text-blue-950 font-bold">NURIN NAJWA BINTI ADI FAIRUZ</td><td class="p-3">SMK Tun Hussien Onn</td><td class="p-3 text-center">115</td><td class="p-3 text-center font-bold text-emerald-600 text-base">91</td><td class="p-3 text-center text-blue-600">79.13%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">4</td><td class="p-3 text-gray-800">NUR SYAZREEN PUTRI BINTI ROSDI</td><td class="p-3 text-gray-600">SMK Seksyen Sebelas</td><td class="p-3 text-center">105</td><td class="p-3 text-center font-bold text-emerald-600">82</td><td class="p-3 text-center text-blue-600">78.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">5</td><td class="p-3 text-gray-800">DIANITA DIMONG</td><td class="p-3 text-gray-600">SMK Tabuan Jaya</td><td class="p-3 text-center">96</td><td class="p-3 text-center font-bold text-emerald-600">71</td><td class="p-3 text-center text-blue-600">74.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">6</td><td class="p-3 text-gray-800">SITI KHADIJAH BINTI MOHD ABIYAMIN</td><td class="p-3 text-gray-600">Sekolah Sukan Tunku Mahkota Ismail</td><td class="p-3 text-center">85</td><td class="p-3 text-center font-bold text-emerald-600">64</td><td class="p-3 text-center text-blue-600">75.2%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">7</td><td class="p-3 text-gray-800">NUR ATIKAH BINTI AHMAD ZAINAL</td><td class="p-3 text-gray-600">SMK Seri Titiwangsa</td><td class="p-3 text-center">67</td><td class="p-3 text-center font-bold text-emerald-600">54</td><td class="p-3 text-center text-blue-600">80.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">8</td><td class="p-3 text-gray-800">SITI NOR NAJWA BINTI MOHD NOR NAIMI</td><td class="p-3 text-gray-600">SMK Seri Kota</td><td class="p-3 text-center">62</td><td class="p-3 text-center font-bold text-emerald-600">48</td><td class="p-3 text-center text-blue-600">77.4%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">9</td><td class="p-3 text-gray-800">ERYNA KHAN BINTI MUZAFAR</td><td class="p-3 text-gray-600">Sekolah Sukan Bukit Jalil</td><td class="p-3 text-center">53</td><td class="p-3 text-center font-bold text-emerald-600">44</td><td class="p-3 text-center text-blue-600">83.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">10</td><td class="p-3 text-gray-800">NUR AINUL MARDHIAH BINTI HAZEMI</td><td class="p-3 text-gray-600">SMK Bukit Nenas</td><td class="p-3 text-center">57</td><td class="p-3 text-center font-bold text-emerald-600">44</td><td class="p-3 text-center text-blue-600">77.19%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">11</td><td class="p-3 text-gray-800">ROS DAYANA AINULBATRISYA BINTI MOHAMED KHAIRUL FAHMIN</td><td class="p-3 text-gray-600">SMK Seri Titiwangsa</td><td class="p-3 text-center">53</td><td class="p-3 text-center font-bold text-emerald-600">41</td><td class="p-3 text-center text-blue-600">77.3%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">12</td><td class="p-3 text-gray-800">HANIS MARDHYIAH BINTI MOHD TARMIZI</td><td class="p-3 text-gray-600">SMK Seri Titiwangsa</td><td class="p-3 text-center">47</td><td class="p-3 text-center font-bold text-emerald-600">39</td><td class="p-3 text-center text-blue-600">83.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">13</td><td class="p-3 text-gray-800">PUTERI AFRINA BINTI APISZAM</td><td class="p-3 text-gray-600">Sekolah Sukan Bukit Jalil</td><td class="p-3 text-center">47</td><td class="p-3 text-center font-bold text-emerald-600">39</td><td class="p-3 text-center text-blue-600">83.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">14</td><td class="p-3 text-gray-800">NUR HAZWANI BINTI HAMZAH</td><td class="p-3 text-gray-600">Sekolah Sukan Tunku Mahkota Ismail</td><td class="p-3 text-center">59</td><td class="p-3 text-center font-bold text-emerald-600">35</td><td class="p-3 text-center text-blue-600">59.3%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">15</td><td class="p-3 text-gray-800">NUR QALESYA UMAIRA BINTI ISSHAM</td><td class="p-3 text-gray-600">SMK Seksyen Sebelas</td><td class="p-3 text-center">48</td><td class="p-3 text-center font-bold text-emerald-600">33</td><td class="p-3 text-center text-blue-600">69.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">16</td><td class="p-3 text-gray-800">UMMI NAJIHA BINTI MUHAMMAD HARISS AZAM</td><td class="p-3 text-gray-600">SMK Tun Hussien Onn</td><td class="p-3 text-center">42</td><td class="p-3 text-center font-bold text-emerald-600">33</td><td class="p-3 text-center text-blue-600">92.86%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">17</td><td class="p-3 text-gray-800">NUR ARIANA QAISARA BINTI ABDUL HALIM</td><td class="p-3 text-gray-600">SMK Seksyen Sebelas</td><td class="p-3 text-center">54</td><td class="p-3 text-center font-bold text-emerald-600">32</td><td class="p-3 text-center text-blue-600">59.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">18</td><td class="p-3 text-gray-800">NURIN AISYAH ADNI BINTI KAMAL ARIFFIN</td><td class="p-3 text-gray-600">SMK Bukit Nenas</td><td class="p-3 text-center">42</td><td class="p-3 text-center font-bold text-emerald-600">27</td><td class="p-3 text-center text-blue-600">64.3%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">19</td><td class="p-3 text-gray-800">KHAIRUNNISA QISTINA BINTI MOHD YUZI</td><td class="p-3 text-gray-600">SMK Bukit Nenas</td><td class="p-3 text-center">40</td><td class="p-3 text-center font-bold text-emerald-600">26</td><td class="p-3 text-center text-blue-600">65.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">20</td><td class="p-3 text-gray-800">QISTINA QAISARA BINTI ABDUL RAHIM</td><td class="p-3 text-gray-600">Sekolah Sukan Malaysia Pahang</td><td class="p-3 text-center">28</td><td class="p-3 text-center font-bold text-emerald-600">18</td><td class="p-3 text-center text-blue-600">64.29%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">21</td><td class="p-3 text-gray-800">RACHEL ANAK RAWA</td><td class="p-3 text-gray-600">SMK Tabuan Jaya</td><td class="p-3 text-center">34</td><td class="p-3 text-center font-bold text-emerald-600">18</td><td class="p-3 text-center text-blue-600">53.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">22</td><td class="p-3 text-gray-800">NUR HUMAIRA IMANI BINTI MOHD HASFAZLI</td><td class="p-3 text-gray-600">SMK Seri Kota</td><td class="p-3 text-center">24</td><td class="p-3 text-center font-bold text-emerald-600">16</td><td class="p-3 text-center text-blue-600">66.67%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">23</td><td class="p-3 text-gray-800">NUR HAFIZA BINTI ABDULLAH</td><td class="p-3 text-gray-600">Sekolah Sukan Bukit Jalil</td><td class="p-3 text-center">14</td><td class="p-3 text-center font-bold text-emerald-600">10</td><td class="p-3 text-center text-blue-600">71.43%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">24</td><td class="p-3 text-gray-800">NURFASIHATUL HUSNINA BINTI FAIZAL</td><td class="p-3 text-gray-600">SMK Tun Hussien Onn</td><td class="p-3 text-center">13</td><td class="p-3 text-center font-bold text-emerald-600">10</td><td class="p-3 text-center text-blue-600">78.57%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">25</td><td class="p-3 text-gray-800">NURSYAZWANI HUSNA BINTI MOHAMAD NOR SAUFI</td><td class="p-3 text-gray-600">SMK Seri Kota</td><td class="p-3 text-center">11</td><td class="p-3 text-center font-bold text-emerald-600">5</td><td class="p-3 text-center text-blue-600">45.45%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">26</td><td class="p-3 text-gray-800">A`QILAH SALSABILA BINTI ZULKHAIRI</td><td class="p-3 text-gray-600">Sekolah Sukan Tunku Mahkota Ismail</td><td class="p-3 text-center">8</td><td class="p-3 text-center font-bold text-emerald-600">5</td><td class="p-3 text-center text-blue-600">62.50%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">27</td><td class="p-3 text-gray-800">NADIA QAISARA BINTI MOHD FADZIL</td><td class="p-3 text-gray-600">Sekolah Sukan Malaysia Pahang</td><td class="p-3 text-center">8</td><td class="p-3 text-center font-bold text-emerald-600">4</td><td class="p-3 text-center text-blue-600">50.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">28</td><td class="p-3 text-gray-800">HANANIA DANISHA BINTI MUHAMMAD HIDAYAT</td><td class="p-3 text-gray-600">Sekolah Sukan Tunku Mahkota Ismail</td><td class="p-3 text-center">4</td><td class="p-3 text-center font-bold text-emerald-600">3</td><td class="p-3 text-center text-blue-600">75.00%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">29</td><td class="p-3 text-gray-800">NURSYAKIRAH DAYANA BINTI MUHAMAD SHAFIZAN</td><td class="p-3 text-gray-600">SMK Seksyen Sebelas</td><td class="p-3 text-center">5</td><td class="p-3 text-center font-bold text-emerald-600">2</td><td class="p-3 text-center text-blue-600">40.00%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">30</td><td class="p-3 text-gray-800">NIVASHINI A/P DIVID</td><td class="p-3 text-gray-600">Sekolah Sukan Malaysia Pahang</td><td class="p-3 text-center">2</td><td class="p-3 text-center font-bold text-emerald-600">2</td><td class="p-3 text-center text-blue-600">100%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">31</td><td class="p-3 text-gray-800">MELLISSA CLARA ANAK ADOUL</td><td class="p-3 text-gray-600">SMK Tabuan Jaya</td><td class="p-3 text-center">3</td><td class="p-3 text-center font-bold text-emerald-600">2</td><td class="p-3 text-center text-blue-600">66.67%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">32</td><td class="p-3 text-gray-800">NUR ARIANA DELISHA BINTI MUHAMMAD FADZIL</td><td class="p-3 text-gray-600">Sekolah Sukan Malaysia Pahang</td><td class="p-3 text-center">2</td><td class="p-3 text-center font-bold text-emerald-600">1</td><td class="p-3 text-center text-blue-600">50.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">33</td><td class="p-3 text-gray-800">SITI NURDAMIA KHADEEJA BINTI AZIZOL</td><td class="p-3 text-gray-600">SMK Bukit Nenas</td><td class="p-3 text-center">5</td><td class="p-3 text-center font-bold text-emerald-600">1</td><td class="p-3 text-center text-blue-600">20.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">34</td><td class="p-3 text-gray-800">HAMANI ARIANA BINTI MOHD HERITHZAKY</td><td class="p-3 text-gray-600">SMK Seksyen Sebelas</td><td class="p-3 text-center">1</td><td class="p-3 text-center font-bold text-emerald-600">1</td><td class="p-3 text-center text-blue-600">100.00%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">35</td><td class="p-3 text-gray-800">MIA SARAH EMELDA BINTI NOR HAKIM</td><td class="p-3 text-gray-600">SMK Seri Kota</td><td class="p-3 text-center">2</td><td class="p-3 text-center font-bold text-emerald-600">1</td><td class="p-3 text-center text-blue-600">50.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">36</td><td class="p-3 text-gray-800">AISYAHFITRI BINTI MOHAMAD JIZI</td><td class="p-3 text-gray-600">SMK Tabuan Jaya</td><td class="p-3 text-center">2</td><td class="p-3 text-center font-bold text-emerald-600">1</td><td class="p-3 text-center text-blue-600">50.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">37</td><td class="p-3 text-gray-800">CLAUDIA BELLA LAWAI</td><td class="p-3 text-gray-600">SMK Tabuan Jaya</td><td class="p-3 text-center">3</td><td class="p-3 text-center font-bold text-emerald-600">1</td><td class="p-3 text-center text-blue-600">31.33%</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- LEADERBOARD PERDANA (KESELURUHAN) -->
-            <section id="ranking-perdana-section" class="hidden bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-3 sm:p-6 md:p-8 border-2 border-sky-200">
-                <div class="mb-4 border-b-2 border-blue-900/20 pb-3 flex justify-between items-center">
-                    <h2 class="text-base sm:text-xl font-black text-blue-950">Leaderboard Keseluruhan - Kategori Perdana</h2>
-                    <span class="bg-yellow-400 text-blue-950 text-xs font-black px-2.5 py-1 rounded-full shadow">Laporan Analisis Jaringan</span>
-                </div>
-                <div class="overflow-x-auto -mx-3 sm:mx-0">
-                    <table class="w-full text-left border-collapse min-w-[550px]">
-                        <thead>
-                            <tr class="bg-blue-950 text-yellow-300 text-xs sm:text-sm uppercase font-bold">
-                                <th class="p-3 text-center w-16">Rank</th>
-                                <th class="p-3">Nama Atlet</th>
-                                <th class="p-3">Sekolah / Pasukan</th>
-                                <th class="p-3 text-center">Percubaan</th>
-                                <th class="p-3 text-center">Jaringan</th>
-                                <th class="p-3 text-center">Peratusan (%)</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-sky-100 text-xs sm:text-sm font-semibold text-gray-700">
-                            <tr class="bg-yellow-50/90"><td class="p-3 text-center font-black text-yellow-600"><i class="fa-solid fa-trophy mr-1"></i> 1</td><td class="p-3 text-blue-950 font-bold">NUR HAIFA RAUDAH BINTI HAFIZ</td><td class="p-3">SMK Gunung Rapat</td><td class="p-3 text-center">183</td><td class="p-3 text-center font-bold text-emerald-600 text-base">139</td><td class="p-3 text-center text-blue-600">76.0%</td></tr>
-                            <tr class="bg-slate-50"><td class="p-3 text-center font-black text-slate-500"><i class="fa-solid fa-medal mr-1"></i> 2</td><td class="p-3 text-blue-950 font-bold">WAN AIRIS RANIA BINTI WAN MOHD AZMI</td><td class="p-3">SMK Putera</td><td class="p-3 text-center">137</td><td class="p-3 text-center font-bold text-emerald-600 text-base">102</td><td class="p-3 text-center text-blue-600">74.44%</td></tr>
-                            <tr class="bg-amber-50/50"><td class="p-3 text-center font-black text-amber-700"><i class="fa-solid fa-award mr-1"></i> 3</td><td class="p-3 text-blue-950 font-bold">NUR BATRISYIA AINA BINTI MOHD JAFRI</td><td class="p-3">SMK Seberang Temerloh</td><td class="p-3 text-center">115</td><td class="p-3 text-center font-bold text-emerald-600 text-base">83</td><td class="p-3 text-center text-blue-600">72.17%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">4</td><td class="p-3 text-gray-800">NURALEESYA DANIA BINTI MAT SIDEK</td><td class="p-3 text-gray-600">SMK Mutiara Impian</td><td class="p-3 text-center">127</td><td class="p-3 text-center font-bold text-emerald-600">81</td><td class="p-3 text-center text-blue-600">64.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">5</td><td class="p-3 text-gray-800">ALYA HUMAIRA BINTI ALIZAT</td><td class="p-3 text-gray-600">SMK Datuk Peter Mojuntin</td><td class="p-3 text-center">119</td><td class="p-3 text-center font-bold text-emerald-600">78</td><td class="p-3 text-center text-blue-600">65.54%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">6</td><td class="p-3 text-gray-800">AMNI RAUDHAH BINTI ADI ZAIED</td><td class="p-3 text-gray-600">SMK Putrajaya Persint 8(1)</td><td class="p-3 text-center">98</td><td class="p-3 text-center font-bold text-emerald-600">78</td><td class="p-3 text-center text-blue-600">80.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">7</td><td class="p-3 text-gray-800">NUR AIMY SHAFIQA BINTI ZULKIFLI</td><td class="p-3 text-gray-600">SMK Syed Hassan</td><td class="p-3 text-center">93</td><td class="p-3 text-center font-bold text-emerald-600">67</td><td class="p-3 text-center text-blue-600">72.04%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">8</td><td class="p-3 text-gray-800">ALEESYA DANIA BINTI AMRI</td><td class="p-3 text-gray-600">SMK Putrajaya Persint 8(1)</td><td class="p-3 text-center">73</td><td class="p-3 text-center font-bold text-emerald-600">55</td><td class="p-3 text-center text-blue-600">75.3%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">9</td><td class="p-3 text-gray-800">NUR FARISYA BINTI ROSLI</td><td class="p-3 text-gray-600">SMK Tunku Anum Tunku Abdul Rahman</td><td class="p-3 text-center">62</td><td class="p-3 text-center font-bold text-emerald-600">45</td><td class="p-3 text-center text-blue-600">72.58%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">10</td><td class="p-3 text-gray-800">ALYA INSYIRAH BINTI ASNOR EZAIDY</td><td class="p-3 text-gray-600">SMK Syed Hassan</td><td class="p-3 text-center">172</td><td class="p-3 text-center font-bold text-emerald-600">37</td><td class="p-3 text-center text-blue-600">21.51%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">11</td><td class="p-3 text-gray-800">NURIN IZZAH HAKIMAH BINTI HAMZAH</td><td class="p-3 text-gray-600">SMK Tunku Anum Tunku Abdul Rahman</td><td class="p-3 text-center">38</td><td class="p-3 text-center font-bold text-emerald-600">31</td><td class="p-3 text-center text-blue-600">81.58%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">12</td><td class="p-3 text-gray-800">NURUL IMAN DAMIA BINTI ZAINAL NISHAM</td><td class="p-3 text-gray-600">SMK Mutiara Impian</td><td class="p-3 text-center">42</td><td class="p-3 text-center font-bold text-emerald-600">28</td><td class="p-3 text-center text-blue-600">66.6%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">13</td><td class="p-3 text-gray-800">AMNA QHISTIE NATASHA BINTI MUSTAFA</td><td class="p-3 text-gray-600">SMK Tunku Anum Tunku Abdul Rahman</td><td class="p-3 text-center">36</td><td class="p-3 text-center font-bold text-emerald-600">28</td><td class="p-3 text-center text-blue-600">100.00%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">14</td><td class="p-3 text-gray-800">NUR AMYLIA NATASYA BINTI AZHAR</td><td class="p-3 text-gray-600">SMK Seberang Temerloh</td><td class="p-3 text-center">40</td><td class="p-3 text-center font-bold text-emerald-600">26</td><td class="p-3 text-center text-blue-600">65.00%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">15</td><td class="p-3 text-gray-800">NUR AINSHAH AFIFIEY BINTI MOHD ASRI</td><td class="p-3 text-gray-600">SMK Putera</td><td class="p-3 text-center">44</td><td class="p-3 text-center font-bold text-emerald-600">25</td><td class="p-3 text-center text-blue-600">57.00%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">16</td><td class="p-3 text-gray-800">NURAINA NABILA BINTI MADZLAN</td><td class="p-3 text-gray-600">SMK Seberang Temerloh</td><td class="p-3 text-center">38</td><td class="p-3 text-center font-bold text-emerald-600">21</td><td class="p-3 text-center text-blue-600">55.26%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">17</td><td class="p-3 text-gray-800">ALIYA NUR ALISYA BINTI ZULKIFLIE</td><td class="p-3 text-gray-600">SMK Seberang Temerloh</td><td class="p-3 text-center">28</td><td class="p-3 text-center font-bold text-emerald-600">20</td><td class="p-3 text-center text-blue-600">71.42%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">18</td><td class="p-3 text-gray-800">NUR LUTFIAH HUMAIRAH BINTI MUHAMMAD ROSIDI</td><td class="p-3 text-gray-600">SMK Gunung Rapat</td><td class="p-3 text-center">34</td><td class="p-3 text-center font-bold text-emerald-600">20</td><td class="p-3 text-center text-blue-600">59.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">19</td><td class="p-3 text-gray-800">NUR ATILIA BINTI RAZUAN</td><td class="p-3 text-gray-600">SMK Datuk Peter Mojuntin</td><td class="p-3 text-center">35</td><td class="p-3 text-center font-bold text-emerald-600">19</td><td class="p-3 text-center text-blue-600">54.29%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">20</td><td class="p-3 text-gray-800">IZZ HANANIA HUSNA BINTI MOHD IZHARDY</td><td class="p-3 text-gray-600">SMK Syed Hassan</td><td class="p-3 text-center">24</td><td class="p-3 text-center font-bold text-emerald-600">18</td><td class="p-3 text-center text-blue-600">75.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">21</td><td class="p-3 text-gray-800">AISYAH ZARA BINTI AHMAD SHURADI</td><td class="p-3 text-gray-600">SMK Putrajaya Persint 8(1)</td><td class="p-3 text-center">30</td><td class="p-3 text-center font-bold text-emerald-600">18</td><td class="p-3 text-center text-blue-600">60.00%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">22</td><td class="p-3 text-gray-800">ALISHA SAFIYYAH BINTI SHEROLD</td><td class="p-3 text-gray-600">SMK Mutiara</td><td class="p-3 text-center">27</td><td class="p-3 text-center font-bold text-emerald-600">16</td><td class="p-3 text-center text-blue-600">59.2%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">23</td><td class="p-3 text-gray-800">AMELLYENDA SARVISTOL</td><td class="p-3 text-gray-600">SMK Datuk Peter Mojuntin</td><td class="p-3 text-center">26</td><td class="p-3 text-center font-bold text-emerald-600">16</td><td class="p-3 text-center text-blue-600">61.53%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">24</td><td class="p-3 text-gray-800">NUR ARIYANA DANISHA BINTI RAMLE</td><td class="p-3 text-gray-600">SMK Mutiara</td><td class="p-3 text-center">32</td><td class="p-3 text-center font-bold text-emerald-600">15</td><td class="p-3 text-center text-blue-600">47.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">25</td><td class="p-3 text-gray-800">NUR FATIN DANIA BINTI SAFIE</td><td class="p-3 text-gray-600">SMK Tunku Anum Tunku Abdul Rahman</td><td class="p-3 text-center">15</td><td class="p-3 text-center font-bold text-emerald-600">13</td><td class="p-3 text-center text-blue-600">86.67%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">26</td><td class="p-3 text-gray-800">RABIATUL ADAWIYAH BINTI MOHD HAMIZAN</td><td class="p-3 text-gray-600">SMK Gunung Rapat</td><td class="p-3 text-center">27</td><td class="p-3 text-center font-bold text-emerald-600">12</td><td class="p-3 text-center text-blue-600">44.44%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">27</td><td class="p-3 text-gray-800">NURUL HIJAIAH BINTI SUDIN</td><td class="p-3 text-gray-600">SMK Tunku Anum Tunku Abdul Rahman</td><td class="p-3 text-center">14</td><td class="p-3 text-center font-bold text-emerald-600">9</td><td class="p-3 text-center text-blue-600">77.77%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">28</td><td class="p-3 text-gray-800">ARISSA SOFEA BINTI KHAIRUL ANNUAR</td><td class="p-3 text-gray-600">SMK Putrajaya Persint 8(1)</td><td class="p-3 text-center">6</td><td class="p-3 text-center font-bold text-emerald-600">5</td><td class="p-3 text-center text-blue-600">83.33%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">29</td><td class="p-3 text-gray-800">SYAZA SHAHINDAH BINTI SHAIRULNIZAR</td><td class="p-3 text-gray-600">SMK Syed Hassan</td><td class="p-3 text-center">6</td><td class="p-3 text-center font-bold text-emerald-600">5</td><td class="p-3 text-center text-blue-600">83.33%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">30</td><td class="p-3 text-gray-800">AINUR SOFEA BINTI MOHD HASNAD</td><td class="p-3 text-gray-600">SMK Syed Hassan</td><td class="p-3 text-center">7</td><td class="p-3 text-center font-bold text-emerald-600">5</td><td class="p-3 text-center text-blue-600">71.43</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">31</td><td class="p-3 text-gray-800">SARAH RAIHANAH BINTI SANDY ARDI</td><td class="p-3 text-gray-600">SMK Mutiara Impian</td><td class="p-3 text-center">14</td><td class="p-3 text-center font-bold text-emerald-600">5</td><td class="p-3 text-center text-blue-600">36.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">32</td><td class="p-3 text-gray-800">FIYOSHI FENNIX EDWARD MOTOYOU</td><td class="p-3 text-gray-600">SMK Mutiara</td><td class="p-3 text-center">12</td><td class="p-3 text-center font-bold text-emerald-600">5</td><td class="p-3 text-center text-blue-600">41.67%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">33</td><td class="p-3 text-gray-800">NUR FARYSHASYAWANI BINTI ABDULLAH</td><td class="p-3 text-gray-600">SMK Datuk Peter Mojuntin</td><td class="p-3 text-center">11</td><td class="p-3 text-center font-bold text-emerald-600">5</td><td class="p-3 text-center text-blue-600">45.45%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">34</td><td class="p-3 text-gray-800">SITI NURRAUDAH BINTI ABDULLAH</td><td class="p-3 text-gray-600">SMK Mutiara</td><td class="p-3 text-center">12</td><td class="p-3 text-center font-bold text-emerald-600">2</td><td class="p-3 text-center text-blue-600">20.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">35</td><td class="p-3 text-gray-800">QISTINA BINTI NORHAFIZ</td><td class="p-3 text-gray-600">SMK Mutiara Impian</td><td class="p-3 text-center">2</td><td class="p-3 text-center font-bold text-emerald-600">2</td><td class="p-3 text-center text-blue-600">100.00%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">36</td><td class="p-3 text-gray-800">DAMIA MARISSA BINTI MAHATHIR</td><td class="p-3 text-gray-600">SMK Datuk Peter Mojuntin</td><td class="p-3 text-center">2</td><td class="p-3 text-center font-bold text-emerald-600">1</td><td class="p-3 text-center text-blue-600">50.00%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">37</td><td class="p-3 text-gray-800">NUR ALLESYA NADIA BINTI AZMAN</td><td class="p-3 text-gray-600">SMK Datuk Peter Mojuntin</td><td class="p-3 text-center">1</td><td class="p-3 text-center font-bold text-emerald-600">1</td><td class="p-3 text-center text-blue-600">100%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">38</td><td class="p-3 text-gray-800">NUR DAMIA BINTI SUBHANA</td><td class="p-3 text-gray-600">SMK Gunung Rapat</td><td class="p-3 text-center">3</td><td class="p-3 text-center font-bold text-emerald-600">1</td><td class="p-3 text-center text-blue-600">33.33%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">39</td><td class="p-3 text-gray-800">QAISARA BINTI ABDULLAH</td><td class="p-3 text-gray-600">SMK Mutiara</td><td class="p-3 text-center">2</td><td class="p-3 text-center font-bold text-emerald-600">1</td><td class="p-3 text-center text-blue-600">50.0%</td></tr>
-                            <tr><td class="p-3 text-center font-bold text-gray-600">40</td><td class="p-3 text-gray-800">NUR AZHARINA BINTI MOHD AZHAR</td><td class="p-3 text-gray-600">SMK Seberang Temerloh</td><td class="p-3 text-center">1</td><td class="p-3 text-center font-bold text-emerald-600">1</td><td class="p-3 text-center text-blue-600">100%</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
         </div>
+
+        <!-- KUMPULAN SUPER (DI ATAS) -->
+        <div class="bg-white rounded-2xl shadow-md border border-sky-200 overflow-hidden">
+            <div class="bg-blue-950 text-yellow-300 px-4 md:px-5 py-3.5 flex justify-between items-center border-b-2 border-yellow-400">
+                <h3 class="font-extrabold text-xs sm:text-sm md:text-base flex items-center gap-2">
+                    <i class="fa-solid fa-star text-yellow-400"></i> Kumpulan Super
+                </h3>
+                <span class="text-[11px] md:text-xs font-semibold bg-blue-900 text-white px-2.5 py-1 rounded-full">Sirkit Akhir 2026</span>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs md:text-sm whitespace-nowrap">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider text-[11px] border-b border-slate-200">
+                            <th class="py-3 px-2 md:px-3 text-center">Ked</th>
+                            <th class="py-3 px-3">Pasukan</th>
+                            <th class="py-3 px-2 text-center">P</th>
+                            <th class="py-3 px-2 text-center">M</th>
+                            <th class="py-3 px-2 text-center">S</th>
+                            <th class="py-3 px-2 text-center">K</th>
+                            <th class="py-3 px-2 text-center">J</th>
+                            <th class="py-3 px-2 text-center">B</th>
+                            <th class="py-3 px-2 text-center">Beza Gol</th>
+                            <th class="py-3 px-2 text-center">Purata Gol</th>
+                            <th class="py-3 px-3 text-center text-blue-900 font-black">Mata</th>
+                        </tr>
+                    </thead>
+                    <tbody id="super-standing-tbody" class="divide-y divide-slate-100 font-medium text-slate-700">
+                        <!-- Data dimasukkan secara dinamik melalui JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- KUMPULAN PERDANA (DI BAWAH) -->
+        <div class="bg-white rounded-2xl shadow-md border border-sky-200 overflow-hidden">
+            <div class="bg-blue-950 text-yellow-300 px-4 md:px-5 py-3.5 flex justify-between items-center border-b-2 border-yellow-400">
+                <h3 class="font-extrabold text-xs sm:text-sm md:text-base flex items-center gap-2">
+                    <i class="fa-solid fa-medal text-yellow-400"></i> Kumpulan Perdana
+                </h3>
+                <span class="text-[11px] md:text-xs font-semibold bg-blue-900 text-white px-2.5 py-1 rounded-full">Sirkit Akhir 2026</span>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs md:text-sm whitespace-nowrap">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider text-[11px] border-b border-slate-200">
+                            <th class="py-3 px-2 md:px-3 text-center">Ked</th>
+                            <th class="py-3 px-3">Pasukan</th>
+                            <th class="py-3 px-2 text-center">P</th>
+                            <th class="py-3 px-2 text-center">M</th>
+                            <th class="py-3 px-2 text-center">S</th>
+                            <th class="py-3 px-2 text-center">K</th>
+                            <th class="py-3 px-2 text-center">J</th>
+                            <th class="py-3 px-2 text-center">B</th>
+                            <th class="py-3 px-2 text-center">Beza Gol</th>
+                            <th class="py-3 px-2 text-center">Purata Gol</th>
+                            <th class="py-3 px-3 text-center text-blue-900 font-black">Mata</th>
+                        </tr>
+                    </thead>
+                    <tbody id="perdana-standing-tbody" class="divide-y divide-slate-100 font-medium text-slate-700">
+                        <!-- Data dimasukkan secara dinamik melalui JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </main>
 
-    <footer class="bg-blue-950 text-yellow-300 py-4 text-center text-xs sm:text-sm border-t-4 border-yellow-400 font-black uppercase tracking-widest shadow-inner">
+    <!-- FOOTER -->
+    <footer class="bg-blue-950 text-yellow-300 py-5 text-center text-xs md:text-base border-t-4 border-yellow-400 font-black uppercase tracking-widest shadow-inner">
         LIGA KPM 2026 • HAK CIPTA TERPELIHARA
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- SCRIPT LOGIK CARTA -->
     <script>
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
-
-        function switchView(viewName) {
-            const viewBySchool = document.getElementById('view-by-school');
-            const viewRanking = document.getElementById('view-ranking');
-            const btnBySchool = document.getElementById('btn-by-school');
-            const btnRanking = document.getElementById('btn-ranking');
-
-            if (viewName === 'by-school') {
-                viewBySchool.classList.remove('hidden');
-                viewRanking.classList.add('hidden');
-                btnBySchool.className = "px-3 py-2 rounded-xl font-bold text-xs md:text-sm bg-blue-900 text-yellow-300 shadow-lg border-2 border-yellow-400 transition flex items-center gap-1.5";
-                btnRanking.className = "px-3 py-2 rounded-xl font-bold text-xs md:text-sm bg-white text-blue-900 shadow-lg border-2 border-sky-300 hover:bg-blue-50 transition flex items-center gap-1.5";
-            } else {
-                viewBySchool.classList.add('hidden');
-                viewRanking.classList.remove('hidden');
-                btnRanking.className = "px-3 py-2 rounded-xl font-bold text-xs md:text-sm bg-blue-900 text-yellow-300 shadow-lg border-2 border-yellow-400 transition flex items-center gap-1.5";
-                btnBySchool.className = "px-3 py-2 rounded-xl font-bold text-xs md:text-sm bg-white text-blue-900 shadow-lg border-2 border-sky-300 hover:bg-blue-50 transition flex items-center gap-1.5";
-            }
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
         }
 
-        function switchRankingCat(cat) {
-            const rankSuper = document.getElementById('ranking-super-section');
-            const rankPerdana = document.getElementById('ranking-perdana-section');
-            const btnRankSuper = document.getElementById('btn-rank-super');
-            const btnRankPerdana = document.getElementById('btn-rank-perdana');
-
-            if (cat === 'super') {
-                rankSuper.classList.remove('hidden');
-                rankPerdana.classList.add('hidden');
-                btnRankSuper.className = "px-4 py-2 rounded-xl font-extrabold text-xs sm:text-sm bg-blue-950 text-yellow-300 border-2 border-yellow-400 shadow";
-                btnRankPerdana.className = "px-4 py-2 rounded-xl font-extrabold text-xs sm:text-sm bg-white text-blue-950 border-2 border-sky-300 shadow hover:bg-blue-50";
-            } else {
-                rankSuper.classList.add('hidden');
-                rankPerdana.classList.remove('hidden');
-                btnRankPerdana.className = "px-4 py-2 rounded-xl font-extrabold text-xs sm:text-sm bg-blue-950 text-yellow-300 border-2 border-yellow-400 shadow";
-                btnRankSuper.className = "px-4 py-2 rounded-xl font-extrabold text-xs sm:text-sm bg-white text-blue-950 border-2 border-sky-300 shadow hover:bg-blue-50";
+        function getTeamLogo(teamName) {
+            if (!teamName) return '../../images/kpm-default.png';
+            const name = teamName.toUpperCase();
+            const logoMap = {
+                'SMK SEKSYEN SEBELAS': 'ss11.png',
+                'SMK MUTIARA IMPIAN': 'mutiaraimpian.png',
+                'SMK MUTIARA': 'mutiara.png',
+                'SMK PUTRAJAYA PRESINT 8': 'putrajaya8.png',
+                'SMK ZA\'BA': 'zaba.png',
+                'SMK BUKIT NENAS': 'ssnt.png',
+                'SMK TABUAN JAYA': 'ssntjaya.png',
+                'SS TUNKU MAHKOTA ISMAIL': 'sstmi.png',
+                'SMK TUNKU ANUM': 'tunkuanum.png',
+                'SMK SYED HASSAN': 'syedhassan.png',
+                'SMK SEBERANG TEMERLOH': 'seberangtemerloh.png',
+                'SMK PUTERA': 'putera.png',
+                'SMK GUNUNG RAPAT': 'gunungrapat.png',
+                'SS PAHANG': 'ssmp.png',
+                'SMK SERI KOTA': 'serikota.png',
+                'SS BUKIT JALIL': 'ssbj.png',
+                'SMK SERI TITIWANGSA': 'ssnkl.png',
+                'SMK DATUK PETER MOJUNTIN': 'petermojuntin.png',
+                'SMK TUN HUSSEIN ONN': 'tho.png',
+                'SSM PAHANG': 'ssmp.png',
+                'SSM TUNKU MAHKOTA ISMAIL': 'sstmi.png'
+            };
+            
+            for (let key in logoMap) {
+                if (name.includes(key)) {
+                    return `../../images/${logoMap[key]}`;
+                }
             }
+            return `../../images/kpm-default.png`;
         }
+
+        const perdanaTeams = [
+            "SMK MUTIARA",
+            "SMK PUTRAJAYA PRESINT 8 (1)",
+            "SMK TUNKU ANUM TUNKU ABDUL RAHMAN",
+            "SMK SYED HASSAN",
+            "SMK PUTERA",
+            "SMK SEBERANG TEMERLOH",
+            "SMK GUNUNG RAPAT",
+            "SMK DATUK PETER MOJUNTIN",
+            "SMK MUTIARA IMPIAN"
+        ];
+
+        const superTeams = [
+            "SMK SERI KOTA",
+            "SS PAHANG",
+            "SMK BUKIT NENAS",
+            "SMK SEKSYEN SEBELAS",
+            "SMK TABUAN JAYA",
+            "SS TUNKU MAHKOTA ISMAIL",
+            "SS BUKIT JALIL",
+            "SMK SERI TITIWANGSA",
+            "SMK TUN HUSSEIN ONN"
+        ];
+
+        // Senarai perlawanan (Sirkit 1: played: true | Sirkit Akhir: played: false)
+        const matchResults = [
+            // --- KEPUTUSAN SIRKIT 1 (Sudah Dimaenkan) ---
+            { teamA: "SMK PUTRAJAYA PRESINT 8(1)", scoreA: 41, teamB: "SMK PUTERA", scoreB: 23, cat: "perdana", played: true },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 19, teamB: "SMK TUNKU ANUM TAR", scoreB: 23, cat: "perdana", played: true },
+            { teamA: "SS BUKIT JALIL", scoreA: 56, teamB: "SMK SERI KOTA", scoreB: 16, cat: "super", played: true },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 29, teamB: "SMK TABUAN JAYA", scoreB: 28, cat: "super", played: true },
+            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 28, teamB: "SMK MUTIARA IMPIAN", scoreB: 31, cat: "perdana", played: true },
+            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 40, teamB: "SMK MUTIARA", scoreB: 4, cat: "perdana", played: true },
+            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 38, teamB: "SMK BUKIT NENAS", scoreB: 26, cat: "super", played: true },
+            { teamA: "SSM PAHANG", scoreA: 30, teamB: "SSM TUNKU MAHKOTA ISMAIL", scoreB: 29, cat: "super", played: true },
+            { teamA: "SMK TUNKU ANUM TAR", scoreA: 22, teamB: "SMK PUTRAJAYA PRESINT 8(1)", scoreB: 28, cat: "perdana", played: true },
+            { teamA: "SMK PUTERA", scoreA: 15, teamB: "SMK MUTIARA IMPIAN", scoreB: 31, cat: "perdana", played: true },
+            { teamA: "SMK SERI KOTA", scoreA: 13, teamB: "SMK SEKSYEN SEBELAS", scoreB: 49, cat: "super", played: true },
+            { teamA: "SS BUKIT JALIL", scoreA: 49, teamB: "SMK BUKIT NENAS", scoreB: 21, cat: "super", played: true },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 46, teamB: "SMK MUTIARA", scoreB: 8, cat: "perdana", played: true },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 28, teamB: "SSM TUNKU MAHKOTA ISMAIL", scoreB: 34, cat: "super", played: true },
+            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 32, teamB: "SSM PAHANG", scoreB: 24, cat: "super", played: true },
+            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 32, teamB: "SMK SYED HASSAN", scoreB: 25, cat: "perdana", played: true },
+            { teamA: "SMK PUTRAJAYA PRESINT 8(1)", scoreA: 33, teamB: "SMK MUTIARA IMPIAN", scoreB: 23, cat: "perdana", played: true },
+            { teamA: "SMK TUNKU ANUM TAR", scoreA: 47, teamB: "SMK MUTIARA", scoreB: 6, cat: "perdana", played: true },
+            { teamA: "SMK SEKSYEN SEBELAS", scoreA: 41, teamB: "SMK TABUAN JAYA", scoreB: 21, cat: "super", played: true },
+            { teamA: "SMK SERI KOTA", scoreA: 20, teamB: "SMK BUKIT NENAS", scoreB: 38, cat: "super", played: true },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 47, teamB: "SMK SYED HASSAN", scoreB: 16, cat: "perdana", played: true },
+            { teamA: "SS BUKIT JALIL", scoreA: 50, teamB: "SSM PAHANG", scoreB: 18, cat: "super", played: true },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 22, teamB: "SMK TUN HUSSEIN ONN", scoreB: 27, cat: "super", played: true },
+            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 25, teamB: "SMK SEBERANG TEMERLOH", scoreB: 32, cat: "perdana", played: true },
+
+            // --- JADUAL SIRKIT AKHIR (Perlawanan 28 - 75: Belum Dimainkan -> played: false) ---
+            { teamA: "SMK MUTIARA", scoreA: 7, teamB: "SMK PUTRAJAYA PRESINT 8 (1)", scoreB: 50, cat: "perdana", played: true },
+            { teamA: "SMK SERI KOTA", scoreA: 24, teamB: "SS PAHANG", scoreB: 41, cat: "super", played: true },
+            { teamA: "SMK BUKIT NENAS", scoreA: 13, teamB: "SMK SEKSYEN SEBELAS", scoreB: 27, cat: "super", played: true },
+            { teamA: "SMK TABUAN JAYA", scoreA: 27, teamB: "SS TUNKU MAHKOTA ISMAIL", scoreB: 29, cat: "super", played: true },
+            { teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreA: 40, teamB: "SMK SYED HASSAN", scoreB: 22, cat: "perdana", played: true },
+            { teamA: "SMK PUTERA", scoreA: 31, teamB: "SMK SEBERANG TEMERLOH", scoreB: 37, cat: "perdana", played: true },
+            { teamA: "SS BUKIT JALIL", scoreA: 43, teamB: "SMK SERI TITIWANGSA", scoreB: 16, cat: "super", played: true },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 26, teamB: "SMK DATUK PETER MOJUNTIN", scoreB: 16, cat: "perdana", played: true },
+            { teamA: "SMK MUTIARA", scoreA: 12, teamB: "SMK SYED HASSAN", scoreB: 42, cat: "perdana", played: true },
+            { teamA: "SMK SEKSYEN SEBELAS", scoreA: 33, teamB: "SS TUNKU MAHKOTA ISMAIL", scoreB: 15, cat: "super", played: true },
+            { teamA: "SMK BUKIT NENAS", scoreA: 19, teamB: "SS PAHANG", scoreB: 30, cat: "super", played: true },
+            { teamA: "SMK MUTIARA IMPIAN", scoreA: 31, teamB: "SMK SEBERANG TEMERLOH", scoreB: 18, cat: "perdana", played: true },
+            { teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreA: 26, teamB: "SMK DATUK PETER MOJUNTIN", scoreB: 20, cat: "perdana", played: true },
+            { teamA: "SMK TABUAN JAYA", scoreA: 17, teamB: "SMK TUN HUSSEIN ONN", scoreB: 40, cat: "super", played: true },
+            { teamA: "SMK SERI KOTA", scoreA: 26, teamB: "SMK SERI TITIWANGSA", scoreB: 41, cat: "super", played: true },
+            { teamA: "SMK PUTERA", scoreA: 22, teamB: "SMK GUNUNG RAPAT", scoreB: 34, cat: "perdana", played: true },
+            { teamA: "SMK SYED HASSAN", scoreA: 31, teamB: "SMK PUTRAJAYA PRESINT 8 (1)", scoreB: 36, cat: "perdana", played: true },
+            { teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreA: 29, teamB: "SMK PUTERA", scoreB: 22, cat: "perdana", played: true },
+            { teamA: "SS PAHANG", scoreA: 22, teamB: "SMK SEKSYEN SEBELAS", scoreB: 26, cat: "super", played: true },
+            { teamA: "SS TUNKU MAHKOTA ISMAIL", scoreA: 18, teamB: "SMK TUN HUSSEIN ONN", scoreB: 27, cat: "super", played: true },
+            { teamA: "SMK MUTIARA", scoreA: 14, teamB: "SMK DATUK PETER MOJUNTIN", scoreB: 44, cat: "perdana", played: true },
+            { teamA: "SMK MUTIARA IMPIAN", scoreA: 21, teamB: "SMK GUNUNG RAPAT", scoreB: 18, cat: "perdana", played: true },
+            { teamA: "SMK BUKIT NENAS", scoreA: 26, teamB: "SMK SERI TITIWANGSA", scoreB: 25, cat: "super", played: true },
+            { teamA: "SMK TABUAN JAYA", scoreA: 16, teamB: "SS BUKIT JALIL", scoreB: 43, cat: "super", played: true },
+            { teamA: "SMK PUTRAJAYA PRESINT 8 (1)", scoreA: 31, teamB: "SMK SEBERANG TEMERLOH", scoreB: 20, cat: "perdana", played: true },
+            { teamA: "SMK SYED HASSAN", scoreA: 26, teamB: "SMK DATUK PETER MOJUNTIN", scoreB: 39, cat: "perdana", played: true },
+            { teamA: "SMK SEKSYEN SEBELAS", scoreA: 24, teamB: "SMK TUN HUSSEIN ONN", scoreB: 24, cat: "super", played: true },
+            { teamA: "SS PAHANG", scoreA: 27, teamB: "SMK SERI TITIWANGSA", scoreB: 32, cat: "super", played: true },
+            { teamA: "SMK MUTIARA IMPIAN", scoreA: 24, teamB: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreB: 27, cat: "perdana", played: true },
+            { teamA: "SMK MUTIARA", scoreA: 11, teamB: "SMK PUTERA", scoreB: 48, cat: "perdana", played: true },
+            { teamA: "SS TUNKU MAHKOTA ISMAIL", scoreA: 18, teamB: "SS BUKIT JALIL", scoreB: 37, cat: "super", played: true },
+            { teamA: "SMK TABUAN JAYA", scoreA: 44, teamB: "SMK SERI KOTA", scoreB: 21, cat: "super", played: true },
+            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 27, teamB: "SMK PUTRAJAYA PRESINT 8 (1)", scoreB: 30, cat: "perdana", played: true },
+            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 15, teamB: "SMK GUNUNG RAPAT", scoreB: 32, cat: "perdana", played: true },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 12, teamB: "SMK SEKSYEN SEBELAS", scoreB: 31, cat: "super", played: true },
+            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 29, teamB: "SS BUKIT JALIL", scoreB: 43, cat: "super", played: true },
+            { teamA: "SMK SYED HASSAN", scoreA:32, teamB: "SMK PUTERA", scoreB: 31, cat: "perdana", played: true },
+            { teamA: "SMK MUTIARA", scoreA: 13, teamB: "SMK MUTIARA IMPIAN", scoreB: 52, cat: "perdana", played: true },
+            { teamA: "SS TUNKU MAHKOTA ISMAIL", scoreA: 35, teamB: "SMK SERI KOTA", scoreB: 20, cat: "super", played: true },
+            { teamA: "SMK BUKIT NENAS", scoreA: 32, teamB: "SMK TABUAN JAYA", scoreB: 31, cat: "super", played: true },
+            { teamA: "SMK PUTRAJAYA PRESINT 8 (1)", scoreA: 21, teamB: "SMK GUNUNG RAPAT", scoreB: 24, cat: "perdana", played: true },
+            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 36, teamB: "SMK PUTERA", scoreB: 27, cat: "perdana", played: true },
+            { teamA: "SMK SEKSYEN SEBELAS", scoreA: 23, teamB: "SS BUKIT JALIL", scoreB: 24, cat: "super", played: true },
+            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 62, teamB: "SMK SERI KOTA", scoreB: 10, cat: "super", played: true},
+            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 14, teamB: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreB: 29, cat: "perdana", played: true },
+            { teamA: "SMK SYED HASSAN", scoreA: 0, teamB: "SMK MUTIARA IMPIAN", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SS PAHANG", scoreA: 0, teamB: "SMK TABUAN JAYA", scoreB: 0, cat: "super", played: false },
+            { teamA: "SS TUNKU MAHKOTA ISMAIL", scoreA: 0, teamB: "SMK BUKIT NENAS", scoreB: 0, cat: "super", played: false }
+        ];
+
+        function normalizeName(name) {
+            if (!name) return "";
+            let upper = name.toUpperCase().trim();
+            if (upper.includes("PUTRAJAYA PRESINT 8")) return "SMK PUTRAJAYA PRESINT 8 (1)";
+            if (upper.includes("SSM PAHANG") || upper.includes("SS PAHANG")) return "SS PAHANG";
+            if (upper.includes("SSM TUNKU MAHKOTA ISMAIL") || upper.includes("SS TUNKU MAHKOTA ISMAIL")) return "SS TUNKU MAHKOTA ISMAIL";
+            if (upper.includes("SMK TUNKU ANUM")) return "SMK TUNKU ANUM TUNKU ABDUL RAHMAN";
+            return upper;
+        }
+
+        function calculateStandings(teams, category) {
+            const stats = {};
+            teams.forEach(t => {
+                stats[t] = { name: t, p: 0, m: 0, s: 0, k: 0, j: 0, b: 0, bezaGol: 0, purataGol: 0, pts: 0 };
+            });
+
+            // HANYA kira perlawanan yang berstatus played: true
+            matchResults.filter(m => m.cat === category && m.played).forEach(m => {
+                const tA = normalizeName(m.teamA);
+                const tB = normalizeName(m.teamB);
+                const sA = m.scoreA;
+                const sB = m.scoreB;
+
+                if (stats[tA]) {
+                    stats[tA].p += 1;
+                    stats[tA].j += sA;
+                    stats[tA].b += sB;
+                    if (sA > sB) {
+                        stats[tA].m += 1;
+                        stats[tA].pts += 3;
+                    } else if (sA === sB) {
+                        stats[tA].s += 1;
+                        stats[tA].pts += 1;
+                    } else {
+                        stats[tA].k += 1;
+                    }
+                }
+
+                if (stats[tB]) {
+                    stats[tB].p += 1;
+                    stats[tB].j += sB;
+                    stats[tB].b += sA;
+                    if (sB > sA) {
+                        stats[tB].m += 1;
+                        stats[tB].pts += 3;
+                    } else if (sB === sA) {
+                        stats[tB].s += 1;
+                        stats[tB].pts += 1;
+                    } else {
+                        stats[tB].k += 1;
+                    }
+                }
+            });
+
+            // Pengiraan Beza Gol & Purata Gol (J / B)
+            Object.values(stats).forEach(t => {
+                t.bezaGol = t.j - t.b;
+                if (t.b === 0) {
+                    t.purataGol = t.j > 0 ? t.j.toFixed(2) : "0.00";
+                } else {
+                    t.purataGol = (t.j / t.b).toFixed(2);
+                }
+            });
+
+            return Object.values(stats).sort((a, b) => {
+                if (b.pts !== a.pts) return b.pts - a.pts;
+                if (b.bezaGol !== a.bezaGol) return b.bezaGol - a.bezaGol;
+                return parseFloat(b.purataGol) - parseFloat(a.purataGol);
+            });
+        }
+
+        function renderTable(teams, tbodyId, category) {
+            const tbody = document.getElementById(tbodyId);
+            if (!tbody) return;
+
+            const sortedStats = calculateStandings(teams, category);
+            let html = '';
+            sortedStats.forEach((t, index) => {
+                const logo = getTeamLogo(t.name);
+                html += `
+                    <tr class="hover:bg-sky-50 transition">
+                        <td class="py-3 px-2 md:px-3 text-center font-extrabold text-blue-900">${index + 1}</td>
+                        <td class="py-3 px-3 font-bold text-slate-900">
+                            <div class="flex items-center gap-2">
+                                <img src="${logo}" alt="${t.name}" class="w-6 h-6 object-contain shrink-0 bg-white p-0.5 rounded-full border border-sky-300 shadow-sm" onerror="this.src='../../images/kpm-default.png'">
+                                <span>${t.name}</span>
+                            </div>
+                        </td>
+                        <td class="py-3 px-2 text-center">${t.p}</td>
+                        <td class="py-3 px-2 text-center">${t.m}</td>
+                        <td class="py-3 px-2 text-center">${t.s}</td>
+                        <td class="py-3 px-2 text-center">${t.k}</td>
+                        <td class="py-3 px-2 text-center">${t.j}</td>
+                        <td class="py-3 px-2 text-center">${t.b}</td>
+                        <td class="py-3 px-2 text-center font-semibold ${t.bezaGol > 0 ? 'text-emerald-600' : t.bezaGol < 0 ? 'text-red-600' : 'text-slate-600'}">${t.bezaGol > 0 ? '+' + t.bezaGol : t.bezaGol}</td>
+                        <td class="py-3 px-2 text-center font-semibold text-blue-800">${t.purataGol}</td>
+                        <td class="py-3 px-3 text-center font-black text-blue-900 bg-sky-50/50">${t.pts}</td>
+                    </tr>
+                `;
+            });
+            tbody.innerHTML = html;
+        }
+
+        window.onload = () => {
+            renderTable(superTeams, 'super-standing-tbody', 'super');
+            renderTable(perdanaTeams, 'perdana-standing-tbody', 'perdana');
+        };
     </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keputusan Rasmi & Jadual | Liga Bola Jaring KPM 2026</title>
+    <title>Kedudukan Carta (Standings) | Liga Bola Jaring KPM 2026</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,6 +17,7 @@
             --dark-blue: #1e3a8a;
         }
 
+        /* Latar Belakang Baby Blue Eksklusif dengan Grafik Posisi Netball */
         body {
             background-color: #e0f2fe;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='%230284c7' fill-opacity='0.11' font-family='Segoe UI, sans-serif' font-weight='900' font-size='15'%3E%3Ctext x='20' y='30'%3EGS%3C/text%3E%3Ctext x='110' y='30'%3EGA%3C/text%3E%3Ctext x='20' y='95'%3EWA%3C/text%3E%3Ctext x='85' y='95'%3EC%3C/text%3E%3Ctext x='140' y='95'%3EWD%3C/text%3E%3Ctext x='40' y='155'%3EGD%3C/text%3E%3Ctext x='120' y='155'%3EGK%3C/text%3E%3C/g%3E%3C/svg%3E");
@@ -24,6 +25,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* Jalur Warna Tema */
         .color-stripe {
             height: 6px;
             background: linear-gradient(to right, #dc2626, #facc15, #38bdf8, #1d4ed8);
@@ -43,45 +45,51 @@
 </head>
 <body class="text-gray-800 flex flex-col min-h-screen">
 
+    <!-- Jalur Tema Warna-warni di Paling Atas -->
     <div class="color-stripe"></div>
 
     <!-- HEADER -->
     <header class="bg-gradient-to-r from-blue-950 via-blue-900 to-indigo-900 text-white shadow-xl sticky top-0 z-50 border-b-4 border-yellow-400">
         <div class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3 md:space-x-4">
-                <img src="../../images/ligasukan.jpg" alt="Logo Liga KPM" class="h-12 md:h-16 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-yellow-400" onerror="this.src='../../images/kpm-default.png'">
-                <img src="../../images/ligakpm.jpg" alt="Logo Sukan" class="h-12 md:h-16 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-400" onerror="this.src='../../images/kpm-default.png'">
-                <span class="font-extrabold text-base md:text-xl tracking-wide text-yellow-300 drop-shadow hidden sm:inline">LIGA KPM 2026</span>
+            <!-- Logo Section -->
+            <div class="flex items-center space-x-2 md:space-x-4">
+                <img src="../../images/ligasukan.jpg" alt="Logo Liga KPM" class="h-10 sm:h-12 md:h-16 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-yellow-400" onerror="this.src='../../images/kpm-default.png'">
+                <img src="../../images/ligakpm.jpg" alt="Logo Sukan" class="h-10 sm:h-12 md:h-16 w-auto object-contain bg-white p-1 rounded-xl shadow-md border-2 border-sky-400" onerror="this.src='../../images/kpm-default.png'">
+                <span class="font-extrabold text-xs sm:text-base md:text-xl tracking-wide text-yellow-300 drop-shadow">LIGA KPM 2026</span>
             </div>
 
-            <nav class="hidden lg:flex items-center space-x-1 font-bold text-xs xl:text-sm">
-                <a href="../../index.html" class="hover:text-yellow-300 transition px-2 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Home</a>
-                <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="hover:text-yellow-300 transition px-2 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jsport</a>
-                <a href="keputusanrasmi.html" class="hover:text-yellow-300 transition px-2 py-2 rounded-lg bg-red-600 border border-yellow-400">Keputusan Rasmi</a>
-                <a href="jadualliga.html" class="hover:text-yellow-300 transition px-2 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jadual</a>
-                <a href="standing.html" class="hover:text-yellow-300 transition px-2 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Carta</a>
-                <a href="peraturanliga.html" class="hover:text-yellow-300 transition px-2 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Peraturan</a>
-                <a href="statistikliga.html" class="hover:text-yellow-300 transition px-2 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Statistik</a>
-                <a href="borangliga.html" class="hover:text-yellow-300 transition px-2 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Borang</a>
-                <a href="galeri.html" class="hover:text-yellow-300 transition px-2 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Galeri</a>
-                <a href="live.html" class="px-2 py-2 rounded-lg bg-red-600 text-yellow-300 border-2 border-yellow-400 font-extrabold flex items-center gap-1 live-pulse hover:bg-red-700 transition">
+            <!-- Navigation Menu (Desktop) -->
+            <nav class="hidden lg:flex items-center space-x-2 font-bold text-xs xl:text-sm">
+                <a href="../../index.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Home</a>
+                <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jsport</a>
+                <a href="keputusanrasmi.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Keputusan Rasmi</a>
+                <a href="jadualliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Jadual</a>
+                <a href="standingliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-red-600 border border-yellow-400">Carta</a>
+                <a href="peraturanliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Peraturan</a>
+                <a href="statistikliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Statistik</a>
+                <a href="borangliga.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Borang</a>
+                <a href="galeri.html" class="hover:text-yellow-300 transition px-3 py-2 rounded-lg bg-blue-900/50 border border-blue-700/50 hover:bg-red-600 hover:border-yellow-400">Galeri</a>
+                <!-- Navi Live di Header -->
+                <a href="live.html" class="px-3 py-2 rounded-lg bg-red-600 text-yellow-300 border-2 border-yellow-400 font-extrabold flex items-center gap-1 live-pulse hover:bg-red-700 transition">
                     <i class="fa-solid fa-video"></i> LIVE
                 </a>
             </nav>
 
+            <!-- Mobile Menu Button -->
             <div class="lg:hidden flex items-center">
                 <button id="menu-btn" class="text-yellow-300 focus:outline-none p-2.5 bg-blue-900 border border-yellow-400/50 rounded-xl shadow">
-                    <i class="fa-solid fa-bars text-2xl"></i>
+                    <i class="fa-solid fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden lg:hidden bg-blue-950 border-t border-yellow-400/30 px-4 pt-3 pb-5 space-y-2 text-base font-medium">
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-blue-950 border-t border-yellow-400/30 px-4 pt-3 pb-5 space-y-2 text-sm font-medium">
             <a href="../../index.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Home</a>
             <a href="https://jsports.com.my/ligakpm/bolajaring/" target="_blank" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Jsport</a>
-            <a href="keputusanrasmi.html" class="block bg-red-600 text-yellow-300 px-3 py-2 rounded-lg transition font-bold">Keputusan Rasmi</a>
+            <a href="keputusanrasmi.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Keputusan Rasmi</a>
             <a href="jadualliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Jadual Perlawanan</a>
-            <a href="standing.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition font-bold text-yellow-300">Carta</a>
+            <a href="standingliga.html" class="block bg-red-600 text-yellow-300 px-3 py-2 rounded-lg transition font-bold">Kedudukan Carta</a>
             <a href="peraturanliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Peraturan</a>
             <a href="statistikliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Statistik Liga</a>
             <a href="borangliga.html" class="block hover:bg-red-600 hover:text-yellow-300 px-3 py-2 rounded-lg transition">Borang Rasmi</a>
@@ -96,49 +104,93 @@
     <section class="py-6 md:py-8 text-center relative overflow-hidden">
         <div class="container mx-auto px-4 relative z-10">
             <span class="bg-red-600 text-yellow-300 text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow border border-yellow-400 mb-2 inline-block">Sirkit Akhir 2026</span>
-            <h1 class="text-2xl md:text-4xl font-black mb-2 text-blue-950 drop-shadow-sm">Keputusan Rasmi & Jadual Liga Bola Jaring KPM</h1>
-            <p class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold">Paparan rasmi keputusan perlawanan peringkat kumpulan hingga akhir.</p>
+            <h1 class="text-xl sm:text-2xl md:text-4xl font-black mb-2 text-blue-950 drop-shadow-sm">Kedudukan Carta Kumpulan (Standings)</h1>
+            <p class="text-xs md:text-sm text-blue-900 max-w-lg mx-auto font-semibold px-2">Carta kedudukan rasmi pasukan bagi Kumpulan Super & Kumpulan Perdana berdasarkan keputusan Sirkit 1.</p>
         </div>
     </section>
 
     <!-- MAIN CONTAINER -->
-    <main class="flex-grow container mx-auto px-4 pb-12 max-w-5xl">
+    <main class="flex-grow container mx-auto px-3 sm:px-4 pb-12 max-w-6xl space-y-8 md:space-y-10">
         
-        <div id="sync-status" class="text-center text-xs md:text-sm font-bold mb-5 p-3 rounded-xl bg-sky-100 text-sky-800 border border-sky-300 shadow-sm">
-            Menyambungkan data Google Sheet...
+        <!-- Status Info -->
+        <div>
+            <div id="sync-status" class="text-center text-xs md:text-sm font-bold p-3 rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-300 shadow-sm">
+                ✅ Keputusan Sirkit 1 dimuatkan. Jadual Sirkit Akhir telah dimasukkan dan carta hanya akan mengemas kini mata apabila perlawanan selesai dimainkan.
+            </div>
         </div>
 
-        <div class="flex flex-wrap justify-center items-center gap-3 mb-8">
-            <button class="tab-btn active px-4 py-2.5 rounded-full font-bold text-xs md:text-sm bg-blue-900 text-yellow-300 border-2 border-yellow-400 shadow transition cursor-pointer hover:bg-blue-800" onclick="switchCategory('semua', event)">
-                📋 Semua Jadual (28-83)
-            </button>
-            <button class="tab-btn px-4 py-2.5 rounded-full font-bold text-xs md:text-sm bg-white text-blue-900 border-2 border-blue-900 shadow transition cursor-pointer hover:bg-blue-50" onclick="switchCategory('sirkit1', event)">
-                🏆 Keputusan Sirkit 1
-            </button>
-            <button class="tab-btn px-4 py-2.5 rounded-full font-bold text-xs md:text-sm bg-white text-blue-900 border-2 border-blue-900 shadow transition cursor-pointer hover:bg-blue-50" onclick="switchCategory('perdana', event)">
-                🏅 Kategori Perdana
-            </button>
-            <button class="tab-btn px-4 py-2.5 rounded-full font-bold text-xs md:text-sm bg-white text-blue-900 border-2 border-blue-900 shadow transition cursor-pointer hover:bg-blue-50" onclick="switchCategory('super', event)">
-                ⭐ Kategori Super
-            </button>
-            <button onclick="window.print()" class="px-4 py-2.5 rounded-full font-bold text-xs md:text-sm bg-emerald-600 text-white shadow hover:bg-emerald-700 transition flex items-center gap-2 cursor-pointer border-2 border-emerald-400">
-                <i class="fas fa-print"></i> Cetak Keputusan
-            </button>
+        <!-- KUMPULAN SUPER (DI ATAS) -->
+        <div class="bg-white rounded-2xl shadow-md border border-sky-200 overflow-hidden">
+            <div class="bg-blue-950 text-yellow-300 px-4 md:px-5 py-3.5 flex justify-between items-center border-b-2 border-yellow-400">
+                <h3 class="font-extrabold text-xs sm:text-sm md:text-base flex items-center gap-2">
+                    <i class="fa-solid fa-star text-yellow-400"></i> Kumpulan Super
+                </h3>
+                <span class="text-[11px] md:text-xs font-semibold bg-blue-900 text-white px-2.5 py-1 rounded-full">Sirkit Akhir 2026</span>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs md:text-sm whitespace-nowrap">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider text-[11px] border-b border-slate-200">
+                            <th class="py-3 px-2 md:px-3 text-center">Ked</th>
+                            <th class="py-3 px-3">Pasukan</th>
+                            <th class="py-3 px-2 text-center">P</th>
+                            <th class="py-3 px-2 text-center">M</th>
+                            <th class="py-3 px-2 text-center">S</th>
+                            <th class="py-3 px-2 text-center">K</th>
+                            <th class="py-3 px-2 text-center">J</th>
+                            <th class="py-3 px-2 text-center">B</th>
+                            <th class="py-3 px-2 text-center">Beza Gol</th>
+                            <th class="py-3 px-2 text-center">Purata Gol</th>
+                            <th class="py-3 px-3 text-center text-blue-900 font-black">Mata</th>
+                        </tr>
+                    </thead>
+                    <tbody id="super-standing-tbody" class="divide-y divide-slate-100 font-medium text-slate-700">
+                        <!-- Data dimasukkan secara dinamik melalui JS -->
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <div id="semua" class="results-container space-y-4"></div>
-        <div id="sirkit1" class="results-container space-y-4 hidden"></div>
-        <div id="perdana" class="results-container space-y-4 hidden"></div>
-        <div id="super" class="results-container space-y-4 hidden"></div>
+        <!-- KUMPULAN PERDANA (DI BAWAH) -->
+        <div class="bg-white rounded-2xl shadow-md border border-sky-200 overflow-hidden">
+            <div class="bg-blue-950 text-yellow-300 px-4 md:px-5 py-3.5 flex justify-between items-center border-b-2 border-yellow-400">
+                <h3 class="font-extrabold text-xs sm:text-sm md:text-base flex items-center gap-2">
+                    <i class="fa-solid fa-medal text-yellow-400"></i> Kumpulan Perdana
+                </h3>
+                <span class="text-[11px] md:text-xs font-semibold bg-blue-900 text-white px-2.5 py-1 rounded-full">Sirkit Akhir 2026</span>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs md:text-sm whitespace-nowrap">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider text-[11px] border-b border-slate-200">
+                            <th class="py-3 px-2 md:px-3 text-center">Ked</th>
+                            <th class="py-3 px-3">Pasukan</th>
+                            <th class="py-3 px-2 text-center">P</th>
+                            <th class="py-3 px-2 text-center">M</th>
+                            <th class="py-3 px-2 text-center">S</th>
+                            <th class="py-3 px-2 text-center">K</th>
+                            <th class="py-3 px-2 text-center">J</th>
+                            <th class="py-3 px-2 text-center">B</th>
+                            <th class="py-3 px-2 text-center">Beza Gol</th>
+                            <th class="py-3 px-2 text-center">Purata Gol</th>
+                            <th class="py-3 px-3 text-center text-blue-900 font-black">Mata</th>
+                        </tr>
+                    </thead>
+                    <tbody id="perdana-standing-tbody" class="divide-y divide-slate-100 font-medium text-slate-700">
+                        <!-- Data dimasukkan secara dinamik melalui JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-blue-950 text-yellow-300 py-5 text-center text-sm md:text-base border-t-4 border-yellow-400 font-black uppercase tracking-widest shadow-inner">
+    <footer class="bg-blue-950 text-yellow-300 py-5 text-center text-xs md:text-base border-t-4 border-yellow-400 font-black uppercase tracking-widest shadow-inner">
         LIGA KPM 2026 • HAK CIPTA TERPELIHARA
     </footer>
 
-    <!-- JAVASCRIPT & LOGIK DATA -->
+    <!-- SCRIPT LOGIK CARTA -->
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -147,100 +199,6 @@
                 mobileMenu.classList.toggle('hidden');
             });
         }
-
-        const sheetUrls = {
-            semua: "https://docs.google.com/spreadsheets/d/1rvlTzPuNf3miXgLj_cB9zg9M8Tu37HgMaCnADx3ewrw/export?format=csv&gid=0"
-        };
-
-        const circuit1Matches = [
-            { bil: 1, date: "11 MEI 2026 (ISNIN)", time: "8.00 PAGI", kump: "KUMPULAN P", teamA: "SMK PUTRAJAYA PRESINT 8(1)", scoreA: 41, scoreB: 23, teamB: "SMK PUTERA", venue: "SERI KOTA A" },
-            { bil: 2, date: "11 MEI 2026 (ISNIN)", time: "8.00 PAGI", kump: "KUMPULAN P", teamA: "SMK GUNUNG RAPAT", scoreA: 19, scoreB: 23, teamB: "SMK TUNKU ANUM TAR", venue: "SERI KOTA B" },
-            { bil: 3, date: "11 MEI 2026 (ISNIN)", time: "9.00 PAGI", kump: "KUMPULAN S", teamA: "SS BUKIT JALIL", scoreA: 56, scoreB: 16, teamB: "SMK SERI KOTA", venue: "SERI KOTA A" },
-            { bil: 4, date: "11 MEI 2026 (ISNIN)", time: "9.00 PAGI", kump: "KUMPULAN S", teamA: "SMK SERI TITIWANGSA", scoreA: 29, scoreB: 28, teamB: "SMK TABUAN JAYA", venue: "SERI KOTA B" },
-            { bil: 5, date: "11 MEI 2026 (ISNIN)", time: "10.00 PAGI", kump: "KUMPULAN P", teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 28, scoreB: 31, teamB: "SMK MUTIARA IMPIAN", venue: "SERI KOTA A" },
-            { bil: 6, date: "11 MEI 2026 (ISNIN)", time: "10.00 PAGI", kump: "KUMPULAN P", teamA: "SMK SEBERANG TEMERLOH", scoreA: 40, scoreB: 4, teamB: "SMK MUTIARA", venue: "SERI KOTA B" },
-            { bil: 7, date: "11 MEI 2026 (ISNIN)", time: "11.00 PAGI", kump: "KUMPULAN S", teamA: "SMK TUN HUSSEIN ONN", scoreA: 38, scoreB: 26, teamB: "SMK BUKIT NENAS", venue: "SERI KOTA A" },
-            { bil: 8, date: "11 MEI 2026 (ISNIN)", time: "11.00 PAGI", kump: "KUMPULAN S", teamA: "SSM PAHANG", scoreA: 30, scoreB: 29, teamB: "SSM TUNKU MAHKOTA ISMAIL", venue: "SERI KOTA B" },
-            { bil: 10, date: "11 MEI 2026 (ISNIN)", time: "2.00 PETANG", kump: "KUMPULAN P", teamA: "SMK TUNKU ANUM TAR", scoreA: 22, scoreB: 28, teamB: "SMK PUTRAJAYA PRESINT 8(1)", venue: "SERI KOTA A" },
-            { bil: 11, date: "11 MEI 2026 (ISNIN)", time: "2.00 PETANG", kump: "KUMPULAN P", teamA: "SMK PUTERA", scoreA: 15, scoreB: 31, teamB: "SMK MUTIARA IMPIAN", venue: "SERI KOTA B" },
-            { bil: 12, date: "11 MEI 2026 (ISNIN)", time: "3.00 PETANG", kump: "KUMPULAN S", teamA: "SMK SERI KOTA", scoreA: 13, scoreB: 49, teamB: "SMK SEKSYEN SEBELAS", venue: "SERI KOTA A" },
-            { bil: 13, date: "11 MEI 2026 (ISNIN)", time: "3.00 PETANG", kump: "KUMPULAN S", teamA: "SS BUKIT JALIL", scoreA: 49, scoreB: 21, teamB: "SMK BUKIT NENAS", venue: "SERI KOTA B" },
-            { bil: 14, date: "11 MEI 2026 (ISNIN)", time: "4.00 PETANG", kump: "KUMPULAN P", teamA: "SMK GUNUNG RAPAT", scoreA: 46, scoreB: 8, teamB: "SMK MUTIARA", venue: "SERI KOTA A" },
-            { bil: 16, date: "11 MEI 2026 (ISNIN)", time: "5.00 PETANG", kump: "KUMPULAN S", teamA: "SMK SERI TITIWANGSA", scoreA: 28, scoreB: 34, teamB: "SSM TUNKU MAHKOTA ISMAIL", venue: "SERI KOTA A" },
-            { bil: 17, date: "11 MEI 2026 (ISNIN)", time: "5.00 PETANG", kump: "KUMPULAN S", teamA: "SMK TUN HUSSEIN ONN", scoreA: 32, scoreB: 24, teamB: "SSM PAHANG", venue: "SERI KOTA B" },
-            { bil: 18, date: "11 MEI 2026 (ISNIN)", time: "6.00 PETANG", kump: "KUMPULAN P", teamA: "SMK SEBERANG TEMERLOH", scoreA: 32, scoreB: 25, teamB: "SMK SYED HASSAN", venue: "SERI KOTA A" },
-            { bil: 19, date: "12 MEI 2026 (SELASA)", time: "8.00 PAGI", kump: "KUMPULAN P", teamA: "SMK PUTRAJAYA PRESINT 8(1)", scoreA: 33, scoreB: 23, teamB: "SMK MUTIARA IMPIAN", venue: "SERI KOTA A" },
-            { bil: 20, date: "12 MEI 2026 (SELASA)", time: "8.00 PAGI", kump: "KUMPULAN P", teamA: "SMK TUNKU ANUM TAR", scoreA: 47, scoreB: 6, teamB: "SMK MUTIARA", venue: "SERI KOTA B" },
-            { bil: 21, date: "12 MEI 2026 (SELASA)", time: "9.00 PAGI", kump: "KUMPULAN S", teamA: "SMK SEKSYEN SEBELAS", scoreA: 41, scoreB: 21, teamB: "SMK TABUAN JAYA", venue: "SERI KOTA A" },
-            { bil: 22, date: "12 MEI 2026 (SELASA)", time: "9.00 PAGI", kump: "KUMPULAN S", teamA: "SMK SERI KOTA", scoreA: 20, scoreB: 38, teamB: "SMK BUKIT NENAS", venue: "SERI KOTA B" },
-            { bil: 24, date: "12 MEI 2026 (SELASA)", time: "10.00 PAGI", kump: "KUMPULAN P", teamA: "SMK GUNUNG RAPAT", scoreA: 47, scoreB: 16, teamB: "SMK SYED HASSAN", venue: "SERI KOTA B" },
-            { bil: 25, date: "12 MEI 2026 (SELASA)", time: "11.00 PAGI", kump: "KUMPULAN S", teamA: "SS BUKIT JALIL", scoreA: 50, scoreB: 18, teamB: "SSM PAHANG", venue: "SERI KOTA A" },
-            { bil: 26, date: "12 MEI 2026 (SELASA)", time: "11.00 PAGI", kump: "KUMPULAN S", teamA: "SMK SERI TITIWANGSA", scoreA: 22, scoreB: 27, teamB: "SMK TUN HUSSEIN ONN", venue: "SERI KOTA B" },
-            { bil: 27, date: "12 MEI 2026 (SELASA)", time: "12.00 TENGAH HARI", kump: "KUMPULAN P", teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 25, scoreB: 32, teamB: "SMK SEBERANG TEMERLOH", venue: "SERI KOTA A" }
-        ];
-
-        const fullMatches = [
-            { bil: 28, date: "9 OKTOBER 2026 (JUMAAT)", time: "8.00 PAGI", kump: "Perdana A", teamA: "SMK MUTIARA", teamB: "SMK PUTRAJAYA PRESINT 8 (1)", cat: "perdana" },
-            { bil: 29, date: "9 OKTOBER 2026 (JUMAAT)", time: "8.00 PAGI", kump: "Super B", teamA: "SMK SERI KOTA", teamB: "SS PAHANG", cat: "super" },
-            { bil: 30, date: "9 OKTOBER 2026 (JUMAAT)", time: "9.00 PAGI", kump: "Super A", teamA: "SMK BUKIT NENAS", teamB: "SMK SEKSYEN SEBELAS", cat: "super" },
-            { bil: 31, date: "9 OKTOBER 2026 (JUMAAT)", time: "9.00 PAGI", kump: "Super B", teamA: "SMK TABUAN JAYA", teamB: "SS TUNKU MAHKOTA ISMAIL", cat: "super" },
-            { bil: 32, date: "9 OKTOBER 2026 (JUMAAT)", time: "10.00 PAGI", kump: "Perdana A", teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", teamB: "SMK SYED HASSAN", cat: "perdana" },
-            { bil: 33, date: "9 OKTOBER 2026 (JUMAAT)", time: "10.00 PAGI", kump: "Perdana B", teamA: "SMK PUTERA", teamB: "SMK SEBERANG TEMERLOH", cat: "perdana" },
-            { bil: 34, date: "9 OKTOBER 2026 (JUMAAT)", time: "11.00 PAGI", kump: "Super A", teamA: "SS BUKIT JALIL", teamB: "SMK SERI TITIWANGSA", cat: "super" },
-            { bil: 35, date: "9 OKTOBER 2026 (JUMAAT)", time: "2.00 PETANG", kump: "Perdana B", teamA: "SMK GUNUNG RAPAT", teamB: "SMK DATUK PETER MOJUNTIN", cat: "perdana" },
-            { bil: 36, date: "9 OKTOBER 2026 (JUMAAT)", time: "2.00 PETANG", kump: "Perdana B", teamA: "SMK MUTIARA", teamB: "SMK SYED HASSAN", cat: "perdana" },
-            { bil: 37, date: "9 OKTOBER 2026 (JUMAAT)", time: "3.00 PETANG", kump: "Super A", teamA: "SMK SEKSYEN SEBELAS", teamB: "SS TUNKU MAHKOTA ISMAIL", cat: "super" },
-            { bil: 38, date: "9 OKTOBER 2026 (JUMAAT)", time: "3.00 PETANG", kump: "Super B", teamA: "SMK BUKIT NENAS", teamB: "SS PAHANG", cat: "super" },
-            { bil: 39, date: "9 OKTOBER 2026 (JUMAAT)", time: "4.00 PETANG", kump: "Perdana A", teamA: "SMK MUTIARA IMPIAN", teamB: "SMK SEBERANG TEMERLOH", cat: "perdana" },
-            { bil: 40, date: "9 OKTOBER 2026 (JUMAAT)", time: "4.00 PETANG", kump: "Perdana B", teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", teamB: "SMK DATUK PETER MOJUNTIN", cat: "perdana" },
-            { bil: 41, date: "9 OKTOBER 2026 (JUMAAT)", time: "5.00 PETANG", kump: "Super A", teamA: "SMK TABUAN JAYA", teamB: "SMK TUN HUSSEIN ONN", cat: "super" },
-            { bil: 42, date: "9 OKTOBER 2026 (JUMAAT)", time: "5.00 PETANG", kump: "Super B", teamA: "SMK SERI KOTA", teamB: "SMK SERI TITIWANGSA", cat: "super" },
-            { bil: 43, date: "9 OKTOBER 2026 (JUMAAT)", time: "6.00 PETANG", kump: "Perdana A", teamA: "SMK PUTERA", teamB: "SMK GUNUNG RAPAT", cat: "perdana" },
-
-            { bil: 44, date: "10 OKTOBER 2026 (SABTU)", time: "8.00 PAGI", kump: "Perdana A", teamA: "SMK SYED HASSAN", teamB: "SMK PUTRAJAYA PRESINT 8 (1)", cat: "perdana" },
-            { bil: 45, date: "10 OKTOBER 2026 (SABTU)", time: "8.00 PAGI", kump: "Perdana B", teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", teamB: "SMK PUTERA", cat: "perdana" },
-            { bil: 46, date: "10 OKTOBER 2026 (SABTU)", time: "9.00 PAGI", kump: "Super A", teamA: "SS PAHANG", teamB: "SMK SEKSYEN SEBELAS", cat: "super" },
-            { bil: 47, date: "10 OKTOBER 2026 (SABTU)", time: "9.00 PAGI", kump: "Super B", teamA: "SS TUNKU MAHKOTA ISMAIL", teamB: "SMK TUN HUSSEIN ONN", cat: "super" },
-            { bil: 48, date: "10 OKTOBER 2026 (SABTU)", time: "10.00 PAGI", kump: "Perdana A", teamA: "SMK MUTIARA", teamB: "SMK DATUK PETER MOJUNTIN", cat: "perdana" },
-            { bil: 49, date: "10 OKTOBER 2026 (SABTU)", time: "10.00 PAGI", kump: "Perdana B", teamA: "SMK MUTIARA IMPIAN", teamB: "SMK GUNUNG RAPAT", cat: "perdana" },
-            { bil: 50, date: "10 OKTOBER 2026 (SABTU)", time: "11.00 PAGI", kump: "Super A", teamA: "SMK BUKIT NENAS", teamB: "SMK SERI TITIWANGSA", cat: "super" },
-            { bil: 51, date: "10 OKTOBER 2026 (SABTU)", time: "11.00 PAGI", kump: "Super B", teamA: "SMK TABUAN JAYA", teamB: "SS BUKIT JALIL", cat: "super" },
-            { bil: 52, date: "10 OKTOBER 2026 (SABTU)", time: "2.00 PETANG", kump: "Perdana A", teamA: "SMK PUTRAJAYA PRESINT 8 (1)", teamB: "SMK SEBERANG TEMERLOH", cat: "perdana" },
-            { bil: 53, date: "10 OKTOBER 2026 (SABTU)", time: "3.00 PETANG", kump: "Perdana B", teamA: "SMK SYED HASSAN", teamB: "SMK DATUK PETER MOJUNTIN", cat: "perdana" },
-            { bil: 54, date: "10 OKTOBER 2026 (SABTU)", time: "3.00 PETANG", kump: "Super A", teamA: "SMK SEKSYEN SEBELAS", teamB: "SMK TUN HUSSEIN ONN", cat: "super" },
-            { bil: 55, date: "10 OKTOBER 2026 (SABTU)", time: "3.00 PETANG", kump: "Super B", teamA: "SS PAHANG", teamB: "SMK SERI TITIWANGSA", cat: "super" },
-            { bil: 56, date: "10 OKTOBER 2026 (SABTU)", time: "4.00 PAGI", kump: "Perdana A", teamA: "SMK MUTIARA IMPIAN", teamB: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", cat: "perdana" },
-            { bil: 57, date: "10 OKTOBER 2026 (SABTU)", time: "4.00 PETANG", kump: "Perdana B", teamA: "SMK MUTIARA", teamB: "SMK PUTERA", cat: "perdana" },
-            { bil: 58, date: "10 OKTOBER 2026 (SABTU)", time: "5.00 PETANG", kump: "Super A", teamA: "SS TUNKU MAHKOTA ISMAIL", teamB: "SS BUKIT JALIL", cat: "super" },
-            { bil: 59, date: "10 OKTOBER 2026 (SABTU)", time: "5.00 PETANG", kump: "Super B", teamA: "SMK TABUAN JAYA", teamB: "SMK SERI KOTA", cat: "super" },
-
-            { bil: 60, date: "11 OKTOBER 2026 (AHAD)", time: "8.00 PAGI", kump: "Perdana A", teamA: "SMK DATUK PETER MOJUNTIN", teamB: "SMK PUTRAJAYA PRESINT 8 (1)", cat: "perdana" },
-            { bil: 61, date: "11 OKTOBER 2026 (AHAD)", time: "8.00 PAGI", kump: "Perdana B", teamA: "SMK SEBERANG TEMERLOH", teamB: "SMK GUNUNG RAPAT", cat: "perdana" },
-            { bil: 62, date: "11 OKTOBER 2026 (AHAD)", time: "9.00 PAGI", kump: "Super A", teamA: "SMK SERI TITIWANGSA", teamB: "SMK SEKSYEN SEBELAS", cat: "super" },
-            { bil: 63, date: "11 OKTOBER 2026 (AHAD)", time: "9.00 PAGI", kump: "Super B", teamA: "SMK TUN HUSSEIN ONN", teamB: "SS BUKIT JALIL", cat: "super" },
-            { bil: 64, date: "11 OKTOBER 2026 (AHAD)", time: "10.00 PAGI", kump: "Perdana A", teamA: "SMK SYED HASSAN", teamB: "SMK PUTERA", cat: "perdana" },
-            { bil: 65, date: "11 OKTOBER 2026 (AHAD)", time: "10.00 PAGI", kump: "Perdana B", teamA: "SMK MUTIARA", teamB: "SMK MUTIARA IMPIAN", cat: "perdana" },
-            { bil: 66, date: "11 OKTOBER 2026 (AHAD)", time: "11.00 PAGI", kump: "Super A", teamA: "SS TUNKU MAHKOTA ISMAIL", teamB: "SMK SERI KOTA", cat: "super" },
-            { bil: 67, date: "11 OKTOBER 2026 (AHAD)", time: "11.00 PAGI", kump: "Super B", teamA: "SMK BUKIT NENAS", teamB: "SMK TABUAN JAYA", cat: "super" },
-            { bil: 68, date: "11 OKTOBER 2026 (AHAD)", time: "2.00 PETANG", kump: "Perdana A", teamA: "SMK PUTRAJAYA PRESINT 8 (1)", teamB: "SMK GUNUNG RAPAT", cat: "perdana" },
-            { bil: 69, date: "11 OKTOBER 2026 (AHAD)", time: "2.00 PETANG", kump: "Perdana B", teamA: "SMK DATUK PETER MOJUNTIN", teamB: "SMK PUTERA", cat: "perdana" },
-            { bil: 70, date: "11 OKTOBER 2026 (AHAD)", time: "3.00 PETANG", kump: "Super A", teamA: "SMK SEKSYEN SEBELAS", teamB: "SS BUKIT JALIL", cat: "super" },
-            { bil: 71, date: "11 OKTOBER 2026 (AHAD)", time: "3.00 PETANG", kump: "Super B", teamA: "SMK TUN HUSSEIN ONN", teamB: "SMK SERI KOTA", cat: "super" },
-            { bil: 72, date: "11 OKTOBER 2026 (AHAD)", time: "4.00 PETANG", kump: "Perdana A", teamA: "SMK SEBERANG TEMERLOH", teamB: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", cat: "perdana" },
-            { bil: 73, date: "11 OKTOBER 2026 (AHAD)", time: "4.00 PETANG", kump: "Perdana B", teamA: "SMK SYED HASSAN", teamB: "SMK MUTIARA IMPIAN", cat: "perdana" },
-            { bil: 74, date: "11 OKTOBER 2026 (AHAD)", time: "5.00 PETANG", kump: "Super A", teamA: "SS PAHANG", teamB: "SMK TABUAN JAYA", cat: "super" },
-            { bil: 75, date: "11 OKTOBER 2026 (AHAD)", time: "5.00 PETANG", kump: "Super B", teamA: "SS TUNKU MAHKOTA ISMAIL", teamB: "SMK BUKIT NENAS", cat: "super" },
-
-            { bil: 76, date: "12 OKTOBER 2026 (ISNIN)", time: "9.00 PAGI", kump: "SUKU AKHIR", teamA: "JOHAN LIGA SUPER", teamB: "KE-3 LIGA PERDANA", cat: "perdana" },
-            { bil: 77, date: "12 OKTOBER 2026 (ISNIN)", time: "9.00 PAGI", kump: "SUKU AKHIR", teamA: "NAIB JOHAN LIGA SUPER", teamB: "KE-5 LIGA SUPER", cat: "super" },
-            { bil: 78, date: "12 OKTOBER 2026 (ISNIN)", time: "10.00 PAGI", kump: "SUKU AKHIR", teamA: "NAIB JOHAN LIGA PERDANA", teamB: "KE-3 LIGA SUPER", cat: "perdana" },
-            { bil: 79, date: "12 OKTOBER 2026 (ISNIN)", time: "10.00 PAGI", kump: "SUKU AKHIR", teamA: "JOHAN LIGA PERDANA", teamB: "KE-4 LIGA SUPER", cat: "perdana" },
-            { bil: 80, date: "12 OKTOBER 2026 (ISNIN)", time: "4.00 PETANG", kump: "SEPARUH AKHIR", teamA: "MENANG 76", teamB: "MENANG 78", cat: "perdana" },
-            { bil: 81, date: "12 OKTOBER 2026 (ISNIN)", time: "5.00 PETANG", kump: "SEPARUH AKHIR", teamA: "MENANG 77", teamB: "MENANG 79", cat: "super" },
-
-            { bil: 82, date: "13 OKTOBER 2026 (SELASA)", time: "8.30 PAGI", kump: "TEMPAT KE-3/4", teamA: "KALAH 80", teamB: "KALAH 81", cat: "perdana" },
-            { bil: 83, date: "13 OKTOBER 2026 (SELASA)", time: "9.30 PAGI", kump: "AKHIR", teamA: "MENANG 80", teamB: "MENANG 81", cat: "perdana" }
-        ];
 
         function getTeamLogo(teamName) {
             if (!teamName) return '../../images/kpm-default.png';
@@ -260,12 +218,13 @@
                 'SMK PUTERA': 'putera.png',
                 'SMK GUNUNG RAPAT': 'gunungrapat.png',
                 'SS PAHANG': 'ssmp.png',
-                'SSM PAHANG': 'ssmp.png',
                 'SMK SERI KOTA': 'serikota.png',
                 'SS BUKIT JALIL': 'ssbj.png',
                 'SMK SERI TITIWANGSA': 'ssnkl.png',
                 'SMK DATUK PETER MOJUNTIN': 'petermojuntin.png',
-                'SMK TUN HUSSEIN ONN': 'tho.png'
+                'SMK TUN HUSSEIN ONN': 'tho.png',
+                'SSM PAHANG': 'ssmp.png',
+                'SSM TUNKU MAHKOTA ISMAIL': 'sstmi.png'
             };
             
             for (let key in logoMap) {
@@ -276,261 +235,216 @@
             return `../../images/kpm-default.png`;
         }
 
-        function parseCSV(text) {
-            const lines = text.split(/\r\n|\n/);
-            return lines.map(line => {
-                const row = [];
-                let inQuotes = false;
-                let entry = '';
-                for (let i = 0; i < line.length; i++) {
-                    const char = line[i];
-                    if (char === '"' || char === "'") {
-                        inQuotes = !inQuotes;
-                    } else if (char === ',' && !inQuotes) {
-                        row.push(entry.trim());
-                        entry = '';
+        const perdanaTeams = [
+            "SMK MUTIARA",
+            "SMK PUTRAJAYA PRESINT 8 (1)",
+            "SMK TUNKU ANUM TUNKU ABDUL RAHMAN",
+            "SMK SYED HASSAN",
+            "SMK PUTERA",
+            "SMK SEBERANG TEMERLOH",
+            "SMK GUNUNG RAPAT",
+            "SMK DATUK PETER MOJUNTIN",
+            "SMK MUTIARA IMPIAN"
+        ];
+
+        const superTeams = [
+            "SMK SERI KOTA",
+            "SS PAHANG",
+            "SMK BUKIT NENAS",
+            "SMK SEKSYEN SEBELAS",
+            "SMK TABUAN JAYA",
+            "SS TUNKU MAHKOTA ISMAIL",
+            "SS BUKIT JALIL",
+            "SMK SERI TITIWANGSA",
+            "SMK TUN HUSSEIN ONN"
+        ];
+
+        // Senarai perlawanan
+        const matchResults = [
+            // --- KEPUTUSAN SIRKIT 1 ---
+            { teamA: "SMK PUTRAJAYA PRESINT 8(1)", scoreA: 41, teamB: "SMK PUTERA", scoreB: 23, cat: "perdana", played: true },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 19, teamB: "SMK TUNKU ANUM TAR", scoreB: 23, cat: "perdana", played: true },
+            { teamA: "SS BUKIT JALIL", scoreA: 56, teamB: "SMK SERI KOTA", scoreB: 16, cat: "super", played: true },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 29, teamB: "SMK TABUAN JAYA", scoreB: 28, cat: "super", played: true },
+            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 28, teamB: "SMK MUTIARA IMPIAN", scoreB: 31, cat: "perdana", played: true },
+            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 40, teamB: "SMK MUTIARA", scoreB: 4, cat: "perdana", played: true },
+            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 38, teamB: "SMK BUKIT NENAS", scoreB: 26, cat: "super", played: true },
+            { teamA: "SSM PAHANG", scoreA: 30, teamB: "SSM TUNKU MAHKOTA ISMAIL", scoreB: 29, cat: "super", played: true },
+            { teamA: "SMK TUNKU ANUM TAR", scoreA: 22, teamB: "SMK PUTRAJAYA PRESINT 8(1)", scoreB: 28, cat: "perdana", played: true },
+            { teamA: "SMK PUTERA", scoreA: 15, teamB: "SMK MUTIARA IMPIAN", scoreB: 31, cat: "perdana", played: true },
+            { teamA: "SMK SERI KOTA", scoreA: 13, teamB: "SMK SEKSYEN SEBELAS", scoreB: 49, cat: "super", played: true },
+            { teamA: "SS BUKIT JALIL", scoreA: 49, teamB: "SMK BUKIT NENAS", scoreB: 21, cat: "super", played: true },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 46, teamB: "SMK MUTIARA", scoreB: 8, cat: "perdana", played: true },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 28, teamB: "SSM TUNKU MAHKOTA ISMAIL", scoreB: 34, cat: "super", played: true },
+            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 32, teamB: "SSM PAHANG", scoreB: 24, cat: "super", played: true },
+            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 32, teamB: "SMK SYED HASSAN", scoreB: 25, cat: "perdana", played: true },
+            { teamA: "SMK PUTRAJAYA PRESINT 8(1)", scoreA: 33, teamB: "SMK MUTIARA IMPIAN", scoreB: 23, cat: "perdana", played: true },
+            { teamA: "SMK TUNKU ANUM TAR", scoreA: 47, teamB: "SMK MUTIARA", scoreB: 6, cat: "perdana", played: true },
+            { teamA: "SMK SEKSYEN SEBELAS", scoreA: 41, teamB: "SMK TABUAN JAYA", scoreB: 21, cat: "super", played: true },
+            { teamA: "SMK SERI KOTA", scoreA: 20, teamB: "SMK BUKIT NENAS", scoreB: 38, cat: "super", played: true },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 47, teamB: "SMK SYED HASSAN", scoreB: 16, cat: "perdana", played: true },
+            { teamA: "SS BUKIT JALIL", scoreA: 50, teamB: "SSM PAHANG", scoreB: 18, cat: "super", played: true },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 22, teamB: "SMK TUN HUSSEIN ONN", scoreB: 27, cat: "super", played: true },
+            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 25, teamB: "SMK SEBERANG TEMERLOH", scoreB: 32, cat: "perdana", played: true },
+
+            // --- JADUAL SIRKIT AKHIR ---
+            { teamA: "SMK MUTIARA", scoreA: 7, teamB: "SMK PUTRAJAYA PRESINT 8 (1)", scoreB: 50, cat: "perdana", played: true },
+            { teamA: "SMK SERI KOTA", scoreA: 24, teamB: "SS PAHANG", scoreB: 41, cat: "super", played: true },
+            { teamA: "SMK BUKIT NENAS", scoreA: 13, teamB: "SMK SEKSYEN SEBELAS", scoreB: 27, cat: "super", played: true },
+            { teamA: "SMK TABUAN JAYA", scoreA: 27, teamB: "SS TUNKU MAHKOTA ISMAIL", scoreB: 29, cat: "super", played: true },
+            { teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreA: 40, teamB: "SMK SYED HASSAN", scoreB: 22, cat: "perdana", played: true },
+            { teamA: "SMK PUTERA", scoreA: 31, teamB: "SMK SEBERANG TEMERLOH", scoreB: 37, cat: "perdana", played: true },
+            { teamA: "SS BUKIT JALIL", scoreA: 43, teamB: "SMK SERI TITIWANGSA", scoreB: 16, cat: "super", played: true },
+            { teamA: "SMK GUNUNG RAPAT", scoreA: 26, teamB: "SMK DATUK PETER MOJUNTIN", scoreB: 16, cat: "perdana", played: true },
+            { teamA: "SMK MUTIARA", scoreA: 12, teamB: "SMK SYED HASSAN", scoreB: 42, cat: "perdana", played: true },
+            { teamA: "SMK SEKSYEN SEBELAS", scoreA: 33, teamB: "SS TUNKU MAHKOTA ISMAIL", scoreB: 15, cat: "super", played: true },
+            { teamA: "SMK BUKIT NENAS", scoreA: 19, teamB: "SS PAHANG", scoreB: 30, cat: "super", played: true },
+            { teamA: "SMK MUTIARA IMPIAN", scoreA: 31, teamB: "SMK SEBERANG TEMERLOH", scoreB: 18, cat: "perdana", played: true },
+            { teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreA: 26, teamB: "SMK DATUK PETER MOJUNTIN", scoreB: 20, cat: "perdana", played: true },
+            { teamA: "SMK TABUAN JAYA", scoreA: 17, teamB: "SMK TUN HUSSEIN ONN", scoreB: 40, cat: "super", played: true },
+            { teamA: "SMK SERI KOTA", scoreA: 26, teamB: "SMK SERI TITIWANGSA", scoreB: 41, cat: "super", played: true },
+            { teamA: "SMK PUTERA", scoreA: 22, teamB: "SMK GUNUNG RAPAT", scoreB: 34, cat: "perdana", played: true },
+            { teamA: "SMK SYED HASSAN", scoreA: 31, teamB: "SMK PUTRAJAYA PRESINT 8 (1)", scoreB: 36, cat: "perdana", played: true },
+            { teamA: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreA: 29, teamB: "SMK PUTERA", scoreB: 22, cat: "perdana", played: true },
+            { teamA: "SS PAHANG", scoreA: 22, teamB: "SMK SEKSYEN SEBELAS", scoreB: 26, cat: "super", played: true },
+            { teamA: "SS TUNKU MAHKOTA ISMAIL", scoreA: 18, teamB: "SMK TUN HUSSEIN ONN", scoreB: 27, cat: "super", played: true },
+            { teamA: "SMK MUTIARA", scoreA: 14, teamB: "SMK DATUK PETER MOJUNTIN", scoreB: 44, cat: "perdana", played: true },
+            { teamA: "SMK MUTIARA IMPIAN", scoreA: 21, teamB: "SMK GUNUNG RAPAT", scoreB: 18, cat: "perdana", played: true },
+            { teamA: "SMK BUKIT NENAS", scoreA: 26, teamB: "SMK SERI TITIWANGSA", scoreB: 25, cat: "super", played: true },
+            { teamA: "SMK TABUAN JAYA", scoreA: 16, teamB: "SS BUKIT JALIL", scoreB: 43, cat: "super", played: true },
+            { teamA: "SMK PUTRAJAYA PRESINT 8 (1)", scoreA: 31, teamB: "SMK SEBERANG TEMERLOH", scoreB: 20, cat: "perdana", played: true },
+            { teamA: "SMK SYED HASSAN", scoreA: 26, teamB: "SMK DATUK PETER MOJUNTIN", scoreB: 39, cat: "perdana", played: true },
+            { teamA: "SMK SEKSYEN SEBELAS", scoreA: 24, teamB: "SMK TUN HUSSEIN ONN", scoreB: 24, cat: "super", played: true },
+            { teamA: "SS PAHANG", scoreA: 27, teamB: "SMK SERI TITIWANGSA", scoreB: 32, cat: "super", played: true },
+            { teamA: "SMK MUTIARA IMPIAN", scoreA: 24, teamB: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreB: 27, cat: "perdana", played: true },
+            { teamA: "SMK MUTIARA", scoreA: 11, teamB: "SMK PUTERA", scoreB: 48, cat: "perdana", played: true },
+            { teamA: "SS TUNKU MAHKOTA ISMAIL", scoreA: 18, teamB: "SS BUKIT JALIL", scoreB: 37, cat: "super", played: true },
+            { teamA: "SMK TABUAN JAYA", scoreA: 44, teamB: "SMK SERI KOTA", scoreB: 21, cat: "super", played: true },
+            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 27, teamB: "SMK PUTRAJAYA PRESINT 8 (1)", scoreB: 30, cat: "perdana", played: true },
+            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 15, teamB: "SMK GUNUNG RAPAT", scoreB: 32, cat: "perdana", played: true },
+            { teamA: "SMK SERI TITIWANGSA", scoreA: 12, teamB: "SMK SEKSYEN SEBELAS", scoreB: 31, cat: "super", played: true },
+            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 29, teamB: "SS BUKIT JALIL", scoreB: 43, cat: "super", played: true },
+            { teamA: "SMK SYED HASSAN", scoreA: 32, teamB: "SMK PUTERA", scoreB: 31, cat: "perdana", played: true },
+            { teamA: "SMK MUTIARA", scoreA: 13, teamB: "SMK MUTIARA IMPIAN", scoreB: 52, cat: "perdana", played: true },
+            { teamA: "SS TUNKU MAHKOTA ISMAIL", scoreA: 35, teamB: "SMK SERI KOTA", scoreB: 20, cat: "super", played: true },
+            { teamA: "SMK BUKIT NENAS", scoreA: 32, teamB: "SMK TABUAN JAYA", scoreB: 31, cat: "super", played: true },
+            { teamA: "SMK PUTRAJAYA PRESINT 8 (1)", scoreA: 21, teamB: "SMK GUNUNG RAPAT", scoreB: 24, cat: "perdana", played: true },
+            { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 36, teamB: "SMK PUTERA", scoreB: 27, cat: "perdana", played: true },
+            { teamA: "SMK SEKSYEN SEBELAS", scoreA: 23, teamB: "SS BUKIT JALIL", scoreB: 24, cat: "super", played: true },
+            { teamA: "SMK TUN HUSSEIN ONN", scoreA: 62, teamB: "SMK SERI KOTA", scoreB: 10, cat: "super", played: true},
+            { teamA: "SMK SEBERANG TEMERLOH", scoreA: 14, teamB: "SMK TUNKU ANUM TUNKU ABDUL RAHMAN", scoreB: 29, cat: "perdana", played: true },
+            { teamA: "SMK SYED HASSAN", scoreA: 0, teamB: "SMK MUTIARA IMPIAN", scoreB: 0, cat: "perdana", played: false },
+            { teamA: "SS PAHANG", scoreA: 0, teamB: "SMK TABUAN JAYA", scoreB: 0, cat: "super", played: false },
+            { teamA: "SS TUNKU MAHKOTA ISMAIL", scoreA: 0, teamB: "SMK BUKIT NENAS", scoreB: 0, cat: "super", played: false }
+        ];
+
+        function normalizeName(name) {
+            if (!name) return "";
+            let upper = name.toUpperCase().trim();
+            if (upper.includes("PUTRAJAYA PRESINT 8")) return "SMK PUTRAJAYA PRESINT 8 (1)";
+            if (upper.includes("SSM PAHANG") || upper.includes("SS PAHANG")) return "SS PAHANG";
+            if (upper.includes("SSM TUNKU MAHKOTA ISMAIL") || upper.includes("SS TUNKU MAHKOTA ISMAIL")) return "SS TUNKU MAHKOTA ISMAIL";
+            if (upper.includes("SMK TUNKU ANUM")) return "SMK TUNKU ANUM TUNKU ABDUL RAHMAN";
+            return upper;
+        }
+
+        function calculateStandings(teams, category) {
+            const stats = {};
+            teams.forEach(t => {
+                stats[t] = { name: t, p: 0, m: 0, s: 0, k: 0, j: 0, b: 0, bezaGol: 0, purataGol: 0, pts: 0 };
+            });
+
+            // HANYA kira perlawanan yang berstatus played: true
+            matchResults.filter(m => m.cat === category && m.played).forEach(m => {
+                const tA = normalizeName(m.teamA);
+                const tB = normalizeName(m.teamB);
+                const sA = m.scoreA;
+                const sB = m.scoreB;
+
+                if (stats[tA]) {
+                    stats[tA].p += 1;
+                    stats[tA].j += sA;
+                    stats[tA].b += sB;
+                    if (sA > sB) {
+                        stats[tA].m += 1;
+                        stats[tA].pts += 3;
+                    } else if (sA === sB) {
+                        stats[tA].s += 1;
+                        stats[tA].pts += 1;
                     } else {
-                        entry += char;
+                        stats[tA].k += 1;
                     }
                 }
-                row.push(entry.trim());
-                return row.map(val => val.replace(/^["']|["']$/g, ''));
-            });
-        }
 
-        function updateScheduleFromCSV(rows) {
-            fullMatches.forEach(m => {
-                const row = rows.find((r, index) => index > 0 && (r[0] == m.bil || r[1] == m.bil));
-                if (row && row.length >= 13) {
-                    m.q1a = row[5] !== '' && !isNaN(row[5]) ? Number(row[5]) : m.q1a;
-                    m.q1b = row[6] !== '' && !isNaN(row[6]) ? Number(row[6]) : m.q1b;
-                    m.q2a = row[7] !== '' && !isNaN(row[7]) ? Number(row[7]) : m.q2a;
-                    m.q2b = row[8] !== '' && !isNaN(row[8]) ? Number(row[8]) : m.q2b;
-                    m.q3a = row[9] !== '' && !isNaN(row[9]) ? Number(row[9]) : m.q3a;
-                    m.q3b = row[10] !== '' && !isNaN(row[10]) ? Number(row[10]) : m.q3b;
-                    m.q4a = row[11] !== '' && !isNaN(row[11]) ? Number(row[11]) : m.q4a;
-                    m.q4b = row[12] !== '' && !isNaN(row[12]) ? Number(row[12]) : m.q4b;
-                    
-                    if (row[13] !== '' && !isNaN(row[13])) m.scoreA = Number(row[13]);
-                    else if (m.q1a !== undefined) m.scoreA = (Number(m.q1a)||0) + (Number(m.q2a)||0) + (Number(m.q3a)||0) + (Number(m.q4a)||0);
-
-                    if (row[14] !== '' && !isNaN(row[14])) m.scoreB = Number(row[14]);
-                    else if (m.q1b !== undefined) m.scoreB = (Number(m.q1b)||0) + (Number(m.q2b)||0) + (Number(m.q3b)||0) + (Number(m.q4b)||0);
-
-                    if (row[15]) m.winner = row[15];
-                }
-            });
-        }
-
-        function renderList(containerId, matchesList, isCircuit1 = false) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-
-            const groupedByDay = {};
-            matchesList.forEach(m => {
-                if (!groupedByDay[m.date]) {
-                    groupedByDay[m.date] = [];
-                }
-                groupedByDay[m.date].push(m);
-            });
-
-            let htmlContent = '';
-            for (const [dateStr, matches] of Object.entries(groupedByDay)) {
-                htmlContent += `
-                    <div class="bg-blue-900 text-yellow-300 font-bold px-4 py-2.5 rounded-xl text-xs md:text-sm mt-6 mb-3 shadow flex justify-between items-center border border-yellow-400/40">
-                        <span><i class="far fa-calendar-alt mr-2"></i> ${dateStr}</span>
-                        <span class="text-xs text-white/80 font-normal">${isCircuit1 ? 'Keputusan Sirkit 1' : 'Sirkit Akhir KPM'}</span>
-                    </div>
-                `;
-
-                matches.forEach(m => {
-                    const logoA = getTeamLogo(m.teamA);
-                    const logoB = getTeamLogo(m.teamB);
-                    const hasScore = m.scoreA !== undefined && m.scoreA !== '' && !isNaN(m.scoreA);
-                    const statusText = hasScore ? 'SELESAI' : 'Belum Bermula';
-                    const statusBg = hasScore ? 'bg-emerald-600' : 'bg-amber-600';
-                    const scoreDisplay = hasScore ? `${m.scoreA} - ${m.scoreB}` : '- vs -';
-
-                    let winnerDisplay = '🏆 PEMENANG: -';
-                    let winnerBg = 'bg-emerald-50 text-emerald-700';
-
-                    if (hasScore) {
-                        if (Number(m.scoreA) === Number(m.scoreB)) {
-                            winnerDisplay = '🤝 KEPUTUSAN: SERI (DRAW)';
-                            winnerBg = 'bg-amber-500 text-white';
-                        } else {
-                            const defaultWinner = m.scoreA > m.scoreB ? m.teamA + ' MENANG' : m.teamB + ' MENANG';
-                            winnerDisplay = `🏆 PEMENANG: ${m.winner || defaultWinner}`;
-                        }
-                    }
-
-                    let quarterTableHTML = '';
-                    if (!isCircuit1) {
-                        quarterTableHTML = `
-                            <div class="bg-slate-50 px-4 py-3 border-t border-slate-100">
-                                <table class="w-full max-w-lg mx-auto text-center text-xs font-bold text-slate-700">
-                                    <thead>
-                                        <tr class="text-slate-400 border-b border-slate-200">
-                                            <th class="text-left pb-1">Pasukan</th>
-                                            <th class="pb-1">Q1</th>
-                                            <th class="pb-1">Q2</th>
-                                            <th class="pb-1">Q3</th>
-                                            <th class="pb-1">Q4</th>
-                                            <th class="pb-1">Jumlah</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-b border-slate-100">
-                                            <td class="text-left py-1 truncate max-w-[120px]">${m.teamA}</td>
-                                            <td class="py-1">${hasScore ? (m.q1a ?? '-') : '-'}</td>
-                                            <td class="py-1">${hasScore ? (m.q2a ?? '-') : '-'}</td>
-                                            <td class="py-1">${hasScore ? (m.q3a ?? '-') : '-'}</td>
-                                            <td class="py-1">${hasScore ? (m.q4a ?? '-') : '-'}</td>
-                                            <td class="py-1 text-blue-900 font-black">${hasScore ? m.scoreA : '-'}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left py-1 truncate max-w-[120px]">${m.teamB}</td>
-                                            <td class="py-1">${hasScore ? (m.q1b ?? '-') : '-'}</td>
-                                            <td class="py-1">${hasScore ? (m.q2b ?? '-') : '-'}</td>
-                                            <td class="py-1">${hasScore ? (m.q3b ?? '-') : '-'}</td>
-                                            <td class="py-1">${hasScore ? (m.q4b ?? '-') : '-'}</td>
-                                            <td class="py-1 text-blue-900 font-black">${hasScore ? m.scoreB : '-'}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        `;
+                if (stats[tB]) {
+                    stats[tB].p += 1;
+                    stats[tB].j += sB;
+                    stats[tB].b += sA;
+                    if (sB > sA) {
+                        stats[tB].m += 1;
+                        stats[tB].pts += 3;
+                    } else if (sB === sA) {
+                        stats[tB].s += 1;
+                        stats[tB].pts += 1;
                     } else {
-                        quarterTableHTML = `
-                            <div class="bg-slate-50 px-4 py-2 border-t border-slate-100 text-center text-xs text-slate-500 font-semibold">
-                                <i class="fas fa-map-marker-alt mr-1 text-red-500"></i> Venue: ${m.venue || 'Seri Kota'} • (Perincian suku/quarter tidak direkodkan)
-                            </div>
-                        `;
+                        stats[tB].k += 1;
                     }
-
-                    // Penambahbaikan susun atur responsif grid flex (menyeragamkan kedudukan logo dan teks kiri/kanan pada semua peranti)
-                    htmlContent += `
-                        <div class="bg-white rounded-2xl shadow-md border border-sky-100 overflow-hidden mb-4 transition hover:shadow-lg">
-                            <div class="bg-slate-100 px-4 py-2.5 flex justify-between items-center text-xs font-semibold text-slate-600 border-b border-slate-200 flex-wrap gap-2">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-blue-900 font-extrabold">Perlawanan #${m.bil}</span>
-                                    <span>•</span>
-                                    <span>${m.time}</span>
-                                    <span class="bg-blue-900 text-white px-2 py-0.5 rounded-full text-[10px] font-bold">${m.kump}</span>
-                                </div>
-                                <span class="${statusBg} text-white px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase">${statusText}</span>
-                            </div>
-                            <div class="p-4 md:p-5 grid grid-cols-1 md:grid-cols-3 items-center gap-4">
-                                <!-- Pasukan A (Sentiasa di sebelah kanan logo / atas pada mobile dalam keadaan seimbang) -->
-                                <div class="flex items-center gap-3 justify-start md:justify-end text-left md:text-right order-1 md:order-1">
-                                    <h4 class="font-extrabold text-xs sm:text-sm md:text-base text-slate-800 leading-snug">${m.teamA}</h4>
-                                    <img src="${logoA}" alt="${m.teamA}" class="w-10 h-10 md:w-12 md:h-12 object-contain shrink-0 bg-slate-50 p-1 rounded-xl border border-sky-200 shadow-sm" onerror="this.src='../../images/kpm-default.png'">
-                                </div>
-                                <!-- Skor Tengah -->
-                                <div class="text-center order-3 md:order-2 my-1 md:my-0">
-                                    <div class="text-2xl md:text-3xl font-black text-blue-950 tracking-wider">${scoreDisplay}</div>
-                                    <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">SKOR AKHIR</div>
-                                    <div class="mt-1 text-[11px] font-bold px-2 py-0.5 rounded-full inline-block ${winnerBg}">${winnerDisplay}</div>
-                                </div>
-                                <!-- Pasukan B -->
-                                <div class="flex items-center gap-3 justify-start text-left order-2 md:order-3">
-                                    <img src="${logoB}" alt="${m.teamB}" class="w-10 h-10 md:w-12 md:h-12 object-contain shrink-0 bg-slate-50 p-1 rounded-xl border border-sky-200 shadow-sm" onerror="this.src='../../images/kpm-default.png'">
-                                    <h4 class="font-extrabold text-xs sm:text-sm md:text-base text-slate-800 leading-snug">${m.teamB}</h4>
-                                </div>
-                            </div>
-                            ${quarterTableHTML}
-                        </div>
-                    `;
-                });
-            }
-            container.innerHTML = htmlContent;
-        }
-
-        function renderMatches() {
-            renderList('sirkit1', circuit1Matches, true);
-
-            const categories = ['semua', 'perdana', 'super'];
-
-            categories.forEach(catKey => {
-                let matchesToRender = fullMatches;
-                if (catKey === 'perdana') {
-                    matchesToRender = fullMatches.filter(m => 
-                        m.cat === 'perdana' || 
-                        m.kump.toLowerCase().includes('perdana') || 
-                        m.kump.includes('SUKU') || 
-                        m.kump.includes('SEPARUH') || 
-                        m.kump.includes('AKHIR') ||
-                        m.kump.includes('TEMPAT')
-                    );
-                } else if (catKey === 'super') {
-                    matchesToRender = fullMatches.filter(m => 
-                        m.cat === 'super' || 
-                        m.kump.toLowerCase().includes('super') || 
-                        m.kump.includes('SUKU') || 
-                        m.kump.includes('SEPARUH') || 
-                        m.kump.includes('AKHIR') ||
-                        m.kump.includes('TEMPAT')
-                    );
                 }
-                renderList(catKey, matchesToRender, false);
             });
-        }
 
-        async function loadSheetData() {
-            const statusEl = document.getElementById('sync-status');
-            let success = false;
-
-            const url = sheetUrls.semua;
-            if (url && !url.includes("YOUR_SHEET_ID_HERE")) {
-                try {
-                    const response = await fetch(url);
-                    if (!response.ok) throw new Error('Gagal muat turun CSV');
-                    const csvText = await response.text();
-                    const rows = parseCSV(csvText);
-                    if (rows.length > 1) {
-                        updateScheduleFromCSV(rows);
-                        success = true;
-                    }
-                } catch (err) {
-                    console.warn(`Gagal sambung Google Sheet: ${err.message}`);
-                }
-            }
-
-            renderMatches();
-
-            if (statusEl) {
-                const timeNow = new Date().toLocaleTimeString();
-                if (success) {
-                    statusEl.className = "text-center text-xs md:text-sm font-bold mb-5 p-3 rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-300 shadow-sm";
-                    statusEl.innerHTML = `✅ Data Berjaya Diselaraskan dengan Google Sheet • ${timeNow}`;
+            // Pengiraan Beza Gol & Purata Gol (J / B)
+            Object.values(stats).forEach(t => {
+                t.bezaGol = t.j - t.b;
+                if (t.b === 0) {
+                    t.purataGol = t.j > 0 ? t.j.toFixed(2) : "0.00";
                 } else {
-                    statusEl.className = "text-center text-xs md:text-sm font-bold mb-5 p-3 rounded-xl bg-sky-100 text-sky-800 border border-sky-300 shadow-sm";
-                    statusEl.innerHTML = `📋 Memaparkan Keputusan Sirkit 1 & Jadual Penuh Kejohanan • ${timeNow}`;
+                    t.purataGol = (t.j / t.b).toFixed(2);
                 }
-            }
+            });
+
+            // Susunan Carta: Mata ➔ Purata Gol (Diutamakan Dulu) ➔ Beza Gol
+            return Object.values(stats).sort((a, b) => {
+                if (b.pts !== a.pts) return b.pts - a.pts;
+                if (b.purataGol !== a.purataGol) return parseFloat(b.purataGol) - parseFloat(a.purataGol);
+                return b.bezaGol - a.bezaGol;
+            });
         }
 
-        function switchCategory(catId, evt) {
-            document.querySelectorAll('.results-container').forEach(c => c.classList.add('hidden'));
-            document.querySelectorAll('.tab-btn').forEach(b => {
-                b.classList.remove('bg-blue-900', 'text-yellow-300', 'border-yellow-400');
-                b.classList.add('bg-white', 'text-blue-900', 'border-blue-900');
+        function renderTable(teams, tbodyId, category) {
+            const tbody = document.getElementById(tbodyId);
+            if (!tbody) return;
+
+            const sortedStats = calculateStandings(teams, category);
+            let html = '';
+            sortedStats.forEach((t, index) => {
+                const logo = getTeamLogo(t.name);
+                html += `
+                    <tr class="hover:bg-sky-50 transition">
+                        <td class="py-3 px-2 md:px-3 text-center font-extrabold text-blue-900">${index + 1}</td>
+                        <td class="py-3 px-3 font-bold text-slate-900">
+                            <div class="flex items-center gap-2">
+                                <img src="${logo}" alt="${t.name}" class="w-6 h-6 object-contain shrink-0 bg-white p-0.5 rounded-full border border-sky-300 shadow-sm" onerror="this.src='../../images/kpm-default.png'">
+                                <span>${t.name}</span>
+                            </div>
+                        </td>
+                        <td class="py-3 px-2 text-center">${t.p}</td>
+                        <td class="py-3 px-2 text-center">${t.m}</td>
+                        <td class="py-3 px-2 text-center">${t.s}</td>
+                        <td class="py-3 px-2 text-center">${t.k}</td>
+                        <td class="py-3 px-2 text-center">${t.j}</td>
+                        <td class="py-3 px-2 text-center">${t.b}</td>
+                        <td class="py-3 px-2 text-center font-semibold ${t.bezaGol > 0 ? 'text-emerald-600' : t.bezaGol < 0 ? 'text-red-600' : 'text-slate-600'}">${t.bezaGol > 0 ? '+' + t.bezaGol : t.bezaGol}</td>
+                        <td class="py-3 px-2 text-center font-semibold text-blue-800">${t.purataGol}</td>
+                        <td class="py-3 px-3 text-center font-black text-blue-900 bg-sky-50/50">${t.pts}</td>
+                    </tr>
+                `;
             });
-            
-            const targetContainer = document.getElementById(catId);
-            if (targetContainer) {
-                targetContainer.classList.remove('hidden');
-            }
-            if (evt && evt.currentTarget) {
-                evt.currentTarget.classList.remove('bg-white', 'text-blue-900', 'border-blue-900');
-                evt.currentTarget.classList.add('bg-blue-900', 'text-yellow-300', 'border-yellow-400');
-            }
+            tbody.innerHTML = html;
         }
 
         window.onload = () => {
-            renderMatches();
-            loadSheetData();
-            setInterval(loadSheetData, 60000);
+            renderTable(superTeams, 'super-standing-tbody', 'super');
+            renderTable(perdanaTeams, 'perdana-standing-tbody', 'perdana');
         };
     </script>
 </body>

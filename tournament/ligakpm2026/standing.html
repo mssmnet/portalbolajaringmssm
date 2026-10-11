@@ -259,9 +259,9 @@
             "SMK TUN HUSSEIN ONN"
         ];
 
-        // Senarai perlawanan (Sirkit 1: played: true | Sirkit Akhir: played: false)
+        // Senarai perlawanan
         const matchResults = [
-            // --- KEPUTUSAN SIRKIT 1 (Sudah Dimaenkan) ---
+            // --- KEPUTUSAN SIRKIT 1 ---
             { teamA: "SMK PUTRAJAYA PRESINT 8(1)", scoreA: 41, teamB: "SMK PUTERA", scoreB: 23, cat: "perdana", played: true },
             { teamA: "SMK GUNUNG RAPAT", scoreA: 19, teamB: "SMK TUNKU ANUM TAR", scoreB: 23, cat: "perdana", played: true },
             { teamA: "SS BUKIT JALIL", scoreA: 56, teamB: "SMK SERI KOTA", scoreB: 16, cat: "super", played: true },
@@ -287,7 +287,7 @@
             { teamA: "SMK SERI TITIWANGSA", scoreA: 22, teamB: "SMK TUN HUSSEIN ONN", scoreB: 27, cat: "super", played: true },
             { teamA: "SMK DATUK PETER MOJUNTIN", scoreA: 25, teamB: "SMK SEBERANG TEMERLOH", scoreB: 32, cat: "perdana", played: true },
 
-            // --- JADUAL SIRKIT AKHIR (Perlawanan 28 - 75: Belum Dimainkan -> played: false) ---
+            // --- JADUAL SIRKIT AKHIR ---
             { teamA: "SMK MUTIARA", scoreA: 7, teamB: "SMK PUTRAJAYA PRESINT 8 (1)", scoreB: 50, cat: "perdana", played: true },
             { teamA: "SMK SERI KOTA", scoreA: 24, teamB: "SS PAHANG", scoreB: 41, cat: "super", played: true },
             { teamA: "SMK BUKIT NENAS", scoreA: 13, teamB: "SMK SEKSYEN SEBELAS", scoreB: 27, cat: "super", played: true },
@@ -324,7 +324,7 @@
             { teamA: "SMK SEBERANG TEMERLOH", scoreA: 15, teamB: "SMK GUNUNG RAPAT", scoreB: 32, cat: "perdana", played: true },
             { teamA: "SMK SERI TITIWANGSA", scoreA: 12, teamB: "SMK SEKSYEN SEBELAS", scoreB: 31, cat: "super", played: true },
             { teamA: "SMK TUN HUSSEIN ONN", scoreA: 29, teamB: "SS BUKIT JALIL", scoreB: 43, cat: "super", played: true },
-            { teamA: "SMK SYED HASSAN", scoreA:32, teamB: "SMK PUTERA", scoreB: 31, cat: "perdana", played: true },
+            { teamA: "SMK SYED HASSAN", scoreA: 32, teamB: "SMK PUTERA", scoreB: 31, cat: "perdana", played: true },
             { teamA: "SMK MUTIARA", scoreA: 13, teamB: "SMK MUTIARA IMPIAN", scoreB: 52, cat: "perdana", played: true },
             { teamA: "SS TUNKU MAHKOTA ISMAIL", scoreA: 35, teamB: "SMK SERI KOTA", scoreB: 20, cat: "super", played: true },
             { teamA: "SMK BUKIT NENAS", scoreA: 32, teamB: "SMK TABUAN JAYA", scoreB: 31, cat: "super", played: true },
@@ -402,10 +402,11 @@
                 }
             });
 
+            // Susunan Carta: Mata ➔ Purata Gol (Diutamakan Dulu) ➔ Beza Gol
             return Object.values(stats).sort((a, b) => {
                 if (b.pts !== a.pts) return b.pts - a.pts;
-                if (b.bezaGol !== a.bezaGol) return b.bezaGol - a.bezaGol;
-                return parseFloat(b.purataGol) - parseFloat(a.purataGol);
+                if (b.purataGol !== a.purataGol) return parseFloat(b.purataGol) - parseFloat(a.purataGol);
+                return b.bezaGol - a.bezaGol;
             });
         }
 
